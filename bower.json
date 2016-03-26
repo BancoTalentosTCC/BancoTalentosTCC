@@ -24,6 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "mdi": "^1.5.54"
   }
 }
