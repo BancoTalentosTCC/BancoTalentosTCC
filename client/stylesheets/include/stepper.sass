@@ -1,0 +1,76 @@
+/* Stepper's Sass */
+
+.stepper
+    margin: 0 0 40px
+    li 
+        width: 20%
+        float: left
+        overflow: hidden
+        position: relative
+        text-align: center
+        h5
+            margin-top: 15px
+            color: #DDDDDD
+        
+        &:active 
+            a 
+                border: 1px solid #4CAF50
+                color: #4CAF50
+        
+        &.completed, &:hover
+            a
+                background-color: #4CAF50
+                border-color: #4CAF50
+                color: #ffffff
+ 
+        &.active
+            a
+                color: #4CAF50
+                background-color: #ffffff
+                border-color: #4CAF50
+        
+        .completed, &.active, &:hover
+            h5
+                color: #4CAF50
+                color: #4CAF50
+
+        &::after, &::before
+            border-top: 1px dashed #DDDDDD
+            content: ""
+            left: 0
+            margin-left: -26px
+            position: absolute
+            top: 30px
+            width: 50%
+
+        &::after
+            left: auto
+            margin: 0 -26px 0 0
+            right: 0
+
+        &:first-child::before, &:last-child::after
+            display: none
+
+        &.completed::after, &.completed::before, &.active::before
+            border-top: 1px dashed #4CAF50
+
+    a
+        transition: all 0.3s ease 0s
+        margin: 0 auto
+        border-radius: 50%
+        background-color: transparent
+        border: 1px solid #DDDDDD
+        color: #DDDDDD  
+        line-height: 50px
+        height: 52px
+        width: 52px
+        cursor: pointer
+        display: block
+        float: none
+        position: relative
+        font-size: 28px
+        text-decoration: none
+
+    @media(max-width:558px)
+        overflow-x: scroll
+        min-width: 558px
