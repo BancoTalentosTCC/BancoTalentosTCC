@@ -1,0 +1,131 @@
+<template name="steps">
+  <div class="container">
+
+    {{> yield "stepper"}}
+
+    {{> yield "step1"}}
+
+  </div>
+</template>
+
+<template name="step1">
+    <form id="new-user" class="form-horizontal">
+  <div class="form-group">
+    <label for="nome" class="col-sm-2 control-label">Nome</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="nome" placeholder="Nome">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cpf" class="col-sm-2 control-label">CPF</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="cpf" placeholder="999.999.999-99">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="nascimento" class="col-sm-2 control-label">Data de Nascimento</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="nascimento" placeholder="99/99/9999">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="aluno@example.com">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="perfil" class="col-sm-2 control-label">Perfil</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="perfil">
+        <option>Aluno</option>
+        <option>Ex-aluno</option>
+      </select>
+    </div>
+  </div>  
+  <div class="form-group">
+    <label for="endereco" class="col-sm-2 control-label">Endereço</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="endereco" placeholder="Endereço">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="numero" class="col-sm-2 control-label">Numero</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="numero" placeholder="Número">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="bairro" class="col-sm-2 control-label">Bairro</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cidade" class="col-sm-2 control-label">Cidade</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="password" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="uf" class="col-sm-2 control-label">UF</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="uf" placeholder="MG">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cep" class="col-sm-2 control-label">CEP</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="cep" placeholder="99999-000">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="phone-residencial" class="col-sm-2 control-label">Telefone Residencial</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="phone-residencial" placeholder="(99) 9999-9999">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="celular" class="col-sm-2 control-label">Celular</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="celular" placeholder="(99) 99999-9999">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="phone-comercial" class="col-sm-2 control-label">Telefone Comercial</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="phone-comercial" placeholder="(99) 9999-9999">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="senha" class="col-sm-2 control-label">Senha</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="senha" placeholder="***********">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="senha" class="col-sm-2 control-label">Sexo</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="senha" placeholder="***********">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="senha" class="col-sm-2 control-label">Portador de Necessidades Especiais</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="senha" placeholder="***********">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-10 col-sm-2">
+      <button type="submit" class="btn btn-primary">Próximo</button>
+    </div>
+  </div>
+    </form>
+</template>
+
