@@ -1,7 +1,11 @@
+@import 'fonts.sass'
+@import 'palette.sass'
+
 .header
     height: 60px
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26)
     width: 100%
+    background-color: $primary-color
     .logo
         float: left
         padding: 10px 15px 10px 10px
@@ -12,6 +16,7 @@
         float: left
         text-shadow: 1px 1px 2px rgba(150, 150, 150, 1)
         margin-top: 18px
+        color: $primary-color-text
         
     .login 
         float: right
@@ -23,7 +28,15 @@
         a
             color: #FFF
             display: block
-            font-size: 16px
+            font-size: 18px
             text-decoration: none
             padding: 10px 5px
             font-weight: bold
+            color: #fff;
+            -webkit-transition: all 0.3s
+            -moz-transition: all 0.3s
+            -ms-transition: all 0.3s
+            -o-transition: all 0.3s
+            transition: all 0.3s
+            &:hover
+                color: #c8e6c9
