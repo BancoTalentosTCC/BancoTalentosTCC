@@ -10,8 +10,9 @@ import '../../client/pages/signup/steps.html';
 //});
 
 Template.step1.events({
-  'submit form'(event) {
+  "submit form": function (event) {
     console.log("Form submitted");
+    console.log(event, "event");
     // Prevent default browser form submit
     event.preventDefault();
 

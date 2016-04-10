@@ -7,13 +7,12 @@ Router.map(function() {
   this.route('stepper', {path: '/components/stepper'});
 });
 
-Router.route('signup', function () {
+Router.route('/signup/:step_id', function () {
+  var step = this.params.step_id;
   this.render('steps');
   this.render('stepper', {to: 'stepper'});
-  this.render('step1', {to: 'step1'});
-  this.render('step2', {to: 'step2'});
-  this.render('step3', {to: 'step3'});
-  this.render('step4', {to: 'step4'});
-  this.render('step5', {to: 'step5'});
+  this.render('step'+step, {to: 'form'});
 });
+
+
 
