@@ -12,122 +12,123 @@
 
 <!-- Step 1 -->
 <template name="step1">
-    <div class="form-group">
-        <label for="nome" class="col-md-2 col-xs-12 control-label">Nome</label>
-        <div class="col-md-10 col-xs-12">
-            <input type="text" class="form-control" id="nome" placeholder="Nome">
+    <div class="form-row form-border">
+
+       <h1>Dados pessoais</h1>
+
+        <div class="form-group">
+            <label for="nome" class="col-md-2 col-xs-12 control-label">Nome</label>
+            <div class="col-md-10 col-xs-12">
+                <input type="text" class="form-control" id="nome" placeholder="Nome">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <!-- Implementar JS para validar CPF -->
+            <label for="cpf" class="col-md-2 col-xs-12 control-label">CPF</label>
+            <div class="col-md-4 col-xs-12">
+                <input type="text" class="form-control" id="cpf" placeholder="999.999.999-99">
+            </div>
+
+            <label for="nascimento" class="col-md-2 col-xs-12 control-label">Data de Nascimento</label>
+            <div class="col-md-4 col-xs-12">
+                <input type="date" class="form-control" id="nascimento" placeholder="DD/MM/AAAA">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-md-2 col-xs-12 control-label">Email</label>
+            <div class="col-md-10 col-xs-12">
+                <input type="email" class="form-control" id="email" placeholder="aluno@example.com">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="perfil" class="col-md-2 col-xs-2 control-label">Perfil</label>
+            <div class="col-md-10 col-xs-10 ">
+                <select class="form-control" id="perfil">
+                    <option>Aluno</option>
+                    <option>Ex-aluno</option>
+                </select>
+            </div>
+        </div> 
+
+        <div class="form-group">
+            <label for="senha" class="col-md-2 col-xs-2 control-label">Sexo</label>
+            <div class="col-md-2 col-xs-2">
+                <select class="form-control" id="sexo">
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                </select>
+            </div>
         </div>
     </div>
 
-    <div class="form-group">
-        <!-- Implementar JS para validar CPF -->
-        <label for="cpf" class="col-md-4 col-xs-4 control-label">CPF</label>
-        <div class="col-md-8 col-xs-8">
-            <input type="text" class="form-control" id="cpf" placeholder="999.999.999-99">
+    <div class="form-row">
+        <div class="form-group">
+            <label for="endereco" class="col-md-2 col-xs-12 control-label">Endereço</label>
+            <div class="col-md-10 col-xs-12">
+                <input type="text" class="form-control" id="endereco" placeholder="Endereço">
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label for="nascimento" class="col-md-2 col-xs-12 control-label">Data de Nascimento</label>
-        <div class="col-md-10 col-xs-12">
-            <input type="date" class="form-control" id="nascimento" placeholder="DD/MM/AAAA">
+        <div class="form-group">
+            <label for="numero" class="col-md-2 col-xs-2 control-label">Numero</label>
+            <div class="col-md-2 col-xs-6">
+                <input type="number" class="form-control" id="numero" placeholder="Número">
+            </div>
+            <label for="bairro" class="col-md-1 col-xs-2 control-label">Bairro</label>
+            <div class="col-md-3 col-xs-6">
+                <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+            </div>
+            <label for="cidade" class="col-md-1 col-xs-2 control-label">Cidade</label>
+            <div class="col-md-3 col-xs-6">
+                <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label for="email" class="col-md-2 col-xs-12 control-label">Email</label>
-        <div class="col-md-10 col-xs-12">
-            <input type="email" class="form-control" id="email" placeholder="aluno@example.com">
+        <div class="form-group">     
+            <label for="uf" class="col-md-2 col-xs-6 control-label">UF</label>
+            <div class="col-md-2 col-xs-6">
+                <input type="text" class="form-control" id="uf" placeholder="UF">
+            </div>
+            <label for="cep" class="col-md-1 col-xs-6 control-label">CEP</label>
+            <div class="col-md-4 col-xs-6">
+                <input type="number" class="form-control" id="cep" placeholder="99999-000">
+            </div>
+            <div class="col-md-offset-2"></div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label for="perfil" class="col-md-2 col-xs-4 control-label">Perfil</label>
-        <div class="col-md-10 col-xs-8 ">
-            <select class="form-control" id="perfil">
-                <option>Aluno</option>
-                <option>Ex-aluno</option>
-            </select>
+        <div class="form-group">
+            <label for="phone-residencial" class="col-md-2 col-xs-4 control-label">Telefone Residencial</label>
+            <div class="col-md-4 col-xs-8">
+                <input type="tel" class="form-control" id="phone" placeholder="(99) 9999-9999">
+            </div>
+
+            <label for="celular" class="col-md-2 col-xs-4 control-label">Celular</label>
+            <div class="col-md-4 col-xs-8">
+                <input type="tel" class="form-control" id="celular" placeholder="(99) 99999-9999">
+            </div>
         </div>
-    </div>  
 
-    <div class="form-group">
-        <label for="endereco" class="col-md-2 col-xs-12 control-label">Endereço</label>
-        <div class="col-md-12 col-xs-12">
-            <input type="text" class="form-control" id="endereco" placeholder="Endereço">
+        <div class="form-group form-senha">
+            <label for="senha" class="col-md-2 col-xs-6 control-label">Senha</label>
+            <div class="col-md-6 col-xs-6">
+                <input type="password" class="form-control" id="senha" placeholder="***********">
+            </div>
+            <div class="col-md-offset-4"></div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label for="numero" class="col-md-2 col-xs-6 control-label">Numero</label>
-        <div class="col-md-4 col-xs-6">
-            <input type="number" class="form-control" id="numero" placeholder="Número">
+        <div class="form-group">
+            <div class="col-sm-offset-9 col-sm-3">
+                <input type="checkbox" id="especial"> Portador de Necessidades Especiais
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label for="bairro" class="col-md-2 col-xs-6 control-label">Bairro</label>
-        <div class="col-md-4 col-xs-6">
-            <input type="text" class="form-control" id="bairro" placeholder="Bairro">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="cidade" class="col-md-2 col-xs-6 control-label">Cidade</label>
-        <div class="col-md-6 col-xs-6">
-            <input type="text" class="form-control" id="cidade" placeholder="Cidade">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="uf" class="col-md-2 col-xs-6control-label">UF</label>
-        <div class="col-md-4 col-xs-6">
-            <input type="text" class="form-control" id="uf" placeholder="MG">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="cep" class="col-md-2 col-xs-6 control-label">CEP</label>
-        <div class="col-md-4 col-xs-6">
-            <input type="number" class="form-control" id="cep" placeholder="99999-000">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="phone" class="col-md-4 col-xs-4 control-label">Telefone Residencial</label>
-        <div class="col-md-8 col-xs-8">
-            <input type="tel" class="form-control" id="phone" placeholder="(99) 9999-9999">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="celular" class="col-md-4 col-xs-4 control-label">Celular</label>
-        <div class="col-md-8 col-xs-8">
-            <input type="tel" class="form-control" id="celular" placeholder="(99) 99999-9999">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="senha" class="col-md-4 col-xs-6 control-label">Senha</label>
-        <div class="col-md-8 col-xs-6">
-            <input type="password" class="form-control" id="senha" placeholder="***********">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="sexo" class="col-md-4 col-xs-6 control-label">Sexo</label>
-        <div class="col-md-8 col-xs-6">
-            <input type="text" class="form-control" id="sexo">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <input type="checkbox" id="especial"> Portador de Necessidades Especiais
-    </div>
-
-    <div class="form-group">
-        <div class="col-sm-offset-10 col-sm-2">
-            <button type="submit" class="btn btn-primary">Próximo</button>
+        <div class="form-group">
+            <div class="col-sm-offset-11 col-sm-1">
+                <button type="submit" class="btn btn-primary btn-send">Próximo</button>
+            </div>
         </div>
     </div>
 </template>
@@ -135,162 +136,193 @@
 
 <!-- Step 2 -->
 <template name="step2">
-    <div class="form-group">
-        <label for="formacao" class="col-md-2 control-label">Tipo de formação:</label>
-        <select id="formacao" class="form-control">
-            <option>Graduação</option>
-            <option>Pós Graduação</option>
-            <option>Mestrado</option>
-            <option>Doutorado</option>
-        </select>
-    </div>
+       <div class="form-row">
+            <div class="form-group">
+                <label for="formacao" class="col-md-2 control-label">Tipo de formação:</label>
+                <div class="col-md-4 col-xs-6">
+                    <select id="formacao" class="form-control">
+                        <option>Graduação</option>
+                        <option>Pós Graduação</option>
+                        <option>Mestrado</option>
+                        <option>Doutorado</option>
+                    </select>
+                </div>
+                <div class="col-md-offset-6"></div>
+            </div>
 
-    <div class="form-group">
-        <label for="curso" class="col-md-4 col-xs-4 control-label">Curso</label>
-        <div class="col-md-6 col-xs-8">
-            <input type="text" class="form-control" id="curso" placeholder="Curso">
+            <div class="form-group">
+                <label for="curso" class="col-md-2 col-xs-4 control-label">Curso</label>
+                <div class="col-md-6 col-xs-8">
+                    <input type="text" class="form-control" id="curso" placeholder="Curso">
+                </div>
+                <div class="col-md-offset-4"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="conclusao" class="col-md-2 col-xs-12 control-label">Ano de formação</label>
+                <div class="col-md-4 col-xs-12">
+                    <input type="number" class="form-control" id="conclusao" placeholder="AAAA">
+                </div>
+                <div class="col-md-offset-6"></div>
+            </div>
         </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="conclusao" class="col-md-2 col-xs-12 control-label">Ano de formação</label>
-        <div class="col-md-10 col-xs-12">
-            <input type="number" class="form-control" id="conclusao" placeholder="AAAA">
+        
+        <!-- Botão pra adicionar mais uma graduação -->
+        
+        <div class="form-group">
+            <div class="col-sm-offset-10 col-sm-2">
+                <button type="button" class="btn btn-primary btn-back">Voltar</button>
+                <button type="submit" class="btn btn-primary btn-send">Próximo</button>
+            </div>
         </div>
-    </div>
-    
-    <!-- Botão pra adicionar mais uma graduação -->
-    
-    <div class="form-group">
-        <div class="col-sm-offset-10 col-sm-2">
-            <button type="submit" class="btn btn-primary">Próximo</button>
-            <button type="button" class="btn btn-primary">Voltar</button>
-        </div>
-    </div>
 </template>
 
 
 <!-- Step 3 -->
 <template name="step3">
-    <div class="form-group">
-        <label for="idioma" class="col-md-2 col-xs-4 control-label">Idioma</label>
-        <div class="col-md-4 col-xs-8">
-            <input type="text" class="form-control" id="idioma" placeholder="Idioma">
+       <div class="form-row">
+            <div class="form-group">
+                <label for="idioma" class="col-md-2 col-xs-4 control-label">Idioma</label>
+                <div class="col-md-4 col-xs-8">
+                    <input type="text" class="form-control" id="idioma" placeholder="Idioma">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nivel-idioma" class="col-md-2 col-xs-4 control-label">Nível</label>
+                <div class="col-md-4 col-xs-8">
+                    <select id="nivel_do_idioma" class="form-control">
+                    <option>Básico</option>
+                    <option>Intermediário</option>
+                    <option>Avançado</option>
+                </select>
+                </div>
+                <div class="col-md-offset-6"></div>
+            </div>
+
+            <!-- Botão pra adicionar mais um idioma -->
+
+            <div class="form-group">
+                <div class="col-sm-offset-10 col-sm-2">
+                    <button type="button" class="btn btn-primary btn-back">Voltar</button>
+                    <button type="submit" class="btn btn-primary btn-send">Próximo</button>
+
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="nivel-idioma" class="col-md-2 col-xs-4 control-label">Nível</label>
-        <select id="nivel_do_idioma" class="col-md-4 col-xs-8 form-control">
-            <option>Básico</option>
-            <option>Intermediário</option>
-            <option>Avançado</option>
-        </select>
-    </div>
-    
-    <!-- Botão pra adicionar mais um idioma -->
-    
-    <div class="form-group">
-        <div class="col-sm-offset-10 col-sm-2">
-            <button type="submit" class="btn btn-primary">Próximo</button>
-            <button type="button" class="btn btn-primary">Voltar</button>
-        </div>
-    </div>
 </template>
 
 
 <!-- Step 4 -->
 <template name="step4">
-    <div class="form-group">
-        <label for="lattes" class="col-md-2 col-xs-4 control-label">Curriculo Lattes</label>
-        <div class="col-md-4 col-xs-8">
-            <input type="url" class="form-control" id="lattes" placeholder="http://lattes.cnpq.br/01232562323215487">
+       <div class="form-row">
+            <div class="form-group">
+                <label for="lattes" class="col-md-2 col-xs-4 control-label">Curriculo Lattes</label>
+                <div class="col-md-4 col-xs-8">
+                    <input type="url" class="form-control" id="lattes" placeholder="http://lattes.cnpq.br/01232562323215487">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="curso" class="col-md-2 col-xs-4 control-label">Área de Formação</label>
+                <div class="col-md-4 col-xs-8">
+                    <select id="area_de_formacao" class="form-control">
+                        <option>Administração</option>
+                        <option>Ciências Biológicas</option>
+                        <option>Ciências Contábeis</option>
+                        <option>Educação Física</option>
+                        <option>Enfermagem</option>
+                        <option>Engenharia de Produção</option>
+                        <option>Farmácia</option>
+                        <option>Fisioterapia</option>
+                        <option>Gastronomia</option>
+                        <option>Gestão da Produção Industrial</option>
+                        <option>Gestão de Recursos Humanos</option>
+                        <option>História</option>
+                        <option>Sistemas de Informação</option>
+                        <option>Medicina</option>
+                        <option>Pedagogia</option>
+                        <option>Psicologia</option>
+                        <option>Publicidade e Propaganda</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="experiencia" class="col-md-2 col-xs-4 control-label">Experiência</label>
+                <div class="col-md-10 col-xs-6">
+                    <textarea  id="experiencia" class="form-control" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="experiencia" class="col-md-2 col-xs-4 control-label">Qualificação</label>
+                <div class="col-md-10 col-xs-6">
+                    <textarea id="qualificacao" class="form-control" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="experiencia" class="col-md-2 col-xs-4 control-label">Cursos Extras</label>
+                <div class="col-md-10 col-xs-6">
+                    <textarea id="cursos_extras" class="form-control" rows="6"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-10 col-sm-2">
+                    <button type="button" class="btn btn-primary btn-back">Voltar</button>
+                    <button type="submit" class="btn btn-primary btn-send">Próximo</button>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="curso" class="col-md-2 col-xs-4 control-label">Área de Formação</label>
-        <select id="area_de_formacao" class="col-md-4 col-xs-8 form-control">
-            <option>Administração</option>
-            <option>Ciências Biológicas</option>
-            <option>Ciências Contábeis</option>
-            <option>Educação Física</option>
-            <option>Enfermagem</option>
-            <option>Engenharia de Produção</option>
-            <option>Farmácia</option>
-            <option>Fisioterapia</option>
-            <option>Gastronomia</option>
-            <option>Gestão da Produção Industrial</option>
-            <option>Gestão de Recursos Humanos</option>
-            <option>História</option>
-            <option>Sistemas de Informação</option>
-            <option>Medicina</option>
-            <option>Pedagogia</option>
-            <option>Psicologia</option>
-            <option>Publicidade e Propaganda</option>
-        </select>
-    </div>
-    
-    <label for="experiencia" class="control-label">Experiência</label>
-    <textarea id="experiencia" class="form-control" rows="4"></textarea>
-    
-    <label for="qualificacao" class="control-label">Qualificação</label>
-    <textarea id="qualificacao" class="form-control" rows="4"></textarea>
-    
-    <label for="extras" class="control-label">Cursos Extras</label>
-    <textarea id="cursos_extras" class="form-control" rows="6"></textarea>
-    
-    <div class="form-group">
-        <div class="col-sm-offset-10 col-sm-2">
-            <button type="submit" class="btn btn-primary">Próximo</button>
-            <button type="button" class="btn btn-primary">Voltar</button>
-        </div>
-    </div>
 </template>
 
 
 <!-- Step 5 -->
 <template name="step5">
-    <div class="form-group">
-        <label for="empresa" class="col-md-2 col-xs-4 control-label">Empresa</label>
-        <div class="col-md-10 col-xs-8">
-            <input type="text" class="form-control" id="nome_emp" placeholder="Nome Empresa">
+       <div class="form-row">
+            <div class="form-group">
+                <label for="empresa" class="col-md-2 col-xs-4 control-label">Empresa</label>
+                <div class="col-md-10 col-xs-8">
+                    <input type="text" class="form-control" id="nome_emp" placeholder="Nome Empresa">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cargo" class="col-md-2 col-xs-4 control-label">Cargo</label>
+                <div class="col-md-10 col-xs-8">
+                    <input type="text" class="form-control" id="cargo_emp" placeholder="Cargo">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="empresa" class="col-md-2 col-xs-4 control-label">Tempo de Trabalho (em anos)</label>
+                <div class="col-md-2 col-xs-8">
+                    <input type="number" class="form-control" id="duracao_emp" placeholder="XX">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="empresa" class="col-md-2 col-xs-4 control-label">Cidade</label>
+                <div class="col-md-2 col-xs-8">
+                    <input type="text" class="form-control" id="cidade_emp" placeholder="Cidade">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="empresa" class="col-md-2 col-xs-4 control-label">UF</label>
+                <div class="col-md-2 col-xs-8">
+                    <input type="text" class="form-control" id="uf_emp" placeholder="UF">
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="cargo" class="col-md-2 col-xs-4 control-label">Cargo</label>
-        <div class="col-md-10 col-xs-8">
-            <input type="text" class="form-control" id="cargo_emp" placeholder="Cargo">
+        
+        <!-- Botão pra adicionar mais uma exp profissional -->
+        
+        <div class="form-group">
+            <div class="col-sm-offset-11 col-sm-1">
+                <button type="submit" class="btn btn-primary btn-send">Enviar</button>
+            </div>
         </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="empresa" class="col-md-2 col-xs-4 control-label">Tempo de Trabalho (em anos)</label>
-        <div class="col-md-2 col-xs-8">
-            <input type="number" class="form-control" id="duracao_emp" placeholder="XX">
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="empresa" class="col-md-2 col-xs-4 control-label">Cidade</label>
-        <div class="col-md-2 col-xs-8">
-            <input type="text" class="form-control" id="cidade_emp" placeholder="Cidade">
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="empresa" class="col-md-2 col-xs-4 control-label">UF</label>
-        <div class="col-md-2 col-xs-8">
-            <input type="text" class="form-control" id="uf_emp" placeholder="MG">
-        </div>
-    </div>
-    
-    <!-- Botão pra adicionar mais uma exp profissional -->
-    
-    <div class="form-group">
-        <div class="col-sm-offset-10 col-sm-2">
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </div>
-    </div>
 </template>
