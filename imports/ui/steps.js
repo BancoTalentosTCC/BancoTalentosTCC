@@ -1,16 +1,22 @@
 import { Template } from 'meteor/templating';
 import { Students } from  '../api/students.js';
 import '../../client/pages/signup/steps.html';
-//import { Mongo } from 'meteor/mongo';
-//const Students = new Mongo.Collection('students');
 
+var _dep = new Deps.Dependency();
 
-//Template.body.helpers({
- // tasks() {
- //   return Tasks.find({});
- // },
-//});
-    //console.log(Students, 'students');
+Template.stepper.helpers({
+  stepper: function() {
+    let stepNumber = location.href.split('/').pop()
+    let stepperProgress = {};
+    for (let i = stepNumber; i > 0; i--) { 
+      i == stepNumber ? stepperProgress['step'+i] = "active" : i < stepNumber ? stepperProgress['step'+i] = "completed" : "sdf"
+      //i < stepNumber ? stepperProgress['step'+1] = "completed" : i > stepNumber ? stepperProgress['step'+1] = "" : stepperProgress['step'+1] = "active"
+    }
+    _dep.depend();
+    
+    return stepperProgress;
+  }
+});
 
 Template.steps.events({
   "submit form": function (event) {
@@ -18,7 +24,6 @@ Template.steps.events({
 
     //NEEDS A "METEOR WAY" OF DOING IT
     let step_number = location.href.split('/').pop()
-    console.log(step_number);
 
     if (step_number == 1) {
       var parameters = ["nome", "cpf", "nascimento", "email", "perfil", "endereco", "numero", 
@@ -39,7 +44,6 @@ Template.steps.events({
     //event.target.text.value = '';
 
     function addUserSingleStep(parameters, step_number) {
-      console.log('inside method');
       let target = event.target;
 
       var student_data = {}
@@ -53,10 +57,13 @@ Template.steps.events({
       Students.insert(
         student_data, 
         function(err,result){
-          if ( err ) console.log ( err ); //info about what went wrong
+          if ( err ) console.log ( err );
           if ( result ) {
-            console.log ( result ); //the _id of new object if successful
+            //console.log ( result ); //the _id of new object if successful
             Router.go('/signup/'+ (++step_number));
+            setTimeout(function() {
+            _dep.changed();
+            }, 250);
           }
       });
       //createdAt: new Date()
