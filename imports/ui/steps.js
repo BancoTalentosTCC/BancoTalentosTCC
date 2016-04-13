@@ -68,6 +68,13 @@ Template.steps.events({
       });
       //createdAt: new Date()
     }
+  },
+  "click #back": function () {
+     let step_number = location.href.split('/').pop();
+     Router.go('/signup/'+ (--step_number));
+    setTimeout(function() {
+      _dep.changed();
+    }, 250);
   }
 });
 
