@@ -3,3 +3,42 @@
     margin: auto;
     padding-top: 6%;
 }
+
+form {
+    .login-social {
+        width: 100%;
+        max-width: 250px;
+        margin: 10px auto;
+        overflow: hidden;
+        
+        h3 {
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        ul li {  
+            float: left;
+            background-color: $primary-color;
+            margin: 5px 15px 5px 5px;
+            border-radius: 50%;
+            list-style: none;
+            &:hover, &:active {
+                background-color: $primary-color-dark;
+            }
+            
+            a {
+                display: block;
+                color: $primary-color-text;
+                width: 40px;
+                height: 40px;
+                
+                /* FIX ICON SIZE */
+                i {
+                    font-size: 24px;
+                    line-height: 40px;
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+}
