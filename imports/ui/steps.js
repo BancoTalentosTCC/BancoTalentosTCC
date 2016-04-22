@@ -3,6 +3,14 @@ import { Students } from  '../api/students.js';
 import '../../client/pages/signup/steps.html';
 
 var _dep = new Deps.Dependency();
+var studentSignUpFields = [
+  ["nome", "cpf", "nascimento", "email", "perfil", "endereco", "numero", 
+"bairro", "cidade", "uf", "cep", "phone", "celular", "senha", "sexo", "especial"],
+  ["formacao", "curso", "conclusao"],
+  ["idioma", "nivel_do_idioma"],
+  ["lattes", "area_de_formacao", "experiencia", "qualificacao", "cursos_extras"],
+  ["nome_emp", "cargo_emp", "duracao_emp", "cidade_emp", "uf_emp"]
+]
 
 Meteor.startup(function() {
   if (Session.get('studentId') === undefined) {
@@ -24,6 +32,7 @@ Template.stepper.helpers({
 });
 
 Template.steps.rendered = function() {
+  var stepElements = studentSignUpFields[stepNumber-1];
   if(!this._rendered) {
     //DON'T ALLOW GOING TO NEXT STEP USING URL IF PREVIOUS WASN'T COMPLETED
     if (Session.get('completed') < stepNumber) {
@@ -35,33 +44,22 @@ Template.steps.rendered = function() {
 Template.steps.events({
   "submit form": function (event) {
     let target = event.target;
-    var student_data = {}
+    var studentData = {}
     event.preventDefault();
 
-    if (stepNumber == 1) {
-      var parameters = ["nome", "cpf", "nascimento", "email", "perfil", "endereco", "numero", 
-      "bairro", "cidade", "uf", "cep", "phone", "celular", "senha", "sexo", "especial"]
-    } else if(stepNumber == 2) {
-      var parameters = ["formacao", "curso", "conclusao"]
-    } else if(stepNumber == 3) {
-      var parameters = ["idioma", "nivel_do_idioma"]
-    } else if(stepNumber == 4) {
-      var parameters = ["lattes", "area_de_formacao", "experiencia", "qualificacao", "cursos_extras"]
-    } else if(stepNumber == 5) {
-      var parameters = ["nome_emp", "cargo_emp", "duracao_emp", "cidade_emp", "uf_emp"]
-    }
-  
-
-    for (var i = 0; i < parameters.length; i++) {
-      if (parameters[i] === "especial") {
-        eval("student_data['" + parameters[i] + "'] = " + target[parameters[i]].checked);
+    var stepElements = studentSignUpFields[stepNumber-1];
+    for (var i = 0; i < stepElements.length; i++) {
+      if (stepElements[i] === "especial") {
+        eval("studentData['" + stepElements[i] + "'] = " + target[stepElements[i]].checked);
+        Session.setPersistent(stepElements[i], target[stepElements[i]].checked)
       }
       else {
-        eval("student_data['" + parameters[i] + "'] = '" + target[parameters[i]].value +"';");
+        eval("studentData['" + stepElements[i] + "'] = '" + target[stepElements[i]].value +"';");
+        Session.setPersistent(stepElements[i], target[stepElements[i]].value)
       }
     }
 
-    Meteor.call('addUserSingleStep', parameters, student_data, Session.get('studentId'), stepNumber, function(error, result) {
+    Meteor.call('addUserSingleStep', stepElements, studentData, Session.get('studentId'), stepNumber, function(error, result) {
       if ( error ) { alert( error );}
       if ( result ) {
         if (Session.get('studentId') == 0) { Session.update('studentId', result); }
@@ -74,7 +72,7 @@ Template.steps.events({
         }
 
         // STEPPER TRANSITION
-        setTimeout(function() {
+        Meteor.setTimeout(function() {
         _dep.changed();
         }, 250);
       }      
@@ -84,9 +82,20 @@ Template.steps.events({
   "click #back": function () {
      let stepNumber = location.href.split('/').pop();
      Router.go('/signup/'+ (--stepNumber));
-    setTimeout(function() {
+    Meteor.setTimeout(function() {
       _dep.changed();
     }, 250);
   }
 });
 
+Meteor.methods({
+  setInputs: function() {
+    //LOAD ALL FIELDS THAT ARE ALREADY COMPLETED
+    var stepElements = studentSignUpFields[stepNumber-1];
+    var students = Students.find({_id: Session.get('studentId')}).fetch() ;
+    for (let i = 0; i < stepElements.length; i++) {
+      console.log($('#' + stepElements[i]).val(Session.get(stepElements[i])));
+      $('#' + stepElements[i]).val(Session.get(stepElements[i]));
+    }
+  }
+});
