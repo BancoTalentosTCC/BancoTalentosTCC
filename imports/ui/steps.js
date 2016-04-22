@@ -3,7 +3,12 @@ import { Students } from  '../api/students.js';
 import '../../client/pages/signup/steps.html';
 
 var _dep = new Deps.Dependency();
-var studentId = 0;
+
+Meteor.startup(function() {
+  if (Session.get('studentId') === undefined) {
+    Session.setPersistent({'studentId': 0, completed: 0});
+  }
+});
 
 Template.stepper.helpers({
   stepper: function() {
@@ -17,6 +22,15 @@ Template.stepper.helpers({
     return stepperProgress;
   }
 });
+
+Template.steps.rendered = function() {
+  if(!this._rendered) {
+    //DON'T ALLOW GOING TO NEXT STEP USING URL IF PREVIOUS WASN'T COMPLETED
+    if (Session.get('completed') < stepNumber) {
+      Router.go('/signup/'+ ((parseFloat(Session.get('completed'))+ 1)));
+    }
+  }
+}
 
 Template.steps.events({
   "submit form": function (event) {
@@ -47,11 +61,19 @@ Template.steps.events({
       }
     }
 
-    Meteor.call('addUserSingleStep', parameters, student_data, studentId, stepNumber, function(error, result) {
+    Meteor.call('addUserSingleStep', parameters, student_data, Session.get('studentId'), stepNumber, function(error, result) {
       if ( error ) { alert( error );}
       if ( result ) {
-        if (studentId == 0) { studentId = result; }
+        if (Session.get('studentId') == 0) { Session.update('studentId', result); }
+        Session.update('completed', stepNumber);
         Router.go('/signup/'+ (++stepNumber));
+
+        // CLEARS SESSION ON COMPLETE
+        if (stepNumber == 6) {
+          Session.clear();
+        }
+
+        // STEPPER TRANSITION
         setTimeout(function() {
         _dep.changed();
         }, 250);

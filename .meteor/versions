@@ -1,11 +1,11 @@
 accounts-base@1.2.4
-aldeed:autoform@5.8.1
 aldeed:collection2@2.9.1
 aldeed:collection2-core@1.1.1
 aldeed:schema-deny@1.0.1
 aldeed:schema-index@1.0.1
 aldeed:simple-schema@1.5.3
 allow-deny@1.0.2
+amplify@1.0.0
 autopublish@1.0.5
 autoupdate@1.2.6
 babel-compiler@6.5.2
@@ -19,11 +19,6 @@ boilerplate-generator@1.0.6
 caching-compiler@1.0.2
 caching-html-compiler@1.0.4
 callback-hook@1.0.6
-cfs:base-package@0.0.30
-cfs:data-man@0.0.6
-cfs:ejson-file@0.1.4
-cfs:file@0.1.15
-cfs:storage-adapter@0.1.1
 check@1.1.2
 dapearce:material-icons@0.1.5
 dburles:mongo-collection-instances@0.3.4
@@ -89,10 +84,8 @@ mobile-experience@1.0.2
 mobile-status-bar@1.0.10
 modules@0.5.1
 modules-runtime@0.6.1
-momentjs:moment@2.10.6
 mongo@1.1.5
 mongo-id@1.0.2
-mongo-livedata@1.0.10
 msavin:jetsetter@1.5.2
 msavin:mongol@1.6.2
 npm-mongo@1.4.41
@@ -116,6 +109,7 @@ spacebars-compiler@1.0.9
 templating@1.1.7
 templating-tools@1.0.2
 tracker@1.0.11
+u2622:persistent-session@0.4.4
 ui@1.0.9
 underscore@1.0.6
 url@1.0.7

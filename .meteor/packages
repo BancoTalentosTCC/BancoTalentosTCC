@@ -24,6 +24,5 @@ fourseven:scss
 seba:minifiers-autoprefixer
 reywood:bootstrap3-sass
 aldeed:collection2
-aldeed:autoform
 meteortoys:allthings
-cfs:ejson-file
+u2622:persistent-session

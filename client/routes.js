@@ -16,4 +16,10 @@ Router.route('/signup/:step_id', function () {
   this.render('steps');
   this.render('stepper', {to: 'stepper'});
   this.render('step'+stepNumber, {to: 'form'});
+  console.log('asdads');
+
+  //DON'T ALLOW GOING TO NEXT STEP USING URL IF PREVIOUS WASN'T COMPLETED
+  //if (Session.get('completed') < stepNumber) {
+  //  Router.go('/signup/'+ (Session.get('completed')));
+  //}
 });
