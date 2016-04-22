@@ -1,3 +1,5 @@
+stepNumber=0;
+
 Router.configure({
   layoutTemplate: 'ApplicationLayout'
 });
@@ -10,8 +12,8 @@ Router.map(function() {
 });
 
 Router.route('/signup/:step_id', function () {
-  var step = this.params.step_id;
+  stepNumber = this.params.step_id;
   this.render('steps');
   this.render('stepper', {to: 'stepper'});
-  this.render('step'+step, {to: 'form'});
+  this.render('step'+stepNumber, {to: 'form'});
 });
