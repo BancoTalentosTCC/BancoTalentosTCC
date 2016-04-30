@@ -1,5 +1,3 @@
-stepNumber=0;
-
 Router.configure({
   layoutTemplate: 'ApplicationLayout'
 });

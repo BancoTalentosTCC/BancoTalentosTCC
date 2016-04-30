@@ -20,6 +20,7 @@ caching-compiler@1.0.2
 caching-html-compiler@1.0.4
 callback-hook@1.0.6
 check@1.1.2
+chrismbeckett:toastr@2.1.2_1
 dapearce:material-icons@0.1.5
 dburles:mongo-collection-instances@0.3.4
 ddp@1.2.3
