@@ -8,8 +8,20 @@ studentsSchema1 = new SimpleSchema({
 		label: "Nome"
 	},
 	cpf: {
-		type: Number,
-		label: "CPF"
+		type: String,
+		label: "CPF",
+		custom: function() { var Soma; var Resto; Soma = 0; 
+			if (this.value == "00000000000") return 'inválido'
+			for (i=1; i<=9; i++) Soma = Soma + parseInt(this.value.substring(i-1, i)) * (11 - i); 
+			Resto = (Soma * 10) % 11; 
+			if ((Resto == 10) || (Resto == 11))  Resto = 0;
+			if (Resto != parseInt(this.value.substring(9, 10)) ) return 'inválido'
+			Soma = 0; 
+			for (i = 1; i <= 10; i++) Soma = Soma + parseInt(this.value.substring(i-1, i)) * (12 - i); 
+			Resto = (Soma * 10) % 11; if ((Resto == 10) || (Resto == 11)) Resto = 0; 
+			if (Resto != parseInt(this.value.substring(10, 11) ) ) return 'inválido'
+			return true; 
+		}
 	},
 	nascimento: {
 		type: Date,
@@ -17,7 +29,8 @@ studentsSchema1 = new SimpleSchema({
 	},
 	email: {
 		type: String,
-		label: "Email"
+		label: "Email",
+		regEx: SimpleSchema.RegEx.Email
 	},
 	perfil: {
 		type: String,
@@ -25,7 +38,8 @@ studentsSchema1 = new SimpleSchema({
 	},
 	sexo: {
 		type: String,
-		label: "Sexo"
+		label: "Sexo",
+    allowedValues: ['Masculino', 'Feminino']
 	},
 	endereco: {
 		type: String,
@@ -53,7 +67,8 @@ studentsSchema1 = new SimpleSchema({
 	},
 	phone: {
 		type: Number,
-		label: "Telefone Residencial"
+		label: "Telefone Residencial",
+		optional: true
 	},
 	celular: {
 		type: Number,
@@ -87,18 +102,25 @@ studentsSchema2 = new SimpleSchema({
 studentsSchema3 = new SimpleSchema({
 	idioma: {
 		type: String,
-		label: "Idioma"
+		label: "Idioma",
+		optional: true
 	},
 	nivel_do_idioma: {
 		type: String,
-		label: "Nível do Idioma"
+		label: "Nível do Idioma",
+		optional: true,
+		custom: function() {
+			if (this.field('idioma').value != '') return 'required'; 
+		}
 	}
 });
 
 studentsSchema4 = new SimpleSchema({
 	lattes: {
 		type: String,
-		label: "Lattes"
+		label: "Lattes",
+		regEx: SimpleSchema.RegEx.Url,
+		optional: true
 	},
 	area_de_formacao: {
 		type: String,
@@ -106,15 +128,18 @@ studentsSchema4 = new SimpleSchema({
 	},
 	experiencia: {
 		type: String,
-		label: "Experiência"
+		label: "Experiência",
+		optional: true
 	},
 	qualificacao: {
 		type: String,
-		label: "Qualificação"
+		label: "Qualificação",
+		optional: true
 	},
 	cursos_extras: {
 		type: String,
-		label: "Cursos Extras"
+		label: "Cursos Extras",
+		optional: true
 	}
 });
 
