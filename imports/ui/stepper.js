@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+_dep = new Deps.Dependency();
 
 Template.stepper.helpers({
   stepper: function() {
