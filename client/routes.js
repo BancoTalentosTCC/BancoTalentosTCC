@@ -15,7 +15,7 @@ Router.route('/signup/:step_id', function () {
   this.render('stepper', {to: 'stepper'});
   this.render('step'+stepNumber, {to: 'form'});
 
-  Meteor.setTimeout(
-	function() { Meteor.call('setInputs'); }
-  	, 50);
+  if (stepNumber > 0 && stepNumber < 6) {
+    Meteor.setTimeout( function() { Meteor.call('setInputs'); }, 50);
+  }
 });
