@@ -4,11 +4,11 @@ import '../../client/pages/signup/steps.html';
 
 var studentSignUpFields = [
   ["nome", "cpf", "nascimento", "email", "perfil", "endereco", "numero", 
-"bairro", "cidade", "uf", "cep", "phone", "celular", "senha", "sexo", "especial"],
+"bairro", "cidade", "uf", "cep", "phone", "celular", "senha", "confirma_senha", "sexo", "especial"],
   ["formacao", "curso", "conclusao"],
   ["idioma", "nivel_do_idioma"],
-  ["lattes", "area_de_formacao", "experiencia", "qualificacao", "cursos_extras"],
-  ["nome_emp", "cargo_emp", "duracao_emp", "cidade_emp", "uf_emp"]
+  ["lattes", "qualificacao", "cursos_extras"],
+  ["nome_emp", "cargo_emp", "duracao_emp", "cidade_emp", "uf_emp", "atribuicoes"]
 ]
 
 Meteor.startup(function() {
@@ -52,7 +52,6 @@ Template.steps.events({
       Session.update('step'+stepNumber, studentData);
       Session.update('completed', stepNumber);
       Router.go('/signup/'+ (++stepNumber));
-      // CLEARS SESSION ON COMPLETE
       if (stepNumber == 6) {
         var result = {};
         //JOIN ALL STEPS DATA IN ONLY ONE JSON
@@ -62,8 +61,10 @@ Template.steps.events({
             console.log(error, "ERRO");
           }
           if ( result ) {
-          alert('Usuário cadastrado com sucesso!');
+          alert('Usuário cadastrado com sucesso! Você já pode acessar o painel do aluno');
+          // CLEARS SESSION ON COMPLETE
           Session.clear();
+          stepNumber=1; 
           }      
         });
       }
@@ -77,6 +78,8 @@ Template.steps.events({
       //HANDLE ERRORS
       $('#'+error.details[0].name).addClass('warning');
       toastr.error(error.reason, 'ERRO');
+      $('html, body').animate({ scrollTop: $('#'+error.details[0].name).offset().top }, 'slow');
+
     }
   },
 

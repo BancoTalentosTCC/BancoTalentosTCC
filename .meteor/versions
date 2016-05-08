@@ -11,6 +11,7 @@ autoupdate@1.2.6
 babel-compiler@6.5.2
 babel-runtime@0.1.6
 base64@1.0.6
+bigdsk:inputmask@3.1.63
 binary-heap@1.0.6
 blaze@2.1.5
 blaze-html-templates@1.0.2

@@ -18,7 +18,7 @@
 
         <div class="form-group">
             <label for="nome" class="col-md-2 col-xs-12 control-label">Nome</label>
-            <div class="col-md-10 col-xs-12">
+            <div class="col-md-10 col-xs-12 required">
                 <input type="text" class="form-control" id="nome" placeholder="Nome">
             </div>
         </div>
@@ -26,26 +26,26 @@
         <div class="form-group">
             <!-- Implementar JS para validar CPF -->
             <label for="cpf" class="col-md-2 col-xs-12 control-label">CPF</label>
-            <div class="col-md-4 col-xs-12">
-                <input type="text" class="form-control" id="cpf" placeholder="999.999.999-99">
+            <div class="col-md-4 col-xs-12 required">
+                <input type="text" class="form-control cpf" id="cpf" placeholder="999.999.999-99">
             </div>
 
             <label for="nascimento" class="col-md-2 col-xs-12 control-label">Data de Nascimento</label>
-            <div class="col-md-4 col-xs-12">
+            <div class="col-md-4 col-xs-12 required">
                 <input type="date" class="form-control" id="nascimento" placeholder="DD/MM/AAAA">
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputEmail3" class="col-md-2 col-xs-12 control-label">Email</label>
-            <div class="col-md-10 col-xs-12">
+            <div class="col-md-10 col-xs-12 required">
                 <input type="email" class="form-control" id="email" placeholder="aluno@example.com">
             </div>
         </div>
 
         <div class="form-group">
             <label for="perfil" class="col-md-2 col-xs-2 control-label">Perfil</label>
-            <div class="col-md-10 col-xs-10 ">
+            <div class="col-md-10 col-xs-10 required">
                 <select class="form-control" id="perfil">
                     <option>Aluno</option>
                     <option>Ex-aluno</option>
@@ -55,7 +55,7 @@
 
         <div class="form-group">
             <label for="senha" class="col-md-2 col-xs-2 control-label">Sexo</label>
-            <div class="col-md-2 col-xs-2">
+            <div class="col-md-2 col-xs-2 required">
                 <select class="form-control" id="sexo">
                     <option>Masculino</option>
                     <option>Feminino</option>
@@ -67,34 +67,63 @@
     <div class="form-row">
         <div class="form-group">
             <label for="endereco" class="col-md-2 col-xs-12 control-label">Endereço</label>
-            <div class="col-md-10 col-xs-12">
+            <div class="col-md-10 col-xs-12 required">
                 <input type="text" class="form-control" id="endereco" placeholder="Endereço">
             </div>
         </div>
 
         <div class="form-group">
             <label for="numero" class="col-md-2 col-xs-2 control-label">Numero</label>
-            <div class="col-md-2 col-xs-6">
+            <div class="col-md-2 col-xs-6 required">
                 <input type="text" class="form-control" id="numero" placeholder="Número">
             </div>
             <label for="bairro" class="col-md-1 col-xs-2 control-label">Bairro</label>
-            <div class="col-md-3 col-xs-6">
+            <div class="col-md-3 col-xs-6 required">
                 <input type="text" class="form-control" id="bairro" placeholder="Bairro">
             </div>
             <label for="cidade" class="col-md-1 col-xs-2 control-label">Cidade</label>
-            <div class="col-md-3 col-xs-6">
+            <div class="col-md-3 col-xs-6 required">
                 <input type="text" class="form-control" id="cidade" placeholder="Cidade">
             </div>
         </div>
 
         <div class="form-group">     
             <label for="uf" class="col-md-2 col-xs-6 control-label">UF</label>
-            <div class="col-md-2 col-xs-6">
-                <input type="text" class="form-control" id="uf" placeholder="UF">
+            <div class="col-md-2 col-xs-6 required">
+                <select class="form-control" id="uf">
+                    <option value="">Selecione o Estado</option> 
+                    <option value="ac">Acre</option> 
+                    <option value="al">Alagoas</option> 
+                    <option value="am">Amazonas</option> 
+                    <option value="ap">Amapá</option> 
+                    <option value="ba">Bahia</option> 
+                    <option value="ce">Ceará</option> 
+                    <option value="df">Distrito Federal</option> 
+                    <option value="es">Espírito Santo</option> 
+                    <option value="go">Goiás</option> 
+                    <option value="ma">Maranhão</option> 
+                    <option value="mt">Mato Grosso</option> 
+                    <option value="ms">Mato Grosso do Sul</option> 
+                    <option value="mg">Minas Gerais</option> 
+                    <option value="pa">Pará</option> 
+                    <option value="pb">Paraíba</option> 
+                    <option value="pr">Paraná</option> 
+                    <option value="pe">Pernambuco</option> 
+                    <option value="pi">Piauí</option> 
+                    <option value="rj">Rio de Janeiro</option> 
+                    <option value="rn">Rio Grande do Norte</option> 
+                    <option value="ro">Rondônia</option> 
+                    <option value="rs">Rio Grande do Sul</option> 
+                    <option value="rr">Roraima</option> 
+                    <option value="sc">Santa Catarina</option> 
+                    <option value="se">Sergipe</option> 
+                    <option value="sp">São Paulo</option> 
+                    <option value="to">Tocantins</option> 
+                </select>
             </div>
             <label for="cep" class="col-md-1 col-xs-6 control-label">CEP</label>
-            <div class="col-md-4 col-xs-6">
-                <input type="text" class="form-control" id="cep" placeholder="99999-000">
+            <div class="col-md-4 col-xs-6 required">
+                <input type="text" class="form-control cep" id="cep" placeholder="99999-000">
             </div>
             <div class="col-md-offset-2"></div>
         </div>
@@ -102,21 +131,31 @@
         <div class="form-group">
             <label for="phone-residencial" class="col-md-2 col-xs-4 control-label">Telefone Residencial</label>
             <div class="col-md-4 col-xs-8">
-                <input type="tel" class="form-control" id="phone" placeholder="(99) 9999-9999">
+                <input type="tel" class="form-control phone-number" id="phone" placeholder="(99) 9999-9999">
             </div>
 
             <label for="celular" class="col-md-2 col-xs-4 control-label">Celular</label>
-            <div class="col-md-4 col-xs-8">
-                <input type="text" class="form-control" id="celular" placeholder="(99) 99999-9999">
+            <div class="col-md-4 col-xs-8 required">
+                <input type="text" class="form-control phone-number" id="celular" placeholder="(99) 99999-9999">
             </div>
         </div>
 
-        <div class="form-group form-senha">
-            <label for="senha" class="col-md-2 col-xs-6 control-label">Senha</label>
-            <div class="col-md-6 col-xs-6">
-                <input type="password" class="form-control" id="senha" placeholder="***********">
+        <div class="form-senha">
+            <div class="form-group">
+                <label for="senha" class="col-md-2 col-xs-6 control-label">Senha</label>
+                <div class="col-md-6 col-xs-6 required">
+                    <input type="password" class="form-control" id="senha" placeholder="***********">
+                </div>
+                <div class="col-md-offset-4"></div>
             </div>
-            <div class="col-md-offset-4"></div>
+
+            <div class="form-group">
+                <label for="senha" class="col-md-2 col-xs-6 control-label">Confirmação de Senha</label>
+                <div class="col-md-6 col-xs-6 required">
+                    <input type="password" class="form-control" id="confirma_senha" placeholder="***********">
+                </div>
+                <div class="col-md-offset-4"></div>
+            </div>
         </div>
 
         <div class="form-group">
@@ -139,7 +178,7 @@
        <div class="form-row">
             <div class="form-group">
                 <label for="formacao" class="col-md-2 control-label">Tipo de formação:</label>
-                <div class="col-md-4 col-xs-6">
+                <div class="col-md-4 col-xs-6  required">
                     <select id="formacao" class="form-control">
                         <option>Graduação</option>
                         <option>Pós Graduação</option>
@@ -151,16 +190,34 @@
             </div>
 
             <div class="form-group">
-                <label for="curso" class="col-md-2 col-xs-4 control-label">Curso</label>
-                <div class="col-md-6 col-xs-8">
-                    <input type="text" class="form-control" id="curso" placeholder="Curso">
+                <label for="curso" class="col-md-2 control-label">Curso:</label>
+                <div class="col-md-4 col-xs-6  required">
+                    <select id="curso" class="form-control">
+                        <option selected="selected">Administração</option>
+                        <option>Ciências Biológicas</option>
+                        <option>Ciências Contábeis</option>
+                        <option>Educação Física</option>
+                        <option>Enfermagem</option>
+                        <option>Engenharia de Produção</option>
+                        <option>Farmácia</option>
+                        <option>Fisioterapia</option>
+                        <option>Gastronomia</option>
+                        <option>Gestão da Produção Industrial</option>
+                        <option>Gestão de Recursos Humanos</option>
+                        <option>História</option>
+                        <option>Sistemas de Informação</option>
+                        <option>Medicina</option>
+                        <option>Pedagogia</option>
+                        <option>Psicologia</option>
+                        <option>Publicidade e Propaganda</option>
+                    </select>
                 </div>
-                <div class="col-md-offset-4"></div>
+                <div class="col-md-offset-6"></div>
             </div>
 
             <div class="form-group">
                 <label for="conclusao" class="col-md-2 col-xs-12 control-label">Ano de formação</label>
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-4 col-xs-12  required">
                     <input type="text" class="form-control" id="conclusao" placeholder="AAAA">
                 </div>
                 <div class="col-md-offset-6"></div>
@@ -192,10 +249,10 @@
                 <label for="nivel-idioma" class="col-md-2 col-xs-4 control-label">Nível</label>
                 <div class="col-md-4 col-xs-8">
                     <select id="nivel_do_idioma" class="form-control">
-                    <option>Básico</option>
-                    <option>Intermediário</option>
-                    <option>Avançado</option>
-                </select>
+                        <option>Básico</option>
+                        <option>Intermediário</option>
+                        <option>Avançado</option>
+                    </select>
                 </div>
                 <div class="col-md-offset-6"></div>
             </div>
@@ -224,39 +281,7 @@
             </div>
 
             <div class="form-group">
-                <label for="curso" class="col-md-2 col-xs-4 control-label">Área de Formação</label>
-                <div class="col-md-4 col-xs-8">
-                    <select id="area_de_formacao" class="form-control">
-                        <option>Administração</option>
-                        <option>Ciências Biológicas</option>
-                        <option>Ciências Contábeis</option>
-                        <option>Educação Física</option>
-                        <option>Enfermagem</option>
-                        <option>Engenharia de Produção</option>
-                        <option>Farmácia</option>
-                        <option>Fisioterapia</option>
-                        <option>Gastronomia</option>
-                        <option>Gestão da Produção Industrial</option>
-                        <option>Gestão de Recursos Humanos</option>
-                        <option>História</option>
-                        <option>Sistemas de Informação</option>
-                        <option>Medicina</option>
-                        <option>Pedagogia</option>
-                        <option>Psicologia</option>
-                        <option>Publicidade e Propaganda</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="experiencia" class="col-md-2 col-xs-4 control-label">Experiência</label>
-                <div class="col-md-10 col-xs-6">
-                    <textarea  id="experiencia" class="form-control" rows="4"></textarea>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="experiencia" class="col-md-2 col-xs-4 control-label">Qualificação</label>
+                <label for="experiencia" class="col-md-2 col-xs-4 control-label">Qualificações</label>
                 <div class="col-md-10 col-xs-6">
                     <textarea id="qualificacao" class="form-control" rows="4"></textarea>
                 </div>
@@ -296,6 +321,14 @@
                 </div>
             </div>
 
+
+            <div class="form-group">
+                <label for="atribuicoes" class="col-md-2 col-xs-4 control-label">Atribuições</label>
+                <div class="col-md-10 col-xs-6">
+                    <textarea id="atribuicoes" class="form-control" rows="6"></textarea>
+                </div>
+            </div>
+
             <div class="form-group">
                 <label for="empresa" class="col-md-2 col-xs-4 control-label">Tempo de Trabalho (em anos)</label>
                 <div class="col-md-2 col-xs-8">
@@ -313,7 +346,36 @@
             <div class="form-group">
                 <label for="empresa" class="col-md-2 col-xs-4 control-label">UF</label>
                 <div class="col-md-2 col-xs-8">
-                    <input type="text" class="form-control" id="uf_emp" placeholder="UF">
+                <select class="form-control" id="uf_emp">
+                    <option value="">Selecione o Estado</option> 
+                    <option value="ac">Acre</option> 
+                    <option value="al">Alagoas</option> 
+                    <option value="am">Amazonas</option> 
+                    <option value="ap">Amapá</option> 
+                    <option value="ba">Bahia</option> 
+                    <option value="ce">Ceará</option> 
+                    <option value="df">Distrito Federal</option> 
+                    <option value="es">Espírito Santo</option> 
+                    <option value="go">Goiás</option> 
+                    <option value="ma">Maranhão</option> 
+                    <option value="mt">Mato Grosso</option> 
+                    <option value="ms">Mato Grosso do Sul</option> 
+                    <option value="mg">Minas Gerais</option> 
+                    <option value="pa">Pará</option> 
+                    <option value="pb">Paraíba</option> 
+                    <option value="pr">Paraná</option> 
+                    <option value="pe">Pernambuco</option> 
+                    <option value="pi">Piauí</option> 
+                    <option value="rj">Rio de Janeiro</option> 
+                    <option value="rn">Rio Grande do Norte</option> 
+                    <option value="ro">Rondônia</option> 
+                    <option value="rs">Rio Grande do Sul</option> 
+                    <option value="rr">Roraima</option> 
+                    <option value="sc">Santa Catarina</option> 
+                    <option value="se">Sergipe</option> 
+                    <option value="sp">São Paulo</option> 
+                    <option value="to">Tocantins</option> 
+                </select>
                 </div>
             </div>
         </div>

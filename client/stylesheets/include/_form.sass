@@ -70,5 +70,13 @@ form {
 }
 
 .warning {
-    border-color: red;
+  border-color: red;
+}
+
+.required::before {
+  content: "*";
+  position:absolute;
+  left:6px;
+  top:0px;
+  color: red;
 }

@@ -11,17 +11,52 @@ studentsSchema1 = new SimpleSchema({
 	cpf: {
 		type: String,
 		label: "CPF",
-		custom: function() { var Soma; var Resto; Soma = 0; 
-			if (this.value == "00000000000") return 'cpf_invalido'
-			for (i=1; i<=9; i++) Soma = Soma + parseInt(this.value.substring(i-1, i)) * (11 - i); 
-			Resto = (Soma * 10) % 11; 
-			if ((Resto == 10) || (Resto == 11))  Resto = 0;
-			if (Resto != parseInt(this.value.substring(9, 10)) ) return 'cpf_invalido'
-			Soma = 0; 
-			for (i = 1; i <= 10; i++) Soma = Soma + parseInt(this.value.substring(i-1, i)) * (12 - i); 
-			Resto = (Soma * 10) % 11; if ((Resto == 10) || (Resto == 11)) Resto = 0; 
-			if (Resto != parseInt(this.value.substring(10, 11) ) ) return 'cpf_invalido'
-			return true; 
+		custom: function() {
+	     	$return = true;
+	     	// this is mostly not needed
+	     	var invalidos = [
+	        '111.111.111-11',
+	        '222.222.222-22',
+	        '333.333.333-33',
+	        '444.444.444-44',
+	        '555.555.555-55',
+	        '666.666.666-66',
+	        '777.777.777-77',
+	        '888.888.888-88',
+	        '999.999.999-99',
+	        '000.000.000-00'
+	      ];
+	      for(i=0;i<invalidos.length;i++) {
+	          if( invalidos[i] == this.value) {
+	              $return = 'cpf_invalido';
+	          }
+	      }
+	      var value = this.value;
+	      //validando primeiro digito
+	      add = 0;
+	      for ( i=0; i < 9; i++ ) {
+	          add += parseInt(value.charAt(i), 10) * (10-i);
+	      }
+	      rev = 11 - ( add % 11 );
+	      if( rev == 10 || rev == 11) {
+	          rev = 0;
+	      }
+	      if( rev != parseInt(value.charAt(9), 10) ) {
+	          $return = 'cpf_invalido';
+	      }
+	      //validando segundo digito
+	      add = 0;
+	      for ( i=0; i < 10; i++ ) {
+	          add += parseInt(value.charAt(i), 10) * (11-i);
+	      }
+	      rev = 11 - ( add % 11 );
+	      if( rev == 10 || rev == 11) {
+	          rev = 0;
+	      }
+	      if( rev != parseInt(value.charAt(10), 10) ) {
+	          $return = 'cpf_invalido';
+	      }
+	      return $return;
 		}
 	},
 	nascimento: {
@@ -78,19 +113,29 @@ studentsSchema1 = new SimpleSchema({
 	phone: {
 		type: String,
 		label: "Telefone Residencial",
-		regEx: /^[0-9]+$/,
+		regEx: /^\([1-9]{2}\) [0-9]{8,9}$/,
 		optional: true
 	},
 	celular: {
 		type: String,
 		label: "Celular",
-		regEx: /^[0-9]+$/
+		regEx: /^\([1-9]{2}\) [0-9]{8,9}$/
 	},
 	senha: {
 		type: String,
 		label: "Senha",
     min: 8
 	},
+  confirma_senha: {
+    type: String,
+    label: "Confirmação de Senha",
+    min: 8,
+    custom: function () {
+      if (this.value !== this.field('senha').value) {
+        return "nao_pode_ser_diferente";
+      }
+    }
+  },
 	especial: {
 		type: Boolean,
 		label: "Especial"
@@ -123,11 +168,12 @@ studentsSchema3 = new SimpleSchema({
 		type: String,
 		label: "Nível do Idioma",
 		optional: true,
-		custom: function() {
-			console.log(this.field('idioma').value, "value");
-			if (this.field('idioma').value != undefined) {return 'required'; }
-			else {this.value = undefined;}
-		}
+    autoValue: function () {
+      if (this.field('idioma').value == undefined) {
+        this.unset();
+        return undefined; 
+      }
+    }
 	}
 });
 
@@ -136,15 +182,6 @@ studentsSchema4 = new SimpleSchema({
 		type: String,
 		label: "Lattes",
 		regEx: SimpleSchema.RegEx.Url,
-		optional: true
-	},
-	area_de_formacao: {
-		type: String,
-		label: "Área de Formação"
-	},
-	experiencia: {
-		type: String,
-		label: "Experiência",
 		optional: true
 	},
 	qualificacao: {
@@ -168,23 +205,29 @@ studentsSchema5 = new SimpleSchema({
 		type: String,
 		label: "Cargo"
 	},
-	duracao_emp: {
-		type: String,
-		label: "Duração",
-		regEx: /^[0-9]+$/
-	},
-	cidade_emp: {
-		type: String,
-		label: "Cidade"
-	},
-	uf_emp: {
-		type: String,
-		label: "UF",
-		max: 2
-	}
+  atribuicoes: {
+    type: "String",
+    label: "Atribuições",
+    min: 30
+  },
+  duracao_emp: {
+    type: String,
+    label: "Duração",
+    regEx: /^[0-9]+$/
+  },
+  cidade_emp: {
+    type: String,
+    label: "Cidade"
+  },
+  uf_emp: {
+    type: String,
+    label: "UF",
+    max: 2
+  }
 });
 
 studentSchema = new SimpleSchema([studentsSchema1, studentsSchema2, studentsSchema3, studentsSchema4, studentsSchema5]);
+Students.attachSchema(studentSchema);
 
 //ERROR MESSAGES LIST
 SimpleSchema.messages({
@@ -208,7 +251,8 @@ SimpleSchema.messages({
     {exp: SimpleSchema.RegEx.Domain, msg: "[label] precisa ser um domínio válido"},
     {exp: SimpleSchema.RegEx.WeakDomain, msg: "[label] precisa ser um domínio válido"},
     {exp: SimpleSchema.RegEx.Url, msg: "[label] precisa ser uma url válida"},
-    {exp: /^[0-9]+$/, msg: "[label] deve conter apenas números"}
+    {exp: /^[0-9]+$/, msg: "[label] deve conter apenas números"},
+    {exp: /^\([1-9]{2}\) [0-9]{8,9}$/, msg: "[label] deve ser no formato (99) 99999999 (8 ou 9 números)"}
   ],
   keyNotInSchema: "[key] is not allowed by the schema"
 });
@@ -226,7 +270,8 @@ studentsSchema1.messages({
   "regEx cep": [
   	{exp: /(^\d{5}-\d{3}$)/, msg: "[value] não é um cep válido"}
   ],
-  cpf_invalido: "Precisa ser um [key] válido"
+  cpf_invalido: "Precisa ser um [key] válido",
+  nao_pode_ser_diferente: "Confirmação de senha é diferente da senha!"
 });
 
 studentsSchema2.messages({
