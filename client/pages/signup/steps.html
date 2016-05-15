@@ -3,7 +3,7 @@
 
     {{> yield "stepper"}}
 
-    <form class="form-horizontal">
+    <form class="form-horizontal register">
         {{> yield "form"}}
     </form>
   </div>
@@ -39,7 +39,7 @@
         <div class="form-group">
             <label for="inputEmail3" class="col-md-2 col-xs-12 control-label">Email</label>
             <div class="col-md-10 col-xs-12 required">
-                <input type="email" class="form-control" id="email" placeholder="aluno@example.com">
+                <input type="email" class="form-control" id="email" name="email" placeholder="aluno@example.com">
             </div>
         </div>
 
@@ -54,7 +54,7 @@
         </div> 
 
         <div class="form-group">
-            <label for="senha" class="col-md-2 col-xs-2 control-label">Sexo</label>
+            <label for="sexo" class="col-md-2 col-xs-2 control-label">Sexo</label>
             <div class="col-md-2 col-xs-2 required">
                 <select class="form-control" id="sexo">
                     <option>Masculino</option>
@@ -142,17 +142,17 @@
 
         <div class="form-senha">
             <div class="form-group">
-                <label for="senha" class="col-md-2 col-xs-6 control-label">Senha</label>
+                <label for="password" class="col-md-2 col-xs-6 control-label">Senha</label>
                 <div class="col-md-6 col-xs-6 required">
-                    <input type="password" class="form-control" id="senha" placeholder="***********">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="***********">
                 </div>
                 <div class="col-md-offset-4"></div>
             </div>
 
             <div class="form-group">
-                <label for="senha" class="col-md-2 col-xs-6 control-label">Confirmação de Senha</label>
+                <label for="password_confirmation" class="col-md-2 col-xs-6 control-label">Confirmação de Senha</label>
                 <div class="col-md-6 col-xs-6 required">
-                    <input type="password" class="form-control" id="confirma_senha" placeholder="***********">
+                    <input type="password" class="form-control" id="password_confirmation"  name="password_confirmation" placeholder="***********">
                 </div>
                 <div class="col-md-offset-4"></div>
             </div>

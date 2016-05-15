@@ -1,7 +1,8 @@
-import { Students } from  '../imports/api/students.js';
-
 Meteor.methods({
   saveUser: function(data) {
-    return Students.insert(data);
+    return Accounts.createUser(data);
+  },
+  checkEmail: function(email) {
+    return Accounts.findUserByEmail(email);
   }
 });
