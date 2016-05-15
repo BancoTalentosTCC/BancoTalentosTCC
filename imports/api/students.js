@@ -1,7 +1,5 @@
 import { Mongo } from 'meteor/mongo';
 
-export var Students = new Meteor.Collection('students');
-
 studentsSchema1 = new SimpleSchema({
 	nome: {
 		type: String,
@@ -121,17 +119,17 @@ studentsSchema1 = new SimpleSchema({
 		label: "Celular",
 		regEx: /^\([1-9]{2}\) [0-9]{8,9}$/
 	},
-	senha: {
+	password: {
 		type: String,
-		label: "Senha",
+		label: "Password",
     min: 8
 	},
-  confirma_senha: {
+  password_confirmation: {
     type: String,
-    label: "Confirmação de Senha",
+    label: "Password Confirmation",
     min: 8,
     custom: function () {
-      if (this.value !== this.field('senha').value) {
+      if (this.value !== this.field('password').value) {
         return "nao_pode_ser_diferente";
       }
     }
@@ -226,8 +224,8 @@ studentsSchema5 = new SimpleSchema({
   }
 });
 
-studentSchema = new SimpleSchema([studentsSchema1, studentsSchema2, studentsSchema3, studentsSchema4, studentsSchema5]);
-Students.attachSchema(studentSchema);
+//studentSchema = new SimpleSchema([studentsSchema1, studentsSchema2, studentsSchema3, studentsSchema4, studentsSchema5]);
+//Meteor.users.attachSchema(studentSchema);
 
 //ERROR MESSAGES LIST
 SimpleSchema.messages({

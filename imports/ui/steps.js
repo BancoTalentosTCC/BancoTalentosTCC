@@ -4,7 +4,7 @@ import '../../client/pages/signup/steps.html';
 
 var studentSignUpFields = [
   ["nome", "cpf", "nascimento", "email", "perfil", "endereco", "numero", 
-"bairro", "cidade", "uf", "cep", "phone", "celular", "senha", "confirma_senha", "sexo", "especial"],
+"bairro", "cidade", "uf", "cep", "phone", "celular", "password", "password_confirmation", "sexo", "especial"],
   ["formacao", "curso", "conclusao"],
   ["idioma", "nivel_do_idioma"],
   ["lattes", "qualificacao", "cursos_extras"],
@@ -47,24 +47,44 @@ Template.steps.events({
     }
 
     try {
+      if (stepNumber == 1) {
+        Meteor.call('checkEmail', $('#email').val(), function(error, result) {  
+          //CASO O EMAIL INFORMADO NO STEP1 JA EXISTA GERA ERRO
+          if (result) {
+            Meteor.call('generateErrors', 'email', 'Email já existe!');
+          }
+        });
+      }
+
       eval("studentsSchema" + stepNumber).validate(studentData);
 
       Session.update('step'+stepNumber, studentData);
       Session.update('completed', stepNumber);
       Router.go('/signup/'+ (++stepNumber));
+
+
       if (stepNumber == 6) {
-        var result = {};
+        var studentProfile = {};
+        $.extend(studentProfile, Session.get('step1'), Session.get('step2'), Session.get('step3'), Session.get('step4'), Session.get('step5'));
+        var result = {
+          email:  Session.get('step1').email,
+          password:  Session.get('step1').password,
+          profile: studentProfile
+        };
+
         //JOIN ALL STEPS DATA IN ONLY ONE JSON
-        $.extend(result, Session.get('step1'), Session.get('step2'), Session.get('step3'), Session.get('step4'), Session.get('step5'));
         Meteor.call('saveUser', result, function(error, result) {
           if ( error ) { 
             console.log(error, "ERRO");
           }
           if ( result ) {
-          alert('Usuário cadastrado com sucesso! Você já pode acessar o painel do aluno');
-          // CLEARS SESSION ON COMPLETE
-          Session.clear();
-          stepNumber=1; 
+            alert('Usuário cadastrado com sucesso! Você já pode acessar o painel do aluno');
+
+            //LOGS IN
+            Meteor.loginWithPassword(Session.get('step1').email, Session.get('step1').password);
+            // CLEARS SESSION ON COMPLETE
+            Session.clear();
+            stepNumber=1; 
           }      
         });
       }
@@ -76,10 +96,7 @@ Template.steps.events({
     }
     catch(error) {
       //HANDLE ERRORS
-      $('#'+error.details[0].name).addClass('warning');
-      toastr.error(error.reason, 'ERRO');
-      $('html, body').animate({ scrollTop: $('#'+error.details[0].name).offset().top }, 'slow');
-
+      Meteor.call('generateErrors', error.details[0].name, error.reason);
     }
   },
 
@@ -102,5 +119,10 @@ Meteor.methods({
         $('#' + stepElements[i]).val(json[stepElements[i]]);
       }
     }
+  },
+  generateErrors: function(name, reason) {
+    $('#'+name).addClass('warning');
+    toastr.error(reason, 'ERRO');
+    $('html, body').animate({ scrollTop: $('#'+name).offset().top }, 'slow');
   }
 });
