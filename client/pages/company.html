@@ -1,0 +1,107 @@
+<!-- IMPLEMENTAR REG EX JQUERY-->
+<!-- Step 1 -->
+<template name="company1">     
+    <div class="form-row form-border">
+
+       <h1>Dados pessoais</h1>
+
+        <div class="form-group">
+            <label for="nome" class="col-md-2 col-xs-12 control-label">Nome de Fantasia</label>
+            <div class="col-md-10 col-xs-12">
+                <input type="text" class="form-control" id="nome" placeholder="Nome">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <!-- Implementar JS para validar CNPJ -->
+            <label for="cpf" class="col-md-2 col-xs-12 control-label">CNPJ</label>
+            <div class="col-md-4 col-xs-12">
+                <input type="text" class="form-control" id="cnpj" placeholder="XX.XXX.XXX/YYYY-ZZ">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="razaosoc" class="col-md-2 col-xs-12 control-label">Razão Social</label>
+            <div class="col-md-10 col-xs-12">
+                <input type="text" class="form-control" id="razaosoc" placeholder="Razão Social">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="endereco" class="col-md-2 col-xs-12 control-label">Endereço</label>
+            <div class="col-md-10 col-xs-12">
+                <input type="text" class="form-control" id="endereco" placeholder="Endereço">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="numero" class="col-md-2 col-xs-2 control-label">Numero</label>
+            <div class="col-md-2 col-xs-6">
+                <input type="text" class="form-control" id="numero" placeholder="Número">
+            </div>
+            <label for="bairro" class="col-md-1 col-xs-2 control-label">Bairro</label>
+            <div class="col-md-3 col-xs-6">
+                <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+            </div>
+            <label for="cidade" class="col-md-1 col-xs-2 control-label">Cidade</label>
+            <div class="col-md-3 col-xs-6">
+                <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+            </div>
+        </div>
+
+        <div class="form-group">     
+            <label for="uf" class="col-md-2 col-xs-6 control-label">UF</label>
+            <div class="col-md-2 col-xs-6">
+                <input type="text" class="form-control" id="uf" placeholder="UF">
+            </div>
+            <label for="cep" class="col-md-1 col-xs-6 control-label">CEP</label>
+            <div class="col-md-4 col-xs-6">
+                <input type="text" class="form-control" id="cep" placeholder="99999-000">
+            </div>
+            <div class="col-md-offset-2"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone-residencial" class="col-md-2 col-xs-4 control-label">Telefone</label>
+            <div class="col-md-4 col-xs-8">
+                <input type="tel" class="form-control" id="phone" placeholder="(99) 9999-9999">
+            </div>
+
+            <label for="celular" class="col-md-2 col-xs-4 control-label">Fax</label>
+            <div class="col-md-4 col-xs-8">
+                <input type="text" class="form-control" id="celular" placeholder="(99) 9999-9999">
+            </div>
+        </div>
+
+       <div class="form-group">
+            <label for="inputEmail3" class="col-md-2 col-xs-12 control-label">Email</label>
+            <div class="col-md-10 col-xs-12">
+                <input type="email" class="form-control" id="email" placeholder="aluno@example.com">
+            </div>
+        </div>
+       
+       <div class="form-group">
+            <label for="inputEmail3" class="col-md-2 col-xs-12 control-label">Dados do contato</label>
+            <div class="col-md-10 col-xs-12">
+                <input type="text" class="form-control" id="nome-resp" placeholder="Nome do responsável">
+            </div>
+        </div>
+       
+        <div class="form-group form-senha">
+            <label for="senha" class="col-md-2 col-xs-6 control-label">Senha</label>
+            <div class="col-md-6 col-xs-6">
+                <input type="password" class="form-control" id="senha" placeholder="***********">
+            </div>
+            <div class="col-md-offset-4"></div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-offset-11 col-sm-1">
+                <button type="submit" class="btn btn-primary btn-send">Próximo</button>
+            </div>
+        </div>
+    </div>
+</template>
