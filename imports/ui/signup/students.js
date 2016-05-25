@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
-import { Students } from  '../api/students.js';
-import '../../client/pages/signup/steps.html';
+import  '../../api/students.js';
+import '../../../client/pages/signup/students.html';
 
 var studentSignUpFields = [
   ["nome", "cpf", "nascimento", "email", "perfil", "endereco", "numero", 
@@ -17,16 +17,16 @@ Meteor.startup(function() {
   }
 });
 
-Template.steps.rendered = function() {
+Template.students_signup.rendered = function() {
   var stepElements = studentSignUpFields[stepNumber-1];
   if(!this._rendered) {
     if (Session.get('completed') < stepNumber) {
-      Router.go('/signup/'+ ((parseFloat(Session.get('completed'))+ 1)));
+      Router.go('/students/signup/'+ ((parseFloat(Session.get('completed'))+ 1)));
     }
   }
 }
 
-Template.steps.events({
+Template.students_signup.events({
   "submit form": function (event) {
     event.preventDefault();
     //REMOVE ERRORS
@@ -60,7 +60,7 @@ Template.steps.events({
 
       Session.update('step'+stepNumber, studentData);
       Session.update('completed', stepNumber);
-      Router.go('/signup/'+ (++stepNumber));
+      Router.go('/students/signup/'+ (++stepNumber));
 
 
       if (stepNumber == 6) {
@@ -102,7 +102,7 @@ Template.steps.events({
 
   "click #back": function () {
     let stepNumber = location.href.split('/').pop();
-    Router.go('/signup/'+ (--stepNumber));
+    Router.go('/students/signup/'+ (--stepNumber));
     Meteor.setTimeout(function() {
       _dep.changed();
     }, 250);

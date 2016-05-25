@@ -1,0 +1,36 @@
+<template name="companiesLogin">
+    <div class="login-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center m-b-md">
+                    <h3>Bem-vindo ao Banco de Talentos</h3>
+                    <small>Aqui você encontra os estudantes mais capacitados para a sua empresa!</small>
+                </div>
+                <div class="hpanel">
+                    <div class="panel-body">
+                            <form action="#" id="loginForm">
+                                <div class="form-group">
+                                    <label class="control-label" for="username">Email</label>
+                                    <input type="text" placeholder="example@mail.com" title="Digite aqui seu email" required="" value="" name="username" id="username" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="password">Senha</label>
+                                    <input type="password" title="Entre com sua senha" placeholder="******" required="" value="" name="password" id="password" class="form-control">
+                                    <span class="help-block small">A mesma senha do portal do aluno</span>
+                                </div>
+                                <div class="checkbox">
+    
+                                    <label>
+                                        <input type="checkbox"> Lembrar-me nesse dispositivo
+                                    </label>
+                                </div>
+                                
+                                <button class="btn btn-success btn-block">Entrar</button>
+                                <a class="btn btn-default btn-block" href="{{pathFor route='companies.signup'}}">Registrar</a>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

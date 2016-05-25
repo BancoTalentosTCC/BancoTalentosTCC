@@ -1,6 +1,7 @@
-import '../imports/ui/steps.js';
-import '../imports/ui/stepper.js';
-import '../imports/ui/masks.js';
+import '../imports/ui/signup/students.js';
+import '../imports/ui/signup/companies.js';
+import '../imports/ui/signup/stepper.js';
+import '../imports/ui/signup/masks.js';
 
 stepNumber=0;
 
