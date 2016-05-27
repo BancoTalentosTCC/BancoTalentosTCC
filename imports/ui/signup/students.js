@@ -59,7 +59,7 @@ Template.studentsSignup.events({
           }
           else {
             Meteor.call('checkEmailPresence', $('#email').val(), function(error, result) {  
-              //CASO O EMAIL INFORMADO NO STEP1 JA EXISTA GERA ERRO
+              //IN CASE THIS EMAIL ALREADY EXISTS THROW ERROR
               if (result) {
                 Meteor.call('generateErrors', 'email', 'Email já existe!');
               }
@@ -154,6 +154,6 @@ var saveUserInSession = function(profile) {
 var changeStep = function() {
   setTimeout(function() {
     _dep.changed();
-    loadInputs();
+    if (Session.get('completed') >= stepNumber) loadInputs();
   }, 250);
 }
