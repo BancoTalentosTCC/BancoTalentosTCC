@@ -1,14 +1,43 @@
 <template name="ApplicationLayout">
-    <header class="header">
-        <div class="logo">
-            <img alt="logo" src="/img/logo-white.png">
-        </div>
-        <h1>Banco de Talentos</h1>
-
-        <div class="login">
-            <p><a href="{{pathFor route='companiesLogin'}}">Empresa</a></p>
-            <p><a href="{{pathFor route='studentsLogin'}}">Aluno</a></p>
-        </div>
-    </header>
-    {{> yield }}
+        <header id="header" class="header">
+            <div class="headerbar">
+                <div class="headerbar-left">
+                    <ul class="header-nav header-nav-options">
+                        <li class="header-nav-brand">
+                            <div class="brand-holder">
+                                <a href="#">
+                                    <img alt="logo" src="/img/logo-univas.png">
+                                    <span class="text-lg text-bold text-primary">BANCO DE TALENTOS</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="btn btn-icon-toggle menubar-toggle" href="javascript:void(0);" data-toggle="menubar">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </li>                         
+                    </ul>
+                </div>
+            
+                <div class="headerbar-right">
+                    <ul class="header-nav header-nav-options">
+                        <div class="login">
+                            <p><a href="{{pathFor route='companiesLogin'}}">Empresa</a></p>
+                            <p><a href="{{pathFor route='studentsLogin'}}">Aluno</a></p>
+                        </div>
+                    </ul>
+                    
+                    <ul class="header-nav header-nav-profile">
+                    <!--~ Right aligned profile dropdown menu ~-->
+                    </ul>
+                    
+                    <ul class="header-nav header-nav-toggle">
+                    <!--~ Right aligned toggle items ~-->
+                    </ul>
+                </div>
+            </div>
+        </header>
+        
+        {{> yield }}
+        
 </template>

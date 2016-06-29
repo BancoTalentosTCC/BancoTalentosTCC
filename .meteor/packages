@@ -30,3 +30,6 @@ accounts-password
 accounts-ui
 softwarerero:accounts-t9n
 twbs:bootstrap
+mrt:jquery-migrate
+fortawesome:fontawesome
+yasaricli:nanoscroller
