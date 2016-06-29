@@ -31,3 +31,8 @@ Router.route('/students/signup/:step_id', function () {
 {
   name: 'students.signup'
 });
+
+Router.onAfterAction(function() {
+        document.title = 'Banco de Talentos Univás - '+ this.route.getName();
+      }
+);

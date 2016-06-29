@@ -1,18 +1,31 @@
 <template name="students_signup">
-  <div class="container">
+    <div class="menubar-hoverable header-fixed " id="content">
+        <div id="wizard" class="form-wizard form-wizard-horizontal">
+            <form class="form-horizontal" role="form" novalidate="novalidate">
 
-    {{> yield "stepper"}}
+                {{> yield "stepper"}}
 
-    <form class="form-horizontal register">
-        {{> yield "form"}}
-    </form>
-  </div>
+                <div class="tab-content">
+
+                    {{> yield "form"}}
+
+                </div><!--end .tab-content -->
+
+                <!--ul class="pager wizard">
+                    <li class="previous first"><a href="javascript:void(0);">First</a></li>
+                    <li class="previous"><a href="javascript:void(0);">Previous</a></li>
+                    <li class="next last"><a href="javascript:void(0);">Last</a></li>
+                    <li class="next"><a href="javascript:void(0);">Next</a></li>
+                </ul-->
+            </form>
+        </div><!--end #rootwizard -->
+    </div>
 </template>
 
 
 <!-- Step 1 -->
 <template name="step1">     
-    <div class="form-row form-border">
+    <div class="form-row form-border" id="tab1">
 
        <h1>Dados pessoais</h1>
 
@@ -151,6 +164,7 @@
             <label for="celular" class="col-sm-2 control-label">Celular</label>
             <div class="col-sm-4 required">
                 <input type="text" class="form-control phone-number" id="celular" placeholder="(99) 99999-9999">
+                <div class="form-control-line"></div>
             </div>
         </div>
 
@@ -195,7 +209,7 @@
 
 <!-- Step 2 -->
 <template name="step2">
-       <div class="form-row">
+       <div class="form-row" id="tab2">
             <div class="form-group">
                 <label for="formacao" class="col-sm-2 control-label">Tipo de formação:</label>
                 <div class="col-sm-4 required">
@@ -260,7 +274,7 @@
 
 <!-- Step 3 -->
 <template name="step3">
-       <div class="form-row">
+       <div class="form-row" id="tab3">
             <div class="form-group">
                 <label for="idioma" class="col-sm-2 control-label">Idioma</label>
                 <div class="col-sm-4 ">
@@ -297,7 +311,7 @@
 
 <!-- Step 4 -->
 <template name="step4">
-       <div class="form-row">
+       <div class="form-row" id="tab4">
             <div class="form-group">
                 <label for="lattes" class="col-sm-2 control-label">Curriculo Lattes</label>
                 <div class="col-sm-4 ">
@@ -334,7 +348,7 @@
 
 <!-- Step 5 -->
 <template name="step5">
-       <div class="form-row">
+       <div class="form-row" id="tab5">
             <div class="form-group">
                 <label for="empresa" class="col-sm-2 control-label">Empresa</label>
                 <div class="col-sm-10">
