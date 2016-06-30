@@ -1,0 +1,95 @@
+<template name="header">
+  <div class="headerbar">
+      <div class="headerbar-left">
+          <ul class="header-nav header-nav-options">
+              <li class="header-nav-brand">
+                  <div class="brand-holder">
+                      <a href="{{pathFor route='home'}}">
+                          <img alt="logo" src="/img/logo-univas.png">
+                          <span class="text-lg text-bold text-primary">BANCO DE TALENTOS</span>
+                      </a>
+                  </div>
+              </li>
+              <li>
+                  <a class="btn btn-icon-toggle menubar-toggle" href="javascript:void(0);" data-toggle="menubar">
+                      <i class="fa fa-bars"></i>
+                  </a>
+              </li>                         
+          </ul>
+      </div>
+  
+      <div class="headerbar-right">
+          <ul class="header-nav header-nav-options">                
+              <li>
+    <!-- Search form -->
+    <form class="navbar-search" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" name="headerSearch" placeholder="Enter your keyword">
+      </div>
+      <button type="submit" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-search"></i></button>
+    </form>
+  </li>
+         
+             <li class="dropdown hidden-xs">
+    <a href="javascript:void(0);" class="btn btn-icon-toggle btn-default" data-toggle="dropdown">
+      <i class="fa fa-bell"></i><sup class="badge style-danger">4</sup>
+    </a>
+    <ul class="dropdown-menu animation-expand">
+      <li class="dropdown-header">Today's messages</li>
+      <li>
+        <a class="alert alert-callout alert-warning" href="javascript:void(0);">
+          <img class="pull-right img-circle dropdown-avatar" src="../../img/avatar1.jpg" alt="" />
+          <strong>Alex Anistor</strong><br/>
+          <small>Testing functionality...</small>
+        </a>
+      </li>
+      <li>
+        <a class="alert alert-callout alert-info" href="javascript:void(0);">
+          <img class="pull-right img-circle dropdown-avatar" src="/img/avatar1.jpg" alt="" />
+          <strong>Alicia Adell</strong><br/>
+          <small>Reviewing last changes...</small>
+        </a>
+      </li>
+      <li class="dropdown-header">Options</li>
+      <li><a href="../../html/pages/login.html">View all messages <span class="pull-right"><i class="fa fa-arrow-right"></i></span></a></li>
+      <li><a href="../../html/pages/login.html">Mark as read <span class="pull-right"><i class="fa fa-arrow-right"></i></span></a></li>
+    </ul><!--end .dropdown-menu -->
+  </li><!--end .dropdown -->               
+          </ul>
+          
+          <ul class="header-nav header-nav-profile">
+          <!--~ Right aligned profile dropdown menu ~-->
+          
+              <li class="dropdown">
+    <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+      <img src="/img/avatar1.jpg" alt="" />
+      <span class="profile-info">
+        Daniel Johnson
+        <small>Administrator</small>
+      </span>
+    </a>
+    <ul class="dropdown-menu animation-dock">
+      <li class="dropdown-header">Config</li>
+      <li><a href="../../html/pages/profile.html">My profile</a></li>
+      <li><a href="../../html/pages/blog/post.html">My blog <span class="badge style-danger pull-right">16</span></a></li>
+      <li><a href="../../html/pages/calendar.html">My appointments</a></li>
+      <li class="divider"></li>
+      <li><a href="../../html/pages/locked.html"><i class="fa fa-fw fa-lock"></i> Lock</a></li>
+      <li><a href="../../html/pages/login.html"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+    </ul><!--end .dropdown-menu -->
+  </li><!--end .dropdown -->
+          </ul>
+          
+          <ul class="header-nav header-nav-toggle login">
+          <!--~ Right aligned toggle items ~-->
+              <li>
+                  <p class="btn ink-reaction btn-flat btn-sm btn-primary"><a href="{{pathFor route='companiesLogin'}}" class="no-underline">Empresa</a></p>
+              </li>
+              
+              <li>
+                  <p class="btn ink-reaction btn-flat btn-sm btn-primary"><a href="{{pathFor route='studentsLogin'}}" class="no-underline">Aluno</a></p>
+              </li>
+          </ul>
+      </div>
+  </div>
+</template>
