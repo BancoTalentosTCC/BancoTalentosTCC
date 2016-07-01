@@ -26,7 +26,6 @@ Router.map(function() {
     {path: '/companies/login'}
   );
 
-
   this.route('companies.signup', function () {
       this.render('header', {to: 'header'});
       this.render('companies.signup');
