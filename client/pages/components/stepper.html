@@ -1,28 +1,42 @@
 <template name="stepper">
-    <div class="container clearfix">
-        <div class="container clearfix">
-            <ul class="stepper clearfix">
-                <li class={{stepper.step1}}>
-                    <a class="stepper-icon mdi mdi-account" href="#"></a>
-                    <h5>Dados Pessoais</h5>
+        <div class="form-wizard-nav">
+            <div class="progress"><div class="progress-bar progress-bar-primary"></div></div>
+            <ul class="nav nav-justified">
+                <li class="active">
+                    <a href="#tab1" data-toggle="tab">
+                        <span class="stepper-icon mdi mdi-account step"></span> 
+                        <span class="title">Dados Pessoais</span>
+                    </a>
                 </li>
-                <li class={{stepper.step2}}>
-                    <a class="stepper-icon mdi mdi-library-books" href="#"></a>
-                    <h5>Formação</h5>
+                
+                <li>
+                    <a href="#tab2" data-toggle="tab">
+                        <span class="stepper-icon mdi mdi-library-books step"></span>
+                        <span class="title">Formação</span>
+                    </a>
                 </li>
-                <li class={{stepper.step3}}>
-                    <a class="stepper-icon mdi mdi-message-text" href="#"></a>
-                    <h5>Idiomas</h5>
+                
+                <li>
+                    <a href="#tab3" data-toggle="tab">
+                        <span class="stepper-icon mdi mdi-message-text step"></span> 
+                        <span class="title">Idiomas</span>
+                    </a>
                 </li>
-                <li class={{stepper.step4}}>
-                    <a class="stepper-icon mdi mdi-wrench" href="#"></a>
-                    <h5>Qualificações</h5>
+                
+                <li>
+                    <a href="#tab4" data-toggle="tab">
+                        <span class="stepper-icon mdi mdi-wrench step"></span> 
+                        <span class="title">Qualificações</span>
+                    </a>
                 </li>
-                <li class={{stepper.step5}}>
-                    <a class="stepper-icon mdi mdi-worker" href="#"></a>
-                    <h5>Experiência Profissional</h5>
+                
+                <li>
+                    <a href="#tab5" data-toggle="tab">
+                        <span class="stepper-icon mdi mdi-worker step"></span> 
+                        <span class="title">Experiência Profissional</span>
+                    </a>
                 </li>
             </ul>
         </div>
-    </div>
 </template>
+

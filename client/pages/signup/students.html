@@ -1,392 +1,462 @@
 <template name="studentsSignup">
-  <div class="container">
-
-    {{> yield "stepper"}}
-
-    <form class="form-horizontal register">
-        {{> yield "form"}}
-    </form>
-  </div>
-</template>
-
-
-<!-- Step 1 -->
-<template name="step1">     
-    <div class="form-row form-border">
-
-       <h1>Dados pessoais</h1>
-
-        <div class="form-group">
-            <label for="nome" class="col-md-2 col-xs-12 control-label">Nome</label>
-            <div class="col-md-10 col-xs-12 required">
-                <input type="text" class="form-control" id="nome" placeholder="Nome">
+    <div id="wizard" class="form-wizard form-wizard-horizontal">
+        <form class="form floating-label">
+            <div class="form-wizard-nav">
+                <div class="progress"><div class="progress-bar progress-bar-primary"></div></div>
+                <ul class="nav nav-justified">
+                    <li class={{wizard.[0]}}>
+                        <a href="#tab1" class="inactive-link" data-toggle="tab">
+                            <span class="stepper-icon mdi mdi-account step"></span> 
+                            <span class="title">Dados Pessoais</span>
+                        </a>
+                    </li>
+                    
+                    <li class={{wizard.[1]}}>
+                        <a href="#tab2" class="inactive-link" data-toggle="tab">
+                            <span class="stepper-icon mdi mdi-library-books step"></span>
+                            <span class="title">Formação</span>
+                        </a>
+                    </li>
+                    
+                    <li class={{wizard.[2]}}>
+                        <a href="#tab3" class="inactive-link" data-toggle="tab">
+                            <span class="stepper-icon mdi mdi-message-text step"></span> 
+                            <span class="title">Idiomas</span>
+                        </a>
+                    </li>
+                    
+                    <li class={{wizard.[3]}}>
+                        <a href="#tab4" class="inactive-link" data-toggle="tab">
+                            <span class="stepper-icon mdi mdi-wrench step"></span> 
+                            <span class="title">Qualificações</span>
+                        </a>
+                    </li>
+                    
+                    <li class={{wizard.[4]}}>
+                        <a href="#tab5" class="inactive-link" data-toggle="tab">
+                            <span class="stepper-icon mdi mdi-worker step"></span> 
+                            <span class="title">Experiência Profissional</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </div>
+            <div class="tab-content clearfix">
+                <div class="tab-pane {{wizard.[0]}}" id="tab1">
+                    <br/><br/>
+                <!-- Step 1 -->
+                    <div class="form-row form-border">
 
-        <div class="form-group">
-            <!-- Implementar JS para validar CPF -->
-            <label for="cpf" class="col-md-2 col-xs-12 control-label">CPF</label>
-            <div class="col-md-4 col-xs-12 required">
-                <input type="text" class="form-control cpf" id="cpf" placeholder="999.999.999-99">
-            </div>
+                       <h1>Dados pessoais</h1>
 
-            <label for="nascimento" class="col-md-2 col-xs-12 control-label">Data de Nascimento</label>
-            <div class="col-md-4 col-xs-12 required">
-                <input type="date" class="form-control" id="nascimento" placeholder="DD/MM/AAAA">
-            </div>
-        </div>
+                        <div class="form-group">
+                            <label for="nome" class="col-sm-2 control-label">Nome</label>
+                            <div class="col-sm-10 required">
+                                <input type="text" class="form-control" id="nome" placeholder="Nome">
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
 
-        <div class="form-group">
-            <label for="inputEmail3" class="col-md-2 col-xs-12 control-label">Email</label>
-            <div class="col-md-10 col-xs-12 required">
-                <input type="email" class="form-control" id="email" name="email" placeholder="aluno@example.com">
-            </div>
-        </div>
+                        <div class="form-group">
+                            <!-- Implementar JS para validar CPF -->
+                            <label for="cpf" class="col-sm-2 control-label">CPF</label>
+                            <div class="col-sm-4 required">
+                                <input type="text" class="form-control cpf" id="cpf" placeholder="999.999.999-99">
+                                <div class="form-control-line"></div>
+                            </div>
 
-        <div class="form-group">
-            <label for="perfil" class="col-md-2 col-xs-2 control-label">Perfil</label>
-            <div class="col-md-10 col-xs-10 required">
-                <select class="form-control" id="perfil">
-                    <option>Aluno</option>
-                    <option>Ex-aluno</option>
-                </select>
-            </div>
-        </div> 
+                            <label for="nascimento" class="col-sm-2 control-label">Data de Nascimento</label>
+                            <div class="col-sm-4 required">
+                                <input type="date" class="form-control" id="nascimento" placeholder="DD/MM/AAAA">
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
 
-        <div class="form-group">
-            <label for="sexo" class="col-md-2 col-xs-2 control-label">Sexo</label>
-            <div class="col-md-2 col-xs-2 required">
-                <select class="form-control" id="sexo">
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                </select>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10 required">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="aluno@example.com">
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="perfil" class="col-sm-2 control-label">Perfil</label>
+                            <div class="col-sm-10 required">
+                                <select class="form-control" id="perfil">
+                                    <option>Aluno</option>
+                                    <option>Ex-aluno</option>
+                                </select>
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label for="sexo" class="col-sm-2 control-label">Sexo</label>
+                            <div class="col-sm-2 required">
+                                <select class="form-control" id="sexo">
+                                    <option>Masculino</option>
+                                    <option>Feminino</option>
+                                </select>
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="endereco" class="col-sm-2 control-label">Endereço</label>
+                            <div class="col-sm-10 required">
+                                <input type="text" class="form-control" id="endereco" placeholder="Endereço">
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="numero" class="col-sm-2 control-label">Numero</label>
+                            <div class="col-sm-2 required">
+                                <input type="text" class="form-control" id="numero" placeholder="Número">
+                                <div class="form-control-line"></div>
+                            </div>
+                            <label for="bairro" class="col-sm-1 control-label">Bairro</label>
+                            <div class="col-sm-3 required">
+                                <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+                                <div class="form-control-line"></div>
+                            </div>
+                            <label for="cidade" class="col-sm-1 control-label">Cidade</label>
+                            <div class="col-sm-3 required">
+                                <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">     
+                            <label for="uf" class="col-sm-2 control-label">UF</label>
+                            <div class="col-sm-2 required">
+                                <select class="form-control" id="uf">
+                                    <option value="">Selecione o Estado</option> 
+                                    <option value="ac">Acre</option> 
+                                    <option value="al">Alagoas</option> 
+                                    <option value="am">Amazonas</option> 
+                                    <option value="ap">Amapá</option> 
+                                    <option value="ba">Bahia</option> 
+                                    <option value="ce">Ceará</option> 
+                                    <option value="df">Distrito Federal</option> 
+                                    <option value="es">Espírito Santo</option> 
+                                    <option value="go">Goiás</option> 
+                                    <option value="ma">Maranhão</option> 
+                                    <option value="mt">Mato Grosso</option> 
+                                    <option value="ms">Mato Grosso do Sul</option> 
+                                    <option value="mg">Minas Gerais</option> 
+                                    <option value="pa">Pará</option> 
+                                    <option value="pb">Paraíba</option> 
+                                    <option value="pr">Paraná</option> 
+                                    <option value="pe">Pernambuco</option> 
+                                    <option value="pi">Piauí</option> 
+                                    <option value="rj">Rio de Janeiro</option> 
+                                    <option value="rn">Rio Grande do Norte</option> 
+                                    <option value="ro">Rondônia</option> 
+                                    <option value="rs">Rio Grande do Sul</option> 
+                                    <option value="rr">Roraima</option> 
+                                    <option value="sc">Santa Catarina</option> 
+                                    <option value="se">Sergipe</option> 
+                                    <option value="sp">São Paulo</option> 
+                                    <option value="to">Tocantins</option> 
+                                </select>
+                                <div class="form-control-line"></div>
+                            </div>
+                            
+                            <label for="cep" class="col-sm-1 control-label">CEP</label>
+                            <div class="col-sm-4 required">
+                                <input type="text" class="form-control cep" id="cep" placeholder="99999-000">
+                                <div class="form-control-line"></div>
+                            </div>
+                            <div class="col-sm-offset-2"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone-residencial" class="col-sm-2 control-label">Telefone Residencial</label>
+                            <div class="col-sm-4">
+                                <input type="tel" class="form-control phone-number" id="phone" placeholder="(99) 9999-9999">
+                                <div class="form-control-line"></div>
+                            </div>
+
+                            <label for="celular" class="col-sm-2 control-label">Celular</label>
+                            <div class="col-sm-4 required">
+                                <input type="text" class="form-control phone-number" id="celular" placeholder="(99) 99999-9999">
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-senha">
+                            <div class="form-group">
+                                <label for="password" class="col-sm-2 control-label">Senha</label>
+                                <div class="col-sm-6 col-xs-6 required">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="***********">
+                                    <div class="form-control-line"></div>
+                                </div>
+                                <div class="col-sm-offset-4"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password_confirmation" class="col-sm-2 control-label">Confirmação de Senha</label>
+                                <div class="col-sm-6 required">
+                                    <input type="password" class="form-control" id="password_confirmation"  name="password_confirmation" placeholder="***********">
+                                    <div class="form-control-line"></div>
+                                </div>
+                                <div class="col-sm-offset-4"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            
+                            <div class="checkbox checkbox-styled col-sm-offset-9 col-sm-3">
+                                <label>
+                                    <input type="checkbox" id="especial">
+                                    <span>Portador de Necessidades Especiais</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-11 col-sm-1">
+                                <button type="submit" class="btn btn-primary btn-send">Próximo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end #tab1 -->
+                <div class="tab-pane {{wizard.[1]}}" id="tab2">
+                    <br/><br/>
+                   <div class="form-row">
+                        <div class="form-group">
+                            <label for="formacao" class="col-sm-2 control-label">Tipo de formação:</label>
+                            <div class="col-sm-4 required">
+                                <select id="formacao" class="form-control">
+                                    <option>Graduação</option>
+                                    <option>Pós Graduação</option>
+                                    <option>Mestrado</option>
+                                    <option>Doutorado</option>
+                                </select>
+                                <div class="form-control-line"></div>
+                            </div>
+                            <div class="col-sm-offset-6"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="curso" class="col-sm-2 control-label">Curso:</label>
+                            <div class="col-sm-4 required">
+                                <select id="curso" class="form-control">
+                                    <option selected="selected">Administração</option>
+                                    <option>Ciências Biológicas</option>
+                                    <option>Ciências Contábeis</option>
+                                    <option>Educação Física</option>
+                                    <option>Enfermagem</option>
+                                    <option>Engenharia de Produção</option>
+                                    <option>Farmácia</option>
+                                    <option>Fisioterapia</option>
+                                    <option>Gastronomia</option>
+                                    <option>Gestão da Produção Industrial</option>
+                                    <option>Gestão de Recursos Humanos</option>
+                                    <option>História</option>
+                                    <option>Sistemas de Informação</option>
+                                    <option>Medicina</option>
+                                    <option>Pedagogia</option>
+                                    <option>Psicologia</option>
+                                    <option>Publicidade e Propaganda</option>
+                                </select>
+                                <div class="form-control-line"></div>
+                            </div>
+                            <div class="col-sm-offset-6"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="conclusao" class="col-sm-2 control-label">Ano de formação</label>
+                            <div class="col-sm-4 required">
+                                <input type="text" class="form-control" id="conclusao" placeholder="AAAA">
+                                <div class="form-control-line"></div>
+                            </div>
+                            <div class="col-sm-offset-6"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-sm-offset-10 col-sm-2">
+                            <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
+                            <button type="submit" class="btn btn-primary btn-send">Próximo</button>
+                        </div>
+                    </div>
+                </div><!--end #tab2 -->
+                <div class="tab-pane {{wizard.[2]}}" id="tab3">
+                    <br/><br/>
+                   <div class="form-row">
+                        {{#each language in languages}}
+                          <div class="form-group">
+                              <label for={{language.[0]}} class="col-sm-2 control-label">Idioma</label>
+                              <div class="col-sm-4">
+                                  <input type="text" class="form-control" id={{language.[0]}} placeholder="Idioma">
+                                  <div class="form-control-line"></div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label for={{language.[1]}} class="col-sm-2 control-label">Nível</label>
+                              <div class="col-sm-4">
+                                  <select id={{language.[1]}} class="form-control">
+                                      <option>Básico</option>
+                                      <option>Intermediário</option>
+                                      <option>Avançado</option>
+                                  </select>
+                                  <div class="form-control-line"></div>
+                              </div>
+                              <div class="col-sm-offset-6"></div>
+                          </div>
+                        {{/each}}
+
+                        <button type="button" id="add-language" class="btn btn-primary btn-back">Mais</button>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-10 col-sm-2">
+                                <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
+                                <button type="submit" class="btn btn-primary btn-send">Próximo</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end #tab3 -->
+                <div class="tab-pane {{wizard.[3]}}" id="tab4">
+                    <br/><br/>
+                   <div class="form-row">
+                        <div class="form-group">
+                            <label for="lattes" class="col-sm-2 control-label">Curriculo Lattes</label>
+                            <div class="col-sm-4 ">
+                                <input type="url" class="form-control" id="lattes" placeholder="http://lattes.cnpq.br/01232562323215487">
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experiencia" class="col-sm-2 control-label">Qualificações</label>
+                            <div class="col-sm-10 ">
+                                <textarea id="qualificacao" class="form-control" rows="4"></textarea>
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experiencia" class="col-sm-2 control-label">Cursos Extras</label>
+                            <div class="col-sm-10">
+                                <textarea id="cursos_extras" class="form-control" rows="6"></textarea>
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-10 col-sm-2">
+                                <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
+                                <button type="submit" class="btn btn-primary btn-send">Próximo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end #tab4 -->
+                <div class="tab-pane {{wizard.[4]}}" id="tab5">
+                    <br/><br/>
+                   <div class="form-row">
+                      {{#each experience in experiences}}
+                        <div class="form-group">
+                            <label for={{experience.[0]}} class="col-sm-2 control-label">Empresa</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id={{experience.[0]}} placeholder="Nome da Empresa">
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for={{experience.[1]}} class="col-sm-2 control-label">Cargo</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id={{experience.[1]}} placeholder="Cargo">
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for={{experience.[2]}} class="col-sm-2 control-label">Atribuições</label>
+                            <div class="col-sm-10">
+                                <textarea id={{experience.[2]}} class="form-control" rows="6"></textarea>
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for={{experience.[3]}} class="col-sm-2 control-label">Tempo de Trabalho (em anos)</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id={{experience.[3]}} placeholder="XX">
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for={{experience.[4]}} class="col-sm-2 control-label">Cidade</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id={{experience.[4]}} placeholder="Cidade">
+                                <div class="form-control-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for={{experience.[5]}} class="col-sm-2 control-label">UF</label>
+                            <div class="col-sm-2">
+                            <select class="form-control" id={{experience.[5]}}>
+                                <option value="">Selecione o Estado</option> 
+                                <option value="ac">Acre</option> 
+                                <option value="al">Alagoas</option> 
+                                <option value="am">Amazonas</option> 
+                                <option value="ap">Amapá</option> 
+                                <option value="ba">Bahia</option> 
+                                <option value="ce">Ceará</option> 
+                                <option value="df">Distrito Federal</option> 
+                                <option value="es">Espírito Santo</option> 
+                                <option value="go">Goiás</option> 
+                                <option value="ma">Maranhão</option> 
+                                <option value="mt">Mato Grosso</option> 
+                                <option value="ms">Mato Grosso do Sul</option> 
+                                <option value="mg">Minas Gerais</option> 
+                                <option value="pa">Pará</option> 
+                                <option value="pb">Paraíba</option> 
+                                <option value="pr">Paraná</option> 
+                                <option value="pe">Pernambuco</option> 
+                                <option value="pi">Piauí</option> 
+                                <option value="rj">Rio de Janeiro</option> 
+                                <option value="rn">Rio Grande do Norte</option> 
+                                <option value="ro">Rondônia</option> 
+                                <option value="rs">Rio Grande do Sul</option> 
+                                <option value="rr">Roraima</option> 
+                                <option value="sc">Santa Catarina</option> 
+                                <option value="se">Sergipe</option> 
+                                <option value="sp">São Paulo</option> 
+                                <option value="to">Tocantins</option> 
+                            </select>
+                            <div class="form-control-line"></div>
+                            </div>
+                        </div>
+                      {{/each}}
+                    </div>
+                    <button type="button" id="add-experience" class="btn btn-primary btn-back">Mais</button>
+                    
+                    <div class="form-group">
+                        <div class="col-sm-offset-10 col-sm-2">
+                            <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
+                            <button type="submit" class="btn btn-primary btn-send">Confirmar</button>
+                        </div>
+                    </div>
+                </div><!--end #tab5 -->
             </div>
-        </div>
+            <ul class="pager wizard">
+                <li class="previous first"><a class="btn-raised" href="">First</a></li>
+                <li class="previous"><a class="btn-raised" href="">Previous</a></li>
+                <li class="next last"><a class="btn-raised" href="">Last</a></li>
+                <li class="next"><a id="next" class="btn-raised" href="">Next</a></li>
+            </ul>
+        </form>
     </div>
-
-    <div class="form-row">
-        <div class="form-group">
-            <label for="endereco" class="col-md-2 col-xs-12 control-label">Endereço</label>
-            <div class="col-md-10 col-xs-12 required">
-                <input type="text" class="form-control" id="endereco" placeholder="Endereço">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="numero" class="col-md-2 col-xs-2 control-label">Numero</label>
-            <div class="col-md-2 col-xs-6 required">
-                <input type="text" class="form-control" id="numero" placeholder="Número">
-            </div>
-            <label for="bairro" class="col-md-1 col-xs-2 control-label">Bairro</label>
-            <div class="col-md-3 col-xs-6 required">
-                <input type="text" class="form-control" id="bairro" placeholder="Bairro">
-            </div>
-            <label for="cidade" class="col-md-1 col-xs-2 control-label">Cidade</label>
-            <div class="col-md-3 col-xs-6 required">
-                <input type="text" class="form-control" id="cidade" placeholder="Cidade">
-            </div>
-        </div>
-
-        <div class="form-group">     
-            <label for="uf" class="col-md-2 col-xs-6 control-label">UF</label>
-            <div class="col-md-2 col-xs-6 required">
-                <select class="form-control" id="uf">
-                    <option value="">Selecione o Estado</option> 
-                    <option value="ac">Acre</option> 
-                    <option value="al">Alagoas</option> 
-                    <option value="am">Amazonas</option> 
-                    <option value="ap">Amapá</option> 
-                    <option value="ba">Bahia</option> 
-                    <option value="ce">Ceará</option> 
-                    <option value="df">Distrito Federal</option> 
-                    <option value="es">Espírito Santo</option> 
-                    <option value="go">Goiás</option> 
-                    <option value="ma">Maranhão</option> 
-                    <option value="mt">Mato Grosso</option> 
-                    <option value="ms">Mato Grosso do Sul</option> 
-                    <option value="mg">Minas Gerais</option> 
-                    <option value="pa">Pará</option> 
-                    <option value="pb">Paraíba</option> 
-                    <option value="pr">Paraná</option> 
-                    <option value="pe">Pernambuco</option> 
-                    <option value="pi">Piauí</option> 
-                    <option value="rj">Rio de Janeiro</option> 
-                    <option value="rn">Rio Grande do Norte</option> 
-                    <option value="ro">Rondônia</option> 
-                    <option value="rs">Rio Grande do Sul</option> 
-                    <option value="rr">Roraima</option> 
-                    <option value="sc">Santa Catarina</option> 
-                    <option value="se">Sergipe</option> 
-                    <option value="sp">São Paulo</option> 
-                    <option value="to">Tocantins</option> 
-                </select>
-            </div>
-            
-            <label for="cep" class="col-md-1 col-xs-6 control-label">CEP</label>
-            <div class="col-md-4 col-xs-6 required">
-                <input type="text" class="form-control cep" id="cep" placeholder="99999-000">
-            </div>
-            <div class="col-md-offset-2"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="phone-residencial" class="col-md-2 col-xs-4 control-label">Telefone Residencial</label>
-            <div class="col-md-4 col-xs-8">
-                <input type="tel" class="form-control phone-number" id="phone" placeholder="(99) 9999-9999">
-            </div>
-
-            <label for="celular" class="col-md-2 col-xs-4 control-label">Celular</label>
-            <div class="col-md-4 col-xs-8 required">
-                <input type="text" class="form-control phone-number" id="celular" placeholder="(99) 99999-9999">
-            </div>
-        </div>
-
-        <div class="form-senha">
-            <div class="form-group">
-                <label for="password" class="col-md-2 col-xs-6 control-label">Senha</label>
-                <div class="col-md-6 col-xs-6 required">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="***********">
-                </div>
-                <div class="col-md-offset-4"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="password_confirmation" class="col-md-2 col-xs-6 control-label">Confirmação de Senha</label>
-                <div class="col-md-6 col-xs-6 required">
-                    <input type="password" class="form-control" id="password_confirmation"  name="password_confirmation" placeholder="***********">
-                </div>
-                <div class="col-md-offset-4"></div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-9 col-sm-3">
-                <input type="checkbox" id="especial"> Portador de Necessidades Especiais
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-11 col-sm-1">
-                <button type="submit" class="btn btn-primary btn-send">Próximo</button>
-            </div>
-        </div>
-    </div>
 </template>
 
-
-<!-- Step 2 -->
-<template name="step2">
-       <div class="form-row">
-            <div class="form-group">
-                <label for="formacao" class="col-md-2 control-label">Tipo de formação:</label>
-                <div class="col-md-4 col-xs-6  required">
-                    <select id="formacao" class="form-control">
-                        <option>Graduação</option>
-                        <option>Pós Graduação</option>
-                        <option>Mestrado</option>
-                        <option>Doutorado</option>
-                    </select>
-                </div>
-                <div class="col-md-offset-6"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="curso" class="col-md-2 control-label">Curso:</label>
-                <div class="col-md-4 col-xs-6  required">
-                    <select id="curso" class="form-control">
-                        <option selected="selected">Administração</option>
-                        <option>Ciências Biológicas</option>
-                        <option>Ciências Contábeis</option>
-                        <option>Educação Física</option>
-                        <option>Enfermagem</option>
-                        <option>Engenharia de Produção</option>
-                        <option>Farmácia</option>
-                        <option>Fisioterapia</option>
-                        <option>Gastronomia</option>
-                        <option>Gestão da Produção Industrial</option>
-                        <option>Gestão de Recursos Humanos</option>
-                        <option>História</option>
-                        <option>Sistemas de Informação</option>
-                        <option>Medicina</option>
-                        <option>Pedagogia</option>
-                        <option>Psicologia</option>
-                        <option>Publicidade e Propaganda</option>
-                    </select>
-                </div>
-                <div class="col-md-offset-6"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="conclusao" class="col-md-2 col-xs-12 control-label">Ano de formação</label>
-                <div class="col-md-4 col-xs-12  required">
-                    <input type="text" class="form-control" id="conclusao" placeholder="AAAA">
-                </div>
-                <div class="col-md-offset-6"></div>
-            </div>
-        </div>
-        
-        <!-- Botão pra adicionar mais uma graduação -->
-        
-        <div class="form-group">
-            <div class="col-sm-offset-10 col-sm-2">
-                <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
-                <button type="submit" class="btn btn-primary btn-send">Próximo</button>
-            </div>
-        </div>
-</template>
-
-
-<!-- Step 3 -->
-<template name="step3">
-       <div class="form-row">
-            <div class="form-group">
-                <label for="idioma" class="col-md-2 col-xs-4 control-label">Idioma</label>
-                <div class="col-md-4 col-xs-8">
-                    <input type="text" class="form-control" id="idioma" placeholder="Idioma">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="nivel-idioma" class="col-md-2 col-xs-4 control-label">Nível</label>
-                <div class="col-md-4 col-xs-8">
-                    <select id="nivel_do_idioma" class="form-control">
-                        <option>Básico</option>
-                        <option>Intermediário</option>
-                        <option>Avançado</option>
-                    </select>
-                </div>
-                <div class="col-md-offset-6"></div>
-            </div>
-
-            <!-- Botão pra adicionar mais um idioma -->
-
-            <div class="form-group">
-                <div class="col-sm-offset-10 col-sm-2">
-                    <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
-                    <button type="submit" class="btn btn-primary btn-send">Próximo</button>
-
-                </div>
-            </div>
-        </div>
-</template>
-
-
-<!-- Step 4 -->
-<template name="step4">
-       <div class="form-row">
-            <div class="form-group">
-                <label for="lattes" class="col-md-2 col-xs-4 control-label">Curriculo Lattes</label>
-                <div class="col-md-4 col-xs-8">
-                    <input type="url" class="form-control" id="lattes" placeholder="http://lattes.cnpq.br/01232562323215487">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="experiencia" class="col-md-2 col-xs-4 control-label">Qualificações</label>
-                <div class="col-md-10 col-xs-6">
-                    <textarea id="qualificacao" class="form-control" rows="4"></textarea>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="experiencia" class="col-md-2 col-xs-4 control-label">Cursos Extras</label>
-                <div class="col-md-10 col-xs-6">
-                    <textarea id="cursos_extras" class="form-control" rows="6"></textarea>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-offset-10 col-sm-2">
-                    <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
-                    <button type="submit" class="btn btn-primary btn-send">Próximo</button>
-                </div>
-            </div>
-        </div>
-</template>
-
-
-<!-- Step 5 -->
-<template name="step5">
-       <div class="form-row">
-            <div class="form-group">
-                <label for="empresa" class="col-md-2 col-xs-4 control-label">Empresa</label>
-                <div class="col-md-10 col-xs-8">
-                    <input type="text" class="form-control" id="nome_emp" placeholder="Nome Empresa">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="cargo" class="col-md-2 col-xs-4 control-label">Cargo</label>
-                <div class="col-md-10 col-xs-8">
-                    <input type="text" class="form-control" id="cargo_emp" placeholder="Cargo">
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label for="atribuicoes" class="col-md-2 col-xs-4 control-label">Atribuições</label>
-                <div class="col-md-10 col-xs-6">
-                    <textarea id="atribuicoes" class="form-control" rows="6"></textarea>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="empresa" class="col-md-2 col-xs-4 control-label">Tempo de Trabalho (em anos)</label>
-                <div class="col-md-2 col-xs-8">
-                    <input type="text" class="form-control" id="duracao_emp" placeholder="XX">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="empresa" class="col-md-2 col-xs-4 control-label">Cidade</label>
-                <div class="col-md-2 col-xs-8">
-                    <input type="text" class="form-control" id="cidade_emp" placeholder="Cidade">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="empresa" class="col-md-2 col-xs-4 control-label">UF</label>
-                <div class="col-md-2 col-xs-8">
-                <select class="form-control" id="uf_emp">
-                    <option value="">Selecione o Estado</option> 
-                    <option value="ac">Acre</option> 
-                    <option value="al">Alagoas</option> 
-                    <option value="am">Amazonas</option> 
-                    <option value="ap">Amapá</option> 
-                    <option value="ba">Bahia</option> 
-                    <option value="ce">Ceará</option> 
-                    <option value="df">Distrito Federal</option> 
-                    <option value="es">Espírito Santo</option> 
-                    <option value="go">Goiás</option> 
-                    <option value="ma">Maranhão</option> 
-                    <option value="mt">Mato Grosso</option> 
-                    <option value="ms">Mato Grosso do Sul</option> 
-                    <option value="mg">Minas Gerais</option> 
-                    <option value="pa">Pará</option> 
-                    <option value="pb">Paraíba</option> 
-                    <option value="pr">Paraná</option> 
-                    <option value="pe">Pernambuco</option> 
-                    <option value="pi">Piauí</option> 
-                    <option value="rj">Rio de Janeiro</option> 
-                    <option value="rn">Rio Grande do Norte</option> 
-                    <option value="ro">Rondônia</option> 
-                    <option value="rs">Rio Grande do Sul</option> 
-                    <option value="rr">Roraima</option> 
-                    <option value="sc">Santa Catarina</option> 
-                    <option value="se">Sergipe</option> 
-                    <option value="sp">São Paulo</option> 
-                    <option value="to">Tocantins</option> 
-                </select>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Botão pra adicionar mais uma exp profissional -->
-        
-        <div class="form-group">
-            <div class="col-sm-offset-10 col-sm-2">
-                <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
-                <button type="submit" class="btn btn-primary btn-send">Confirmar</button>
-            </div>
-        </div>
-</template>

@@ -1,49 +1,82 @@
 <template name="studentsLogin">
-    <div class="login-container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="text-center m-b-md">
-                    <h3>Bem-vindo ao Banco de Talentos</h3>
-                    <small>E bem vindo ao mercado de trabalho!</small>
-                </div>
-                <div class="hpanel">
-                    <div class="panel-body">
-                            <form action="#" id="loginForm">
-                                <div class="form-group">
-                                    <label class="control-label" for="username">Email</label>
-                                    <input type="text" placeholder="example@mail.com" title="Digite aqui seu email" required="" value="" name="username" id="username" class="form-control">
-                                    <span class="help-block small">Ou número de matrícula</span>
+<div class="menubar-hoverable header-fixed " id="content">
+
+    <!-- BEGIN LOGIN SECTION -->
+    <section class="section-account">
+        <!--div class="img-backdrop" style="background-image: url('../../assets/img/img16.jpg')"></div>
+<div class="spacer"></div-->
+        <div class="card contain-sm style-transparent">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+
+                        <span class="text-lg text-bold text-primary">Bem-vindo ao Banco de Talentos</span>
+                        <br/>
+                        <small>E bem vindo ao mercado de trabalho!</small>
+                        <br/>
+                        <br/>
+                        <form class="form floating-label" action="#" accept-charset="utf-8" method="#" id="loginForm">
+                            <div class="form-group">
+                                <input type="text" title="Digite aqui seu email" required="" value="" name="username" id="username" class="form-control input-lg">
+                                <label class="control-label" for="username">Email</label>
+                                <span class="help-block small">Ou número de matrícula</span>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" title="Entre com sua senha" required="" value="" name="password" id="password" class="form-control input-lg">
+                                <label class="control-label" for="password">Senha</label>
+                                <span class="help-block small">A mesma senha do portal do aluno</span>
+                                <p class="help-block"><a href="#">Esqueceu sua senha?</a></p>
+                            </div>
+
+                            <br/>
+                            <div class="row">
+                                <div class="col-xs-6 text-left">
+                                    <div class="checkbox checkbox-styled">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span>Lembrar-me nesse dispositivo</span>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="password">Senha</label>
-                                    <input type="password" title="Entre com sua senha" placeholder="******" required="" value="" name="password" id="password" class="form-control">
-                                    <span class="help-block small">A mesma senha do portal do aluno</span>
+                                <!--end .col -->
+                                <div class="col-xs-6 text-right">
+                                    <button class="btn btn-primary btn-raised" type="submit">Login</button>
                                 </div>
-                                <div class="checkbox">
-                                    <!--div class="icheckbox_square-green checked" style="position: relative;"><input type="checkbox" class="i-checks" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div-->
-                                    
-                                    <label>
-                                        <input type="checkbox"> Lembrar-me nesse dispositivo
-                                    </label>
-                                </div>
-                                
-                                <div class="login-social">
-                                   
-                                   <h3>Ou escolha uma rede social para começar</h3>
-                                   
-                                    <ul>
-                                        <li><a href="#"><i class="mdi mdi-facebook-box material-icons md-36"></i></a></li>
-                                        <li><a href="#"><i class="mdi mdi-gmail material-icons md-36"></i></a></li>
-                                        <li><a href="#"><i class="mdi mdi-linkedin-box material-icons md-36"></i></a></li>
-                                    </ul>   
-                                </div>
-                                
-                                <button class="btn btn-success btn-block">Entrar</button>
-                                <a class="btn btn-default btn-block" href="{{pathFor route='students.signup' step_id=1}}">Registrar</a>
-                            </form>
+                                <!--end .col -->
+                            </div>
+                            <!--end .row -->
+                        </form>
                     </div>
+                    <!--end .col -->
+                    <div class="col-sm-5 col-sm-offset-1 text-center">
+                        <br>
+                        <br>
+                        <p class="text-light">
+                            Crie uma conta
+                        </p>
+                        <a class="btn-block btn btn-primary btn-raised" href="{{pathFor route='students.signup' step_id=1}}">Registrar</a>
+                        <br>
+                        <p class="text-light">
+                            Ou escolha uma rede social para começar
+                        </p>
+                        <p>
+                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-facebook-box material-icons md-36 pull-left"></i>Login with Facebook</a>
+                        </p>
+                        <p>
+                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-gmail material-icons md-36 pull-left"></i>Login with Gmail</a>
+                        </p>
+                        <p>
+                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-linkedin-box material-icons md-36 pull-left"></i>Login with Linkedin</a>
+                        </p>
+                    </div>
+                    <!--end .col -->
                 </div>
+                <!--end .row -->
             </div>
+            <!--end .card-body -->
         </div>
-    </div>
+        <!--end .card -->
+    </section>
+    <!-- END LOGIN SECTION -->
+</div>
 </template>

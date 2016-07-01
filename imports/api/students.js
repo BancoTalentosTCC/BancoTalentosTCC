@@ -162,7 +162,7 @@ StudentsSchema4 = new SimpleSchema({
     type: String,
     label: "Lattes",
     regEx: SimpleSchema.RegEx.Url,
-    optional: true
+    optional: false
   },
   qualificacao: {
     type: String,
@@ -188,7 +188,7 @@ StudentsSchema5 = new SimpleSchema({
     optional: true
   },
   atribuicoes: {
-    type: "String",
+    type: String,
     label: "Atribuições",
     min: 30,
     optional: true
@@ -212,17 +212,35 @@ StudentsSchema5 = new SimpleSchema({
   }
 });
 
-Schema = {};
+Schemas = {};
 
-UserProfile = new SimpleSchema([
-  StudentsSchema1, 
-  StudentsSchema2, 
-  StudentsSchema3, 
-  StudentsSchema4, 
-  StudentsSchema5
-]);
+Schemas.UserProfile = new SimpleSchema({
+  formacao: {
+    type: StudentsSchema2,
+    label: "Formação",
+    optional: true
+  },
+  idiomas: {
+    type: [ StudentsSchema3 ],
+    label: "Idioma",
+    optional: true
+  },
+  qualificacoes: {
+    type: StudentsSchema4,
+    label: "Qualificações",
+    optional: true
+  },
+  experiencia: {
+    type: [ StudentsSchema5 ],
+    label: "Experiência Profissional",
+    optional: true
+  }
+}
+);
 
-User = new SimpleSchema({
+Schemas.UserProfile._schema = _.extend(Schemas.UserProfile._schema, StudentsSchema1._schema);
+
+Schemas.User = new SimpleSchema({
     username: {
         type: String,
         optional: true
@@ -244,7 +262,7 @@ User = new SimpleSchema({
         type: Date
     },
     profile: {
-        type: UserProfile,
+        type: Schemas.UserProfile,
         label: "Perfil",
         optional: false
     },
@@ -264,6 +282,6 @@ User = new SimpleSchema({
     }
 });
 
-Meteor.users.attachSchema(User);
+Meteor.users.attachSchema(Schemas.User);
 
 

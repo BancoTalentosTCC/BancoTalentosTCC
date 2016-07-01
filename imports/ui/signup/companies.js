@@ -9,11 +9,11 @@ Template.companiesSignup.events({
     //REMOVE ERRORS
     $('.warning').removeClass('warning');
 
-    var fields = ['nome', 'cnpj', 'razaosoc', 'endereco', 'numero', 'bairro', 'cidade', 'uf', 'cep', 'phone', 'fax', 'dados'];
-
+    let fields = ['nome', 'cnpj', 'razaosoc', 'endereco', 'numero', 'bairro', 'cidade', 'uf', 'cep', 'phone', 'fax', 'dados'];
     let target = event.target;
-    var companyProfile = {};
-    for (var i = 0; i < fields.length; i++) {
+    let companyProfile = {};
+
+    for (let i = 0; i < fields.length; i++) {
       companyProfile[fields[i]] = target[fields[i]].value;
     }
 
