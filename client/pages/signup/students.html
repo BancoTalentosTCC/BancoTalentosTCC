@@ -2,243 +2,219 @@
     <div id="wizard" class="form-wizard form-wizard-horizontal">
         <form class="form floating-label form-validation">
             <div class="form-wizard-nav nav-pills">
-                <div class="progress"><div class="progress-bar progress-bar-primary"></div></div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-primary"></div>
+                </div>
                 <ul class="nav nav-justified">
                     <li class="active">
-                        <a href="#tab1" data-toggle="tab">
-                            <span class="mdi mdi-account step"></span> 
-                            <span class="title">Dados Pessoais</span>
-                        </a>
+                        <a href="#tab1" data-toggle="tab"> <span class="mdi mdi-account step"></span> <span class="title">Dados Pessoais</span> </a>
                     </li>
-                    
                     <li>
-                        <a href="#tab2" data-toggle="tab">
-                            <span class="mdi mdi-library-books step"></span>
-                            <span class="title">Formação</span>
-                        </a>
+                        <a href="#tab2" data-toggle="tab"> <span class="mdi mdi-library-books step"></span> <span class="title">Formação</span> </a>
                     </li>
-                    
                     <li>
-                        <a href="#tab3" data-toggle="tab">
-                            <span class="mdi mdi-message-text step"></span> 
-                            <span class="title">Idiomas</span>
-                        </a>
+                        <a href="#tab3" data-toggle="tab"> <span class="mdi mdi-message-text step"></span> <span class="title">Idiomas</span> </a>
                     </li>
-                    
                     <li>
-                        <a href="#tab4" data-toggle="tab">
-                            <span class="mdi mdi-wrench step"></span> 
-                            <span class="title">Qualificações</span>
-                        </a>
+                        <a href="#tab4" data-toggle="tab"> <span class="mdi mdi-wrench step"></span> <span class="title">Qualificações</span> </a>
                     </li>
-                    
                     <li>
-                        <a href="#tab5" data-toggle="tab">
-                            <span class="mdi mdi-worker step"></span> 
-                            <span class="title">Experiência Profissional</span>
-                        </a>
+                        <a href="#tab5" data-toggle="tab"> <span class="mdi mdi-worker step"></span> <span class="title">Experiência Profissional</span> </a>
                     </li>
                 </ul>
             </div>
             <div class="tab-content clearfix">
                 <div class="tab-pane active" id="tab1">
-                    <br/><br/>
-                <!-- Step 1 -->
+                    <br/>
+                    <br/>
+                    <!-- Step 1 -->
                     <div class="form-row form-border">
-
-                       <h1>Dados pessoais</h1>
-
+                        <h1>Dados pessoais</h1>
                         <div class="form-group">
-                            <label for="nome" class="col-sm-2 control-label">Nome</label>
-                            <div class="col-sm-10 required">
-                                <input type="text" class="form-control" id="nome" placeholder="Nome" data-rule-minlength="2" required>
-                                <div class="form-control-line"></div>
-                            </div>
+                            <input type="text" class="form-control required" id="nome" data-rule-minlength="2" required>
+                            <label for="nome" class="control-label">Nome</label>
                         </div>
-
-                        <div class="form-group">
-                            <!-- Implementar JS para validar CPF -->
-                            <label for="cpf" class="col-sm-2 control-label">CPF</label>
-                            <div class="col-sm-4 required">
-                                <input type="text" class="form-control cpf" id="cpf" placeholder="999.999.999-99" data-rule-minlength="11" required="">
-                                <div class="form-control-line"></div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control cpf required" id="cpf" data-rule-minlength="11" required="">
+                                    <label for="cpf" class="control-label">CPF</label>
+                                </div>
                             </div>
-
-                            <label for="nascimento" class="col-sm-2 control-label">Data de Nascimento</label>
-                            <div class="col-sm-4 required">
-                                <input type="date" class="form-control" id="nascimento" placeholder="DD/MM/AAAA" required>
-                                <div class="form-control-line"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                            <div class="col-sm-10 required">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="aluno@example.com" data-rule-email="true" required>
-                                <div class="form-control-line"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="perfil" class="col-sm-2 control-label">Perfil</label>
-                            <div class="col-sm-10 required">
-                                <select class="form-control" id="perfil" required>
-                                    <option>Aluno</option>
-                                    <option>Ex-aluno</option>
-                                </select>
-                                <div class="form-control-line"></div>
-                            </div>
-                        </div> 
-
-                        <div class="form-group">
-                            <label for="sexo" class="col-sm-2 control-label">Sexo</label>
-                            <div class="col-sm-2 required">
-                                <select class="form-control" id="sexo" required>
-                                    <option>Masculino</option>
-                                    <option>Feminino</option>
-                                </select>
-                                <div class="form-control-line"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="endereco" class="col-sm-2 control-label">Endereço</label>
-                            <div class="col-sm-10 required">
-                                <input type="text" class="form-control" id="endereco" placeholder="Endereço" required>
-                                <div class="form-control-line"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="numero" class="col-sm-2 control-label">Numero</label>
-                            <div class="col-sm-2 required">
-                                <input type="text" class="form-control" id="numero" placeholder="Número" data-rule-minlength="1" required>
-                                <div class="form-control-line"></div>
-                            </div>
-                            <label for="bairro" class="col-sm-1 control-label">Bairro</label>
-                            <div class="col-sm-3 required">
-                                <input type="text" class="form-control" id="bairro" placeholder="Bairro" data-rule-minlength="2" required>
-                                <div class="form-control-line"></div>
-                            </div>
-                            <label for="cidade" class="col-sm-1 control-label">Cidade</label>
-                            <div class="col-sm-3 required">
-                                <input type="text" class="form-control" id="cidade" placeholder="Cidade" data-rule-minlength="2" required>
-                                <div class="form-control-line"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">     
-                            <label for="uf" class="col-sm-2 control-label">UF</label>
-                            <div class="col-sm-2 required">
-                                <select class="form-control" id="uf" required>
-                                    <option value="">Selecione o Estado</option> 
-                                    <option value="ac">Acre</option> 
-                                    <option value="al">Alagoas</option> 
-                                    <option value="am">Amazonas</option> 
-                                    <option value="ap">Amapá</option> 
-                                    <option value="ba">Bahia</option> 
-                                    <option value="ce">Ceará</option> 
-                                    <option value="df">Distrito Federal</option> 
-                                    <option value="es">Espírito Santo</option> 
-                                    <option value="go">Goiás</option> 
-                                    <option value="ma">Maranhão</option> 
-                                    <option value="mt">Mato Grosso</option> 
-                                    <option value="ms">Mato Grosso do Sul</option> 
-                                    <option value="mg">Minas Gerais</option> 
-                                    <option value="pa">Pará</option> 
-                                    <option value="pb">Paraíba</option> 
-                                    <option value="pr">Paraná</option> 
-                                    <option value="pe">Pernambuco</option> 
-                                    <option value="pi">Piauí</option> 
-                                    <option value="rj">Rio de Janeiro</option> 
-                                    <option value="rn">Rio Grande do Norte</option> 
-                                    <option value="ro">Rondônia</option> 
-                                    <option value="rs">Rio Grande do Sul</option> 
-                                    <option value="rr">Roraima</option> 
-                                    <option value="sc">Santa Catarina</option> 
-                                    <option value="se">Sergipe</option> 
-                                    <option value="sp">São Paulo</option> 
-                                    <option value="to">Tocantins</option> 
-                                </select>
-                                <div class="form-control-line"></div>
-                            </div>
-                            
-                            <label for="cep" class="col-sm-1 control-label">CEP</label>
-                            <div class="col-sm-4 required">
-                                <input type="text" class="form-control cep" id="cep" placeholder="99999-000" data-rule-minlength="8" required>
-                                <div class="form-control-line"></div>
-                            </div>
-                            <div class="col-sm-offset-2"></div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone-residencial" class="col-sm-2 control-label">Telefone Residencial</label>
                             <div class="col-sm-4">
-                                <input type="tel" class="form-control phone-number" id="phone" placeholder="(99) 9999-9999">
-                                <div class="form-control-line"></div>
+                                <div class="form-group">
+                                    <input type="date" class="form-control required" id="nascimento" required>
+                                    <label for="nascimento" class="control-label">Data de Nascimento</label>
+                                </div>
                             </div>
-
-                            <label for="celular" class="col-sm-2 control-label">Celular</label>
-                            <div class="col-sm-4 required">
-                                <input type="text" class="form-control phone-number" id="celular" placeholder="(99) 99999-9999" data-rule-minlength="10" required>
-                                <div class="form-control-line"></div>
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <select class="form-control required" id="perfil" required>
+                                        <option>Aluno</option>
+                                        <option>Ex-aluno</option>
+                                    </select>
+                                    <label for="perfil" class="control-label">Perfil</label>
+                                </div>
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <input type="email" class="form-control required" id="email" name="email" data-rule-email="true" required>
+                                    <label for="inputEmail3" class="control-label">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <select class="form-control" id="sexo" required>
+                                        <option>Masculino</option>
+                                        <option>Feminino</option>
+                                    </select>
+                                    <label for="sexo" class="control-label">Sexo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <div class="form-group">
+                                <input type="text" class="form-control required" id="endereco" required>
+                                <label for="endereco" class="control-label">Endereço</label>
+                            </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                        <input type="text" class="form-control required" id="numero" data-rule-minlength="1" required>
+                                        <label for="numero" class="control-label">Numero</label>
+                                    </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control required" id="complemento">
+                                        <label for="complement" class="control-label">Complemento</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control required" id="bairro" data-rule-minlength="2" required>
+                                        <label for="bairro" class="control-label">Bairro</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control required" id="cidade" data-rule-minlength="2" required>
+                                        <label for="cidade" class="control-label">Cidade</label>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <select class="form-control required" id="uf" required>
+                                        <option value="ac">Acre</option>
+                                        <option value="al">Alagoas</option>
+                                        <option value="am">Amazonas</option>
+                                        <option value="ap">Amapá</option>
+                                        <option value="ba">Bahia</option>
+                                        <option value="ce">Ceará</option>
+                                        <option value="df">Distrito Federal</option>
+                                        <option value="es">Espírito Santo</option>
+                                        <option value="go">Goiás</option>
+                                        <option value="ma">Maranhão</option>
+                                        <option value="mt">Mato Grosso</option>
+                                        <option value="ms">Mato Grosso do Sul</option>
+                                        <option value="mg">Minas Gerais</option>
+                                        <option value="pa">Pará</option>
+                                        <option value="pb">Paraíba</option>
+                                        <option value="pr">Paraná</option>
+                                        <option value="pe">Pernambuco</option>
+                                        <option value="pi">Piauí</option>
+                                        <option value="rj">Rio de Janeiro</option>
+                                        <option value="rn">Rio Grande do Norte</option>
+                                        <option value="ro">Rondônia</option>
+                                        <option value="rs">Rio Grande do Sul</option>
+                                        <option value="rr">Roraima</option>
+                                        <option value="sc">Santa Catarina</option>
+                                        <option value="se">Sergipe</option>
+                                        <option value="sp">São Paulo</option>
+                                        <option value="to">Tocantins</option>
+                                    </select>
+                                    <label for="uf" class="control-label">UF</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control cep required" id="cep" data-rule-minlength="8" required>
+                                    <label for="cep" class="control-label">CEP</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="tel" class="form-control phone-number" id="phone">
+                                    <label for="phone-residencial" class="control-label">Telefone Residencial</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control phone-number required" id="celular" data-rule-minlength="10" required>
+                                    <label for="celular" class="control-label">Celular</label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-senha">
-                            <div class="form-group">
-                                <label for="password" class="col-sm-2 control-label">Senha</label>
-                                <div class="col-sm-6 col-xs-6 required">
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="***********" data-rule-minlength="8" required>
-                                    <div class="form-control-line"></div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control required" id="password" name="password" data-rule-minlength="8" required>
+                                        <label for="password" class="control-label">Senha</label>
+                                    </div>
                                 </div>
                                 <div class="col-sm-offset-4"></div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="password_confirmation" class="col-sm-2 control-label">Confirmação de Senha</label>
-                                <div class="col-sm-6 required">
-                                    <input type="password" class="form-control" id="password_confirmation"  name="password_confirmation" placeholder="***********" data-rule-minlength="8" required>
-                                    <div class="form-control-line"></div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control required" id="password_confirmation" name="password_confirmation" data-rule-minlength="8" required>
+                                        <label for="password_confirmation" class="control-label">Confirmação de Senha</label>
+                                    </div>
                                 </div>
                                 <div class="col-sm-offset-4"></div>
                             </div>
                         </div>
-
                         <div class="form-group">
-                            
                             <div class="checkbox checkbox-styled col-sm-offset-9 col-sm-3">
                                 <label>
-                                    <input type="checkbox" id="especial">
-                                    <span>Portador de Necessidades Especiais</span>
-                                </label>
+                                    <input type="checkbox" id="especial"> <span>Portador de Necessidades Especiais</span> </label>
                             </div>
                         </div>
                     </div>
-                </div><!--end #tab1 -->
+                </div>
+                <!--end #tab1 -->
                 <div class="tab-pane" id="tab2">
-                    <br/><br/>
-                   <div class="form-row">
-                        <div class="form-group">
-                            <label for="formacao" class="col-sm-2 control-label">Tipo de formação:</label>
-                            <div class="col-sm-4 required">
-                                <select id="formacao" class="form-control" required>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <select id="formacao" class="form-control required" required>
                                     <option>Graduação</option>
                                     <option>Pós Graduação</option>
                                     <option>Mestrado</option>
                                     <option>Doutorado</option>
                                 </select>
-                                <div class="form-control-line"></div>
+                                <label for="formacao" class="control-label">Tipo de formação:</label>
                             </div>
-                            <div class="col-sm-offset-6"></div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="curso" class="col-sm-2 control-label">Curso:</label>
-                            <div class="col-sm-4 required">
-                                <select id="curso" class="form-control" required>
+                        <div class="col-sm-offset-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <select id="curso" class="form-control required" required>
                                     <option selected="selected">Administração</option>
                                     <option>Ciências Biológicas</option>
                                     <option>Ciências Contábeis</option>
@@ -257,180 +233,167 @@
                                     <option>Psicologia</option>
                                     <option>Publicidade e Propaganda</option>
                                 </select>
-                                <div class="form-control-line"></div>
+                                <label for="curso" class="control-label">Curso:</label>
                             </div>
-                            <div class="col-sm-offset-6"></div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="conclusao" class="col-sm-2 control-label">Ano de formação</label>
-                            <div class="col-sm-4 required">
-                                <input type="text" class="form-control" id="conclusao" placeholder="AAAA">
-                                <div class="form-control-line"></div>
-                            </div>
-                            <div class="col-sm-offset-6"></div>
-                        </div>
+                        <div class="col-sm-offset-6"></div>
                     </div>
-                </div><!--end #tab2 -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control required" id="conclusao">
+                                <label for="conclusao" class="control-label">Ano de formação</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-offset-6"></div>
+                    </div>
+                </div>
+                <!--end #tab2 -->
                 <div class="tab-pane" id="tab3">
-                    <br/><br/>
-                   <div class="form-row">
-                        {{#each language in languages}}
-                          <div class="form-group">
-                              <label for={{language.[0]}} class="col-sm-2 control-label">Idioma</label>
-                              <div class="col-sm-4">
-                                  <select id={{language.[0]}} class="form-control idioma">
-                                      <option>Espanhol</option>
-                                      <option>Inglês</option>
-                                      <option>Frances</option>
-                                      <option>Alemão</option>
-                                      <option>Italiano</option>
-                                      <option>Mandarim</option>
-                                      <option>Japonês</option>
-                                  </select>
-                                  <div class="form-control-line"></div>
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label for={{language.[1]}} class="col-sm-2 control-label">Nível</label>
-                              <div class="col-sm-4">
-                                  <select id={{language.[1]}} class="form-control nivel_do_idioma">
-                                      <option>Básico</option>
-                                      <option>Intermediário</option>
-                                      <option>Avançado</option>
-                                      <option>Fluente</option>
-                                  </select>
-                                  <div class="form-control-line"></div>
-                              </div>
-                              <div class="col-sm-offset-6"></div>
-                          </div>
-                        {{/each}}
-                        <button type="button" id="add-language" class="btn btn-icon-toggle btn-primary">
-                            <i class="fa fa-plus"></i>
-                        </button>
-                        <button type="button" id="remove-language" class="btn btn-icon-toggle btn-danger">
-                            <i class="fa fa-minus"></i>
-                        </button>
+                    <br/>
+                    <br/>
+                    <div class="row"> {{#each language in languages}}
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <select id={{language.[0]}} class="form-control idioma static dirty">
+                                    <option>Espanhol</option>
+                                    <option>Inglês</option>
+                                    <option>Frances</option>
+                                    <option>Alemão</option>
+                                    <option>Italiano</option>
+                                    <option>Mandarim</option>
+                                    <option>Japonês</option>
+                                </select>
+                                <label for={{language.[0]}} class="control-label">Idioma</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <select id={{language.[1]}} class="form-control nivel_do_idioma static dirty">
+                                    <option>Básico</option>
+                                    <option>Intermediário</option>
+                                    <option>Avançado</option>
+                                    <option>Fluente</option>
+                                </select>
+                                <label for={{language.[1]}} class="control-label">Nível</label>
+                            </div>
+                        </div> {{/each}}
+                        <button type="button" id="add-language" class="btn btn-icon-toggle btn-primary"> <i class="fa fa-plus"></i> </button>
+                        <button type="button" id="remove-language" class="btn btn-icon-toggle btn-danger"> <i class="fa fa-minus"></i> </button>
                     </div>
-                </div><!--end #tab3 -->
+                </div>
+                <!--end #tab3 -->
                 <div class="tab-pane" id="tab4">
-                    <br/><br/>
-                   <div class="form-row">
-                        <div class="form-group">
-                            <label for="lattes" class="col-sm-2 control-label">Curriculo Lattes</label>
-                            <div class="col-sm-4 ">
-                                <input type="url" class="form-control" id="lattes" placeholder="http://lattes.cnpq.br/01232562323215487" data-rule-url="true" required>
-                                <div class="form-control-line"></div>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="url" class="form-control required" id="lattes" data-rule-url="true" required>
+                                <label for="lattes" class="control-label">Curriculo Lattes</label>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="experiencia" class="col-sm-2 control-label">Qualificações</label>
-                            <div class="col-sm-10 ">
+                        <div class="col-sm-offset-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
                                 <textarea id="qualificacao" class="form-control" rows="4"></textarea>
-                                <div class="form-control-line"></div>
+                                <label for="experiencia" class="control-label">Qualificações</label>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="experiencia" class="col-sm-2 control-label">Cursos Extras</label>
-                            <div class="col-sm-10">
+                        <div class="col-sm-offset-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
                                 <textarea id="cursos_extras" class="form-control" rows="6"></textarea>
-                                <div class="form-control-line"></div>
+                                <label for="experiencia" class="control-label">Cursos Extras</label>
                             </div>
                         </div>
+                        <div class="col-sm-offset-6"></div>
                     </div>
-                </div><!--end #tab4 -->
+                </div>
+                <!--end #tab4 -->
                 <div class="tab-pane" id="tab5">
-                    <br/><br/>
-                   <div class="form-row">
-                      {{#each experience in experiences}}
-                        <div class="form-group">
-                            <label for="nome_emp" class="col-sm-2 control-label">Empresa</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control nome_emp" id="nome_emp" placeholder="Nome da Empresa">
-                                <div class="form-control-line"></div>
+                    <br/>
+                    <br/> {{#each experience in experiences}}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control nome_emp" id="nome_emp">
+                                <label for="nome_emp" class="control-label">Empresa</label>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="cargo_emp" class="col-sm-2 control-label">Cargo</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control cargo_emp" id="cargo_emp" placeholder="Cargo">
-                                <div class="form-control-line"></div>
+                        
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control cargo_emp" id="cargo_emp">
+                                <label for="cargo_emp" class="control-label">Cargo</label>
                             </div>
                         </div>
-
-
-                        <div class="form-group">
-                            <label for="atribuicoes" class="col-sm-2 control-label">Atribuições</label>
-                            <div class="col-sm-10">
-                                <textarea id="atribuicoes" class="form-control atribuicoes" rows="6"></textarea>
-                                <div class="form-control-line"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="duracao_emp" class="col-sm-2 control-label">Tempo de Trabalho (em anos)</label>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control duracao_emp" id="duracao_emp" placeholder="XX">
-                                <div class="form-control-line"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cidade_emp" class="col-sm-2 control-label">Cidade</label>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control cidade_emp" id="cidade_emp" placeholder="Cidade">
-                                <div class="form-control-line"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="uf_emp" class="col-sm-2 control-label">UF</label>
-                            <div class="col-sm-2">
-                            <select class="form-control uf_emp" id="uf_emp">
-                                <option value="">Selecione o Estado</option> 
-                                <option value="ac">Acre</option> 
-                                <option value="al">Alagoas</option> 
-                                <option value="am">Amazonas</option> 
-                                <option value="ap">Amapá</option> 
-                                <option value="ba">Bahia</option> 
-                                <option value="ce">Ceará</option> 
-                                <option value="df">Distrito Federal</option> 
-                                <option value="es">Espírito Santo</option> 
-                                <option value="go">Goiás</option> 
-                                <option value="ma">Maranhão</option> 
-                                <option value="mt">Mato Grosso</option> 
-                                <option value="ms">Mato Grosso do Sul</option> 
-                                <option value="mg">Minas Gerais</option> 
-                                <option value="pa">Pará</option> 
-                                <option value="pb">Paraíba</option> 
-                                <option value="pr">Paraná</option> 
-                                <option value="pe">Pernambuco</option> 
-                                <option value="pi">Piauí</option> 
-                                <option value="rj">Rio de Janeiro</option> 
-                                <option value="rn">Rio Grande do Norte</option> 
-                                <option value="ro">Rondônia</option> 
-                                <option value="rs">Rio Grande do Sul</option> 
-                                <option value="rr">Roraima</option> 
-                                <option value="sc">Santa Catarina</option> 
-                                <option value="se">Sergipe</option> 
-                                <option value="sp">São Paulo</option> 
-                                <option value="to">Tocantins</option> 
-                            </select>
-                            <div class="form-control-line"></div>
-                            </div>
-                        </div>
-                      {{/each}}
                     </div>
-                    <button type="button" id="add-experience" class="btn btn-icon-toggle btn-primary">
-                        <i class="fa fa-plus"></i>
-                    </button>
-                    <button type="button" id="remove-experience" class="btn btn-icon-toggle btn-danger">
-                        <i class="fa fa-minus"></i>
-                    </button>
-                </div><!--end #tab5 -->
+                    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <textarea id="atribuicoes" class="form-control atribuicoes" rows="4"></textarea>
+                                <label for="atribuicoes" class="control-label">Atribuições</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control duracao_emp" id="duracao_emp">
+                                <label for="duracao_emp" class="control-label">Tempo de Trabalho (em anos)</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control cidade_emp" id="cidade_emp">
+                                <label for="cidade_emp" class="control-label">Cidade</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <select class="form-control uf_emp static dirty" id="uf_emp">
+                                    <option value="ac">Acre</option>
+                                    <option value="al">Alagoas</option>
+                                    <option value="am">Amazonas</option>
+                                    <option value="ap">Amapá</option>
+                                    <option value="ba">Bahia</option>
+                                    <option value="ce">Ceará</option>
+                                    <option value="df">Distrito Federal</option>
+                                    <option value="es">Espírito Santo</option>
+                                    <option value="go">Goiás</option>
+                                    <option value="ma">Maranhão</option>
+                                    <option value="mt">Mato Grosso</option>
+                                    <option value="ms">Mato Grosso do Sul</option>
+                                    <option value="mg">Minas Gerais</option>
+                                    <option value="pa">Pará</option>
+                                    <option value="pb">Paraíba</option>
+                                    <option value="pr">Paraná</option>
+                                    <option value="pe">Pernambuco</option>
+                                    <option value="pi">Piauí</option>
+                                    <option value="rj">Rio de Janeiro</option>
+                                    <option value="rn">Rio Grande do Norte</option>
+                                    <option value="ro">Rondônia</option>
+                                    <option value="rs">Rio Grande do Sul</option>
+                                    <option value="rr">Roraima</option>
+                                    <option value="sc">Santa Catarina</option>
+                                    <option value="se">Sergipe</option>
+                                    <option value="sp">São Paulo</option>
+                                    <option value="to">Tocantins</option>
+                                </select>
+                                <label for="uf_emp" class="control-label">UF</label>
+                            </div>
+                        </div>
+                    </div> {{/each}}
+                    <button type="button" id="add-experience" class="btn btn-icon-toggle btn-primary"> <i class="fa fa-plus"></i> </button>
+                    <button type="button" id="remove-experience" class="btn btn-icon-toggle btn-danger"> <i class="fa fa-minus"></i> </button>
+                </div>
+                <!--end #tab5 -->
             </div>
             <ul class="pager wizard">
                 <li class="previous first"><a id="first" class="btn-raised" href="">Primeiro</a></li>
@@ -438,8 +401,7 @@
                 <li class="next last"><a id="last" class="btn-raised" href="">Ultimo</a></li>
                 <li class="next"><a id="next" class="btn-raised" href="">Próximo</a></li>
             </ul>
-
-            <div class="form-group">
+            <div class="bottom-fix">
                 <div class="col-sm-offset-10 col-sm-2">
                     <button type="submit" class="btn btn-primary btn-raised">Confirmar</button>
                 </div>
