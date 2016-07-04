@@ -1,128 +1,169 @@
 import { Template } from 'meteor/templating';
 import  '../../api/students.js';
 import '../../../client/pages/signup/students.html';
+import  './errors.js';
 
-var studentSignUpFields = [
-  ["nome", "cpf", "nascimento", "email", "perfil", "endereco", "numero", 
-"bairro", "cidade", "uf", "cep", "phone", "celular", "password", "password_confirmation", "sexo", "especial"],
-  ["formacao", "curso", "conclusao"],
-  ["idioma", "nivel_do_idioma"],
-  ["lattes", "qualificacao", "cursos_extras"],
-  ["nome_emp", "cargo_emp", "duracao_emp", "cidade_emp", "uf_emp", "atribuicoes"]
-]
+languageDep = new Deps.Dependency();
+experienceDep = new Deps.Dependency();
 
-Meteor.startup(function() {
-  if (Session.get('studentId') === undefined) {
-    Session.setTemp({'studentId': 0, completed: 0});
-  }
-});
+var amountLanguages = [["idioma", "nivel_do_idioma"]];
+var amountExperience = [["nome_emp", "cargo_emp", "atribuicoes", "duracao_emp", "cidade_emp", "uf_emp"]]
 
-Template.students_signup.rendered = function() {
-  var stepElements = studentSignUpFields[stepNumber-1];
-  if(!this._rendered) {
-    if (Session.get('completed') < stepNumber) {
-      Router.go('/students/signup/'+ ((parseFloat(Session.get('completed'))+ 1)));
+//Used in steps with multiple fields of same kind (languages, professional experiences)
+errorPosition = "";
+
+Template.studentsSignup.rendered = function() {
+  handleTabShow = function(tab, navigation, index, wizard){
+    var total = navigation.find('li').length;
+    var current = index + 0;
+    var percent = (current / (total - 1)) * 100;
+    var percentWidth = 100 - (100 / total) + '%';
+    
+    navigation.find('li').removeClass('done');
+    navigation.find('li.active').prevAll().addClass('done');
+    
+    wizard.find('.progress-bar').css({width: percent + '%'});
+    $('.form-wizard-horizontal').find('.progress').css({'width': percentWidth});
+  };
+
+  var jqueryValidate = function(tab, navigation, index) {
+    var form = $('#wizard').find('.form-validation');
+    var valid = form.valid();
+    if(!valid) {
+      form.data('validator').focusInvalid();
+      return false;
     }
   }
+
+  $('#wizard').bootstrapWizard({
+    'nextSelector': '#next',
+    'previousSelector': '#previous',
+    'firstSelector': '#first',
+    'lastSelector': '#last',
+    'onTabShow': function(tab, navigation, index) {
+      handleTabShow(tab, navigation, index, $('#wizard'));
+    },
+    onNext: jqueryValidate,
+    onLast: jqueryValidate,
+    onTabClick: jqueryValidate
+  });
 }
 
-Template.students_signup.events({
+Template.studentsSignup.events({
   "submit form": function (event) {
     event.preventDefault();
     //REMOVE ERRORS
     $('.warning').removeClass('warning');
 
     let target = event.target;
-    var studentData = {}
+    let idiomas = getIdiomas();
+    let experiences = getExperiences();
 
-    //GET FORM DATA AND SET TO studentData VARIABLE
-    var stepElements = studentSignUpFields[stepNumber-1];
-    for (var i = 0; i < stepElements.length; i++) {
-      if (stepElements[i] === "especial") {
-        studentData[stepElements[i]] = target[stepElements[i]].checked;
-      }
-      else if (target[stepElements[i]].value != '') {
-        studentData[stepElements[i]] = target[stepElements[i]].value;
+    user = {
+      email: target["email"].value,
+      password: target["password"].value,
+      password_confirmation: target["password_confirmation"].value,
+      profile: {
+        nome: target["nome"].value,
+        cpf: target["cpf"].value,
+        nascimento: target["nascimento"].value,
+        perfil: target["perfil"].value,
+        sexo: target["sexo"].value,
+        endereco: target["endereco"].value,
+        numero: target["numero"].value,
+        bairro: target["bairro"].value,
+        cidade: target["cidade"].value,
+        uf: target["uf"].value,
+        cep: target["cep"].value,
+        phone: target["phone"].value,
+        celular: target["celular"].value,
+        especial: target["especial"].checked,
+        formacao: {
+          formacao: target["formacao"].value,
+          curso: target["curso"].value,
+          conclusao: target["conclusao"].value
+        },
+        idiomas: idiomas,
+        qualificacoes: {
+          lattes: target["lattes"].value,
+          qualificacao: target["qualificacao"].value,
+          cursos_extras: target["cursos_extras"].value
+        },
+        experiencia: experiences
       }
     }
 
-    try {
-      if (stepNumber == 1) {
-        Meteor.call('checkEmail', $('#email').val(), function(error, result) {  
-          //CASO O EMAIL INFORMADO NO STEP1 JA EXISTA GERA ERRO
-          if (result) {
-            Meteor.call('generateErrors', 'email', 'Email já existe!');
-          }
-        });
-      }
-
-      eval("studentsSchema" + stepNumber).validate(studentData);
-
-      Session.update('step'+stepNumber, studentData);
-      Session.update('completed', stepNumber);
-      Router.go('/students/signup/'+ (++stepNumber));
-
-
-      if (stepNumber == 6) {
-        var studentProfile = {};
-        $.extend(studentProfile, Session.get('step1'), Session.get('step2'), Session.get('step3'), Session.get('step4'), Session.get('step5'));
-        var result = {
-          email:  Session.get('step1').email,
-          password:  Session.get('step1').password,
-          profile: studentProfile
-        };
-
-        //JOIN ALL STEPS DATA IN ONLY ONE JSON
-        Meteor.call('saveUser', result, function(error, result) {
-          if ( error ) { 
-            console.log(error, "ERRO");
-          }
-          if ( result ) {
-            alert('Usuário cadastrado com sucesso! Você já pode acessar o painel do aluno');
-
-            //LOGS IN
-            Meteor.loginWithPassword(Session.get('step1').email, Session.get('step1').password);
-            // CLEARS SESSION ON COMPLETE
-            Session.clear();
-            stepNumber=1; 
-          }      
-        });
-      }
-     // }
-      // STEPPER TRANSITION
-      Meteor.setTimeout(function() {
-      _dep.changed();
-      }, 250);
-    }
-    catch(error) {
-      //HANDLE ERRORS
-      Meteor.call('generateErrors', error.details[0].name, error.reason);
-    }
+    Meteor.call('saveUser', user , function(error, result) {
+      if ( error ) { Meteor.call('displayErrors', error); }
+      else if ( result ) {
+        Meteor.loginWithPassword(target["email"].value, target["password"].value);
+        toastr.success('Você já pode acessar o painel do aluno', 'Estudante Cadastrado!');
+      }      
+    });
   },
+  "click #add-language": function () {
+    let length = amountLanguages.length;
+    amountLanguages.push(["idioma"+length, "nivel_do_idioma"+length]);
+    languageDep.changed();
+  },
+  "click #remove-language": function () {
+    amountLanguages.pop();
+    languageDep.changed();
+  },
+  "click #add-experience": function () {
+    amountExperience.push([["nome_emp", "cargo_emp", "atribuicoes", "duracao_emp", "cidade_emp", "uf_emp"]]);
+    experienceDep.changed();
+  },
+  "click #remove-experience": function () {
+    amountExperience.pop();
+    experienceDep.changed();
+  },
+});
 
-  "click #back": function () {
-    let stepNumber = location.href.split('/').pop();
-    Router.go('/students/signup/'+ (--stepNumber));
-    Meteor.setTimeout(function() {
-      _dep.changed();
-    }, 250);
+/*
+    HELPERS GO HERE
+*/
+
+Template.studentsSignup.helpers({
+  languages() {
+    languageDep.depend();
+    return amountLanguages;
+  },
+  experiences() {
+    experienceDep.depend();
+    return amountExperience;
   }
 });
 
-Meteor.methods({
-  setInputs: function() {
-    //LOAD ALL FIELDS THAT ARE ALREADY COMPLETED
-    var stepElements = studentSignUpFields[stepNumber-1];
-    var json = Session.get('step'+stepNumber);
-    if (json) {
-      for (let i = 0; i < stepElements.length; i++) {
-        $('#' + stepElements[i]).val(json[stepElements[i]]);
-      }
-    }
-  },
-  generateErrors: function(name, reason) {
-    $('#'+name).addClass('warning');
-    toastr.error(reason, 'ERRO');
-    $('html, body').animate({ scrollTop: $('#'+name).offset().top }, 'slow');
+function getIdiomas() {
+  let idiomas = $('.idioma');
+  let niveis = $('.nivel_do_idioma');
+  let array = [];
+
+  for (let i = 0; i < idiomas.length; i++) {
+    array.push({ idioma: idiomas[i].value, nivel_do_idioma: niveis[i].value });
   }
-});
+  return array;
+}
+
+function getExperiences() {
+  let nome_emp = $('.nome_emp');
+  let cargo_emp = $('.cargo_emp');
+  let atribuicoes = $('.atribuicoes');
+  let duracao_emp = $('.duracao_emp');
+  let cidade_emp = $('.cidade_emp');
+  let uf_emp = $('.uf_emp');
+  let array = [];
+
+  for (let i = 0; i < nome_emp.length; i++) {
+    array.push({ 
+      nome_emp: nome_emp[i].value,
+      cargo_emp: cargo_emp[i].value,
+      atribuicoes: atribuicoes[i].value,
+      duracao_emp: duracao_emp[i].value,
+      cidade_emp: cidade_emp[i].value,
+      uf_emp: uf_emp[i].value,
+    });
+  }
+  return array;
+}
