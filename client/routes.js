@@ -60,7 +60,7 @@ Router.map(function() {
 
 });
 
-// Router.onAfterAction(function() {
-//         document.title = 'Banco de Talentos Univás - '+ this.route.getName();
-//       }
-// );
+Router.onAfterAction(function() {
+     document.title = 'Banco de Talentos Univás - '+ this.route.getName();
+   }
+);

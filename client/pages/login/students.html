@@ -1,10 +1,10 @@
 <template name="studentsLogin">
-<div class="menubar-hoverable header-fixed " id="content">
+<body class="menubar-hoverable header-fixed " id="content">
 
     <!-- BEGIN LOGIN SECTION -->
     <section class="section-account">
         <!--div class="img-backdrop" style="background-image: url('../../assets/img/img16.jpg')"></div>
-<div class="spacer"></div-->
+        <div class="spacer"></div-->
         <div class="card contain-sm style-transparent">
             <div class="card-body">
                 <div class="row">
@@ -17,34 +17,29 @@
                         <br/>
                         <form class="form floating-label" action="#" accept-charset="utf-8" method="#" id="loginForm">
                             <div class="form-group">
-                                <input type="text" title="Digite aqui seu email" required="" value="" name="username" id="username" class="form-control input-lg">
+                                <input type="text" class="form-control" id="username" name="username" value=''>
                                 <label class="control-label" for="username">Email</label>
                                 <span class="help-block small">Ou número de matrícula</span>
-                            </div>
+				            </div>
                             <div class="form-group">
-                                <input type="password" title="Entre com sua senha" required="" value="" name="password" id="password" class="form-control input-lg">
+                                <input type="password" class="form-control" id="password" name="password">
                                 <label class="control-label" for="password">Senha</label>
                                 <span class="help-block small">A mesma senha do portal do aluno</span>
                                 <p class="help-block"><a href="#">Esqueceu sua senha?</a></p>
                             </div>
-
                             <br/>
                             <div class="row">
                                 <div class="col-xs-6 text-left">
-                                    <div class="checkbox checkbox-styled">
+                                    <div class="checkbox checkbox-inline checkbox-styled">
                                         <label>
-                                            <input type="checkbox">
-                                            <span>Lembrar-me nesse dispositivo</span>
+                                            <input type="checkbox"> <span>Lembrar-me nesse dispositivo</span>
                                         </label>
                                     </div>
-                                </div>
-                                <!--end .col -->
+                                </div><!--end .col -->
                                 <div class="col-xs-6 text-right">
                                     <button class="btn btn-primary btn-raised" type="submit">Login</button>
-                                </div>
-                                <!--end .col -->
-                            </div>
-                            <!--end .row -->
+                                </div><!--end .col -->
+                            </div><!--end .row -->
                         </form>
                     </div>
                     <!--end .col -->
@@ -78,5 +73,5 @@
         <!--end .card -->
     </section>
     <!-- END LOGIN SECTION -->
-</div>
+</body>
 </template>
