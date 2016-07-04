@@ -1,47 +1,47 @@
 <template name="studentsSignup">
     <div id="wizard" class="form-wizard form-wizard-horizontal">
-        <form class="form floating-label">
-            <div class="form-wizard-nav">
+        <form class="form floating-label form-validation">
+            <div class="form-wizard-nav nav-pills">
                 <div class="progress"><div class="progress-bar progress-bar-primary"></div></div>
                 <ul class="nav nav-justified">
-                    <li class={{wizard.[0]}}>
-                        <a href="#tab1" class="inactive-link" data-toggle="tab">
-                            <span class="stepper-icon mdi mdi-account step"></span> 
+                    <li class="active">
+                        <a href="#tab1" data-toggle="tab">
+                            <span class="mdi mdi-account step"></span> 
                             <span class="title">Dados Pessoais</span>
                         </a>
                     </li>
                     
-                    <li class={{wizard.[1]}}>
-                        <a href="#tab2" class="inactive-link" data-toggle="tab">
-                            <span class="stepper-icon mdi mdi-library-books step"></span>
+                    <li>
+                        <a href="#tab2" data-toggle="tab">
+                            <span class="mdi mdi-library-books step"></span>
                             <span class="title">Formação</span>
                         </a>
                     </li>
                     
-                    <li class={{wizard.[2]}}>
-                        <a href="#tab3" class="inactive-link" data-toggle="tab">
-                            <span class="stepper-icon mdi mdi-message-text step"></span> 
+                    <li>
+                        <a href="#tab3" data-toggle="tab">
+                            <span class="mdi mdi-message-text step"></span> 
                             <span class="title">Idiomas</span>
                         </a>
                     </li>
                     
-                    <li class={{wizard.[3]}}>
-                        <a href="#tab4" class="inactive-link" data-toggle="tab">
-                            <span class="stepper-icon mdi mdi-wrench step"></span> 
+                    <li>
+                        <a href="#tab4" data-toggle="tab">
+                            <span class="mdi mdi-wrench step"></span> 
                             <span class="title">Qualificações</span>
                         </a>
                     </li>
                     
-                    <li class={{wizard.[4]}}>
-                        <a href="#tab5" class="inactive-link" data-toggle="tab">
-                            <span class="stepper-icon mdi mdi-worker step"></span> 
+                    <li>
+                        <a href="#tab5" data-toggle="tab">
+                            <span class="mdi mdi-worker step"></span> 
                             <span class="title">Experiência Profissional</span>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="tab-content clearfix">
-                <div class="tab-pane {{wizard.[0]}}" id="tab1">
+                <div class="tab-pane active" id="tab1">
                     <br/><br/>
                 <!-- Step 1 -->
                     <div class="form-row form-border">
@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <label for="nome" class="col-sm-2 control-label">Nome</label>
                             <div class="col-sm-10 required">
-                                <input type="text" class="form-control" id="nome" placeholder="Nome">
+                                <input type="text" class="form-control" id="nome" placeholder="Nome" data-rule-minlength="2" required>
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
@@ -60,13 +60,13 @@
                             <!-- Implementar JS para validar CPF -->
                             <label for="cpf" class="col-sm-2 control-label">CPF</label>
                             <div class="col-sm-4 required">
-                                <input type="text" class="form-control cpf" id="cpf" placeholder="999.999.999-99">
+                                <input type="text" class="form-control cpf" id="cpf" placeholder="999.999.999-99" data-rule-minlength="11" required="">
                                 <div class="form-control-line"></div>
                             </div>
 
                             <label for="nascimento" class="col-sm-2 control-label">Data de Nascimento</label>
                             <div class="col-sm-4 required">
-                                <input type="date" class="form-control" id="nascimento" placeholder="DD/MM/AAAA">
+                                <input type="date" class="form-control" id="nascimento" placeholder="DD/MM/AAAA" required>
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                             <div class="col-sm-10 required">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="aluno@example.com">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="aluno@example.com" data-rule-email="true" required>
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                         <div class="form-group">
                             <label for="perfil" class="col-sm-2 control-label">Perfil</label>
                             <div class="col-sm-10 required">
-                                <select class="form-control" id="perfil">
+                                <select class="form-control" id="perfil" required>
                                     <option>Aluno</option>
                                     <option>Ex-aluno</option>
                                 </select>
@@ -93,7 +93,7 @@
                         <div class="form-group">
                             <label for="sexo" class="col-sm-2 control-label">Sexo</label>
                             <div class="col-sm-2 required">
-                                <select class="form-control" id="sexo">
+                                <select class="form-control" id="sexo" required>
                                     <option>Masculino</option>
                                     <option>Feminino</option>
                                 </select>
@@ -106,7 +106,7 @@
                         <div class="form-group">
                             <label for="endereco" class="col-sm-2 control-label">Endereço</label>
                             <div class="col-sm-10 required">
-                                <input type="text" class="form-control" id="endereco" placeholder="Endereço">
+                                <input type="text" class="form-control" id="endereco" placeholder="Endereço" required>
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
@@ -114,17 +114,17 @@
                         <div class="form-group">
                             <label for="numero" class="col-sm-2 control-label">Numero</label>
                             <div class="col-sm-2 required">
-                                <input type="text" class="form-control" id="numero" placeholder="Número">
+                                <input type="text" class="form-control" id="numero" placeholder="Número" data-rule-minlength="1" required>
                                 <div class="form-control-line"></div>
                             </div>
                             <label for="bairro" class="col-sm-1 control-label">Bairro</label>
                             <div class="col-sm-3 required">
-                                <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+                                <input type="text" class="form-control" id="bairro" placeholder="Bairro" data-rule-minlength="2" required>
                                 <div class="form-control-line"></div>
                             </div>
                             <label for="cidade" class="col-sm-1 control-label">Cidade</label>
                             <div class="col-sm-3 required">
-                                <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+                                <input type="text" class="form-control" id="cidade" placeholder="Cidade" data-rule-minlength="2" required>
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                         <div class="form-group">     
                             <label for="uf" class="col-sm-2 control-label">UF</label>
                             <div class="col-sm-2 required">
-                                <select class="form-control" id="uf">
+                                <select class="form-control" id="uf" required>
                                     <option value="">Selecione o Estado</option> 
                                     <option value="ac">Acre</option> 
                                     <option value="al">Alagoas</option> 
@@ -167,7 +167,7 @@
                             
                             <label for="cep" class="col-sm-1 control-label">CEP</label>
                             <div class="col-sm-4 required">
-                                <input type="text" class="form-control cep" id="cep" placeholder="99999-000">
+                                <input type="text" class="form-control cep" id="cep" placeholder="99999-000" data-rule-minlength="8" required>
                                 <div class="form-control-line"></div>
                             </div>
                             <div class="col-sm-offset-2"></div>
@@ -182,7 +182,7 @@
 
                             <label for="celular" class="col-sm-2 control-label">Celular</label>
                             <div class="col-sm-4 required">
-                                <input type="text" class="form-control phone-number" id="celular" placeholder="(99) 99999-9999">
+                                <input type="text" class="form-control phone-number" id="celular" placeholder="(99) 99999-9999" data-rule-minlength="10" required>
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
@@ -191,7 +191,7 @@
                             <div class="form-group">
                                 <label for="password" class="col-sm-2 control-label">Senha</label>
                                 <div class="col-sm-6 col-xs-6 required">
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="***********">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="***********" data-rule-minlength="8" required>
                                     <div class="form-control-line"></div>
                                 </div>
                                 <div class="col-sm-offset-4"></div>
@@ -200,7 +200,7 @@
                             <div class="form-group">
                                 <label for="password_confirmation" class="col-sm-2 control-label">Confirmação de Senha</label>
                                 <div class="col-sm-6 required">
-                                    <input type="password" class="form-control" id="password_confirmation"  name="password_confirmation" placeholder="***********">
+                                    <input type="password" class="form-control" id="password_confirmation"  name="password_confirmation" placeholder="***********" data-rule-minlength="8" required>
                                     <div class="form-control-line"></div>
                                 </div>
                                 <div class="col-sm-offset-4"></div>
@@ -216,21 +216,15 @@
                                 </label>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-11 col-sm-1">
-                                <button type="submit" class="btn btn-primary btn-send">Próximo</button>
-                            </div>
-                        </div>
                     </div>
                 </div><!--end #tab1 -->
-                <div class="tab-pane {{wizard.[1]}}" id="tab2">
+                <div class="tab-pane" id="tab2">
                     <br/><br/>
                    <div class="form-row">
                         <div class="form-group">
                             <label for="formacao" class="col-sm-2 control-label">Tipo de formação:</label>
                             <div class="col-sm-4 required">
-                                <select id="formacao" class="form-control">
+                                <select id="formacao" class="form-control" required>
                                     <option>Graduação</option>
                                     <option>Pós Graduação</option>
                                     <option>Mestrado</option>
@@ -244,7 +238,7 @@
                         <div class="form-group">
                             <label for="curso" class="col-sm-2 control-label">Curso:</label>
                             <div class="col-sm-4 required">
-                                <select id="curso" class="form-control">
+                                <select id="curso" class="form-control" required>
                                     <option selected="selected">Administração</option>
                                     <option>Ciências Biológicas</option>
                                     <option>Ciências Contábeis</option>
@@ -277,58 +271,55 @@
                             <div class="col-sm-offset-6"></div>
                         </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <div class="col-sm-offset-10 col-sm-2">
-                            <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
-                            <button type="submit" class="btn btn-primary btn-send">Próximo</button>
-                        </div>
-                    </div>
                 </div><!--end #tab2 -->
-                <div class="tab-pane {{wizard.[2]}}" id="tab3">
+                <div class="tab-pane" id="tab3">
                     <br/><br/>
                    <div class="form-row">
                         {{#each language in languages}}
                           <div class="form-group">
                               <label for={{language.[0]}} class="col-sm-2 control-label">Idioma</label>
                               <div class="col-sm-4">
-                                  <input type="text" class="form-control" id={{language.[0]}} placeholder="Idioma">
+                                  <select id={{language.[0]}} class="form-control idioma">
+                                      <option>Espanhol</option>
+                                      <option>Inglês</option>
+                                      <option>Frances</option>
+                                      <option>Alemão</option>
+                                      <option>Italiano</option>
+                                      <option>Mandarim</option>
+                                      <option>Japonês</option>
+                                  </select>
                                   <div class="form-control-line"></div>
                               </div>
                           </div>
                           <div class="form-group">
                               <label for={{language.[1]}} class="col-sm-2 control-label">Nível</label>
                               <div class="col-sm-4">
-                                  <select id={{language.[1]}} class="form-control">
+                                  <select id={{language.[1]}} class="form-control nivel_do_idioma">
                                       <option>Básico</option>
                                       <option>Intermediário</option>
                                       <option>Avançado</option>
+                                      <option>Fluente</option>
                                   </select>
                                   <div class="form-control-line"></div>
                               </div>
                               <div class="col-sm-offset-6"></div>
                           </div>
                         {{/each}}
-
-                        <button type="button" id="add-language" class="btn btn-primary btn-back">Mais</button>
-
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-10 col-sm-2">
-                                <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
-                                <button type="submit" class="btn btn-primary btn-send">Próximo</button>
-
-                            </div>
-                        </div>
+                        <button type="button" id="add-language" class="btn btn-icon-toggle btn-primary">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                        <button type="button" id="remove-language" class="btn btn-icon-toggle btn-danger">
+                            <i class="fa fa-minus"></i>
+                        </button>
                     </div>
                 </div><!--end #tab3 -->
-                <div class="tab-pane {{wizard.[3]}}" id="tab4">
+                <div class="tab-pane" id="tab4">
                     <br/><br/>
                    <div class="form-row">
                         <div class="form-group">
                             <label for="lattes" class="col-sm-2 control-label">Curriculo Lattes</label>
                             <div class="col-sm-4 ">
-                                <input type="url" class="form-control" id="lattes" placeholder="http://lattes.cnpq.br/01232562323215487">
+                                <input type="url" class="form-control" id="lattes" placeholder="http://lattes.cnpq.br/01232562323215487" data-rule-url="true" required>
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
@@ -348,64 +339,57 @@
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-10 col-sm-2">
-                                <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
-                                <button type="submit" class="btn btn-primary btn-send">Próximo</button>
-                            </div>
-                        </div>
                     </div>
                 </div><!--end #tab4 -->
-                <div class="tab-pane {{wizard.[4]}}" id="tab5">
+                <div class="tab-pane" id="tab5">
                     <br/><br/>
                    <div class="form-row">
                       {{#each experience in experiences}}
                         <div class="form-group">
-                            <label for={{experience.[0]}} class="col-sm-2 control-label">Empresa</label>
+                            <label for="nome_emp" class="col-sm-2 control-label">Empresa</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id={{experience.[0]}} placeholder="Nome da Empresa">
+                                <input type="text" class="form-control nome_emp" id="nome_emp" placeholder="Nome da Empresa">
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for={{experience.[1]}} class="col-sm-2 control-label">Cargo</label>
+                            <label for="cargo_emp" class="col-sm-2 control-label">Cargo</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id={{experience.[1]}} placeholder="Cargo">
+                                <input type="text" class="form-control cargo_emp" id="cargo_emp" placeholder="Cargo">
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label for={{experience.[2]}} class="col-sm-2 control-label">Atribuições</label>
+                            <label for="atribuicoes" class="col-sm-2 control-label">Atribuições</label>
                             <div class="col-sm-10">
-                                <textarea id={{experience.[2]}} class="form-control" rows="6"></textarea>
+                                <textarea id="atribuicoes" class="form-control atribuicoes" rows="6"></textarea>
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for={{experience.[3]}} class="col-sm-2 control-label">Tempo de Trabalho (em anos)</label>
+                            <label for="duracao_emp" class="col-sm-2 control-label">Tempo de Trabalho (em anos)</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" id={{experience.[3]}} placeholder="XX">
+                                <input type="text" class="form-control duracao_emp" id="duracao_emp" placeholder="XX">
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for={{experience.[4]}} class="col-sm-2 control-label">Cidade</label>
+                            <label for="cidade_emp" class="col-sm-2 control-label">Cidade</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" id={{experience.[4]}} placeholder="Cidade">
+                                <input type="text" class="form-control cidade_emp" id="cidade_emp" placeholder="Cidade">
                                 <div class="form-control-line"></div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for={{experience.[5]}} class="col-sm-2 control-label">UF</label>
+                            <label for="uf_emp" class="col-sm-2 control-label">UF</label>
                             <div class="col-sm-2">
-                            <select class="form-control" id={{experience.[5]}}>
+                            <select class="form-control uf_emp" id="uf_emp">
                                 <option value="">Selecione o Estado</option> 
                                 <option value="ac">Acre</option> 
                                 <option value="al">Alagoas</option> 
@@ -440,22 +424,26 @@
                         </div>
                       {{/each}}
                     </div>
-                    <button type="button" id="add-experience" class="btn btn-primary btn-back">Mais</button>
-                    
-                    <div class="form-group">
-                        <div class="col-sm-offset-10 col-sm-2">
-                            <button type="button" id="back" class="btn btn-primary btn-back">Voltar</button>
-                            <button type="submit" class="btn btn-primary btn-send">Confirmar</button>
-                        </div>
-                    </div>
+                    <button type="button" id="add-experience" class="btn btn-icon-toggle btn-primary">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <button type="button" id="remove-experience" class="btn btn-icon-toggle btn-danger">
+                        <i class="fa fa-minus"></i>
+                    </button>
                 </div><!--end #tab5 -->
             </div>
             <ul class="pager wizard">
-                <li class="previous first"><a class="btn-raised" href="">First</a></li>
-                <li class="previous"><a class="btn-raised" href="">Previous</a></li>
-                <li class="next last"><a class="btn-raised" href="">Last</a></li>
-                <li class="next"><a id="next" class="btn-raised" href="">Next</a></li>
+                <li class="previous first"><a id="first" class="btn-raised" href="">Primeiro</a></li>
+                <li class="previous"><a id="previous" class="btn-raised" href="">Anterior</a></li>
+                <li class="next last"><a id="last" class="btn-raised" href="">Ultimo</a></li>
+                <li class="next"><a id="next" class="btn-raised" href="">Próximo</a></li>
             </ul>
+
+            <div class="form-group">
+                <div class="col-sm-offset-10 col-sm-2">
+                    <button type="submit" class="btn btn-primary btn-raised">Confirmar</button>
+                </div>
+            </div>
         </form>
     </div>
 </template>

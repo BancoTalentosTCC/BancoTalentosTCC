@@ -147,13 +147,14 @@ StudentsSchema3 = new SimpleSchema({
   nivel_do_idioma: {
     type: String,
     label: "Nível do Idioma",
-    optional: true,
-    autoValue: function () {
-      if (this.field('idioma').value == undefined) {
-        this.unset();
-        return undefined; 
-      }
-    }
+    optional: true
+    // autoValue: function () {
+    //   console.log("idioma é: " + this);
+    //   if (this.field('idioma').value == undefined) {
+    //     this.unset();
+    //     return undefined; 
+    //   }
+    // }
   }
 });
 
