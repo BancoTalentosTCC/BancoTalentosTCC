@@ -1,15 +1,21 @@
-import  '/imports/api/companies.js';
+import  '/imports/api/students.js';
 
 Meteor.methods({
   saveUser: function(data) {
-    password.validate({
+    Meteor.call('validatePassword', {
       password: data.password,
       password_confirmation: data.password_confirmation
     });
     Accounts.createUser(data);
     return true;
   },
-  checkEmail: function(email) {
+  checkEmailPresence: function(email) {
     return Accounts.findUserByEmail(email);
+  },
+  validatePassword: function(data) {
+    return password.validate(data);
+  },
+  validateEmail: function(email) {
+    return Email.validate({email: email});
   }
 });

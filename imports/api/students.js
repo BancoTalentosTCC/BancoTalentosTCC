@@ -1,6 +1,8 @@
 import  './messages.js';
+import  './password.js';
+import  './email.js';
 
-studentsSchema1 = new SimpleSchema({
+StudentsSchema1 = new SimpleSchema({
   nome: {
     type: String,
     label: "Nome",
@@ -62,11 +64,6 @@ studentsSchema1 = new SimpleSchema({
     label: "Nascimento",
     regEx: /^((?:19|20)\d\d)[- -.](0[1-9]|1[012])[- -.](0[1-9]|[12][0-9]|3[01])$/
   },
-  email: {
-    type: String,
-    label: "Email",
-    regEx: SimpleSchema.RegEx.Email
-  },
   perfil: {
     type: String,
     label: "perfil",
@@ -119,28 +116,13 @@ studentsSchema1 = new SimpleSchema({
     label: "Celular",
     regEx: /^\([1-9]{2}\) [0-9]{8,9}$/
   },
-  password: {
-    type: String,
-    label: "Senha",
-      min: 8
-  },
-  password_confirmation: {
-    type: String,
-    label: "Confirmação de Senha",
-    min: 8,
-    custom: function () {
-      if (this.value !== this.field('password').value) {
-        return "cant_be_different";
-      }
-    }
-  },
   especial: {
     type: Boolean,
     label: "Especial"
   }
 });
 
-studentsSchema2 = new SimpleSchema({
+StudentsSchema2 = new SimpleSchema({
   formacao: {
     type: String,
     label: "Formação"
@@ -156,7 +138,7 @@ studentsSchema2 = new SimpleSchema({
   },
 });
 
-studentsSchema3 = new SimpleSchema({
+StudentsSchema3 = new SimpleSchema({
   idioma: {
     type: String,
     label: "Idioma",
@@ -165,22 +147,23 @@ studentsSchema3 = new SimpleSchema({
   nivel_do_idioma: {
     type: String,
     label: "Nível do Idioma",
-    optional: true,
-    autoValue: function () {
-      if (this.field('idioma').value == undefined) {
-        this.unset();
-        return undefined; 
-      }
-    }
+    optional: true
+    // autoValue: function () {
+    //   console.log("idioma é: " + this);
+    //   if (this.field('idioma').value == undefined) {
+    //     this.unset();
+    //     return undefined; 
+    //   }
+    // }
   }
 });
 
-studentsSchema4 = new SimpleSchema({
+StudentsSchema4 = new SimpleSchema({
   lattes: {
     type: String,
     label: "Lattes",
     regEx: SimpleSchema.RegEx.Url,
-    optional: true
+    optional: false
   },
   qualificacao: {
     type: String,
@@ -194,37 +177,112 @@ studentsSchema4 = new SimpleSchema({
   }
 });
 
-studentsSchema5 = new SimpleSchema({
+StudentsSchema5 = new SimpleSchema({
   nome_emp: {
     type: String,
-    label: "Nome da Empresa"
+    label: "Nome da Empresa",
+    optional: true
   },
   cargo_emp: {
     type: String,
-    label: "Cargo"
+    label: "Cargo",
+    optional: true
   },
   atribuicoes: {
-    type: "String",
+    type: String,
     label: "Atribuições",
-    min: 30
+    min: 30,
+    optional: true
   },
   duracao_emp: {
     type: String,
-    label: "Duração",
-    regEx: /^[0-9]+$/
+    label: "Tempo de Trabalho",
+    regEx: /^[0-9]+$/,
+    optional: true
   },
   cidade_emp: {
     type: String,
-    label: "Cidade"
+    label: "Cidade",
+    optional: true
   },
   uf_emp: {
     type: String,
     label: "UF",
-    max: 2
+    max: 2,
+    optional: true
   }
 });
 
-//studentSchema = new SimpleSchema([studentsSchema1, studentsSchema2, studentsSchema3, studentsSchema4, studentsSchema5]);
-//Meteor.users.attachSchema(studentSchema);
+Schemas = {};
+
+Schemas.UserProfile = new SimpleSchema({
+  formacao: {
+    type: StudentsSchema2,
+    label: "Formação",
+    optional: true
+  },
+  idiomas: {
+    type: [ StudentsSchema3 ],
+    label: "Idioma",
+    optional: true
+  },
+  qualificacoes: {
+    type: StudentsSchema4,
+    label: "Qualificações",
+    optional: true
+  },
+  experiencia: {
+    type: [ StudentsSchema5 ],
+    label: "Experiência Profissional",
+    optional: true
+  }
+}
+);
+
+Schemas.UserProfile._schema = _.extend(Schemas.UserProfile._schema, StudentsSchema1._schema);
+
+Schemas.User = new SimpleSchema({
+    username: {
+        type: String,
+        optional: true
+    },
+    emails: {
+        type: Array,
+    },
+    "emails.$": {
+        type: Object
+    },
+    "emails.$.address": {
+        type: String,
+        regEx: SimpleSchema.RegEx.Email
+    },
+    "emails.$.verified": {
+        type: Boolean
+    },
+    createdAt: {
+        type: Date
+    },
+    profile: {
+        type: Schemas.UserProfile,
+        label: "Perfil",
+        optional: false
+    },
+    services: {
+        type: Object,
+        blackbox: true
+    },
+    roles: {
+        type: String,
+        optional: true,
+        blackbox: true
+    },
+    // In order to avoid an 'Exception in setInterval callback' from Meteor
+    heartbeat: {
+        type: Date,
+        optional: true
+    }
+});
+
+Meteor.users.attachSchema(Schemas.User);
 
 

@@ -1,0 +1,133 @@
+/* Custom CSS to fix form wizard on sign up */
+.form-wizard-horizontal {
+    width: 85%;
+    margin: 0 auto;
+    
+   .form-wizard-nav {
+        min-height: 100px;
+
+        .progress {
+            max-width: 80%;
+        }
+
+        .nav-justified {
+            margin-top: 3%;
+        }
+    }
+}
+
+
+/* Home Page */
+.container-fluid .welcome-page{
+    position: relative;
+    
+    img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .text-box {
+        background-color: rgba(229,229,229, 0.85);
+        //background: url(../img/opacity-bg.png);
+        bottom: 3%;
+        max-width: 450px;
+        //opacity: 0.2;
+        position: absolute;
+        right: 2%;
+        
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        -webkit-box-shadow: rgba(199,199,199,0.6) 7px 7px 7px;
+        -moz-box-shadow: rgba(199,199,199,0.6) 7px 7px 7px;
+        box-shadow: rgba(199,199,199,0.6) 7px 7px 7px;
+        
+        @media(max-width: 900px) {
+            position: relative;
+            max-width: auto;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        h2, p {
+            padding: 2% 5%;
+            font-size: 1.6em;
+            
+            @media(max-width: 900px) {
+                text-align: center;
+            }
+        }
+        
+        p {
+            font-size: 1.2em;
+        }
+    }
+}
+
+/* Fix <a> underline on header's button */
+.header {
+    .login {
+        a {
+            text-decoration: none; 
+        }
+    }
+}
+
+/* Fix item colors when clicked */
+
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  //background-color: #9DD958;
+  //border-color: #9DD958;
+
+  background-color: #71a436;
+  border-color: #71a436;
+    
+}
+
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+  color: #fff;
+  background-color: #71a436;
+  border-color: #71a436;
+}
+
+.warning {
+  border-bottom-color: @brand-warning;
+}
+
+/* Fix space around "confirm" button */
+.bottom-fix { margin: 24px 0; padding-bottom: 40px;}
+
+/* Fix left padding when not needed */
+.home .fix-padding { padding-left: 0;}
+
+
+// #wizard {
+//   li {
+//     &:hover a {
+//       pointer-events: none;
+//       cursor: default;
+//     }
+//     &:not(.active) {
+//       .step {
+//         border: 4px solid #e6e6e5;
+//       }
+//     }
+//     &.completed .step  {
+//       background-color: #8bc34a;
+//       color: #ffffff;
+//     }
+//   }
+// }
+
+
