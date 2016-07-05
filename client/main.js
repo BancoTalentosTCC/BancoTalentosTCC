@@ -8,12 +8,12 @@ import '../imports/ui/components/js/libs/bootstrap-datepicker/bootstrap-datepick
 
 
 /* Meteor related JS imports */
+import '../imports/ui/signup/ApplicationLayout.js';
 import '../imports/ui/signup/students.js';
 import '../imports/ui/signup/companies.js';
 import '../imports/ui/signup/form-components.js';
 import '../imports/ui/materialadmin-load.js';
 
-//stepNumber=0;
 
 
 
