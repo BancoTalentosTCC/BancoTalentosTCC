@@ -29,7 +29,7 @@ bigdsk:inputmask
 accounts-password
 accounts-ui
 softwarerero:accounts-t9n
-rajit:bootstrap3-datepicker
+#rajit:bootstrap3-datepicker
 twbs:bootstrap
 mrt:jquery-migrate
 fortawesome:fontawesome
