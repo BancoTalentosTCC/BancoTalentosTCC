@@ -1,0 +1,13 @@
+<template name="ApplicationLayout">
+  <header id="header" class="header">
+    {{> yield "header"}}
+  </header>
+
+  <div id="base" class={{base_classes}}>
+    {{> yield "offcanvas"}}
+    <div id="content">
+      {{> yield}}
+    </div>
+    {{> yield "menubar"}}
+  </div>  
+</template>
