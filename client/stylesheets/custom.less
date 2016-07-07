@@ -1,17 +1,28 @@
 @import "materialadmin/assets/less/materialadmin.import.less";
+@import "custom.mixing.less";
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,700';
+
+/* Fix font rendering on crossbrosing and font issues like, color, etc */
+body {
+    text-rendering: optimizeLegibility;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.form-control, .text-light { color: rgb(51, 53, 49) !important;}
+
+
 
 /* Custom CSS to fix form wizard on sign up */
 .form-wizard-horizontal {
     width: 85%;
     margin: 0 auto;
-    
-   .form-wizard-nav {
+    .form-wizard-nav {
         min-height: 100px;
-
         .progress {
             max-width: 80%;
         }
-
         .nav-justified {
             margin-top: 3%;
         }
@@ -20,16 +31,14 @@
 
 
 /* Home Page */
-.container-fluid .welcome-page{
+.container-fluid .welcome-page {
     position: relative;
-    
     img {
         width: 100%;
         height: auto;
     }
-    
     .text-box {
-        background-color: rgba(229,229,229, 0.85);
+        background-color: rgba(229, 229, 229, 0.85);
         //background: url(../img/opacity-bg.png);
         bottom: 3%;
         max-width: 450px;
@@ -37,12 +46,9 @@
         position: absolute;
         right: 2%;
         
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        -webkit-box-shadow: rgba(199,199,199,0.6) 7px 7px 7px;
-        -moz-box-shadow: rgba(199,199,199,0.6) 7px 7px 7px;
-        box-shadow: rgba(199,199,199,0.6) 7px 7px 7px;
+        .rounded (5px);
+        
+        .drop-shadow(0, 1px, 2px, 0.2);
         
         @media(max-width: 900px) {
             position: relative;
@@ -50,33 +56,34 @@
             width: 100%;
             margin: 0 auto;
         }
-        
-        h2, p {
+        h2,
+        p {
             padding: 2% 5%;
             font-size: 1.6em;
-            
             @media(max-width: 900px) {
                 text-align: center;
             }
         }
-        
         p {
             font-size: 1.2em;
         }
     }
 }
 
+
 /* Fix <a> underline on header's button */
-.header {
-    .login {
-        a {
-            text-decoration: none; 
+.login p{
+    a {
+        text-decoration: none;
+        font-weight: 600;
+        &:focus {
+            outline: none;
         }
     }
 }
 
-/* Fix item colors when clicked */
 
+/* Fix item colors when clicked */
 .btn-primary {
     &:active,
     &.active,
@@ -106,14 +113,21 @@
 }
 
 .warning {
-  border-bottom-color: @brand-warning;
+    border-bottom-color: @brand-warning;
 }
 
+
 /* Fix space around "confirm" button */
-.bottom-fix { margin: 24px 0; padding-bottom: 40px;}
+.bottom-fix {
+    margin: 24px 0;
+    padding-bottom: 40px;
+}
+
 
 /* Fix left padding when not needed */
-.home .fix-padding { padding-left: 0;}
+.home .fix-padding {
+    padding-left: 0;
+}
 
 
 /* Fix datepicker style */
@@ -126,27 +140,28 @@
 }
 
 .datepicker table tr td.active {
-    &:active, 
-    &:hover:active, 
-    &.disabled:active, 
-    &.disabled:hover:active, 
-    &.active, 
-    &.active:hover, 
-    &.disabled.active, 
+    &:active,
+    &:hover:active,
+    &.disabled:active,
+    &.disabled:hover:active,
+    &.active,
+    &.active:hover,
+    &.disabled.active,
     &.disabled.active:hover {
         background-color: #71a436 !important;
         border-color: #71a436 !important;
         color: #ffffff !important;
     }
 }
-.datepicker table tr td.day{
-    &:hover, 
+
+.datepicker table tr td.day {
+    &:hover,
     &.focused {
         background: #e5e6e6 none repeat scroll 0 0 !important;
         cursor: pointer !important;
     }
 }
- 
+
 .datepicker {
     & thead tr:first-child th:hover,
     & tfoot tr th:hover {
@@ -154,27 +169,32 @@
     }
 }
 
+
 /* Login page */
-body [class*=" md-"], [class^="md-"] {
+body [class*=" md-"],
+[class^="md-"] {
     font-size: 1.5em;
 }
 
 
 /* Reduce space between fields on student's sign up */
-
 .form-validation {
-    .form-group, .form-inline .form-group {
+    .form-group,
+    .form-inline .form-group {
         padding-top: 15px;
         margin-bottom: 10px;
     }
 }
 
-/* Sign up layout fix 
- * Partial fix, should be revised after merge things
-*/
-.student-card {
+
+/* Sign up layout fix */
+.signup-card {
     max-width: 95%;
+    margin: 0 auto;
 }
 
 
-
+/* Does not display toogle btn when isn't needed */
+.no-toggle-btn {
+    display: none !important;
+}

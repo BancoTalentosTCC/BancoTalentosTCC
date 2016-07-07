@@ -10,7 +10,7 @@
                       </a>
                   </div>
               </li>
-              <li>
+              <li class={{hasToggleIcon}}>
                   <a class="btn btn-icon-toggle menubar-toggle" href="javascript:void(0);" data-toggle="menubar">
                       <i class="fa fa-bars"></i>
                   </a>
@@ -83,11 +83,11 @@
           <ul class="header-nav header-nav-toggle login">
           <!--~ Right aligned toggle items ~-->
               <li>
-                  <p class="btn ink-reaction btn-flat btn-sm btn-primary"><a href="{{pathFor route='companiesLogin'}}" class="no-underline">Empresa</a></p>
+                  <p><a class="btn ink-reaction btn-flat btn-sm btn-primary" href="{{pathFor route='companiesLogin'}}">Empresa</a></p>
               </li>
               
               <li>
-                  <p class="btn ink-reaction btn-flat btn-sm btn-primary"><a href="{{pathFor route='studentsLogin'}}" class="no-underline">Aluno</a></p>
+                  <p><a class="btn ink-reaction btn-flat btn-sm btn-primary" href="{{pathFor route='studentsLogin'}}">Aluno</a></p>
               </li>
           </ul>
       </div>
