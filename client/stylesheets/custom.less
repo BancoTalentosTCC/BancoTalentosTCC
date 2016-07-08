@@ -12,8 +12,6 @@ body {
 
 .form-control, .text-light { color: rgb(51, 53, 49) !important;}
 
-
-
 /* Custom CSS to fix form wizard on sign up */
 .form-wizard-horizontal {
     width: 85%;
@@ -31,8 +29,9 @@ body {
 
 .wizard-error {
     span.step {
-        background-color: @brand-danger !important;
+        background-color: #FFF !important;
         border-color: @brand-danger !important;
+        color: @gray-base !important;
     }
 }
 
@@ -85,6 +84,12 @@ body {
         &:focus {
             outline: none;
         }
+    }
+}
+
+select {
+    &:focus {
+        outline: none;
     }
 }
 
@@ -203,4 +208,16 @@ body [class*=" md-"],
 /* Does not display toogle btn when isn't needed */
 .no-toggle-btn {
     display: none !important;
+}
+
+/* Border bottom between fields on student's form */
+#tab3,
+#tab5 {
+    .border-bottom {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);}
+}
+
+/* Toast fixer */
+#toast-container > div {
+    width: 330px !important;
+    padding: 15px 15px 15px 50px !important;
 }

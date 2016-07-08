@@ -39,6 +39,7 @@ Router.map(function() {
     },
     { path: 'signup/students' }
   );
+    
 });
 
 Router.onAfterAction(function() {
