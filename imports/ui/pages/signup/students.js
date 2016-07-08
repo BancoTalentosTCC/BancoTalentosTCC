@@ -53,6 +53,7 @@ Template.studentsSignup.events({
     event.preventDefault();
     //REMOVE ERRORS
     $('.warning').removeClass('warning');
+    $('.wizard-error').removeClass('wizard-error');
 
     let target = event.target;
     let idiomas = getIdiomas();

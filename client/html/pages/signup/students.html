@@ -33,25 +33,25 @@
                             <div class="form-row form-border">
                                 <h1>Dados pessoais</h1>
                                 <div class="form-group">
-                                    <input type="text" class="form-control required" id="nome" data-rule-minlength="2" required>
+                                    <input type="text" class="form-control" id="nome" name="nome" data-rule-minlength="2" required>
                                     <label for="nome" class="control-label">Nome</label>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <input type="text" class="form-control cpf required" id="cpf" data-rule-minlength="11" required="">
+                                            <input type="text" class="form-control cpf" id="cpf" name="cpf" data-rule-minlength="11" required="">
                                             <label for="cpf" class="control-label">CPF</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control required" id="nascimento" required>
+                                            <input type="text" class="form-control" id="nascimento" name="nascimento" required>
                                             <label for="nascimento" class="control-label">Data de Nascimento</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-5">
                                         <div class="form-group">
-                                            <select class="form-control required" id="perfil" required>
+                                            <select class="form-control" id="perfil" name="perfil" required>
                                                 <option>Aluno</option>
                                                 <option>Ex-aluno</option>
                                             </select>
@@ -62,13 +62,13 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="email" class="form-control required" id="email" name="email" data-rule-email="true" required for="username">
-                                            <label for="inputEmail3" class="control-label">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email" data-rule-email="true" required for="username">
+                                            <label for="email" class="control-label">Email</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <select class="form-control" id="sexo" required>
+                                            <select class="form-control" id="sexo" name="sexo" required>
                                                 <option>Masculino</option>
                                                 <option>Feminino</option>
                                             </select>
@@ -79,13 +79,13 @@
                                 <div class="row">
                                     <div class="col-sm-10">
                                         <div class="form-group">
-                                            <input type="text" class="form-control required" id="endereco" required>
+                                            <input type="text" class="form-control" name="endereco" id="endereco" required>
                                             <label for="endereco" class="control-label">Endereço</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
                                         <div class="form-group">
-                                            <input type="text" class="form-control required" id="numero" data-rule-minlength="1" required>
+                                            <input type="text" class="form-control" id="numero" name="numero" data-rule-minlength="1" required>
                                             <label for="numero" class="control-label">Numero</label>
                                         </div>
                                     </div>
@@ -93,19 +93,19 @@
                                 <div class="row">
                                     <div class="col-sm-2">
                                         <div class="form-group">
-                                            <input type="text" class="form-control required" id="complemento">
+                                            <input type="text" class="form-control" id="complemento" name="complemento">
                                             <label for="complement" class="control-label">Complemento</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-5">
                                         <div class="form-group">
-                                            <input type="text" class="form-control required" id="bairro" data-rule-minlength="2" required>
+                                            <input type="text" class="form-control" id="bairro" name="bairro" data-rule-minlength="2" required>
                                             <label for="bairro" class="control-label">Bairro</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-5">
                                         <div class="form-group">
-                                            <input type="text" class="form-control required" id="cidade" data-rule-minlength="2" required>
+                                            <input type="text" class="form-control" id="cidade" name="cidade" data-rule-minlength="2" required>
                                             <label for="cidade" class="control-label">Cidade</label>
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <select class="form-control required" id="uf" required>
+                                            <select class="form-control" id="uf" name="uf" required>
                                                 <option value="ac">Acre</option>
                                                 <option value="al">Alagoas</option>
                                                 <option value="am">Amazonas</option>
@@ -147,7 +147,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control cep required" id="cep" data-rule-minlength="8" required>
+                                            <input type="text" class="form-control cep" id="cep" name="cep" data-rule-minlength="8" required>
                                             <label for="cep" class="control-label">CEP</label>
                                         </div>
                                     </div>
@@ -155,13 +155,13 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <input type="tel" class="form-control phone-number" id="phone">
+                                            <input type="tel" class="form-control phone-number" id="phone" name="phone">
                                             <label for="phone-residencial" class="control-label">Telefone Residencial</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control phone-number required" id="celular" data-rule-minlength="10" required>
+                                            <input type="text" class="form-control phone-number" id="celular" name="celular" data-rule-minlength="10" required>
                                             <label for="celular" class="control-label">Celular</label>
                                         </div>
                                     </div>
@@ -170,7 +170,7 @@
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="password" class="form-control required" id="password" name="password" data-rule-minlength="8" required>
+                                                <input type="password" class="form-control" id="password" name="password" data-rule-minlength="8" required>
                                                 <label for="password" class="control-label">Senha</label>
                                             </div>
                                         </div>
@@ -179,7 +179,7 @@
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                <input type="password" class="form-control required" id="password_confirmation" name="password_confirmation" data-rule-minlength="8" required>
+                                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" data-rule-minlength="8" required>
                                                 <label for="password_confirmation" class="control-label">Confirmação de Senha</label>
                                             </div>
                                         </div>
@@ -189,7 +189,7 @@
                                 <div class="form-group">
                                     <div class="checkbox checkbox-styled col-sm-offset-8 col-sm-4">
                                         <label>
-                                            <input type="checkbox" id="especial"> <span>Portador de Necessidades Especiais</span> </label>
+                                            <input type="checkbox" id="especial" name="especial"> <span>Portador de Necessidades Especiais</span> </label>
                                     </div>
                                 </div>
                             </div>
@@ -201,7 +201,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <select id="formacao" class="form-control required" required>
+                                        <select id="formacao" class="form-control" name="formacao" required>
                                             <option>Graduação</option>
                                             <option>Pós Graduação</option>
                                             <option>Mestrado</option>
@@ -215,7 +215,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <select id="curso" class="form-control required" required>
+                                        <select id="curso" name="curso" class="form-control" required>
                                             <option selected="selected">Administração</option>
                                             <option>Ciências Biológicas</option>
                                             <option>Ciências Contábeis</option>
@@ -242,7 +242,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control required" id="conclusao">
+                                        <input type="text" class="form-control" id="conclusao" name="conclusao" required>
                                         <label for="conclusao" class="control-label">Ano de formação</label>
                                     </div>
                                 </div>
@@ -256,7 +256,7 @@
                             <div class="row"> {{#each language in languages}}
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <select id={{language.[0]}} class="form-control idioma static dirty">
+                                        <select id={{language.[0]}} name={{language.[0]}} class="form-control idioma static dirty" required>
                                             <option>Espanhol</option>
                                             <option>Inglês</option>
                                             <option>Frances</option>
@@ -270,7 +270,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <select id={{language.[1]}} class="form-control nivel_do_idioma static dirty">
+                                        <select id={{language.[1]}} name={{language.[1]}} class="form-control nivel_do_idioma static dirty" required>
                                             <option>Básico</option>
                                             <option>Intermediário</option>
                                             <option>Avançado</option>
@@ -290,8 +290,8 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="url" class="form-control required" id="lattes" data-rule-url="true" required>
-                                        <label for="lattes" class="control-label">Curriculo Lattes</label>
+                                        <input type="url" class="form-control" id="lattes" data-rule-url="true" required>
+                                        <label for="lattes" name="lattes" class="control-label">Curriculo Lattes</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-offset-6"></div>
@@ -299,8 +299,8 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <textarea id="qualificacao" class="form-control" rows="4"></textarea>
-                                        <label for="experiencia" class="control-label">Qualificações</label>
+                                        <textarea id="qualificacao" name="qualificacao" class="form-control" rows="4"></textarea>
+                                        <label for="qualificacao" class="control-label">Qualificações</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-offset-6"></div>
@@ -308,8 +308,8 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <textarea id="cursos_extras" class="form-control" rows="6"></textarea>
-                                        <label for="experiencia" class="control-label">Cursos Extras</label>
+                                        <textarea id="cursos_extras" name="cursos_extras" class="form-control" rows="6"></textarea>
+                                        <label for="cursos_extras" class="control-label">Cursos Extras</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-offset-6"></div>
@@ -322,41 +322,41 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control nome_emp" id="nome_emp">
-                                        <label for="nome_emp" class="control-label">Empresa</label>
+                                        <input type="text" class="form-control" id={{experience.[0]}} name={{experience.[0]}}>
+                                        <label for={{experience.[0]}} class="control-label">Empresa</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control cargo_emp" id="cargo_emp">
-                                        <label for="cargo_emp" class="control-label">Cargo</label>
+                                        <input type="text" class="form-control" id={{experience.[1]}} name={{experience.[1]}}>
+                                        <label for={{experience.[1]}} class="control-label">Cargo</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <textarea id="atribuicoes" class="form-control atribuicoes" rows="4"></textarea>
-                                        <label for="atribuicoes" class="control-label">Atribuições</label>
+                                        <textarea id={{experience.[2]}} name={{experience.[2]}} class="form-control" rows="4"></textarea>
+                                        <label for={{experience.[2]}} class="control-label">Atribuições</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control duracao_emp" id="duracao_emp">
-                                        <label for="duracao_emp" class="control-label">Tempo de Trabalho (em anos)</label>
+                                        <input type="text" class="form-control" id={{experience.[3]}} name={{experience.[3]}}>
+                                        <label for={{experience.[3]}} class="control-label">Tempo de Trabalho (em anos)</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control cidade_emp" id="cidade_emp">
-                                        <label for="cidade_emp" class="control-label">Cidade</label>
+                                        <input type="text" class="form-control" id={{experience.[4]}} name={{experience.[4]}}>
+                                        <label for={{experience.[4]}} class="control-label">Cidade</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <select class="form-control uf_emp static dirty" id="uf_emp">
+                                        <select class="form-control static dirty" id={{experience.[5]}} name={{experience.[5]}}>
                                             <option value="ac">Acre</option>
                                             <option value="al">Alagoas</option>
                                             <option value="am">Amazonas</option>
@@ -385,7 +385,7 @@
                                             <option value="sp">São Paulo</option>
                                             <option value="to">Tocantins</option>
                                         </select>
-                                        <label for="uf_emp" class="control-label">UF</label>
+                                        <label for={{experience.[5]}} class="control-label">UF</label>
                                     </div>
                                 </div>
                             </div> {{/each}}
