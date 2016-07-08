@@ -7,5 +7,8 @@ Meteor.methods({
   generateErrors: function(name, reason) {
     $('#'+name).addClass('warning');
     toastr.error(reason, 'ERRO');
+
+    let parent = $('#'+name).closest('.tab-pane')[0].id;
+    document.querySelectorAll("a[href='#" + parent + "']")[0].className += " wizard-error";
   }
 });
