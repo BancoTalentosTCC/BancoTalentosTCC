@@ -80,6 +80,13 @@ StudentsSchema1 = new SimpleSchema({
     min: 15,
     max: 100
   },
+  complemento: {
+    type: String,
+    label: "Complemento",
+    min: 15,
+    max: 100,
+    optional: true
+  },
   numero: {
     type: String,
     label: "Numero",
@@ -148,13 +155,6 @@ StudentsSchema3 = new SimpleSchema({
     type: String,
     label: "Nível do Idioma",
     optional: true
-    // autoValue: function () {
-    //   console.log("idioma é: " + this);
-    //   if (this.field('idioma').value == undefined) {
-    //     this.unset();
-    //     return undefined; 
-    //   }
-    // }
   }
 });
 
