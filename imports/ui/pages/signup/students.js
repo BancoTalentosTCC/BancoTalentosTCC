@@ -5,11 +5,8 @@ import '/imports/api/methods.js';
 languageDep = new Deps.Dependency();
 experienceDep = new Deps.Dependency();
 
-var amountLanguages = [["idioma", "nivel_do_idioma"]];
-var amountExperience = [["nome_emp", "cargo_emp", "atribuicoes", "duracao_emp", "cidade_emp", "uf_emp"]]
-
-//Used in steps with multiple fields of same kind (languages, professional experiences)
-errorPosition = "";
+var amountLanguages = [["idioma0", "nivel_do_idioma0"]];
+var amountExperience = [["nome_emp0", "cargo_emp0", "atribuicoes0", "duracao_emp0", "cidade_emp0", "uf_emp0"]]
 
 Template.studentsSignup.rendered = function() {
   handleTabShow = function(tab, navigation, index, wizard){
@@ -111,7 +108,11 @@ Template.studentsSignup.events({
     languageDep.changed();
   },
   "click #add-experience": function () {
-    amountExperience.push([["nome_emp", "cargo_emp", "atribuicoes", "duracao_emp", "cidade_emp", "uf_emp"]]);
+    let length = amountExperience.length;
+    amountExperience.push([
+      "nome_emp"+length, "cargo_emp"+length, "atribuicoes"+length,
+      "duracao_emp"+length, "cidade_emp"+length, "uf_emp"+length
+    ]);
     experienceDep.changed();
   },
   "click #remove-experience": function () {
