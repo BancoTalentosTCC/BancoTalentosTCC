@@ -18,7 +18,6 @@ Router.map(function() {
     { path: '/students/login' }
   );
 
-
   this.route('companiesLogin', function () {
       this.render('header', {to: 'header'});
       this.render('companiesLogin');
@@ -38,6 +37,20 @@ Router.map(function() {
       this.render('students_signup');
     },
     { path: 'signup/students' }
+  );
+
+  this.route('studentPanel', function () {
+      this.render('header', {to: 'header'});
+      this.render('studentPanel');
+    }, 
+    { path: 'students/panel' }
+  );
+
+  this.route('companyPanel', function () {
+      this.render('header', {to: 'header'});
+      this.render('companyPanel');
+    }, 
+    { path: 'companies/panel' }
   );
     
 });

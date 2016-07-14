@@ -2,7 +2,10 @@ Meteor.methods({
   displayErrors: function(error) {
     if (typeof(error.details) === 'string') {
       let str = JSON.parse(error.details)[0].name;
-      Meteor.call('generateErrors', str.split(".").pop() + str.match( /\d+/g ).pop(), error.reason);
+      console.log(str, "str");
+      let number = str.match( /\d+/g ) ? str.match( /\d+/g ).pop() : "";
+
+      Meteor.call('generateErrors', str.split(".").pop() + number, error.reason);
     }
     else if (typeof(error.details) === 'object') { 
       Meteor.call('generateErrors', error.details[0].name.split(".").pop(), error.reason);
