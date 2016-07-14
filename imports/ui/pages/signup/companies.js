@@ -7,33 +7,39 @@ Template.companiesSignup.events({
     //REMOVE ERRORS
     $('.warning').removeClass('warning');
 
-    let fields = ['nome', 'cnpj', 'razaosoc', 'endereco', 'numero', 'bairro', 'cidade', 'uf', 'cep', 'phone', 'fax', 'dados'];
     let target = event.target;
-    let companyProfile = {};
 
-    for (let i = 0; i < fields.length; i++) {
-      companyProfile[fields[i]] = target[fields[i]].value;
-    }
-
-    let company = {
-      email: $('#email').val(),
-      password: $('#password').val(),
-      password_confirmation: $('#password_confirmation').val(),
-      roles: 'company',
-      profile: companyProfile
-    }
-
-    Meteor.call('saveUser', company, function(error, result) {
-      if ( error ) {
-        Meteor.call('displayErrors', error);
+    user = {
+      email: targetValue(target["email"]),
+      password: targetValue(target["password"]),
+      password_confirmation: targetValue(target["password_confirmation"]),
+      profile: {
+        nome: targetValue(target["nome"]),
+        cnpj: targetValue(target["cnpj"]),
+        razaosoc: targetValue(target["razaosoc"]),
+        endereco: targetValue(target["endereco"]),
+        numero: targetValue(target["numero"]),
+        bairro: targetValue(target["bairro"]),
+        cidade: targetValue(target["cidade"]),
+        uf: targetValue(target["uf"]),
+        cep: targetValue(target["cep"]),
+        phone: targetValue(target["phone"]),
+        fax: targetValue(target["fax"]),
+        dados: targetValue(target["dados"])
       }
-      else {
-        alert('Usuário cadastrado com sucesso! Você já pode acessar o painel da empresa');
+    }
 
-        //LOGS IN
-        Meteor.loginWithPassword($('#email').val(), $('#password').val());      
+    Meteor.call('saveUser', user, "company", function(error, result) {
+      if ( error ) { Meteor.call('displayErrors', error); }
+      else if ( result ) {
+        Meteor.loginWithPassword(target["email"].value, target["password"].value);
+        toastr.success('Você já pode acessar o painel da Empresa', 'Empresa Cadastrada!');
+        Router.go('/companies/panel/');
       }      
     });
   }
 });
 
+function targetValue(target) {
+  return target.value != "" ? target.value : undefined;
+}

@@ -1,6 +1,5 @@
 import './password.js';
 import './email.js';
-import '../methods.js';
 
 StudentsSchema1 = new SimpleSchema({
   nome: {

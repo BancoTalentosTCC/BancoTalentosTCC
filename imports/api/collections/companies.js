@@ -1,4 +1,5 @@
-import  './password.js';
+import './password.js';
+import './email.js';
 
 Schema = {};
 Schema.UserProfile = new SimpleSchema({

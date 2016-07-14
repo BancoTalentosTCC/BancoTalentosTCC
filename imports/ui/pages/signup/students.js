@@ -1,6 +1,5 @@
 import { Template } from 'meteor/templating';
 import '/imports/api/collections/students.js';
-import '/imports/api/methods.js';
 
 languageDep = new Deps.Dependency();
 experienceDep = new Deps.Dependency();
@@ -90,11 +89,12 @@ Template.studentsSignup.events({
       }
     }
 
-    Meteor.call('saveUser', user , function(error, result) {
+    Meteor.call('saveUser', user, "student", function(error, result) {
       if ( error ) { Meteor.call('displayErrors', error); }
       else if ( result ) {
         Meteor.loginWithPassword(target["email"].value, target["password"].value);
         toastr.success('Você já pode acessar o painel do aluno', 'Estudante Cadastrado!');
+        Router.go('/students/panel/');
       }      
     });
   },

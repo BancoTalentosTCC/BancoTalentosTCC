@@ -11,7 +11,7 @@
             <div class="form-group">
                 <label for="nome" class="col-sm-2 control-label">Nome de Fantasia</label>
                 <div class="col-sm-10 required">
-                    <input type="text" class="form-control" id="nome" placeholder="Nome">
+                    <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" data-rule-minlength="2" required>
                     <div class="form-control-line"></div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label for="cpf" class="col-sm-2  control-label">CNPJ</label>
                 <div class="col-sm-4 required">
-                    <input type="text" class="form-control cnpj" id="cnpj" placeholder="XX.XXX.XXX/YYYY-ZZ">
+                    <input type="text" class="form-control cnpj" id="cnpj" placeholder="XX.XXX.XXX/YYYY-ZZ" name="cnpj" data-rule-minlength="13" required>
                     <div class="form-control-line"></div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label for="razaosoc" class="col-sm-2 control-label">Razão Social</label>
                 <div class="col-sm-10 required">
-                    <input type="text" class="form-control" id="razaosoc" placeholder="Razão Social">
+                    <input type="text" class="form-control" id="razaosoc" placeholder="Razão Social" name="razaosoc" data-rule-minlength="11" required>
                     <div class="form-control-line"></div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
             <div class="form-group">
                 <label for="endereco" class="col-sm-2 control-label">Endereço</label>
                 <div class="col-sm-10 required">
-                    <input type="text" class="form-control" id="endereco" placeholder="Endereço">
+                    <input type="text" class="form-control" id="endereco" placeholder="Endereço" name="endereco" required>
                     <div class="form-control-line"></div>
                 </div>
             </div>
@@ -45,17 +45,17 @@
             <div class="form-group">
                 <label for="numero" class="col-sm-2 control-label">Numero</label>
                 <div class="col-sm-2 required">
-                    <input type="text" class="form-control" id="numero" placeholder="Número">
+                    <input type="text" class="form-control" id="numero" placeholder="Número" name="numero" required>
                     <div class="form-control-line"></div>
                 </div>
                 <label for="bairro" class="col-sm-1 control-label">Bairro</label>
                 <div class="col-sm-3 required">
-                    <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+                    <input type="text" class="form-control" id="bairro" placeholder="Bairro" name="bairro" required>
                     <div class="form-control-line"></div>
                 </div>
                 <label for="cidade" class="col-sm-1 control-label">Cidade</label>
                 <div class="col-sm-3 required">
-                    <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+                    <input type="text" class="form-control" id="cidade" placeholder="Cidade" name="cidade" required>
                     <div class="form-control-line"></div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="form-group">     
                 <label for="uf" class="col-sm-2 control-label">UF</label>
                 <div class="col-sm-3 required">
-                    <select class="form-control" id="uf">
+                    <select class="form-control" id="uf" name="uf" required>
                         <option value="ac">Acre</option> 
                         <option value="al">Alagoas</option> 
                         <option value="am">Amazonas</option> 
@@ -97,7 +97,7 @@
 
                 <label for="cep" class="col-sm-1 control-label">CEP</label>
                 <div class="col-sm-4 required">
-                    <input type="text" class="form-control cep" id="cep" placeholder="99999-000">
+                    <input type="text" class="form-control cep" id="cep" placeholder="99999-000" name="cep" required>
                     <div class="form-control-line"></div>
                 </div>
                 <div class="col-sm-offset-2"></div>
@@ -106,13 +106,13 @@
             <div class="form-group">
                 <label for="phone" class="col-sm-2 control-label">Telefone</label>
                 <div class="col-sm-4 required">
-                    <input type="tel" class="form-control phone-number" id="phone" placeholder="(99) 9999-9999">
+                    <input type="tel" class="form-control phone-number" id="phone" placeholder="(99) 9999-9999" name="phone" required>
                     <div class="form-control-line"></div>
                 </div>
 
                 <label for="fax" class="col-sm-2 control-label">Fax</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control phone-number" id="fax" placeholder="(99) 9999-9999">
+                    <input type="text" class="form-control phone-number" id="fax" placeholder="(99) 9999-9999" name="fax">
                     <div class="form-control-line"></div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
            <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-10 required">
-                    <input type="email" class="form-control" id="email" placeholder="mail@example.com">
+                    <input type="email" class="form-control" id="email" placeholder="mail@example.com" name="email" data-rule-email="true" required>
                     <div class="form-control-line"></div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
            <div class="form-group">
                 <label for="dados" class="col-sm-2 control-label">Dados do contato</label>
                 <div class="col-sm-10 required">
-                    <input type="text" class="form-control" id="dados" placeholder="Nome do responsável">
+                    <input type="text" class="form-control" id="dados" placeholder="Nome do responsável" name="dados" required>
                     <div class="form-control-line"></div>
                 </div>
             </div>
@@ -137,7 +137,7 @@
                 <div class="form-group">
                     <label for="password" class="col-sm-2 control-label">Senha</label>
                     <div class="col-sm-6 required">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="***********">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="***********" data-rule-minlength="8" required>
                         <div class="form-control-line"></div>
                     </div>
                     <div class="col-sm-offset-4"></div>
@@ -146,7 +146,7 @@
                 <div class="form-group">
                     <label for="password_confirmation" class="col-sm-2 control-label">Confirmação de Senha</label>
                     <div class="col-sm-6 required">
-                        <input type="password" class="form-control" id="password_confirmation"  name="password_confirmation" placeholder="***********">
+                        <input type="password" class="form-control" id="password_confirmation"  name="password_confirmation" placeholder="***********" data-rule-minlength="8" required>
                         <div class="form-control-line"></div>
                     </div>
                     <div class="col-sm-offset-4"></div>
