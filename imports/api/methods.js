@@ -7,10 +7,11 @@ Meteor.methods({
       require('/imports/api/collections/students.js');
     }
     else {
-      console.log("shouldnt be here");
       require('/imports/api/collections/companies.js');
     }
-    Accounts.createUser(data);
+    id = Accounts.createUser(data);
+    Roles.addUsersToRoles(id, type, 'default-group');
+
     return true;
   }
 }); 

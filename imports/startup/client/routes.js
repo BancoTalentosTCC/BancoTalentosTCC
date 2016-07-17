@@ -11,30 +11,31 @@ Router.map(function() {
     { path: '/' }
   );    
 
-  this.route('studentsLogin', function () {
-      this.render('header', {to: 'header'});
-      this.render('studentsLogin');
+  this.route('login', function () {
+      if (Roles.userIsInRole(Meteor.userId(), 'student', 'default-group')) {
+        Router.go('studentPanel'); 
+      }
+      else if (Roles.userIsInRole(Meteor.userId(), 'company', 'default-group')) {
+        Router.go('companyPanel'); 
+      }
+      else {
+        this.render('header', {to: 'header'});
+        this.render('login');
+      }
     }, 
-    { path: '/students/login' }
-  );
-
-  this.route('companiesLogin', function () {
-      this.render('header', {to: 'header'});
-      this.render('companiesLogin');
-    }, 
-    { path: '/companies/login' }
+    { path: 'login' }
   );
 
   this.route('companiesSignup', function () {
       this.render('header', {to: 'header'});
-      this.render('companies.signup');
+      this.render('companiesSignup');
     }, 
     { path: '/signup/companies' }
   );
 
   this.route('studentsSignup', function () {
       this.render('header', {to: 'header'});
-      this.render('students_signup');
+      this.render('studentsSignup');
     },
     { path: 'signup/students' }
   );
@@ -42,17 +43,35 @@ Router.map(function() {
   this.route('studentPanel', function () {
       this.render('header', {to: 'header'});
       this.render('studentPanel');
+      
+      if(!Meteor.userId()) {
+        Router.go('login');
+      }
+      else if (Roles.userIsInRole(Meteor.userId(), 'student', 'default-group')) {
+        this.render('studentPanel');
+      }
+      else if (Roles.userIsInRole(Meteor.userId(), 'company', 'default-group')) {
+        Router.go('companyPanel'); 
+      }
     }, 
-    { path: 'students/panel' }
+    { path: 'panel/student' }
   );
 
   this.route('companyPanel', function () {
       this.render('header', {to: 'header'});
-      this.render('companyPanel');
+
+      if(!Meteor.userId()) {
+        Router.go('login');
+      }
+      else if (Roles.userIsInRole(Meteor.userId(), 'company', 'default-group')) {
+        this.render('companyPanel');
+      }
+      else if (Roles.userIsInRole(Meteor.userId(), 'student', 'default-group')) {
+        Router.go('studentPanel'); 
+      }
     }, 
-    { path: 'companies/panel' }
-  );
-    
+    { path: 'panel/company' }
+  );    
 });
 
 Router.onAfterAction(function() {
