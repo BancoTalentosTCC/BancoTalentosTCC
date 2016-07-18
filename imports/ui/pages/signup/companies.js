@@ -32,9 +32,8 @@ Template.companiesSignup.events({
     Meteor.call('saveUser', user, "company", function(error, result) {
       if ( error ) { Meteor.call('displayErrors', error); }
       else if ( result ) {
-        Meteor.loginWithPassword(target["email"].value, target["password"].value);
-        toastr.success('Você já pode acessar o painel da Empresa', 'Empresa Cadastrada!');
-        Router.go('/companies/panel/');
+        toastr.success('Você já pode acessar o painel da empresa', 'Empresa Cadastrada!');
+        Router.go('login')
       }      
     });
   }

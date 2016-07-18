@@ -92,10 +92,9 @@ Template.studentsSignup.events({
     Meteor.call('saveUser', user, "student", function(error, result) {
       if ( error ) { Meteor.call('displayErrors', error); }
       else if ( result ) {
-        Meteor.loginWithPassword(target["email"].value, target["password"].value);
         toastr.success('Você já pode acessar o painel do aluno', 'Estudante Cadastrado!');
-        Router.go('/students/panel/');
-      }      
+        Router.go('login');
+      }
     });
   },
   "click #add-language": function () {

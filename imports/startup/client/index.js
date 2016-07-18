@@ -7,9 +7,10 @@ import '/imports/ui/materialadmin/libs/bootstrap-datepicker/bootstrap-datepicker
 import './materialadmin-load.js';
 
 /* Meteor related JS imports */
-import './routes.js';
 import '/imports/ui/layouts/layout.js';
+import '/imports/ui/pages/login/students.js';
 import '/imports/ui/pages/signup/students.js';
 import '/imports/ui/pages/signup/companies.js';
 import '/imports/ui/components/forms.js';
 import '/imports/ui/components/errors.js';
+import './routes.js';

@@ -1,8 +1,8 @@
 Meteor.methods({
   displayErrors: function(error) {
+    console.log(error, "error");
     if (typeof(error.details) === 'string') {
       let str = JSON.parse(error.details)[0].name;
-      console.log(str, "str");
       let number = str.match( /\d+/g ) ? str.match( /\d+/g ).pop() : "";
 
       Meteor.call('generateErrors', str.split(".").pop() + number, error.reason);
@@ -10,7 +10,7 @@ Meteor.methods({
     else if (typeof(error.details) === 'object') { 
       Meteor.call('generateErrors', error.details[0].name.split(".").pop(), error.reason);
     }
-    else Meteor.call('generateErrors', 'email', T9n.get('error.accounts.' + error.reason));
+    else Meteor.call('generateErrors', '', T9n.get('error.accounts.' + error.reason));
   },
   generateErrors: function(name, reason) {
     $('#'+name).addClass('warning');

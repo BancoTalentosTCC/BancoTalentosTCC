@@ -1,9 +1,7 @@
-<template name="studentsLogin">
+<template name="login">
 <body class="menubar-hoverable header-fixed " id="content">
     <!-- BEGIN LOGIN SECTION -->
     <section class="section-account">
-        <!--div class="img-backdrop" style="background-image: url('../../assets/img/img16.jpg')"></div>
-        <div class="spacer"></div-->
         <div class="card contain-sm style-transparent">
             <div class="card-body">
                 <div class="row">
@@ -14,17 +12,14 @@
                         <small>E bem vindo ao mercado de trabalho!</small>
                         <br/>
                         <br/>
-                        <form class="form floating-label" action="#" accept-charset="utf-8" method="#" id="loginForm">
+                        <form class="form floating-label" id="loginForm">
                             <div class="form-group">
-                                <input type="email" class="form-control" id="username" name="username" value=''>
-                                <label class="control-label" for="username">Email</label>
-                                <!--span class="help-block small">Ou número de matrícula</span-->
-				            </div>
+                                <input type="email" class="form-control" id="email" name="email">
+                                <label class="control-label" for="email">Email</label>
+                    </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="password" name="password">
                                 <label class="control-label" for="password">Senha</label>
-                                <span class="help-block small">A mesma senha do portal do aluno</span>
-                                <!--p class="help-block"><a href="#">Esqueceu sua senha?</a></p-->
                             </div>
                             <br/>
                             <div class="row">
@@ -43,25 +38,25 @@
                     </div>
                     <!--end .col -->
                     <div class="col-sm-5 col-sm-offset-1 text-center">
-                        <br>
+                        <p class="text-light">
+                            Escolha uma rede social para entrar
+                        </p>
+                        <p>
+                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-facebook-box material-icons md-36 pull-left"></i>Entre com Facebook</a>
+                        </p>
+                        <p>
+                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-gmail material-icons md-36 pull-left"></i>Entre com Gmail</a>
+                        </p>
+                        <p>
+                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-linkedin-box material-icons md-36 pull-left"></i>Entre com Linkedin</a>
+                        </p>
                         <br>
                         <p class="text-light">
-                            Crie uma conta
+                            Ou Crie uma nova conta
                         </p>
-                        <a class="btn-block btn btn-primary btn-raised" href="{{pathFor route='studentsSignup' step_id=1}}">Registrar</a>
+                        <a class="btn-block btn btn-primary btn-raised" href="{{pathFor route='studentsSignup'}}">Sou um aluno</a>
                         <br>
-                        <p class="text-light">
-                            Ou escolha uma rede social para começar
-                        </p>
-                        <p>
-                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-facebook-box material-icons md-36 pull-left"></i>Login with Facebook</a>
-                        </p>
-                        <p>
-                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-gmail material-icons md-36 pull-left"></i>Login with Gmail</a>
-                        </p>
-                        <p>
-                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-linkedin-box material-icons md-36 pull-left"></i>Login with Linkedin</a>
-                        </p>
+                        <a class="btn-block btn btn-primary btn-raised" href="{{pathFor route='companiesSignup'}}">Sou uma empresa</a>
                     </div>
                     <!--end .col -->
                 </div>

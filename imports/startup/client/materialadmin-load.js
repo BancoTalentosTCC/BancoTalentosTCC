@@ -1,7 +1,4 @@
 import { Template } from 'meteor/templating';
-import '/client/html/pages/login/students.html';
-import '/client/html/pages/login/companies.html';
-
 
 /* Runs fixFloatingLabels() before the route is completely changed */
 Router.onBeforeAction(function () {
