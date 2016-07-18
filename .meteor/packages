@@ -20,9 +20,7 @@ insecure                # Allow all DB writes from clients (for prototyping)
 iron:router
 less
 dapearce:material-icons
-fourseven:scss
 seba:minifiers-autoprefixer
-reywood:bootstrap3-sass
 aldeed:collection2
 meteortoys:allthings
 u2622:persistent-session
@@ -31,3 +29,10 @@ bigdsk:inputmask
 accounts-password
 accounts-ui
 softwarerero:accounts-t9n
+#rajit:bootstrap3-datepicker
+twbs:bootstrap
+mrt:jquery-migrate
+fortawesome:fontawesome
+yasaricli:nanoscroller
+sacha:spin
+copleykj:jquery-autosize

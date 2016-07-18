@@ -1,0 +1,57 @@
+<template name="companiesLogin">
+    <div class="menubar-hoverable header-fixed " id="content">
+
+		<!-- BEGIN LOGIN SECTION -->
+		<section class="section-account">
+			<!--div class="img-backdrop" style="background-image: url('../../assets/img/img16.jpg')"></div>
+			<div class="spacer"></div-->
+			<div class="card contain-sm style-transparent">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-6">
+							
+							<span class="text-lg text-bold text-primary">Bem-vindo ao Banco de Talentos</span>
+							<br/>
+							<small>Aqui você encontra os estudantes mais capacitados para a sua empresa!</small>
+							<br/><br/>
+							<form class="form floating-label" action="#" accept-charset="utf-8" method="#" id="loginForm">
+								<div class="form-group">
+                                    <input type="email" title="Digite aqui seu email" required="" value="" name="username" id="username" class="form-control">
+                                    <label class="control-label" for="username">Email</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" title="Entre com sua senha" required="" value="" name="password" id="password" class="form-control">
+                                    <label class="control-label" for="password">Senha</label>
+                                    <p class="help-block"><a href="#">Esqueceu sua senha?</a></p>
+                                </div>
+								
+								<br/>
+								<div class="row">
+									<div class="col-xs-6 text-left">
+										<div class="checkbox checkbox-styled">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>Lembrar-me nesse dispositivo</span>
+                                            </label>
+                                        </div>
+									</div><!--end .col -->
+									<div class="col-xs-6 text-right">
+										<button class="btn btn-primary btn-raised" type="submit">Login</button>
+									</div><!--end .col -->
+								</div><!--end .row -->
+							</form>
+						</div><!--end .col -->
+						<div class="col-sm-5 col-sm-offset-1 text-center">
+							<br><br>
+								<p class="text-light">
+									Crie uma conta
+								</p>
+								<a class="btn-block btn btn-primary btn-raised"  href="{{pathFor route='companiesSignup'}}">Registrar</a>
+								</div><!--end .col -->
+							</div><!--end .row -->
+						</div><!--end .card-body -->
+					</div><!--end .card -->
+				</section>
+				<!-- END LOGIN SECTION -->
+			</div>
+</template>
