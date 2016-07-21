@@ -43,6 +43,7 @@ Router.map(function() {
   this.route('studentPanel', function () {
       this.render('header', {to: 'header'});
       this.render('studentPanel');
+      this.render('menubar', {to: 'menubar'});
       
       if(!Meteor.userId()) {
         Router.go('login');
