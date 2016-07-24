@@ -13,4 +13,6 @@ import '/imports/ui/pages/signup/students.js';
 import '/imports/ui/pages/signup/companies.js';
 import '/imports/ui/components/forms.js';
 import '/imports/ui/components/errors.js';
+import '/imports/ui/components/carousel.js';
+import '/imports/ui/components/pwd-strength.js';
 import './routes.js';
