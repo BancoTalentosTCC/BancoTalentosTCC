@@ -9,26 +9,31 @@
                 <a href="#"> <span class="text-lg text-bold text-primary ">MENU</span> </a>
             </div>
         </div>
-        <div class="nano has-scrollbar">
-            <div class="nano-content" tabindex="0">
+        <div class="">
+            <div class="" tabindex="0">
                 <div class="menubar-scroll-panel">
                     <ul id="main-menu" class="gui-controls">
                         <li>
-                            <a href="#">
+                            <a href="{{pathFor route='mainPanel'}}">
                                 <div class="gui-icon"> <i class="md mdi mdi-home"></i> </div> <span class="title">Página Inicial</span> </a>
                         </li>
                         <li>
                             <a href="#">
                                 <div class="gui-icon"> <i class="md mdi mdi-magnify"></i> </div> <span class="title">Vagas</span> </a>
                         </li>
+                        
+                        {{#if isInRole 'student' 'default-group'}}
                         <li>
                             <a href="#">
                                 <div class="gui-icon"> <i class="md mdi mdi-domain"></i> </div> <span class="title">Empresas</span> </a>
                         </li>
+                        {{/if}}
+                        {{#if isInRole 'company' 'default-group'}}
                         <li>
                             <a href="#">
                                 <div class="gui-icon"> <i class="md mdi mdi-account"></i> </div> <span class="title">Alunos</span> </a>
                         </li>
+                        {{/if}}
                         <li>
                             <a href="#">
                                 <div class="gui-icon"> <i class="md mdi mdi-settings"></i> </div> <span class="title">Configurações</span> </a>
