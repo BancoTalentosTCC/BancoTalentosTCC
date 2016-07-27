@@ -4,14 +4,11 @@ import '/client/html/pages/signup/companies.html';
 
 Router.onAfterAction(function(){
   Meteor.setTimeout(function() {
-    setLanguage();
     setMasks();
     setCalendar();
     }, 500
   );
 });
-
-function setLanguage() { T9n.setLanguage("pt"); }
 
 function setMasks() {
   $('.phone-number').inputmask("(99) 99999999[9]", { "placeholder": " " });
