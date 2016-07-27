@@ -1,6 +1,5 @@
 Meteor.methods({
   displayErrors: function(error) {
-    console.log(error, "error");
     if (typeof(error.details) === 'string') {
       let str = JSON.parse(error.details)[0].name;
       let number = str.match( /\d+/g ) ? str.match( /\d+/g ).pop() : "";
@@ -16,6 +15,11 @@ Meteor.methods({
     $('#'+name).addClass('warning');
     toastr.error(reason, 'ERRO');
 
+    if (Router.current().route.getName() == 'studentsSignup') {
+      Meteor.call('generateWizardErrors', name);
+    }
+  },
+  generateWizardErrors: function(name) {
     let parent = $('#'+name).closest('.tab-pane')[0].id;
     document.querySelectorAll("a[href='#" + parent + "']")[0].className += " wizard-error";
   }
