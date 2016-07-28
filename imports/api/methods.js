@@ -6,7 +6,6 @@ Meteor.methods({
     if (type == "student") {
       require('/imports/api/collections/students.js');
     } else {
-      console.log(type, "company");
       require('/imports/api/collections/companies.js');
     }
     id = Accounts.createUser(data);
