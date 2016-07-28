@@ -1,113 +1,105 @@
 <template name="includeJobVacancy">
     <section class="hasPaddingTop">
-        <div class="section-body no-margin">
-            {{#if isInRole 'company' 'default-group'}}
-            <form class="form">
-                <div class="card">
-                    <div class="card-head style-primary">
-                        <header>Incluir uma vaga</header>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="required">
-                                        <select class="form-control required" id="categoria" name="categoria" required>
-                                            <option value="advog-lei">Advogados & Leis</option>
-                                            <option value="design-cri">Design & Criação</option>
-                                            <option value="eng-arq">Engenharia & Arquitetura</option>
-                                            <option value="escr-trad">Escrita & Tradução</option>
-                                            <option value="fot-audiov">Fotografia & Audiovisual</option>
-                                            <option value="serv">Serviços Empresariais</option>
-                                            <option value="suporteadm">Suporte Administrativo</option>
-                                            <option value="vendas">Vendas & Marketing</option>
-                                            <option value="web-desenv">Web & Desenvolvimento</option>
-                                            <option value="outra">Outra Categoria</option>
-                                        </select>
-                                        <label for="categoria" class="control-label">Escolha uma categoria</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-offset-md-6"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="required">
-                                        <select class="form-control required" id="tipo-vaga" name="tipo-vaga" required>
-                                            <option value="estagio">Estágio</option>
-                                            <option value="trainee">Trainee</option>
-                                            <option value="junior">Junior</option>
-                                            <option value="pleno">Pleno</option>
-                                            <option value="senior">Sênior</option>
-                                            <option value="freelancer">Freelancer</option>
-                                        </select>
-                                        <label for="tipo-vaga" class="control-label">Tipo de vaga ofertada</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-offset-md-6"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <div class="required">
-                                        <input type="text" class="form-control required" id="nome" name="nome" data-rule-minlength="2" required>
-                                        <label for="nome" class="control-label">Nome para a vaga</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <textarea id="descricao" name="descricao" class="form-control" rows="6"></textarea>
-                                    <label for="descricao" class="control-label">Descrição da vaga</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-offset-6"></div>
-                        </div>
-                        <!-- TODO: to be implemented -->
-                        <!--div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="required">
-                                        <input type="text" class="form-control" list="tags">
-                                        <datalist class="form-control" id="tags" name="tags"> 
-                                           {{#each skills}}
-                                            <option value={{skill.value}}></option> 
-                                            {{/each}} </datalist>
-                                        <label for="tipo-vaga" class="control-label">Quais habilidades são desejadas?</label> 
-                                    </div>
-                                </div>
-                                <small>Dica: escolha habilidades ou áreas que são relacionadas com esta vaga</small>
-                            </div>
-                            <div class="col-md-6"></div>
-                        </div-->
-                        <div class="form-group">
-                            <div class="col-sm-offset-10 col-sm-2">
-                                <button type="submit" class="btn btn-primary btn-send">Confirmar</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </form> 
-            {{else}}
-            {{#if isInRole 'student' 'default-group'}}
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h1><span class="text-xxxl text-light">Ops...</span></h1>
-                    <h2 class="text-light">Parece que você não tem permissões para incluir uma vaga <i class="fa fa-frown-o text-primary"></i></h2> </div>
-                <!--end .col -->
+      <div class="section-body no-margin">
+        {{#if isInRole 'company' 'default-group'}}
+        <form class="form">
+          <div class="card">
+            <div class="card-head style-primary">
+              <header>Incluir uma vaga</header>
             </div>
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <p>Contate o Administrador</p>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="required">
+                      <select class="form-control required" id="categoria" name="categoria" required>
+                        <option value="advog-lei">Advogados & Leis</option>
+                        <option value="design-cri">Design & Criação</option>
+                        <option value="eng-arq">Engenharia & Arquitetura</option>
+                        <option value="escr-trad">Escrita & Tradução</option>
+                        <option value="fot-audiov">Fotografia & Audiovisual</option>
+                        <option value="serv">Serviços Empresariais</option>
+                        <option value="suporteadm">Suporte Administrativo</option>
+                        <option value="vendas">Vendas & Marketing</option>
+                        <option value="web-desenv">Web & Desenvolvimento</option>
+                        <option value="outra">Outra Categoria</option>
+                      </select>
+                      <label for="categoria" class="control-label">Escolha uma categoria</label>
+                    </div>
+                  </div>
                 </div>
+                <div class="col-offset-md-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="required">
+                      <select class="form-control required" id="tipo-vaga" name="tipo-vaga" required>
+                        <option value="estagio">Estágio</option>
+                        <option value="trainee">Trainee</option>
+                        <option value="junior">Junior</option>
+                        <option value="pleno">Pleno</option>
+                        <option value="senior">Sênior</option>
+                        <option value="freelancer">Freelancer</option>
+                      </select>
+                      <label for="tipo-vaga" class="control-label">Tipo de vaga ofertada</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-offset-md-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="required">
+                      <input type="text" class="form-control required" id="nome" name="nome" data-rule-minlength="2" required>
+                      <label for="nome" class="control-label">Nome para a vaga</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <textarea id="descricao" name="descricao" class="form-control" rows="6"></textarea>
+                    <label for="descricao" class="control-label">Descrição da vaga</label>
+                  </div>
+                </div>
+                <div class="col-sm-offset-6"></div>
+              </div>
+              <!-- TODO: to be implemented -->
+              <!--div class="row"><div class="col-md-6"><div class="form-group"><div class="required"><input type="text" class="form-control" list="tags"><datalist class="form-control" id="tags" name="tags"> 
+                {{#each skills}}
+                 <option value={{skill.value}}></option> 
+                 {{/each}} </datalist><label for="tipo-vaga" class="control-label">Quais habilidades são desejadas?</label></div></div><small>Dica: escolha habilidades ou áreas que são relacionadas com esta vaga</small></div><div class="col-md-6"></div></div-->
+              <div class="form-group">
+                <div class="col-sm-offset-10 col-sm-2">
+                  <button type="submit" class="btn btn-primary btn-send">Confirmar</button>
+                </div>
+              </div>
             </div>
-            {{/if}} 
-            {{/if}} 
+          </div>
+        </form>
+        {{else}}
+        {{#if isInRole 'student' 'default-group'}}
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h1>
+              <span class="text-xxxl text-light">Ops...</span>
+            </h1>
+            <h2 class="text-light">Parece que você não tem permissões para incluir uma vaga 
+              <i class="fa fa-frown-o text-primary"></i>
+            </h2>
+          </div>
+          <!--end .col -->
         </div>
-    </section> 
-    </template>
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <p>Contate o Administrador</p>
+          </div>
+        </div>
+        {{/if}} 
+        {{/if}} 
+      </div>
+    </section>
+</template>
