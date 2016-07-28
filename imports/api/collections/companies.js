@@ -11,7 +11,7 @@ Schema.UserProfile = new SimpleSchema({
   cnpj: {
     type: String,
     label: "CNPJ",
-    custom: function (){
+    custom: function() {
       cnpj = this.value;
       var numeros, digitos, soma, i, resultado, pos, tamanho, digitos_iguais;
       digitos_iguais = 1;
@@ -24,7 +24,7 @@ Schema.UserProfile = new SimpleSchema({
       }
       if (!digitos_iguais) {
         tamanho = cnpj.length - 2
-        numeros = cnpj.substring(0,tamanho);
+        numeros = cnpj.substring(0, tamanho);
         digitos = cnpj.substring(tamanho);
         soma = 0;
         pos = tamanho - 7;
@@ -37,7 +37,7 @@ Schema.UserProfile = new SimpleSchema({
         if (resultado != digitos.charAt(0)) return 'invalid_document';
 
         tamanho = tamanho + 1;
-        numeros = cnpj.substring(0,tamanho);
+        numeros = cnpj.substring(0, tamanho);
         soma = 0;
         pos = tamanho - 7;
         for (i = tamanho; i >= 1; i--) {
@@ -48,8 +48,7 @@ Schema.UserProfile = new SimpleSchema({
         resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
         if (resultado != digitos.charAt(1)) return 'invalid_document';
         return true;
-      }
-      else return 'invalid_document';
+      } else return 'invalid_document';
     }
   },
   razaosoc: {
@@ -93,7 +92,7 @@ Schema.UserProfile = new SimpleSchema({
     label: "Telefone Residencial",
     regEx: /^\([1-9]{2}\) [0-9]{8,9}$/
   },
-  fax: { 
+  fax: {
     type: String,
     label: "Fax",
     optional: true
@@ -106,47 +105,45 @@ Schema.UserProfile = new SimpleSchema({
 });
 
 Schema.User = new SimpleSchema({
-    username: {
-        type: String,
-        optional: true
-    },
-    emails: {
-        type: Array,
-    },
-    "emails.$": {
-        type: Object
-    },
-    "emails.$.address": {
-        type: String,
-        regEx: SimpleSchema.RegEx.Email
-    },
-    "emails.$.verified": {
-        type: Boolean
-    },
-    createdAt: {
-        type: Date
-    },
-    profile: {
-        type: Schema.UserProfile,
-        label: "Perfil",
-        optional: false
-    },
-    services: {
-        type: Object,
-        blackbox: true
-    },
-    roles: {
-        type: String,
-        optional: true,
-        blackbox: true
-    },
-    // In order to avoid an 'Exception in setInterval callback' from Meteor
-    heartbeat: {
-        type: Date,
-        optional: true
-    }
+  username: {
+    type: String,
+    optional: true
+  },
+  emails: {
+    type: Array,
+  },
+  "emails.$": {
+    type: Object
+  },
+  "emails.$.address": {
+    type: String,
+    regEx: SimpleSchema.RegEx.Email
+  },
+  "emails.$.verified": {
+    type: Boolean
+  },
+  createdAt: {
+    type: Date
+  },
+  profile: {
+    type: Schema.UserProfile,
+    label: "Perfil",
+    optional: false
+  },
+  services: {
+    type: Object,
+    blackbox: true
+  },
+  roles: {
+    type: String,
+    optional: true,
+    blackbox: true
+  },
+  // In order to avoid an 'Exception in setInterval callback' from Meteor
+  heartbeat: {
+    type: Date,
+    optional: true
+  }
 });
 
 Meteor.users.attachSchema(Schema.User);
-
-

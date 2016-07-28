@@ -1,78 +1,102 @@
 <template name="mainPanel">
-    <section class="hasPaddingTop">
-        <div class="section-body no-margin">
-            <div class="row">
-                <div class="col-md-8">
-                    {{#if isInRole 'student' 'default-group'}}
-                    <h2>Bem vindo(a), {{ user.profile.nome }}!</h2>
-                    {{/if}}
-                    
-                    {{#if isInRole 'company' 'default-group'}}
-                    <h2>Bem vindo(a), {{ user.profile.dados }}!</h2>
-                    {{/if}}
-                    <div id="activity" class="tab-pane">
-                        <div class="card card-underline no-margin">
-                            <div class="card-head">
-                                <header>O que está acontecendo?</header>
-                            </div>
-                            <div class="card-body">
-                                <p>Abaixo, as últimas atividades registradas pelas empresas:</p>
-                            </div>
-                        </div>
-                        <ul class="timeline collapse-lg timeline-hairline">
-                            <!-- This should be included dinamically -->
-                            
-                            {{#if isInRole 'student' 'default-group'}}
-                            <li class="timeline-inverted">
-                                <div class="timeline-circ circ-xl style-primary"> <i class="md mdi mdi-calendar-check"></i> </div>
-                                <div class="timeline-entry">
-                                    <div class="card style-default-light">
-                                        <div class="card-body small-padding"> <span class="text-medium">
-                                            <span class="text-primary">Microsoft</span> cadastrou uma <a class="text-primary" href="#">vaga.</a> </span>
-                                            <br> <span class="opacity-50"> Terça, 21 de Outubro, 2016 </span> </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="timeline-inverted">
-                                <div class="timeline-circ circ-xl style-primary"> <i class="md mdi mdi-calendar-check"></i> </div>
-                                <div class="timeline-entry">
-                                    <div class="card style-default-light">
-                                        <div class="card-body small-padding"> <span class="text-medium">
-                                            <span class="text-primary">IBM</span> cadastrou uma <a class="text-primary" href="#">vaga.</a> </span>
-                                            <br> <span class="opacity-50"> Sábado, 18 de Outubro, 2016 </span> </div>
-                                    </div>
-                                </div>
-                            </li>
-                            
-                            {{else}}
-                            <li class="timeline-inverted">
-                                <div class="timeline-circ circ-xl style-primary"> <i class="md mdi mdi-calendar-check"></i> </div>
-                                <div class="timeline-entry">
-                                    <div class="card style-default-light">
-                                        <div class="card-body small-padding">
-                                            <p>Ops, ainda não há nenhuma atividade registrada :(</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li> 
-                            
-                            {{/if}} 
-                        </ul>
-                    </div>
-                </div>
-                <!-- Profile's card -->
-                <div class="col-lg-offset-1 col-lg-3 col-md-4">
-                    <div class="card">
-                        <div class="card-head style-primary">
-                            <header>Meu perfil</header>
-                            <div class="tools">
-                                <a class="btn btn-icon-toggle"> <i class="md mdi mdi-border-color"></i> </a>
-                            </div>
-                        </div>
-                        <div class="card-body"> </div>
-                    </div>
-                </div>
+  <section class="hasPaddingTop">
+    <div class="section-body no-margin">
+      <div class="row">
+        <div class="col-md-8">
+          {{#if isInRole 'student' 'default-group'}}
+
+            <h2>Bem vindo(a), {{ user.profile.nome }}!</h2> 
+
+          {{/if}} {{#if isInRole 'company' 'default-group'}}
+
+            <h2>Bem vindo(a), {{ user.profile.dados }}!</h2>
+
+          {{/if}}
+
+          <div id="activity" class="tab-pane">
+            <div class="card card-underline no-margin">
+              <div class="card-head">
+                <header>O que está acontecendo?</header>
+              </div>
+              <div class="card-body">
+                <p>Abaixo, as últimas atividades registradas pelas empresas:</p>
+              </div>
             </div>
+            <ul class="timeline collapse-lg timeline-hairline">
+              <!-- This should be included dinamically -->
+
+              {{#if isInRole 'student' 'default-group'}}
+
+                <li class="timeline-inverted">
+                  <div class="timeline-circ circ-xl style-primary">
+                    <i class="md mdi mdi-calendar-check"></i>
+                  </div>
+                  <div class="timeline-entry">
+                    <div class="card style-default-light">
+                      <div class="card-body small-padding">
+                        <span class="text-medium">
+                                                  <span class="text-primary">Microsoft</span> cadastrou uma
+                        <a class="text-primary" href="#">vaga.</a>
+                        </span>
+                        <br>
+                        <span class="opacity-50"> Terça, 21 de Outubro, 2016 </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline-inverted">
+                  <div class="timeline-circ circ-xl style-primary">
+                    <i class="md mdi mdi-calendar-check"></i>
+                  </div>
+                  <div class="timeline-entry">
+                    <div class="card style-default-light">
+                      <div class="card-body small-padding">
+                        <span class="text-medium">
+                                                      <span class="text-primary">IBM</span> cadastrou uma
+                        <a class="text-primary" href="#">vaga.</a>
+                        </span>
+                        <br>
+                        <span class="opacity-50"> Sábado, 18 de Outubro, 2016 </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+              {{else}}
+
+                <li class="timeline-inverted">
+                  <div class="timeline-circ circ-xl style-primary">
+                    <i class="md mdi mdi-calendar-check"></i>
+                  </div>
+                  <div class="timeline-entry">
+                    <div class="card style-default-light">
+                      <div class="card-body small-padding">
+                        <p>Ops, ainda não há nenhuma atividade registrada :(</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+              {{/if}}
+
+            </ul>
+          </div>
         </div>
-    </section>
+        <!-- Profile's card -->
+        <div class="col-lg-offset-1 col-lg-3 col-md-4">
+          <div class="card">
+            <div class="card-head style-primary">
+              <header>Meu perfil</header>
+              <div class="tools">
+                <a class="btn btn-icon-toggle">
+                  <i class="md mdi mdi-border-color"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>

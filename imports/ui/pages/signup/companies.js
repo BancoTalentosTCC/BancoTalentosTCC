@@ -1,8 +1,10 @@
-import { Template } from 'meteor/templating';
+import {
+  Template
+} from 'meteor/templating';
 import '/imports/api/collections/companies.js';
 
 Template.companiesSignup.events({
-  "submit form": function (event) {
+  "submit form": function(event) {
     event.preventDefault();
     //REMOVE ERRORS
     $('.warning').removeClass('warning');
@@ -30,11 +32,12 @@ Template.companiesSignup.events({
     }
 
     Meteor.call('saveUser', user, "company", function(error, result) {
-      if ( error ) { Meteor.call('displayErrors', error); }
-      else if ( result ) {
+      if (error) {
+        Meteor.call('displayErrors', error);
+      } else if (result) {
         toastr.success('Você já pode acessar o painel da empresa', 'Empresa Cadastrada!');
         Router.go('login')
-      }      
+      }
     });
   }
 });
