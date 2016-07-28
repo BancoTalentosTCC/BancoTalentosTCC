@@ -6,8 +6,7 @@ Meteor.methods({
 
       Meteor.call('generateErrors', str.split(".").pop() + number, error.reason);
     } else if (typeof(error.details) === 'object') {
-      Meteor.call('generateErrors', error.details[0].name.split(".")
-        .pop(), error.reason);
+      Meteor.call('generateErrors', error.details[0].name.split(".").pop(), error.reason);
     } else Meteor.call('generateErrors', '', T9n.get('error.accounts.' + error.reason));
   },
   generateErrors: function(name, reason) {
@@ -19,8 +18,7 @@ Meteor.methods({
     }
   },
   generateWizardErrors: function(name) {
-    let parent = $('#' + name)
-      .closest('.tab-pane')[0].id;
+    let parent = $('#' + name).closest('.tab-pane')[0].id;
     document.querySelectorAll("a[href='#" + parent + "']")[0].className += " wizard-error";
   }
 });
