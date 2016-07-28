@@ -34,4 +34,3 @@ function setCalendar() {
     language: 'pt-BR'
   });
 }
-
