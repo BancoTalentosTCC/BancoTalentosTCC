@@ -68,7 +68,6 @@ Router.map(function() {
   }, {
     path: 'panel/profile'
   });
-
   this.route('includeJobVacancy', function() {
     this.render('header', {
       to: 'header'
