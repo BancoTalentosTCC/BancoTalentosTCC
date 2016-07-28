@@ -1,420 +1,432 @@
 <template name="studentsSignup">
-    <div class="card signup-card">
-        <div class="card-body">
-            <div id="wizard" class="form-wizard form-wizard-horizontal">
-                <form class="form floating-label form-validation">
-                    <div class="form-wizard-nav nav-pills">
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-primary"></div>
-                        </div>
-                        <ul class="nav nav-justified">
-                            <li class="active">
-                                <a href="#tab1" data-toggle="tab"> <span class="mdi mdi-account step"></span> <span class="title">Dados Pessoais</span> </a>
-                            </li>
-                            <li>
-                                <a href="#tab2" data-toggle="tab"> <span class="mdi mdi-library-books step"></span> <span class="title">Formação</span> </a>
-                            </li>
-                            <li>
-                                <a href="#tab3" data-toggle="tab"> <span class="mdi mdi-message-text step"></span> <span class="title">Idiomas</span> </a>
-                            </li>
-                            <li>
-                                <a href="#tab4" data-toggle="tab"> <span class="mdi mdi-wrench step"></span> <span class="title">Qualificações</span> </a>
-                            </li>
-                            <li>
-                                <a href="#tab5" data-toggle="tab"> <span class="mdi mdi-worker step"></span> <span class="title">Experiência Profissional</span> </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-content clearfix">
-                        <div class="tab-pane active" id="tab1">
-                            <br/>
-                            <br/>
-                            <!-- Step 1 -->
-                            <div class="form-row form-border">
-                                <h1>Dados pessoais</h1>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="nome" name="nome" data-rule-minlength="2" required>
-                                    <label for="nome" class="control-label">Nome</label>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control cpf" id="cpf" name="cpf" data-rule-minlength="11" required="">
-                                            <label for="cpf" class="control-label">CPF</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="nascimento" name="nascimento" required>
-                                            <label for="nascimento" class="control-label">Data de Nascimento</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <select class="form-control" id="perfil" name="perfil" required>
-                                                <option>Aluno</option>
-                                                <option>Ex-aluno</option>
-                                            </select>
-                                            <label for="perfil" class="control-label">Perfil</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <select class="form-control" id="sexo" name="sexo" required>
-                                                <option>Masculino</option>
-                                                <option>Feminino</option>
-                                            </select>
-                                            <label for="sexo" class="control-label">Sexo</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-10">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="endereco" id="endereco" required>
-                                            <label for="endereco" class="control-label">Endereço</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="numero" name="numero" data-rule-minlength="1" required>
-                                            <label for="numero" class="control-label">Numero</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="complemento" name="complemento">
-                                            <label for="complement" class="control-label">Complemento</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="bairro" name="bairro" data-rule-minlength="2" required>
-                                            <label for="bairro" class="control-label">Bairro</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="cidade" name="cidade" data-rule-minlength="2" required>
-                                            <label for="cidade" class="control-label">Cidade</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <select class="form-control" id="uf" name="uf" required>
-                                                <option value="ac">Acre</option>
-                                                <option value="al">Alagoas</option>
-                                                <option value="am">Amazonas</option>
-                                                <option value="ap">Amapá</option>
-                                                <option value="ba">Bahia</option>
-                                                <option value="ce">Ceará</option>
-                                                <option value="df">Distrito Federal</option>
-                                                <option value="es">Espírito Santo</option>
-                                                <option value="go">Goiás</option>
-                                                <option value="ma">Maranhão</option>
-                                                <option value="mt">Mato Grosso</option>
-                                                <option value="ms">Mato Grosso do Sul</option>
-                                                <option value="mg">Minas Gerais</option>
-                                                <option value="pa">Pará</option>
-                                                <option value="pb">Paraíba</option>
-                                                <option value="pr">Paraná</option>
-                                                <option value="pe">Pernambuco</option>
-                                                <option value="pi">Piauí</option>
-                                                <option value="rj">Rio de Janeiro</option>
-                                                <option value="rn">Rio Grande do Norte</option>
-                                                <option value="ro">Rondônia</option>
-                                                <option value="rs">Rio Grande do Sul</option>
-                                                <option value="rr">Roraima</option>
-                                                <option value="sc">Santa Catarina</option>
-                                                <option value="se">Sergipe</option>
-                                                <option value="sp">São Paulo</option>
-                                                <option value="to">Tocantins</option>
-                                            </select>
-                                            <label for="uf" class="control-label">UF</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control cep" id="cep" name="cep" data-rule-minlength="8" required>
-                                            <label for="cep" class="control-label">CEP</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="tel" class="form-control phone-number" id="phone" name="phone">
-                                            <label for="phone-residencial" class="control-label">Telefone Residencial</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control phone-number" id="celular" name="celular" data-rule-minlength="10" required>
-                                            <label for="celular" class="control-label">Celular</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" id="email" name="email" data-rule-email="true" required for="username">
-                                            <label for="email" class="control-label">Email</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-senha">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <input type="password" class="form-control" id="password" name="password" data-rule-minlength="8" required>
-                                                <label for="password" class="control-label">Senha</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-offset-4"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" data-rule-minlength="8" required>
-                                                <label for="password_confirmation" class="control-label">Confirmação de Senha</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-offset-4"></div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="checkbox checkbox-styled col-sm-offset-8 col-sm-4">
-                                        <label>
-                                            <input type="checkbox" id="especial" name="especial"> <span>Portador de Necessidades Especiais</span> </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end #tab1 -->
-                        <div class="tab-pane" id="tab2">
-                            <br/>
-                            <br/>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <select id="formacao" class="form-control" name="formacao" required>
-                                            <option>Graduação</option>
-                                            <option>Pós Graduação</option>
-                                            <option>Mestrado</option>
-                                            <option>Doutorado</option>
-                                        </select>
-                                        <label for="formacao" class="control-label">Tipo de formação:</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-offset-6"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <select id="curso" name="curso" class="form-control" required>
-                                            <option selected="selected">Administração</option>
-                                            <option>Ciências Biológicas</option>
-                                            <option>Ciências Contábeis</option>
-                                            <option>Educação Física</option>
-                                            <option>Enfermagem</option>
-                                            <option>Engenharia de Produção</option>
-                                            <option>Farmácia</option>
-                                            <option>Fisioterapia</option>
-                                            <option>Gastronomia</option>
-                                            <option>Gestão da Produção Industrial</option>
-                                            <option>Gestão de Recursos Humanos</option>
-                                            <option>História</option>
-                                            <option>Sistemas de Informação</option>
-                                            <option>Medicina</option>
-                                            <option>Pedagogia</option>
-                                            <option>Psicologia</option>
-                                            <option>Publicidade e Propaganda</option>
-                                        </select>
-                                        <label for="curso" class="control-label">Curso:</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-offset-6"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="conclusao" name="conclusao" required>
-                                        <label for="conclusao" class="control-label">Ano de formação</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-offset-6"></div>
-                            </div>
-                        </div>
-                        <!--end #tab2 -->
-                        <div class="tab-pane" id="tab3">
-                            <br/>
-                            <br/>
-                            <div class="row"> {{#each language in languages}}
-                                <div class="card">
-                                   <div class="card-body border-bottom">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <select id={{language.[0]}} name={{language.[0]}} class="form-control idioma static dirty" required>
-                                                <option>Espanhol</option>
-                                                <option>Inglês</option>
-                                                <option>Frances</option>
-                                                <option>Alemão</option>
-                                                <option>Italiano</option>
-                                                <option>Mandarim</option>
-                                                <option>Japonês</option>
-                                            </select>
-                                            <label for={{language.[0]}} class="control-label">Idioma</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <select id={{language.[1]}} name={{language.[1]}} class="form-control nivel_do_idioma static dirty" required>
-                                                <option>Básico</option>
-                                                <option>Intermediário</option>
-                                                <option>Avançado</option>
-                                                <option>Fluente</option>
-                                            </select>
-                                            <label for={{language.[1]}} class="control-label">Nível</label>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div> {{/each}}
-                                <button type="button" id="add-language" class="btn btn-icon-toggle btn-primary"> <i class="fa fa-plus"></i> </button>
-                                <button type="button" id="remove-language" class="btn btn-icon-toggle btn-danger"> <i class="fa fa-minus"></i> </button>
-                            </div>
-                        </div>
-                        <!--end #tab3 -->
-                        <div class="tab-pane" id="tab4">
-                            <br/>
-                            <br/>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input type="url" class="form-control" id="lattes" data-rule-url="true" required>
-                                        <label for="lattes" name="lattes" class="control-label">Curriculo Lattes</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-offset-6"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <textarea id="qualificacao" name="qualificacao" class="form-control" rows="4"></textarea>
-                                        <label for="qualificacao" class="control-label">Qualificações</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-offset-6"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <textarea id="cursos_extras" name="cursos_extras" class="form-control" rows="6"></textarea>
-                                        <label for="cursos_extras" class="control-label">Cursos Extras</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-offset-6"></div>
-                            </div>
-                        </div>
-                        <!--end #tab4 -->
-                        <div class="tab-pane" id="tab5">
-                            <br/>
-                            <br/> {{#each experience in experiences}}
-                            <div class="card">
-                                <div class="card-body border-bottom">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control nome_emp" id={{experience.[0]}} name={{experience.[0]}}>
-                                                <label for={{experience.[0]}} class="control-label">Empresa</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control cargo_emp" id={{experience.[1]}} name={{experience.[1]}}>
-                                                <label for={{experience.[1]}} class="control-label">Cargo</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <textarea id={{experience.[2]}} name={{experience.[2]}} class="form-control atribuicoes" rows="4"></textarea>
-                                                <label for={{experience.[2]}} class="control-label">Atribuições</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control duracao_emp" id={{experience.[3]}} name={{experience.[3]}}>
-                                                <label for={{experience.[3]}} class="control-label">Tempo de Trabalho (em anos)</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control cidade_emp" id={{experience.[4]}} name={{experience.[4]}}>
-                                                <label for={{experience.[4]}} class="control-label">Cidade</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <select class="form-control static dirty uf_emp" id={{experience.[5]}} name={{experience.[5]}}>
-                                                    <option value="ac">Acre</option>
-                                                    <option value="al">Alagoas</option>
-                                                    <option value="am">Amazonas</option>
-                                                    <option value="ap">Amapá</option>
-                                                    <option value="ba">Bahia</option>
-                                                    <option value="ce">Ceará</option>
-                                                    <option value="df">Distrito Federal</option>
-                                                    <option value="es">Espírito Santo</option>
-                                                    <option value="go">Goiás</option>
-                                                    <option value="ma">Maranhão</option>
-                                                    <option value="mt">Mato Grosso</option>
-                                                    <option value="ms">Mato Grosso do Sul</option>
-                                                    <option value="mg">Minas Gerais</option>
-                                                    <option value="pa">Pará</option>
-                                                    <option value="pb">Paraíba</option>
-                                                    <option value="pr">Paraná</option>
-                                                    <option value="pe">Pernambuco</option>
-                                                    <option value="pi">Piauí</option>
-                                                    <option value="rj">Rio de Janeiro</option>
-                                                    <option value="rn">Rio Grande do Norte</option>
-                                                    <option value="ro">Rondônia</option>
-                                                    <option value="rs">Rio Grande do Sul</option>
-                                                    <option value="rr">Roraima</option>
-                                                    <option value="sc">Santa Catarina</option>
-                                                    <option value="se">Sergipe</option>
-                                                    <option value="sp">São Paulo</option>
-                                                    <option value="to">Tocantins</option>
-                                                </select>
-                                                <label for={{experience.[5]}} class="control-label">UF</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> {{/each}}
-                            <button type="button" id="add-experience" class="btn btn-icon-toggle btn-primary"> <i class="fa fa-plus"></i> </button>
-                            <button type="button" id="remove-experience" class="btn btn-icon-toggle btn-danger"> <i class="fa fa-minus"></i> </button>
-                        </div>
-                        <!--end #tab5 -->
-                    </div>
-                    <ul class="pager wizard">
-                        <li class="previous first"><a id="first" class="btn-raised" href="">Primeiro</a></li>
-                        <li class="previous"><a id="previous" class="btn-raised" href="">Anterior</a></li>
-                        <li class="next last"><a id="last" class="btn-raised" href="">Ultimo</a></li>
-                        <li class="next"><a id="next" class="btn-raised" href="">Próximo</a></li>
-                    </ul>
-                    <div class="bottom-fix">
-                        <div class="col-sm-offset-10 col-sm-2">
-                            <button type="submit" class="btn btn-primary btn-raised">Confirmar</button>
-                        </div>
-                    </div>
-                </form>
+  <div class="card signup-card">
+    <div class="card-body">
+      <div id="wizard" class="form-wizard form-wizard-horizontal">
+        <form class="form floating-label form-validation">
+          <div class="form-wizard-nav nav-pills">
+            <div class="progress">
+              <div class="progress-bar progress-bar-primary"></div>
             </div>
-        </div>
+            <ul class="nav nav-justified">
+              <li class="active">
+                <a href="#tab1" data-toggle="tab"> <span class="mdi mdi-account step"></span> <span class="title">Dados Pessoais</span> </a>
+              </li>
+              <li>
+                <a href="#tab2" data-toggle="tab"> <span class="mdi mdi-library-books step"></span> <span class="title">Formação</span> </a>
+              </li>
+              <li>
+                <a href="#tab3" data-toggle="tab"> <span class="mdi mdi-message-text step"></span> <span class="title">Idiomas</span> </a>
+              </li>
+              <li>
+                <a href="#tab4" data-toggle="tab"> <span class="mdi mdi-wrench step"></span> <span class="title">Qualificações</span> </a>
+              </li>
+              <li>
+                <a href="#tab5" data-toggle="tab"> <span class="mdi mdi-worker step"></span> <span class="title">Experiência Profissional</span> </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content clearfix">
+            <div class="tab-pane active" id="tab1">
+              <br/>
+              <br/>
+              <!-- Step 1 -->
+              <div class="form-row form-border">
+                <h1>Dados pessoais</h1>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="nome" name="nome" data-rule-minlength="2" required>
+                  <label for="nome" class="control-label">Nome</label>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <input type="text" class="form-control cpf" id="cpf" name="cpf" data-rule-minlength="11" required="">
+                      <label for="cpf" class="control-label">CPF</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="nascimento" name="nascimento" required>
+                      <label for="nascimento" class="control-label">Data de Nascimento</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <select class="form-control" id="perfil" name="perfil" required>
+                        <option>Aluno</option>
+                        <option>Ex-aluno</option>
+                      </select>
+                      <label for="perfil" class="control-label">Perfil</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <select class="form-control" id="sexo" name="sexo" required>
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                      </select>
+                      <label for="sexo" class="control-label">Sexo</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-10">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="endereco" id="endereco" required>
+                      <label for="endereco" class="control-label">Endereço</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="numero" name="numero" data-rule-minlength="1" required>
+                      <label for="numero" class="control-label">Numero</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="complemento" name="complemento">
+                      <label for="complement" class="control-label">Complemento</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="bairro" name="bairro" data-rule-minlength="2" required>
+                      <label for="bairro" class="control-label">Bairro</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="cidade" name="cidade" data-rule-minlength="2" required>
+                      <label for="cidade" class="control-label">Cidade</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <select class="form-control" id="uf" name="uf" required>
+                        <option value="ac">Acre</option>
+                        <option value="al">Alagoas</option>
+                        <option value="am">Amazonas</option>
+                        <option value="ap">Amapá</option>
+                        <option value="ba">Bahia</option>
+                        <option value="ce">Ceará</option>
+                        <option value="df">Distrito Federal</option>
+                        <option value="es">Espírito Santo</option>
+                        <option value="go">Goiás</option>
+                        <option value="ma">Maranhão</option>
+                        <option value="mt">Mato Grosso</option>
+                        <option value="ms">Mato Grosso do Sul</option>
+                        <option value="mg">Minas Gerais</option>
+                        <option value="pa">Pará</option>
+                        <option value="pb">Paraíba</option>
+                        <option value="pr">Paraná</option>
+                        <option value="pe">Pernambuco</option>
+                        <option value="pi">Piauí</option>
+                        <option value="rj">Rio de Janeiro</option>
+                        <option value="rn">Rio Grande do Norte</option>
+                        <option value="ro">Rondônia</option>
+                        <option value="rs">Rio Grande do Sul</option>
+                        <option value="rr">Roraima</option>
+                        <option value="sc">Santa Catarina</option>
+                        <option value="se">Sergipe</option>
+                        <option value="sp">São Paulo</option>
+                        <option value="to">Tocantins</option>
+                      </select>
+                      <label for="uf" class="control-label">UF</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <input type="text" class="form-control cep" id="cep" name="cep" data-rule-minlength="8" required>
+                      <label for="cep" class="control-label">CEP</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="tel" class="form-control phone-number" id="phone" name="phone">
+                      <label for="phone-residencial" class="control-label">Telefone Residencial</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control phone-number" id="celular" name="celular" data-rule-minlength="10" required>
+                      <label for="celular" class="control-label">Celular</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <input type="email" class="form-control" id="email" name="email" data-rule-email="true" required for="username">
+                      <label for="email" class="control-label">Email</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-senha">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <div class="form-group">
+                        <input type="password" class="form-control" id="password" name="password" data-rule-minlength="8" required>
+                        <label for="password" class="control-label">Senha</label>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div id="passstrength" class="dropdown-progress">
+                        <div class="progress no-margin">
+                          <div>
+                            <p></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <div class="form-group">
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" data-rule-minlength="8" required>
+                        <label for="password_confirmation" class="control-label">Confirmação de Senha</label>
+                      </div>
+                    </div>
+                    <div class="col-sm-offset-4"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="checkbox checkbox-styled col-sm-offset-8 col-sm-4">
+                    <label>
+                      <input type="checkbox" id="especial" name="especial"> <span>Portador de Necessidades Especiais</span> </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end #tab1 -->
+            <div class="tab-pane" id="tab2">
+              <br/>
+              <br/>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <select id="formacao" class="form-control" name="formacao" required>
+                      <option>Graduação</option>
+                      <option>Pós Graduação</option>
+                      <option>Mestrado</option>
+                      <option>Doutorado</option>
+                    </select>
+                    <label for="formacao" class="control-label">Tipo de formação:</label>
+                  </div>
+                </div>
+                <div class="col-sm-offset-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <select id="curso" name="curso" class="form-control" required>
+                      <option selected="selected">Administração</option>
+                      <option>Ciências Biológicas</option>
+                      <option>Ciências Contábeis</option>
+                      <option>Educação Física</option>
+                      <option>Enfermagem</option>
+                      <option>Engenharia de Produção</option>
+                      <option>Farmácia</option>
+                      <option>Fisioterapia</option>
+                      <option>Gastronomia</option>
+                      <option>Gestão da Produção Industrial</option>
+                      <option>Gestão de Recursos Humanos</option>
+                      <option>História</option>
+                      <option>Sistemas de Informação</option>
+                      <option>Medicina</option>
+                      <option>Pedagogia</option>
+                      <option>Psicologia</option>
+                      <option>Publicidade e Propaganda</option>
+                    </select>
+                    <label for="curso" class="control-label">Curso:</label>
+                  </div>
+                </div>
+                <div class="col-sm-offset-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="conclusao" name="conclusao" required>
+                    <label for="conclusao" class="control-label">Ano de formação</label>
+                  </div>
+                </div>
+                <div class="col-sm-offset-6"></div>
+              </div>
+            </div>
+            <!--end #tab2 -->
+            <div class="tab-pane" id="tab3">
+              <br/>
+              <br/>
+              <div class="row"> {{#each language in languages}}
+                <div class="card">
+                  <div class="card-body border-bottom">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <select id={{language.[0]}} name={{language.[0]}} class="form-control idioma static dirty" required>
+                          <option>Espanhol</option>
+                          <option>Inglês</option>
+                          <option>Frances</option>
+                          <option>Alemão</option>
+                          <option>Italiano</option>
+                          <option>Mandarim</option>
+                          <option>Japonês</option>
+                        </select>
+                        <label for={{language.[0]}} class="control-label">Idioma</label>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <select id={{language.[1]}} name={{language.[1]}} class="form-control nivel_do_idioma static dirty" required>
+                          <option>Básico</option>
+                          <option>Intermediário</option>
+                          <option>Avançado</option>
+                          <option>Fluente</option>
+                        </select>
+                        <label for={{language.[1]}} class="control-label">Nível</label>
+                      </div>
+                    </div>
+                  </div>
+                </div> {{/each}}
+                <button type="button" id="add-language" class="btn btn-icon-toggle btn-primary"> <i class="fa fa-plus"></i> </button>
+                <button type="button" id="remove-language" class="btn btn-icon-toggle btn-danger"> <i class="fa fa-minus"></i> </button>
+              </div>
+            </div>
+            <!--end #tab3 -->
+            <div class="tab-pane" id="tab4">
+              <br/>
+              <br/>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="url" class="form-control" id="lattes" data-rule-url="true" required>
+                    <label for="lattes" name="lattes" class="control-label">Curriculo Lattes</label>
+                  </div>
+                </div>
+                <div class="col-sm-offset-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <textarea id="qualificacao" name="qualificacao" class="form-control" rows="4"></textarea>
+                    <label for="qualificacao" class="control-label">Qualificações</label>
+                  </div>
+                </div>
+                <div class="col-sm-offset-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <textarea id="cursos_extras" name="cursos_extras" class="form-control" rows="6"></textarea>
+                    <label for="cursos_extras" class="control-label">Cursos Extras</label>
+                  </div>
+                </div>
+                <div class="col-sm-offset-6"></div>
+              </div>
+            </div>
+            <!--end #tab4 -->
+            <div class="tab-pane" id="tab5">
+              <br/>
+              <br/> {{#each experience in experiences}}
+              <div class="card">
+                <div class="card-body border-bottom">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control nome_emp" id={{experience.[0]}} name={{experience.[0]}}>
+                        <label for={{experience.[0]}} class="control-label">Empresa</label>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control cargo_emp" id={{experience.[1]}} name={{experience.[1]}}>
+                        <label for={{experience.[1]}} class="control-label">Cargo</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <textarea id={{experience.[2]}} name={{experience.[2]}} class="form-control atribuicoes" rows="4"></textarea>
+                        <label for={{experience.[2]}} class="control-label">Atribuições</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <input type="text" class="form-control duracao_emp" id={{experience.[3]}} name={{experience.[3]}}>
+                        <label for={{experience.[3]}} class="control-label">Tempo de Trabalho (em anos)</label>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <input type="text" class="form-control cidade_emp" id={{experience.[4]}} name={{experience.[4]}}>
+                        <label for={{experience.[4]}} class="control-label">Cidade</label>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <select class="form-control static dirty uf_emp" id={{experience.[5]}} name={{experience.[5]}}>
+                          <option value="ac">Acre</option>
+                          <option value="al">Alagoas</option>
+                          <option value="am">Amazonas</option>
+                          <option value="ap">Amapá</option>
+                          <option value="ba">Bahia</option>
+                          <option value="ce">Ceará</option>
+                          <option value="df">Distrito Federal</option>
+                          <option value="es">Espírito Santo</option>
+                          <option value="go">Goiás</option>
+                          <option value="ma">Maranhão</option>
+                          <option value="mt">Mato Grosso</option>
+                          <option value="ms">Mato Grosso do Sul</option>
+                          <option value="mg">Minas Gerais</option>
+                          <option value="pa">Pará</option>
+                          <option value="pb">Paraíba</option>
+                          <option value="pr">Paraná</option>
+                          <option value="pe">Pernambuco</option>
+                          <option value="pi">Piauí</option>
+                          <option value="rj">Rio de Janeiro</option>
+                          <option value="rn">Rio Grande do Norte</option>
+                          <option value="ro">Rondônia</option>
+                          <option value="rs">Rio Grande do Sul</option>
+                          <option value="rr">Roraima</option>
+                          <option value="sc">Santa Catarina</option>
+                          <option value="se">Sergipe</option>
+                          <option value="sp">São Paulo</option>
+                          <option value="to">Tocantins</option>
+                        </select>
+                        <label for={{experience.[5]}} class="control-label">UF</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> {{/each}}
+              <button type="button" id="add-experience" class="btn btn-icon-toggle btn-primary"> <i class="fa fa-plus"></i> </button>
+              <button type="button" id="remove-experience" class="btn btn-icon-toggle btn-danger"> <i class="fa fa-minus"></i> </button>
+            </div>
+            <!--end #tab5 -->
+          </div>
+          <ul class="pager wizard">
+            <li class="previous first"><a id="first" class="btn-raised" href="">Primeiro</a>
+            </li>
+            <li class="previous"><a id="previous" class="btn-raised" href="">Anterior</a>
+            </li>
+            <li class="next last"><a id="last" class="btn-raised" href="">Ultimo</a>
+            </li>
+            <li class="next"><a id="next" class="btn-raised" href="">Próximo</a>
+            </li>
+          </ul>
+          <div class="bottom-fix">
+            <div class="col-sm-offset-10 col-sm-2">
+              <button type="submit" class="btn btn-primary btn-raised">Confirmar</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </template>
