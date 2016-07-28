@@ -1,10 +1,10 @@
-Meteor.startup(function(){
+Meteor.startup(function() {
   T9n.setLanguage("pt");
-  
+
   var pt = {
     error: {
       accounts: {
-        "Match failed" : "Erro de Validação"
+        "Match failed": "Erro de Validação"
       }
     }
   }

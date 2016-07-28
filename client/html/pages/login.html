@@ -1,71 +1,75 @@
 <template name="login">
-<body class="menubar-hoverable header-fixed" id="content">
+
+  <body class="menubar-hoverable header-fixed" id="content">
     <!-- BEGIN LOGIN SECTION -->
     <section class="section-account">
-        <div class="card contain-sm style-transparent">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-6">
+      <div class="card contain-sm style-transparent">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-6">
 
-                        <span class="text-lg text-bold text-primary">Bem-vindo ao Banco de Talentos</span>
-                        <br/>
-                        <small>E bem vindo ao mercado de trabalho!</small>
-                        <br/>
-                        <br/>
-                        <form class="form floating-label" id="loginForm">
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" name="email">
-                                <label class="control-label" for="email">Email</label>
+              <span class="text-lg text-bold text-primary">Bem-vindo ao Banco de Talentos</span>
+              <br/>
+              <small>E bem vindo ao mercado de trabalho!</small>
+              <br/>
+              <br/>
+              <form class="form floating-label" id="loginForm">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email" name="email">
+                  <label class="control-label" for="email">Email</label>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="password" name="password">
+                  <label class="control-label" for="password">Senha</label>
+                </div>
+                <br/>
+                <div class="row">
+                  <div class="col-xs-6 text-left">
+                    <div class="checkbox checkbox-inline checkbox-styled">
+                      <label>
+                        <input type="checkbox"> <span>Lembrar-me nesse dispositivo</span>
+                      </label>
                     </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="password" name="password">
-                                <label class="control-label" for="password">Senha</label>
-                            </div>
-                            <br/>
-                            <div class="row">
-                                <div class="col-xs-6 text-left">
-                                    <div class="checkbox checkbox-inline checkbox-styled">
-                                        <label>
-                                            <input type="checkbox"> <span>Lembrar-me nesse dispositivo</span>
-                                        </label>
-                                    </div>
-                                </div><!--end .col -->
-                                <div class="col-xs-6 text-right">
-                                    <button class="btn btn-primary btn-raised" type="submit">Login</button>
-                                </div><!--end .col -->
-                            </div><!--end .row -->
-                        </form>
-                    </div>
-                    <!--end .col -->
-                    <div class="col-sm-5 col-sm-offset-1 text-center">
-                        <p class="text-light">
-                            Escolha uma rede social para entrar
-                        </p>
-                        <p>
-                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-facebook-box material-icons md-36 pull-left"></i>Entre com Facebook</a>
-                        </p>
-                        <p>
-                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-gmail material-icons md-36 pull-left"></i>Entre com Gmail</a>
-                        </p>
-                        <p>
-                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-linkedin-box material-icons md-36 pull-left"></i>Entre com Linkedin</a>
-                        </p>
-                        <br>
-                        <p class="text-light">
-                            Ou Crie uma nova conta
-                        </p>
-                        <a class="btn-block btn btn-primary btn-raised" href="{{pathFor route='studentsSignup'}}">Sou um aluno</a>
-                        <br>
-                        <a class="btn-block btn btn-primary btn-raised" href="{{pathFor route='companiesSignup'}}">Sou uma empresa</a>
-                    </div>
-                    <!--end .col -->
+                  </div>
+                  <!--end .col -->
+                  <div class="col-xs-6 text-right">
+                    <button class="btn btn-primary btn-raised" type="submit">Login</button>
+                  </div>
+                  <!--end .col -->
                 </div>
                 <!--end .row -->
+              </form>
             </div>
-            <!--end .card-body -->
+            <!--end .col -->
+            <div class="col-sm-5 col-sm-offset-1 text-center">
+              <p class="text-light">
+                Escolha uma rede social para entrar
+              </p>
+              <p>
+                <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-facebook-box material-icons md-36 pull-left"></i>Entre com Facebook</a>
+              </p>
+              <p>
+                <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-gmail material-icons md-36 pull-left"></i>Entre com Gmail</a>
+              </p>
+              <p>
+                <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-linkedin-box material-icons md-36 pull-left"></i>Entre com Linkedin</a>
+              </p>
+              <br>
+              <p class="text-light">
+                Ou Crie uma nova conta
+              </p>
+              <a class="btn-block btn btn-primary btn-raised" href="{{pathFor route='studentsSignup'}}">Sou um aluno</a>
+              <br>
+              <a class="btn-block btn btn-primary btn-raised" href="{{pathFor route='companiesSignup'}}">Sou uma empresa</a>
+            </div>
+            <!--end .col -->
+          </div>
+          <!--end .row -->
         </div>
-        <!--end .card -->
+        <!--end .card-body -->
+      </div>
+      <!--end .card -->
     </section>
     <!-- END LOGIN SECTION -->
-</body>
+  </body>
 </template>

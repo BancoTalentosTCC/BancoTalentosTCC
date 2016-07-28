@@ -1,176 +1,178 @@
 <template name="companiesSignup">
-    <div class="card signup-card">
-        <div class="container card-body">
-            <form class="form floating-label register">
-                <div class="form-row form-border">
-                    <h1>Dados pessoais</h1>
-                    <div class="form-group">
-                        <div class="required">
-                            <input type="text" class="form-control required" id="nome" name="nome" data-rule-minlength="2" required>
-                            <label for="nome" class="control-label">Nome de Fantasia</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class=" required">
-                            <input type="text" class="form-control cnpj required" id="cnpj" name="cnpj" data-rule-minlength="13" required>
-                            <label for="cpf" class="control-label">CNPJ</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="required">
-                            <input type="text" class="form-control required" id="razaosoc" name="razaosoc" data-rule-minlength="11" required>
-                            <label for="razaosoc" class="control-label">Razão Social</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    
-                    <div class="required">
-                        <input type="text" class="form-control required" id="endereco" name="endereco" required>
-                        <label for="endereco" class="control-label">Endereço</label>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <div class="required">
-                                <input type="text" class="form-control required" id="numero" name="numero" required>
-                                <label for="numero" class="control-label">Numero</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <div class=" required">
-                                <input type="text" class="form-control required" id="bairro" name="bairro" required>
-                                <label for="bairro" class=" control-label">Bairro</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            
-                            
-                            <div class="required">
-                                <input type="text" class="form-control required" id="cidade" name="cidade" required>
-                                <label for="cidade" class="control-label">Cidade</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="required">
-                                <select class="form-control required" id="uf" name="uf" required>
-                                    <option value="ac">Acre</option>
-                                    <option value="al">Alagoas</option>
-                                    <option value="am">Amazonas</option>
-                                    <option value="ap">Amapá</option>
-                                    <option value="ba">Bahia</option>
-                                    <option value="ce">Ceará</option>
-                                    <option value="df">Distrito Federal</option>
-                                    <option value="es">Espírito Santo</option>
-                                    <option value="go">Goiás</option>
-                                    <option value="ma">Maranhão</option>
-                                    <option value="mt">Mato Grosso</option>
-                                    <option value="ms">Mato Grosso do Sul</option>
-                                    <option value="mg">Minas Gerais</option>
-                                    <option value="pa">Pará</option>
-                                    <option value="pb">Paraíba</option>
-                                    <option value="pr">Paraná</option>
-                                    <option value="pe">Pernambuco</option>
-                                    <option value="pi">Piauí</option>
-                                    <option value="rj">Rio de Janeiro</option>
-                                    <option value="rn">Rio Grande do Norte</option>
-                                    <option value="ro">Rondônia</option>
-                                    <option value="rs">Rio Grande do Sul</option>
-                                    <option value="rr">Roraima</option>
-                                    <option value="sc">Santa Catarina</option>
-                                    <option value="se">Sergipe</option>
-                                    <option value="sp">São Paulo</option>
-                                    <option value="to">Tocantins</option>
-                                </select>
-                                <label for="uf" class="control-label">UF</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="required">
-                                <input type="text" class="form-control cep" id="cep" name="cep" required>
-                                <label for="cep" class="control-label">CEP</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="required">
-                                <input type="tel" class="form-control phone-number required" id="phone" name="phone" required>
-                                <label for="phone" class="control-label">Telefone</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <input type="text" class="form-control phone-number" id="fax" name="fax">
-                            <label for="fax" class="control-label">Fax</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="required">
-                        <input type="text" class="form-control required" id="dados" name="dados" required>
-                        <label for="dados" class="control-label">Dados do contato</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="required">
-                        <input type="email" class="form-control required" id="email" name="email" data-rule-email="true" required>
-                        <label for="inputEmail3" class="control-label">Email</label>
-                    </div>
-                </div>
-                <div class="form-senha">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="form-group">
-                                <div class="required">
-                                    <input type="password" class="form-control required" id="password" name="password" data-rule-minlength="8" required>
-                                    <label for="password" class="control-label">Senha</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div id="passstrength" class="dropdown-progress">
-                                <div class="progress no-margin">
-                                    <div><p></p></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="form-group">
-                                <div class="required">
-                                    <input type="password" class="form-control required" id="password_confirmation" name="password_confirmation" data-rule-minlength="8" required>
-                                    <label for="password_confirmation" class="control-label">Confirmação de Senha</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-offset-4"></div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-11 col-sm-1">
-                        <button type="submit" class="btn btn-primary btn-send">Confirmar</button>
-                    </div>
-                </div>
-            </form>
+  <div class="card signup-card">
+    <div class="container card-body">
+      <form class="form floating-label register">
+        <div class="form-row form-border">
+          <h1>Dados pessoais</h1>
+          <div class="form-group">
+            <div class="required">
+              <input type="text" class="form-control required" id="nome" name="nome" data-rule-minlength="2" required>
+              <label for="nome" class="control-label">Nome de Fantasia</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class=" required">
+              <input type="text" class="form-control cnpj required" id="cnpj" name="cnpj" data-rule-minlength="13" required>
+              <label for="cpf" class="control-label">CNPJ</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="required">
+              <input type="text" class="form-control required" id="razaosoc" name="razaosoc" data-rule-minlength="11" required>
+              <label for="razaosoc" class="control-label">Razão Social</label>
+            </div>
+          </div>
         </div>
+
+        <div class="form-group">
+
+          <div class="required">
+            <input type="text" class="form-control required" id="endereco" name="endereco" required>
+            <label for="endereco" class="control-label">Endereço</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="required">
+                <input type="text" class="form-control required" id="numero" name="numero" required>
+                <label for="numero" class="control-label">Numero</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class=" required">
+                <input type="text" class="form-control required" id="bairro" name="bairro" required>
+                <label for="bairro" class=" control-label">Bairro</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+
+
+              <div class="required">
+                <input type="text" class="form-control required" id="cidade" name="cidade" required>
+                <label for="cidade" class="control-label">Cidade</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+              <div class="required">
+                <select class="form-control required" id="uf" name="uf" required>
+                  <option value="ac">Acre</option>
+                  <option value="al">Alagoas</option>
+                  <option value="am">Amazonas</option>
+                  <option value="ap">Amapá</option>
+                  <option value="ba">Bahia</option>
+                  <option value="ce">Ceará</option>
+                  <option value="df">Distrito Federal</option>
+                  <option value="es">Espírito Santo</option>
+                  <option value="go">Goiás</option>
+                  <option value="ma">Maranhão</option>
+                  <option value="mt">Mato Grosso</option>
+                  <option value="ms">Mato Grosso do Sul</option>
+                  <option value="mg">Minas Gerais</option>
+                  <option value="pa">Pará</option>
+                  <option value="pb">Paraíba</option>
+                  <option value="pr">Paraná</option>
+                  <option value="pe">Pernambuco</option>
+                  <option value="pi">Piauí</option>
+                  <option value="rj">Rio de Janeiro</option>
+                  <option value="rn">Rio Grande do Norte</option>
+                  <option value="ro">Rondônia</option>
+                  <option value="rs">Rio Grande do Sul</option>
+                  <option value="rr">Roraima</option>
+                  <option value="sc">Santa Catarina</option>
+                  <option value="se">Sergipe</option>
+                  <option value="sp">São Paulo</option>
+                  <option value="to">Tocantins</option>
+                </select>
+                <label for="uf" class="control-label">UF</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <div class="required">
+                <input type="text" class="form-control cep" id="cep" name="cep" required>
+                <label for="cep" class="control-label">CEP</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+              <div class="required">
+                <input type="tel" class="form-control phone-number required" id="phone" name="phone" required>
+                <label for="phone" class="control-label">Telefone</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <input type="text" class="form-control phone-number" id="fax" name="fax">
+              <label for="fax" class="control-label">Fax</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="required">
+            <input type="text" class="form-control required" id="dados" name="dados" required>
+            <label for="dados" class="control-label">Dados do contato</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="required">
+            <input type="email" class="form-control required" id="email" name="email" data-rule-email="true" required>
+            <label for="inputEmail3" class="control-label">Email</label>
+          </div>
+        </div>
+        <div class="form-senha">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <div class="required">
+                  <input type="password" class="form-control required" id="password" name="password" data-rule-minlength="8" required>
+                  <label for="password" class="control-label">Senha</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div id="passstrength" class="dropdown-progress">
+                <div class="progress no-margin">
+                  <div>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <div class="required">
+                  <input type="password" class="form-control required" id="password_confirmation" name="password_confirmation" data-rule-minlength="8" required>
+                  <label for="password_confirmation" class="control-label">Confirmação de Senha</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-offset-4"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-11 col-sm-1">
+            <button type="submit" class="btn btn-primary btn-send">Confirmar</button>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 </template>
