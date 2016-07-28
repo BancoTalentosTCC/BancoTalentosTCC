@@ -68,6 +68,20 @@ Router.map(function() {
   }, {
     path: 'panel/profile'
   });
+  this.route('includeJobVacancy', function() {
+    this.render('header', {
+      to: 'header'
+    });
+    this.render('includeJobVacancy');
+    this.render('menubar', {
+      to: 'menubar'
+    });
+    if (!Meteor.userId()) {
+      Router.go('login');
+    }
+  }, {
+    path: 'panel/include'
+  });
 });
 Router.onAfterAction(function() {
   document.title = 'Banco de Talentos Univás - ' + this.route.getName();

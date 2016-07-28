@@ -44,4 +44,3 @@ function isDifferentLayout() {
   let route = Router.current().route.getName();
   return route == "home" || route == "companiesSignup" || route == "login" || route == "companiesSignup" || route == "studentsSignup"
 }
-
