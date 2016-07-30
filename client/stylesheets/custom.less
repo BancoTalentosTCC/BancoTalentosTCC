@@ -215,7 +215,7 @@ body [class*=" md-"],
 /* Border bottom between fields on student's form */
 #tab3,
 #tab5 {
-    .border-bottom {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);}
+    .border-bottom {box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);}
 }
 
 /* Toast fixer */
@@ -232,3 +232,53 @@ body [class*=" md-"],
 .progress-bar-danger {width: 50%;}
 .progress-bar-warning {width: 75%;}
 .progress-bar-success {width: 100%;}
+
+/* Chosen box fix */
+.chosen-container-multi,
+.chosen-container-active {
+    & .chosen-choices {
+        border: none !important;
+        box-shadow: none !important;
+        background: none;
+        padding: 10px 0 0;
+        display: block;
+    }
+}
+.chosen-container-multi {
+    .chosen-choices li.search-choice {
+        background-image: none;
+        background-repeat: none;
+        background-size: cover;
+        border: none;
+        padding: 4px 20px 4px 8px;
+        
+        box-shadow: none;
+        background-color: #8bc34a;
+        border-color: #8bc34a;
+        color: #ffffff;
+        border-radius: 10px;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 1;
+        min-width: 10px;
+        text-align: center;
+        vertical-align: baseline;
+        white-space: nowrap;
+        
+        .search-choice-close {
+            right: 5px;
+            top: 7px;
+        }
+    }
+}
+.chosen-container {
+    font-size: 16px;
+    height: 40px;
+    padding: 0;
+    
+    .chosen-results li.highlighted {
+        background-image: none !important;
+        background-color: #9DD958 !important;
+    }
+}
+

@@ -68,10 +68,20 @@
               <div class="col-sm-offset-6"></div>
             </div>
             <!-- TODO: to be implemented -->
-            <!--div class="row"><div class="col-md-6"><div class="form-group"><div class="required"><input type="text" class="form-control" list="tags"><datalist class="form-control" id="tags" name="tags"> 
-              {{#each skills}}
-               <option value={{skill.value}}></option> 
-               {{/each}} </datalist><label for="tipo-vaga" class="control-label">Quais habilidades são desejadas?</label></div></div><small>Dica: escolha habilidades ou áreas que são relacionadas com esta vaga</small></div><div class="col-md-6"></div></div-->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <select class="form-control" id="tags" name="tags" multiple="multiple">
+                      {{#each skills.skills}}
+                        <option value={{this.value}}>{{this.value}}</option>
+                      {{/each}} 
+                  </select>
+                  <label for="tipo-vaga" class="control-label">Quais habilidades são desejadas?</label>
+                </div>
+                <small>Dica: escolha habilidades ou áreas que são relacionadas com esta vaga</small>
+              </div>
+              <div class="col-md-6"></div>
+            </div>
             <div class="form-group">
               <div class="col-sm-offset-10 col-sm-2">
                 <button type="submit" class="btn btn-primary btn-send">Confirmar</button>

@@ -24,12 +24,9 @@ Template.registerHelper(
 
 Template.registerHelper(
   'avatar', (avatarSize, user) => {
-    if (user && user.md5hash) {
-      var md5hash = user.md5hash;
-    } else if (this.md5hash) {
-      var md5hash = this.md5hash;
-    }
-
+    
+    var md5hash = Gravatar.hash(Meteor.user().emails[0].address);
+      
     md5hash = md5hash || "3eda6fcd3204ef285fa52176c28c4d3e"; // Equivalent to Gravatar.hash( 'none@none.com' );
     return Gravatar.imageUrl(md5hash, {
       secure: true,

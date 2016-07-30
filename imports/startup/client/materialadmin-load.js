@@ -6,6 +6,7 @@ import {
 Router.onBeforeAction(function() {
   Meteor.setTimeout(function() {
     fixFloatingLabels();
+    reloadChosen();
   }, 0);
   this.next();
 });
@@ -35,6 +36,15 @@ function fixFloatingLabels() {
     $(this).after('<div class="form-control-line"></div>');
   });
 }
+
+function reloadChosen() {
+    $("#tags").chosen({
+      no_results_text: "Sem resultados para",
+      placeholder_text_single: "Selecione uma opção",
+      placeholder_text_multiple: "Selecione tags para identificação"
+    });
+}
+
 Template.ApplicationLayout.onRendered(function() {
   import '/imports/ui/materialadmin/core/source/App.js';
   import '/imports/ui/materialadmin/core/source/AppNavigation.js';
