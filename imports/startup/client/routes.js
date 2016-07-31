@@ -72,12 +72,19 @@ Router.map(function() {
     this.render('header', {
       to: 'header'
     });
-    this.render('includeJobVacancy');
-    this.render('menubar', {
-      to: 'menubar'
-    });
+    
     if (!Meteor.userId()) {
       Router.go('login');
+    }
+      
+    else if (!Roles.userIsInRole(Meteor.userId(), 'company', 'default-group')) {
+        this.render('notAllowed');
+    }
+    else {
+        this.render('includeJobVacancy');
+        this.render('menubar', {
+          to: 'menubar'
+        });
     }
   }, {
     path: 'panel/include'

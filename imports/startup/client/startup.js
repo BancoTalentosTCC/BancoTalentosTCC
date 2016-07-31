@@ -1,1 +1,1 @@
-Meteor.startup( () => Meteor.subscribe( 'user' ) );
+Meteor.startup( () => Meteor.subscribe('user') );

@@ -6,13 +6,14 @@
       <div class="row">
         <div class="col-md-3 col-xs-5">
           {{#with currentUser}} <img class="img-circle border-white border-xl img-responsive auto-width" src="{{avatar 146}}" alt="" /> {{/with}}
-          <h3>{{ user.profile.nome }}<br/>
+          <h3>
             {{#if isInRole 'student' 'default-group'}}
-            <small>{{ user.profile.perfil }} na Universidade do Vale do Sapucaí</small>
+              {{ user.profile.nome }}<br/>
+              <small>{{ user.profile.perfil }} na Universidade do Vale do Sapucaí</small>
             {{/if}}
             {{#if isInRole 'company' 'default-group'}}
-            <small>Responsável pela {{ user.profile.nome }} <br/>
-            {{user.profile.dados}}</small>
+              {{user.profile.dados}}<br/>
+              <small>Responsável pela {{ user.profile.nome }}</small>
             {{/if}}
           </h3>
         </div>
