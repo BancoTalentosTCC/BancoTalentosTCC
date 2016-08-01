@@ -9,14 +9,14 @@ import './materialadmin-load.js';
 
 /* Meteor related JS imports */
 import '/imports/ui/layouts/layout.js';
-import '/imports/ui/pages/login/students.js';
+import '/imports/ui/pages/login.js';
+import '/imports/ui/pages/home.js';
+import '/imports/ui/pages/panel/add-vacancy.js';
 import '/imports/ui/pages/signup/students.js';
 import '/imports/ui/pages/signup/companies.js';
 import '/imports/ui/components/forms.js';
 import '/imports/ui/components/errors.js';
-import '/imports/ui/components/carousel.js';
 import '/imports/ui/components/pwd-strength.js';
-import '/imports/ui/components/includevacancy.js';
 import '/imports/ui/components/T9n.js';
 import './startup.js';
 import './routes.js';

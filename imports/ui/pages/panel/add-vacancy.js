@@ -1,9 +1,9 @@
 import {
   Template
 } from 'meteor/templating';
-import '/client/html/pages/panel/include.html';
+import '/client/html/pages/panel/add-vacancy.html';
 
-var json = require('./skills.json');
+var json = require('/imports/ui/components/skills.json');
 
 Template.includeJobVacancy.onCreated(function() {
   this.skills = new ReactiveVar(json);
