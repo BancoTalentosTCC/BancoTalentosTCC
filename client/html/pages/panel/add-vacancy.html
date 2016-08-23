@@ -1,7 +1,6 @@
 <template name="includeJobVacancy">
   <section class="hasPaddingTop">
     <div class="section-body no-margin">
-      {{#if isInRole 'company' 'default-group'}}
       <form class="form">
         <div class="card">
           <div class="card-head style-primary">
@@ -90,26 +89,6 @@
           </div>
         </div>
       </form>
-      {{else}}
-      {{#if isInRole 'student' 'default-group'}}
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h1>
-            <span class="text-xxxl text-light">Ops...</span>
-          </h1>
-          <h2 class="text-light">Parece que você não tem permissões para incluir uma vaga 
-            <i class="fa fa-frown-o text-primary"></i>
-          </h2>
-        </div>
-        <!--end .col -->
-      </div>
-      <div class="row">
-        <div class="col-sm-12 text-center">
-          <p>Contate o Administrador</p>
-        </div>
-      </div>
-      {{/if}} 
-      {{/if}} 
     </div>
   </section>
 </template>
