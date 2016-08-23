@@ -108,15 +108,12 @@
                       {{/with}}
                     </div>
                     <div class="tile-text">
-                      <a class="ink-reaction" href="{{pathFor route='profile'}}">
                       {{#if isInRole 'student' 'default-group'}}
-                        {{ user.profile.nome }}
+                        <a class="ink-reaction" href="{{pathFor route='studentProfile'}}">{{ user.profile.nome }}</a>
                       {{/if}}
-
                       {{#if isInRole 'company' 'default-group'}}
-                        {{ user.profile.dados }}
+                        <a class="ink-reaction" href="{{pathFor route='companyProfile'}}">{{ user.profile.dados }}</a>
                       {{/if}}
-                      </a>
                       <small>Lorem ipsum dolor sit amet, consectetur adipisicing</small>
                      </div>
                    </div>

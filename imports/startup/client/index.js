@@ -19,4 +19,8 @@ import '/imports/ui/components/errors.js';
 import '/imports/ui/components/pwd-strength.js';
 import '/imports/ui/components/T9n.js';
 import './startup.js';
+import './controllers/home.js';
+import './controllers/panel.js';
+import './controllers/student.js';
+import './controllers/company.js';
 import './routes.js';
