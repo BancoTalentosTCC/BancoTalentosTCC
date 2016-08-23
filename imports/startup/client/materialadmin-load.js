@@ -38,11 +38,11 @@ function fixFloatingLabels() {
 }
 
 function reloadChosen() {
-    $("#tags").chosen({
-      no_results_text: "Sem resultados para",
-      placeholder_text_single: "Selecione uma opção",
-      placeholder_text_multiple: "Selecione tags para identificação"
-    });
+  $("#tags").chosen({
+    no_results_text: "Sem resultados para",
+    placeholder_text_single: "Selecione uma opção",
+    placeholder_text_multiple: "Selecione tags para identificação"
+  });
 }
 
 Template.ApplicationLayout.onRendered(function() {

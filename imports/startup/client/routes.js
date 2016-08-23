@@ -1,95 +1,83 @@
 Router.configure({
   layoutTemplate: 'ApplicationLayout',
+  notFoundTemplate: 'pageNotFound'
+  // loadingTemplate: 'loading'
 });
+
+Router.onBeforeAction(function () {
+  this.render('header', { to: 'header' });
+  this.render('menubar', { to: 'menubar' });
+  this.next();
+});
+
 Router.map(function() {
-  this.route('home', function() {
-    this.render('header', {
-      to: 'header'
-    });
-    this.render('home');
-  }, {
-    path: '/'
+  this.route("/", {
+    name: "home",
+    action: function() {
+      this.render("home");
+    },
+    controller: "HomeController"
   });
-  this.route('login', function() {
-    this.render('header', {
-      to: 'header'
-    });
-    if (Meteor.userId()) {
-      Router.go('mainPanel');
-    } else {
-      this.render('login');
-    }
-  }, {
-    path: 'login'
+
+  this.route("/login", {
+    name: "login",
+    action: function() {
+      this.render("login");
+    },
+    controller: "HomeController"
   });
-  this.route('companiesSignup', function() {
-    this.render('header', {
-      to: 'header'
-    });
-    this.render('companiesSignup');
-  }, {
-    path: '/signup/companies'
+
+  this.route("/signup/companies", {
+    name: "companiesSignup",
+    action: function() {
+      this.render('companiesSignup');
+    }
   });
-  this.route('studentsSignup', function() {
-    this.render('header', {
-      to: 'header'
-    });
-    this.render('studentsSignup');
-  }, {
-    path: 'signup/students'
-  });
-  this.route('mainPanel', function() {
-    this.render('header', {
-      to: 'header'
-    });
-    this.render('mainPanel');
-    this.render('menubar', {
-      to: 'menubar'
-    });
-    if (!Meteor.userId()) {
-      Router.go('login');
-    } else {
-      this.render('mainPanel');
+
+  this.route("/signup/students", {
+    name: "studentsSignup",
+    action: function() {
+      this.render('studentsSignup');
     }
-  }, {
-    path: '/panel'
-  });
-  this.route('profile', function() {
-    this.render('header', {
-      to: 'header'
-    });
-    this.render('profile');
-    this.render('menubar', {
-      to: 'menubar'
-    });
-    if (!Meteor.userId()) {
-      Router.go('login');
-    }
-  }, {
-    path: 'panel/profile'
-  });
-  this.route('includeJobVacancy', function() {
-    this.render('header', {
-      to: 'header'
-    });
-    
-    if (!Meteor.userId()) {
-      Router.go('login');
-    }
-      
-    else if (!Roles.userIsInRole(Meteor.userId(), 'company', 'default-group')) {
-        this.render('notAllowed');
-    }
-    else {
-        this.render('includeJobVacancy');
-        this.render('menubar', {
-          to: 'menubar'
-        });
-    }
-  }, {
-    path: 'panel/include'
   });
 });
+
+Router.map(function() {
+  this.route("/student", {
+    name: "studentPanel",
+    controller: "StudentController"
+  });
+
+  this.route('/student/profile', {
+    name: "studentProfile",
+    controller: "StudentController",
+    action: function() {
+      this.render('profile');
+    }
+  });
+
+  this.route("/company", {
+    name: "companyPanel",
+    controller: "CompanyController"
+  });
+
+  this.route('/company/profile', {
+    name: "companyProfile",
+    controller: "CompanyController",
+    action: function() {
+      this.render('profile');
+    }
+  });
+
+  this.route('/company/include', {
+    name: "includeJobVacancy",
+    controller: "CompanyController",
+    action: function() {
+      this.render('includeJobVacancy');
+    }
+  });
+});
+
 Router.onAfterAction(function() {
   document.title = 'Banco de Talentos Univás - ' + this.route.getName();
 });

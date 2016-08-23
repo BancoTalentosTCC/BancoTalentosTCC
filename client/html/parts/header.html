@@ -51,42 +51,56 @@
           <li class="dropdown">
             <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
 
-                  {{#with currentUser}}
+              {{#with currentUser}}
 
-                    <img src="{{avatar 140}}" alt="Perfil" />
-                    
-                  {{/with}}
-                  
-                  <span class="profile-info">
+                <img src="{{avatar 140}}" alt="Perfil" />
+                
+              {{/with}}
+              
+              <span class="profile-info">
 
-                    {{ user.profile.nome }}
+                {{ user.profile.nome }}
 
-                    {{#if isInRole 'student' 'default-group'}}
+                {{#if isInRole 'student' 'default-group'}}
 
-                      <small>{{ user.profile.formacao.curso }}</small>
+                  <small>{{ user.profile.formacao.curso }}</small>
 
-                    {{/if}}
+                {{/if}}
 
-                    {{#if isInRole 'company' 'default-group'}}
+                {{#if isInRole 'company' 'default-group'}}
 
-                      <small>{{ user.profile.razaosoc }}</small>
+                  <small>{{ user.profile.razaosoc }}</small>
 
-                    {{/if}}
+                {{/if}}
 
-                  </span>
-                </a>
-            <ul class="dropdown-menu animation-dock">
-              <li>
-                <a href="{{pathFor route='mainPanel'}}">Meu painel</a>
-              </li>
-              <li>
-                <a href="{{pathFor route='profile'}}"> Meu perfil</a>
-              </li>
-              <li>
-                <a id="logout" href=""><i class="fa fa-fw fa-power-off text-danger">
-                    </i> Sair </a>
-              </li>
-            </ul>
+              </span>
+            </a>
+            {{#if isInRole 'student' 'default-group'}}
+              <ul class="dropdown-menu animation-dock">
+                <li>
+                  <a href="{{pathFor route='studentPanel'}}">Meu painel</a>
+                </li>
+                <li>
+                  <a href="{{pathFor route='studentProfile'}}"> Meu perfil</a>
+                </li>
+                <li>
+                  <a id="logout" href=""><i class="fa fa-fw fa-power-off text-danger"></i> Sair </a>
+                </li>
+              </ul>
+            {{/if}}
+            {{#if isInRole 'company' 'default-group'}}
+              <ul class="dropdown-menu animation-dock">
+                <li>
+                  <a href="{{pathFor route='companyPanel'}}">Meu painel</a>
+                </li>
+                <li>
+                  <a href="{{pathFor route='companyProfile'}}"> Meu perfil</a>
+                </li>
+                <li>
+                  <a id="logout" href=""><i class="fa fa-fw fa-power-off text-danger"></i> Sair </a>
+                </li>
+              </ul>
+            {{/if}}
           </li>
         </ul>
       {{else}}
