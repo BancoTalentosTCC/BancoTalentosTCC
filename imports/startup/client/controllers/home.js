@@ -7,5 +7,6 @@ HomeController = RouteController.extend({
       Router.go('companyPanel');
     }
     this.render();
+    this.next();
   }
 });

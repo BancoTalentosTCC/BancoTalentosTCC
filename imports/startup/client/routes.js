@@ -45,7 +45,10 @@ Router.map(function() {
 Router.map(function() {
   this.route("/student", {
     name: "studentPanel",
-    controller: "StudentController"
+    controller: "StudentController",
+    action: function() {
+      this.render('mainPanel');
+    }
   });
 
   this.route('/student/profile', {
@@ -58,7 +61,10 @@ Router.map(function() {
 
   this.route("/company", {
     name: "companyPanel",
-    controller: "CompanyController"
+    controller: "CompanyController",
+    action: function() {
+      this.render('mainPanel');
+    }
   });
 
   this.route('/company/profile', {
