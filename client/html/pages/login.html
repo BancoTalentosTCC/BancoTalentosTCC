@@ -1,5 +1,4 @@
 <template name="login">
-
   <body class="menubar-hoverable header-fixed" id="content">
     <!-- BEGIN LOGIN SECTION -->
     <section class="section-account">
@@ -7,7 +6,6 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm-6">
-
               <span class="text-lg text-bold text-primary">Bem-vindo ao Banco de Talentos</span>
               <br/>
               <small>E bem vindo ao mercado de trabalho!</small>
@@ -31,28 +29,30 @@
                       </label>
                     </div>
                   </div>
-                  <!--end .col -->
                   <div class="col-xs-6 text-right">
                     <button class="btn btn-primary btn-raised" type="submit">Login</button>
                   </div>
-                  <!--end .col -->
                 </div>
-                <!--end .row -->
               </form>
             </div>
-            <!--end .col -->
             <div class="col-sm-5 col-sm-offset-1 text-center">
               <p class="text-light">
                 Escolha uma rede social para entrar
               </p>
               <p>
-                <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-facebook-box material-icons md-36 pull-left"></i>Entre com Facebook</a>
+                <a href="#" class="btn btn-block btn-raised btn-info">
+                  <i class="mdi mdi-facebook-box material-icons md-36 pull-left"></i>Entre com Facebook
+                </a>
               </p>
               <p>
-                <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-gmail material-icons md-36 pull-left"></i>Entre com Gmail</a>
+                <a href="#" class="btn btn-block btn-raised btn-info">
+                  <i class="mdi mdi-gmail material-icons md-36 pull-left"></i>Entre com Gmail
+                </a>
               </p>
               <p>
-                <a href="#" class="btn btn-block btn-raised btn-info"><i class="mdi mdi-linkedin-box material-icons md-36 pull-left"></i>Entre com Linkedin</a>
+                <a href="#" class="btn btn-block btn-raised btn-info">
+                  <i class="mdi mdi-linkedin-box material-icons md-36 pull-left"></i>Entre com Linkedin
+                </a>
               </p>
               <br>
               <p class="text-light">
@@ -62,14 +62,9 @@
               <br>
               <a class="btn-block btn btn-primary btn-raised" href="{{pathFor route='companiesSignup'}}">Sou uma empresa</a>
             </div>
-            <!--end .col -->
           </div>
-          <!--end .row -->
         </div>
-        <!--end .card-body -->
       </div>
-      <!--end .card -->
     </section>
-    <!-- END LOGIN SECTION -->
   </body>
 </template>

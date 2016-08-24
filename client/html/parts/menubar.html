@@ -3,17 +3,22 @@
     <!-- MENUBAR CONTENT GOES HERE -->
     <div class="menubar-fixed-panel">
       <div>
-        <a class="btn btn-icon-toggle btn-default menubar-toggle" href="javascript:void(0);" data-toggle="menubar"> <i class="fa fa-bars"></i> </a>
+        <a class="btn btn-icon-toggle btn-default menubar-toggle" href="#" data-toggle="menubar">
+          <i class="fa fa-bars"></i>
+        </a>
       </div>
       <div class="brand-holder">
-        <a href="#"> <span class="text-lg text-bold text-primary ">MENU</span> </a>
+        <a href="#">
+          <span class="text-lg text-bold text-primary ">MENU</span>
+        </a>
       </div>
     </div>
-    <div class="">
-      <div class="" tabindex="0">
+    <div>
+      <div tabindex="0">
         <div class="menubar-scroll-panel">
           <ul id="main-menu" class="gui-controls">
             <li>
+
               {{#if isInRole 'student' 'default-group'}}
                 <a href="{{pathFor route='studentPanel'}}">
                   <div class="gui-icon">
@@ -22,6 +27,7 @@
                   <span class="title">Página Inicial</span>
                 </a>
               {{/if}}
+
               {{#if isInRole 'company' 'default-group'}}
                 <a href="{{pathFor route='companyPanel'}}">
                   <div class="gui-icon">
@@ -30,34 +36,52 @@
                   <span class="title">Página Inicial</span>
                 </a>
               {{/if}}
+              
             </li>
             <li>
               <a href="#">
-                <div class="gui-icon"> <i class="md mdi mdi-magnify"></i> </div> <span class="title">Vagas</span> </a>
+                <div class="gui-icon">
+                  <i class="md mdi mdi-magnify"></i>
+                </div> <span class="title">Vagas</span>
+              </a>
             </li>
 
             {{#if isInRole 'student' 'default-group'}}
               <li>
                 <a href="#">
-                  <div class="gui-icon"> <i class="md mdi mdi-domain"></i> </div> <span class="title">Empresas</span> </a>
+                  <div class="gui-icon"> 
+                    <i class="md mdi mdi-domain"></i>
+                  </div> 
+                  <span class="title">Empresas</span>
+                </a>
               </li>
             {{/if}}
 
             {{#if isInRole 'company' 'default-group'}}
               <li>
                 <a href="#">
-                  <div class="gui-icon"> <i class="md mdi mdi-account"></i> </div> <span class="title">Alunos</span> </a>
+                  <div class="gui-icon"> 
+                    <i class="md mdi mdi-account"></i> 
+                  </div> <span class="title">Alunos</span> 
+                </a>
               </li>
             {{/if}}
             
             <li>
               <a href="#">
-                <div class="gui-icon"> <i class="md mdi mdi-settings"></i> </div> <span class="title">Configurações</span> </a>
+                <div class="gui-icon"> 
+                  <i class="md mdi mdi-settings"></i> 
+                </div>
+                <span class="title">Configurações</span> 
+              </a>
             </li>
 
             <li>
               <a href="#" data-target="#aboutUs" data-toggle="modal" class="open-modal">
-                <div class="gui-icon"> <i class="md mdi mdi-information"></i> </div> <span class="title">Sobre</span>  
+                <div class="gui-icon">
+                  <i class="md mdi mdi-information"></i>
+                </div>
+                <span class="title">Sobre</span>  
               </a>
             </li>
           </ul>

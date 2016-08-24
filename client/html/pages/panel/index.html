@@ -3,38 +3,47 @@
     <div class="section-body no-margin">
       <div class="row">
         <div class="col-md-8">
+
           {{#if isInRole 'student' 'default-group'}}
           <h2>Bem vindo(a), {{ user.profile.nome }}!</h2>
-          {{/if}} 
-          {{#if isInRole 'company' 'default-group'}}
-          <h2>Bem vindo(a), {{ user.profile.dados }}!</h2>
           {{/if}}
+
+          {{#if isInRole 'company' 'default-group'}}
+            <h2>Bem vindo(a), {{ user.profile.dados }}!</h2>
+          {{/if}}
+
           <div id="activity" class="tab-pane">
             <div class="card card-underline no-margin">
               <div class="card-head">
+
                 {{#if isInRole 'student' 'default-group'}}
-                <header>O que está acontecendo?</header>
-                {{/if}} 
+                  <header>O que está acontecendo?</header>
+                {{/if}}
+
                 {{#if isInRole 'company' 'default-group'}}
-                <header>Ultimas vagas cadastradas</header>
+                  <header>Ultimas vagas cadastradas</header>
                 {{/if}} 
+
               </div>
               <div class="card-body">
+
                 {{#if isInRole 'student' 'default-group'}}
-                <p>Abaixo, as últimas atividades registradas pelas empresas:</p>
-                {{/if}} 
+                  <p>Abaixo, as últimas atividades registradas pelas empresas:</p>
+                {{/if}}
+
                 {{#if isInRole 'company' 'default-group'}}
-                <p>Abaixo, confira as últimas vagas registradas pela sua empresa:</p>
-                <div class="pull-right">
-                  <a href="{{pathFor route='includeJobVacancy'}}" class="btn ink-reaction btn-floating-action btn-primary">
-                  <i class="md mdi mdi-plus"></i>
-                  </a>
-                </div>
+                  <p>Abaixo, confira as últimas vagas registradas pela sua empresa:</p>
+                  <div class="pull-right">
+                    <a href="{{pathFor route='includeJobVacancy'}}" class="btn ink-reaction btn-floating-action btn-primary">
+                      <i class="md mdi mdi-plus"></i>
+                    </a>
+                  </div>
                 {{/if}} 
+
               </div>
             </div>
             <ul class="timeline collapse-lg timeline-hairline">
-              <!-- This should be included dinamically -->
+
               {{#if isInRole 'student' 'default-group'}}
               <li class="timeline-inverted">
                 <div class="timeline-circ circ-xl style-primary">
@@ -44,10 +53,10 @@
                   <div class="card style-default-light">
                     <div class="card-body small-padding">
                       <span class="text-medium">
-                      <span class="text-primary">Microsoft</span> cadastrou uma 
-                      <a class="text-primary" href="#">vaga.</a>
-                      </span>
-                      <br>
+                        <span class="text-primary">Microsoft</span> cadastrou uma 
+                          <a class="text-primary" href="#">vaga.</a>
+                        </span>
+                        <br>
                       <span class="opacity-50"> Terça, 21 de Outubro, 2016 </span>
                     </div>
                   </div>
@@ -61,16 +70,18 @@
                   <div class="card style-default-light">
                     <div class="card-body small-padding">
                       <span class="text-medium">
-                      <span class="text-primary">IBM</span> cadastrou uma 
-                      <a class="text-primary" href="#">vaga.</a>
-                      </span>
-                      <br>
+                       <span class="text-primary">IBM</span> cadastrou uma 
+                          <a class="text-primary" href="#">vaga.</a>
+                        </span>
+                        <br>
                       <span class="opacity-50"> Sábado, 18 de Outubro, 2016 </span>
                     </div>
                   </div>
                 </div>
               </li>
+
               {{else}}
+
               <li class="timeline-inverted">
                 <div class="timeline-circ circ-xl style-primary">
                   <i class="md mdi mdi-calendar-check"></i>
@@ -84,6 +95,7 @@
                 </div>
               </li>
               {{/if}} 
+
             </ul>
           </div>
         </div>
@@ -94,7 +106,7 @@
               <header>Meu perfil</header>
               <div class="tools">
                 <a class="btn btn-icon-toggle">
-                <i class="md mdi mdi-border-color"></i>
+                  <i class="md mdi mdi-border-color"></i>
                 </a>
               </div>
             </div>
@@ -103,17 +115,22 @@
                 <li class="tile">
                   <div class="tile-content">
                     <div class="tile-icon">
+
                       {{#with currentUser}}
-                      <img src="{{avatar 40}}" alt="Perfil" />
+                        <img src="{{avatar 40}}" alt="Perfil" />
                       {{/with}}
+
                     </div>
                     <div class="tile-text">
+
                       {{#if isInRole 'student' 'default-group'}}
                         <a class="ink-reaction" href="{{pathFor route='studentProfile'}}">{{ user.profile.nome }}</a>
                       {{/if}}
+
                       {{#if isInRole 'company' 'default-group'}}
                         <a class="ink-reaction" href="{{pathFor route='companyProfile'}}">{{ user.profile.dados }}</a>
                       {{/if}}
+
                       <small>Lorem ipsum dolor sit amet, consectetur adipisicing</small>
                      </div>
                    </div>
@@ -124,12 +141,15 @@
           
           <div class="card card-underline">
             <div class="card-head style-primary">
+
               {{#if isInRole 'student' 'default-group'}}
-              <header>Vagas candidatadas</header>
+                <header>Vagas candidatadas</header>
               {{/if}}
+
               {{#if isInRole 'company' 'default-group'}}
-              <header>Vagas com candidatos</header>
+                <header>Vagas com candidatos</header>
               {{/if}}
+
             </div>
             <div class="card-body"></div>
           </div>
