@@ -3,5 +3,6 @@ CompanyController = PanelController.extend({
     if (Roles.userIsInRole(Meteor.userId(), 'student', 'default-group')) {
       this.render('notAllowed');
     }
+    else { this.next(); }
   }
 });

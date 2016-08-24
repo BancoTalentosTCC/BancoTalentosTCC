@@ -4,9 +4,8 @@ PanelController = RouteController.extend({
       this.controlPermissions();
     }
     else {
-      Router.go("login")
+      Router.go("login");
     }
-    this.next();
   },
   controlPermissions: function() {}
 });
