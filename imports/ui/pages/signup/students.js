@@ -84,7 +84,7 @@ Template.studentsSignup.events({
         phone: targetValue(target["phone"]),
         celular: targetValue(target["celular"]),
         facebook: targetValue(target["facebook"]),
-        skypeID: targetValue(target["skype"]),
+        skype: targetValue(target["skype"]),
         twitter: targetValue(target["twitter"]),
         linkedin: targetValue(target["linkedin"]),
         pers_website: targetValue(target["pers_website"]),
