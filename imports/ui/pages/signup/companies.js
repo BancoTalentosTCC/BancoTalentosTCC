@@ -27,7 +27,8 @@ Template.companiesSignup.events({
         cep: targetValue(target["cep"]),
         phone: targetValue(target["phone"]),
         fax: targetValue(target["fax"]),
-        dados: targetValue(target["dados"])
+        dados: targetValue(target["dados"]),
+        pers_website: targetValue(target["pers_website"])
       }
     }
 

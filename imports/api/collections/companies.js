@@ -101,7 +101,13 @@ Schema.UserProfile = new SimpleSchema({
     type: String,
     label: "Dados do Contato",
     min: 10
-  }
+  },
+  pers_website: {
+    type: String,
+    label: "Site Pessoal",
+    regEx: SimpleSchema.RegEx.Url,
+    optional: true
+  },
 });
 
 Schema.User = new SimpleSchema({

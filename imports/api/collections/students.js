@@ -122,6 +122,35 @@ StudentsSchema1 = new SimpleSchema({
     label: "Celular",
     regEx: /^\([1-9]{2}\) [0-9]{8,9}$/
   },
+  facebook: {
+    type: String,
+    label: "Facebook",
+    regEx: SimpleSchema.RegEx.Url,
+    optional: true
+  },
+  twitter: {
+    type: String,
+    label: "Twitter",
+    regEx: SimpleSchema.RegEx.Url,
+    optional: true
+  },
+  linkedin: {
+    type: String,
+    label: "LinkedIn",
+    regEx: SimpleSchema.RegEx.Url,
+    optional: true
+  },
+  skype: {
+    type: String,
+    label: "Skype ID",
+    optional: true
+  },
+  pers_website: {
+    type: String,
+    label: "Site Pessoal",
+    regEx: SimpleSchema.RegEx.Url,
+    optional: true
+  },
   especial: {
     type: Boolean,
     label: "Especial"
@@ -162,7 +191,7 @@ StudentsSchema4 = new SimpleSchema({
     type: String,
     label: "Lattes",
     regEx: SimpleSchema.RegEx.Url,
-    optional: false
+    optional: true
   },
   qualificacao: {
     type: String,

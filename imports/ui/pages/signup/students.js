@@ -83,6 +83,11 @@ Template.studentsSignup.events({
         cep: targetValue(target["cep"]),
         phone: targetValue(target["phone"]),
         celular: targetValue(target["celular"]),
+        facebook: targetValue(target["facebook"]),
+        skype: targetValue(target["skype"]),
+        twitter: targetValue(target["twitter"]),
+        linkedin: targetValue(target["linkedin"]),
+        pers_website: targetValue(target["pers_website"]),
         especial: target["especial"].checked,
         formacao: {
           formacao: targetValue(target["formacao"]),
