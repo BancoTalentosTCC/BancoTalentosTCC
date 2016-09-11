@@ -13,7 +13,7 @@ var amountExperience = [
   ["nome_emp0", "cargo_emp0", "atribuicoes0", "duracao_emp0", "cidade_emp0", "uf_emp0"]
 ]
 
-Template.studentsSignup.rendered = function() {
+Template.studentSignup.rendered = function() {
   handleTabShow = function(tab, navigation, index, wizard) {
     var total = navigation.find('li').length;
     var current = index + 0;
@@ -54,7 +54,7 @@ Template.studentsSignup.rendered = function() {
   });
 }
 
-Template.studentsSignup.events({
+Template.studentSignup.events({
   "submit form": function(event) {
     event.preventDefault();
     //REMOVE ERRORS
@@ -109,7 +109,7 @@ Template.studentsSignup.events({
         Meteor.call('displayErrors', error);
       } else if (result) {
         toastr.success('Você já pode acessar o painel do aluno', 'Estudante Cadastrado!');
-        Router.go('login');
+        FlowRouter.go('login');
       }
     });
   },
@@ -140,7 +140,7 @@ Template.studentsSignup.events({
     HELPERS GO HERE
 */
 
-Template.studentsSignup.helpers({
+Template.studentSignup.helpers({
   languages() {
     languageDep.depend();
     return amountLanguages;

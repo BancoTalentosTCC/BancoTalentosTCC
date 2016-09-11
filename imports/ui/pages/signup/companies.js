@@ -3,7 +3,7 @@ import {
 } from 'meteor/templating';
 import '/imports/api/collections/companies.js';
 
-Template.companiesSignup.events({
+Template.companySignup.events({
   "submit form": function(event) {
     event.preventDefault();
     //REMOVE ERRORS
@@ -37,7 +37,7 @@ Template.companiesSignup.events({
         Meteor.call('displayErrors', error);
       } else if (result) {
         toastr.success('Você já pode acessar o painel da empresa', 'Empresa Cadastrada!');
-        Router.go('login')
+        FlowRouter.go('login')
       }
     });
   }

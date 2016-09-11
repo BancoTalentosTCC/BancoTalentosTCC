@@ -3,14 +3,14 @@ import {
 } from 'meteor/templating';
 
 /* Runs fixFloatingLabels() before the route is completely changed */
-Router.onBeforeAction(function() {
-  Meteor.setTimeout(function() {
+FlowRouter.triggers.enter([init]);
+
+function init() {
+ Meteor.setTimeout(function() {
     fixFloatingLabels();
     reloadChosen();
-  }, 0);
-  this.next();
-});
-
+ }, 10);
+}
 
 /* NOTICE: This was created due to a bug that I haven't managed to solve so far.
  * When a route is switched, somehow the floating labels from AppForm.js suddenly

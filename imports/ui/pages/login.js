@@ -12,6 +12,23 @@ Template.login.events({
       if (error) {
         Meteor.call('displayErrors', error);
       }
+      else {
+        if(Roles.userIsInRole(Meteor.userId(), 'student', 'default-group')){
+          FlowRouter.go("student");
+        }
+        else if(Roles.userIsInRole(Meteor.userId(), 'company', 'default-group')){
+          FlowRouter.go("company");
+        }
+      }
     });
+  }
+});
+
+Template.login.helpers({
+  pathForStudentSignup: function() {
+    return FlowRouter.path("studentSignup");
+  },
+  pathForCompanySignup: function() {
+    return FlowRouter.path("companySignup");
   }
 });

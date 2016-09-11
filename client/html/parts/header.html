@@ -4,31 +4,30 @@
       <ul class="header-nav header-nav-options">
         <li class="header-nav-brand">
           <div class="brand-holder">
-            <a href="{{pathFor route='home'}}">
+            <a href="{{pathForHome}}">
               <img alt="logo" src="/img/logo-univas.png">
-              <!--span class="text-lg text-bold text-primary">BANCO DE TALENTOS</span-->
             </a>
           </div>
         </li>
         <li class={{hasToggleIcon}}>
-          <a class="btn btn-icon-toggle menubar-toggle" href="javascript:void(0);" data-toggle="menubar">
+          <a class="btn btn-icon-toggle menubar-toggle" href="#" data-toggle="menubar">
             <i class="fa fa-bars"></i>
           </a>
         </li>
       </ul>
     </div>
-
     <div class="headerbar-right">
+      
       {{#if currentUser }}
         <!--ul class="header-nav header-nav-options">
           <li class="dropdown hidden-xs">
-            <a href="javascript:void(0);" class="btn btn-icon-toggle btn-default" data-toggle="dropdown">
+            <a href="#" class="btn btn-icon-toggle btn-default" data-toggle="dropdown">
               <i class="fa fa-bell"></i><sup class="badge style-danger">4</sup>
             </a>
             <ul class="dropdown-menu animation-expand">
               <li class="dropdown-header">Today's messages</li>
               <li>
-                <a class="alert alert-callout alert-warning" href="javascript:void(0);">
+                <a class="alert alert-callout alert-warning" href="#">
                   <img class="pull-right img-circle dropdown-avatar" src="/img/avatar1.png" alt="" />
                   <strong>Alex Anistor</strong>
                   <br/>
@@ -36,7 +35,7 @@
                 </a>
               </li>
               <li>
-                <a class="alert alert-callout alert-info" href="javascript:void(0);">
+                <a class="alert alert-callout alert-info" href="#">
                   <img class="pull-right img-circle dropdown-avatar" src="/img/avatar1.png" alt="" />
                   <strong>Alicia Adell</strong>
                   <br/>
@@ -49,52 +48,47 @@
 
         <ul class="header-nav header-nav-profile">
           <li class="dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
 
               {{#with currentUser}}
-
                 <img src="{{avatar 140}}" alt="Perfil" />
-                
               {{/with}}
               
               <span class="profile-info">
-
                 {{ user.profile.nome }}
 
                 {{#if isInRole 'student' 'default-group'}}
-
                   <small>{{ user.profile.formacao.curso }}</small>
-
                 {{/if}}
 
                 {{#if isInRole 'company' 'default-group'}}
-
                   <small>{{ user.profile.razaosoc }}</small>
-
                 {{/if}}
 
               </span>
             </a>
+
             {{#if isInRole 'student' 'default-group'}}
               <ul class="dropdown-menu animation-dock">
                 <li>
-                  <a href="{{pathFor route='studentPanel'}}">Meu painel</a>
+                  <a href="{{pathForStudentPanel}}">Meu painel</a>
                 </li>
                 <li>
-                  <a href="{{pathFor route='studentProfile'}}"> Meu perfil</a>
+                  <a href="{{pathForStudentProfile}}"> Meu perfil</a>
                 </li>
                 <li>
                   <a id="logout" href=""><i class="fa fa-fw fa-power-off text-danger"></i> Sair </a>
                 </li>
               </ul>
             {{/if}}
+
             {{#if isInRole 'company' 'default-group'}}
               <ul class="dropdown-menu animation-dock">
                 <li>
-                  <a href="{{pathFor route='companyPanel'}}">Meu painel</a>
+                  <a href="{{pathForCompanyPanel}}">Meu painel</a>
                 </li>
                 <li>
-                  <a href="{{pathFor route='companyProfile'}}"> Meu perfil</a>
+                  <a href="{{pathForCompanyProfile}}"> Meu perfil</a>
                 </li>
                 <li>
                   <a id="logout" href=""><i class="fa fa-fw fa-power-off text-danger"></i> Sair </a>
@@ -103,16 +97,18 @@
             {{/if}}
           </li>
         </ul>
+
       {{else}}
+
         <ul class="header-nav header-nav-toggle login">
-          <!--~ Right aligned toggle items ~-->
           <li>
             <p>
-              <a class="btn ink-reaction btn-flat btn-sm btn-primary" href="{{pathFor route='login'}}">Entrar  </a>
+              <a class="btn ink-reaction btn-flat btn-sm btn-primary" href="{{pathForLogin}}">Entrar  </a>
             </p>
           </li>
         </ul>
       {{/if}}
+      
     </div>
   </div>
 </template>

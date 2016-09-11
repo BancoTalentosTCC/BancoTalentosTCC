@@ -1,9 +1,9 @@
 /* Password strength validator */
-Template.studentsSignup.onRendered(function() {
+Template.studentSignup.onRendered(function() {
   pwdValidate();
 });
 
-Template.companiesSignup.onRendered(function() {
+Template.companySignup.onRendered(function() {
   pwdValidate();
 });
 
