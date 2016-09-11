@@ -1,16 +1,16 @@
 <template name="ApplicationLayout">
   <header id="header" class="header">
-    {{> yield "header"}}
+    {{> Template.dynamic template=header}}
   </header>
 
   <div id="base" class={{base_classes}}>
     {{#if currentUser}}
-      {{> yield "menubar"}}
+      {{> Template.dynamic template=menubar}}
     {{/if}}
     <div id="content">
-      {{> yield}}
+      {{> Template.dynamic template=main}}
     </div>
-    {{> yield "offcanvas"}}
+    {{> Template.dynamic template=offcanvas}}
   </div>  
 </template>
 

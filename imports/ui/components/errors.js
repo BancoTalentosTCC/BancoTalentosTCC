@@ -13,7 +13,7 @@ Meteor.methods({
     $('#' + name).addClass('warning');
     toastr.error(reason, 'ERRO');
 
-    if (Router.current().route.getName() == 'studentsSignup') {
+    if (FlowRouter.current().route.name == 'studentSignup') {
       Meteor.call('generateWizardErrors', name);
     }
   },

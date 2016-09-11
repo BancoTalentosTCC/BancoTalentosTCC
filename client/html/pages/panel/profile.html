@@ -5,13 +5,10 @@
       <div class="overlay overlay-shade-top stick-top-left height-3"></div>
       <div class="row">
         <div class="col-md-3 col-xs-5">
-
           {{#with currentUser}}
             <img class="img-circle border-white border-xl img-responsive auto-width" src="{{avatar 146}}" alt="Avatar" /> 
           {{/with}}
-
           <h3>
-
             {{#if isInRole 'student' 'default-group'}}
               {{ user.profile.nome }}<br/>
               <small>{{ user.profile.perfil }} na Universidade do Vale do Sapucaí</small>
@@ -21,12 +18,11 @@
               {{user.profile.dados}}<br/>
               <small>Responsável pela {{ user.profile.nome }}</small>
             {{/if}}
-            
           </h3>
         </div>
       </div>
       <div class="overlay overlay-shade-bottom stick-bottom-left force-padding text-right">
-        <a href="mailto:{{user.emails[0].address}}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Contact me">
+        <a href="mailto:{{user.emails.[0].address}}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Contact me">
           <i class="fa fa-envelope"></i>
         </a>
         <a href="{{user.profile.twitter}}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Follow me">

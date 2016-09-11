@@ -1,18 +1,6 @@
-Template.ApplicationLayout.events({
-  "click #logout": function() {
-    Accounts.logout();
-  }
-});
-
 Template.ApplicationLayout.helpers({
   base_classes: function() {
     if (isDifferentLayout()) return "no-padding";
-  }
-});
-
-Template.header.helpers({
-  hasToggleIcon: function() {
-    if (isDifferentLayout()) return "no-toggle-btn";
   }
 });
 
@@ -38,6 +26,6 @@ Template.registerHelper(
 );
 
 function isDifferentLayout() {
-  let route = Router.current().route.getName();
-  return route == "home" || route == "companiesSignup" || route == "login" || route == "companiesSignup" || route == "studentsSignup"
+  let route = FlowRouter.current().route.name;
+  return route == "home" || route == "companySignup" || route == "login" || route == "studentSignup"
 }

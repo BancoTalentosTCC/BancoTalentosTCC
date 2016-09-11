@@ -5,11 +5,11 @@ import '/client/html/pages/panel/add-vacancy.html';
 
 var json = require('/imports/ui/components/skills.json');
 
-Template.includeJobVacancy.onCreated(function() {
+Template.newVacancy.onCreated(function() {
   this.skills = new ReactiveVar(json);
 });
 
-Template.includeJobVacancy.onRendered(function() { 
+Template.newVacancy.onRendered(function() { 
   $("#tags").chosen({
     no_results_text: "Sem resultados para",
     placeholder_text_single: "Selecione uma opção",
@@ -17,7 +17,7 @@ Template.includeJobVacancy.onRendered(function() {
   });
 });
 
-Template.includeJobVacancy.helpers({
+Template.newVacancy.helpers({
   skills: function() {
     return Template.instance().skills.get();
   }

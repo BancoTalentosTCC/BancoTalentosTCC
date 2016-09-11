@@ -4,7 +4,7 @@
       <ul class="header-nav header-nav-options">
         <li class="header-nav-brand">
           <div class="brand-holder">
-            <a href="{{pathFor route='home'}}">
+            <a href="{{pathForHome}}">
               <img alt="logo" src="/img/logo-univas.png">
             </a>
           </div>
@@ -71,10 +71,10 @@
             {{#if isInRole 'student' 'default-group'}}
               <ul class="dropdown-menu animation-dock">
                 <li>
-                  <a href="{{pathFor route='studentPanel'}}">Meu painel</a>
+                  <a href="{{pathForStudentPanel}}">Meu painel</a>
                 </li>
                 <li>
-                  <a href="{{pathFor route='studentProfile'}}"> Meu perfil</a>
+                  <a href="{{pathForStudentProfile}}"> Meu perfil</a>
                 </li>
                 <li>
                   <a id="logout" href=""><i class="fa fa-fw fa-power-off text-danger"></i> Sair </a>
@@ -85,10 +85,10 @@
             {{#if isInRole 'company' 'default-group'}}
               <ul class="dropdown-menu animation-dock">
                 <li>
-                  <a href="{{pathFor route='companyPanel'}}">Meu painel</a>
+                  <a href="{{pathForCompanyPanel}}">Meu painel</a>
                 </li>
                 <li>
-                  <a href="{{pathFor route='companyProfile'}}"> Meu perfil</a>
+                  <a href="{{pathForCompanyProfile}}"> Meu perfil</a>
                 </li>
                 <li>
                   <a id="logout" href=""><i class="fa fa-fw fa-power-off text-danger"></i> Sair </a>
@@ -101,10 +101,9 @@
       {{else}}
 
         <ul class="header-nav header-nav-toggle login">
-          <!--~ Right aligned toggle items ~-->
           <li>
             <p>
-              <a class="btn ink-reaction btn-flat btn-sm btn-primary" href="{{pathFor route='login'}}">Entrar  </a>
+              <a class="btn ink-reaction btn-flat btn-sm btn-primary" href="{{pathForLogin}}">Entrar  </a>
             </p>
           </li>
         </ul>

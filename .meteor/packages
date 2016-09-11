@@ -16,7 +16,8 @@ es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 insecure                # Allow all DB writes from clients (for prototyping)
-iron:router
+kadira:flow-router
+kadira:blaze-layout
 less
 dapearce:material-icons
 seba:minifiers-autoprefixer
@@ -28,7 +29,6 @@ bigdsk:inputmask
 accounts-password
 accounts-ui
 softwarerero:accounts-t9n
-#rajit:bootstrap3-datepicker
 twbs:bootstrap
 mrt:jquery-migrate
 fortawesome:fontawesome

@@ -4,11 +4,9 @@ import {
 import '/client/html/pages/signup/students.html';
 import '/client/html/pages/signup/companies.html';
 
-Router.onAfterAction(function() {
-  Meteor.setTimeout(function() {
-    setMasks();
-    setCalendar();
-  }, 500);
+Template.ApplicationLayout.onRendered(function() {
+  setMasks();
+  setCalendar();
 });
 
 function setMasks() {

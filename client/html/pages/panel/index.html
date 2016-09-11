@@ -34,7 +34,7 @@
                 {{#if isInRole 'company' 'default-group'}}
                   <p>Abaixo, confira as últimas vagas registradas pela sua empresa:</p>
                   <div class="pull-right">
-                    <a href="{{pathFor route='includeJobVacancy'}}" class="btn ink-reaction btn-floating-action btn-primary">
+                    <a href="{{pathForNewVacancy}}" class="btn ink-reaction btn-floating-action btn-primary">
                       <i class="md mdi mdi-plus"></i>
                     </a>
                   </div>
@@ -124,11 +124,11 @@
                     <div class="tile-text">
 
                       {{#if isInRole 'student' 'default-group'}}
-                        <a class="ink-reaction" href="{{pathFor route='studentProfile'}}">{{ user.profile.nome }}</a>
+                        <a class="ink-reaction" href="{{pathForStudentProfile}}">{{ user.profile.nome }}</a>
                       {{/if}}
 
                       {{#if isInRole 'company' 'default-group'}}
-                        <a class="ink-reaction" href="{{pathFor route='companyProfile'}}">{{ user.profile.dados }}</a>
+                        <a class="ink-reaction" href="{{pathForCompanyProfile}}">{{ user.profile.dados }}</a>
                       {{/if}}
 
                       <small>Lorem ipsum dolor sit amet, consectetur adipisicing</small>

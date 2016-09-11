@@ -20,7 +20,7 @@
             <li>
 
               {{#if isInRole 'student' 'default-group'}}
-                <a href="{{pathFor route='studentPanel'}}">
+                <a href="{{pathForStudentPanel}}">
                   <div class="gui-icon">
                     <i class="md mdi mdi-home"></i>
                   </div>
@@ -29,7 +29,7 @@
               {{/if}}
 
               {{#if isInRole 'company' 'default-group'}}
-                <a href="{{pathFor route='companyPanel'}}">
+                <a href="{{pathForCompanyPanel}}">
                   <div class="gui-icon">
                     <i class="md mdi mdi-home"></i>
                   </div>
