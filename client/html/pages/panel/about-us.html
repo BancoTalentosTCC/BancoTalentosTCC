@@ -1,19 +1,3 @@
-<template name="ApplicationLayout">
-  <header id="header" class="header">
-    {{> Template.dynamic template=header}}
-  </header>
-
-  <div id="base" class={{base_classes}}>
-    {{#if currentUser}}
-      {{> Template.dynamic template=menubar}}
-    {{/if}}
-    <div id="content">
-      {{> Template.dynamic template=main}}
-    </div>
-    {{> Template.dynamic template=offcanvas}}
-  </div>  
-</template>
-
 <body class="menubar-hoverable header-fixed">
   
   <!-- About us Modal -->
