@@ -1,10 +1,13 @@
 import {
   Template
 } from 'meteor/templating';
-import '/client/html/pages/signup/students.html';
-import '/client/html/pages/signup/companies.html';
 
-Template.ApplicationLayout.onRendered(function() {
+Template.PanelLayout.onRendered(function() {
+  setMasks();
+  setCalendar();
+});
+
+Template.HomeLayout.onRendered(function() {
   setMasks();
   setCalendar();
 });

@@ -1,9 +1,3 @@
-Template.ApplicationLayout.helpers({
-  base_classes: function() {
-    if (isDifferentLayout()) return "no-padding";
-  }
-});
-
 Template.registerHelper(
   'user', () => {
     return Meteor.user();
@@ -24,8 +18,3 @@ Template.registerHelper(
     });
   }
 );
-
-function isDifferentLayout() {
-  let route = FlowRouter.current().route.name;
-  return route == "home" || route == "companySignup" || route == "studentSignup"
-}
