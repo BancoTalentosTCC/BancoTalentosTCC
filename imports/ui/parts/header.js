@@ -2,9 +2,6 @@ Template.header.helpers({
   hasToggleIcon: function() {
     if (isDifferentLayout()) return "no-toggle-btn";
   },
-  pathForLogin: function() {
-    return FlowRouter.path("login");
-  },
   pathForHome: function() {
     return FlowRouter.path("home");
   },
@@ -30,5 +27,5 @@ Template.header.events({
 
 function isDifferentLayout() {
   let route = FlowRouter.current().route.name;
-  return route == "home" || route == "companySignup" || route == "login" || route == "studentSignup"
+  return route == "home" || route == "companySignup" || route == "studentSignup"
 }

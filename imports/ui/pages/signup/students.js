@@ -109,7 +109,7 @@ Template.studentSignup.events({
         Meteor.call('displayErrors', error);
       } else if (result) {
         toastr.success('Você já pode acessar o painel do aluno', 'Estudante Cadastrado!');
-        FlowRouter.go('login');
+        FlowRouter.go('home');
       }
     });
   },

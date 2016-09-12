@@ -27,5 +27,5 @@ Template.registerHelper(
 
 function isDifferentLayout() {
   let route = FlowRouter.current().route.name;
-  return route == "home" || route == "companySignup" || route == "login" || route == "studentSignup"
+  return route == "home" || route == "companySignup" || route == "studentSignup"
 }
