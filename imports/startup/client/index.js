@@ -9,7 +9,6 @@ import './materialadmin-load.js';
 
 /* Meteor related JS imports */
 import '/imports/ui/layouts/layout.js';
-import '/imports/ui/pages/login.js';
 import '/imports/ui/pages/home.js';
 import '/imports/ui/pages/panel/index.js';
 import '/imports/ui/pages/panel/add-vacancy.js';

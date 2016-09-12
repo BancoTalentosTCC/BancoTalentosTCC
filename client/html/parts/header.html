@@ -16,36 +16,8 @@
         </li>
       </ul>
     </div>
-    <div class="headerbar-right">
-      
-      {{#if currentUser }}
-        <!--ul class="header-nav header-nav-options">
-          <li class="dropdown hidden-xs">
-            <a href="#" class="btn btn-icon-toggle btn-default" data-toggle="dropdown">
-              <i class="fa fa-bell"></i><sup class="badge style-danger">4</sup>
-            </a>
-            <ul class="dropdown-menu animation-expand">
-              <li class="dropdown-header">Today's messages</li>
-              <li>
-                <a class="alert alert-callout alert-warning" href="#">
-                  <img class="pull-right img-circle dropdown-avatar" src="/img/avatar1.png" alt="" />
-                  <strong>Alex Anistor</strong>
-                  <br/>
-                  <small>Testing functionality...</small>
-                </a>
-              </li>
-              <li>
-                <a class="alert alert-callout alert-info" href="#">
-                  <img class="pull-right img-circle dropdown-avatar" src="/img/avatar1.png" alt="" />
-                  <strong>Alicia Adell</strong>
-                  <br/>
-                  <small>Reviewing last changes...</small>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul-->
-
+    {{#if currentUser }}
+      <div class="headerbar-right">
         <ul class="header-nav header-nav-profile">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
@@ -97,18 +69,7 @@
             {{/if}}
           </li>
         </ul>
-
-      {{else}}
-
-        <ul class="header-nav header-nav-toggle login">
-          <li>
-            <p>
-              <a class="btn ink-reaction btn-flat btn-sm btn-primary" href="{{pathForLogin}}">Entrar  </a>
-            </p>
-          </li>
-        </ul>
-      {{/if}}
-      
-    </div>
+      </div>
+    {{/if}}
   </div>
 </template>
