@@ -33,7 +33,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <div class="required">
-                    <select class="form-control required" id="tipo-vaga" name="tipo-vaga" required>
+                    <select class="form-control required" id="tipo_vaga" name="tipo-vaga" required>
                       <option value="estagio">Estágio</option>
                       <option value="trainee">Trainee</option>
                       <option value="junior">Junior</option>
@@ -41,7 +41,7 @@
                       <option value="senior">Sênior</option>
                       <option value="freelancer">Freelancer</option>
                     </select>
-                    <label for="tipo-vaga" class="control-label">Tipo de vaga ofertada</label>
+                    <label for="tipo_vaga" class="control-label">Tipo de vaga ofertada</label>
                   </div>
                 </div>
               </div>
@@ -66,7 +66,6 @@
               </div>
               <div class="col-sm-offset-6"></div>
             </div>
-            <!-- TODO: to be implemented -->
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
@@ -75,7 +74,7 @@
                       <option value={{this.value}}>{{this.value}}</option>
                     {{/each}} 
                   </select>
-                  <label for="tipo-vaga" class="control-label">Quais habilidades são desejadas?</label>
+                  <label for="tags" class="control-label">Quais habilidades são desejadas?</label>
                 </div>
                 <small>Dica: escolha habilidades ou áreas que são relacionadas com esta vaga</small>
               </div>
@@ -84,7 +83,9 @@
             <div class="row">
               <div class="checkbox checkbox-styled col-sm-offset-6 col-sm-6">
                 <label>
-                  <input type="checkbox" id="especial" name="especial"> <span>Vaga preferencial para Portador de Necessidades Especiais</span> </label>
+                  <input type="checkbox" id="especial" name="especial">
+                  <span>Vaga preferencial para Portador de Necessidades Especiais</span>
+                </label>
               </div>
             </div>
             <div class="form-group">
