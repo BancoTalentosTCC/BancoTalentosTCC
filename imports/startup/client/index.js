@@ -20,4 +20,3 @@ import '/imports/ui/components/forms.js';
 import '/imports/ui/components/errors.js';
 import '/imports/ui/components/pwd-strength.js';
 import '/imports/ui/components/T9n.js';
-import './startup.js';

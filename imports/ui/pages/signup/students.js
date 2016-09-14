@@ -88,7 +88,7 @@ Template.studentSignup.events({
         twitter: targetValue(target["twitter"]),
         linkedin: targetValue(target["linkedin"]),
         pers_website: targetValue(target["pers_website"]),
-        especial: target["especial"].checked,
+        especial: $('#especial').is(':checked'),
         formacao: {
           formacao: targetValue(target["formacao"]),
           curso: targetValue(target["curso"]),

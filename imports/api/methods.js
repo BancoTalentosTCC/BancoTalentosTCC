@@ -1,5 +1,6 @@
 import './collections/password.js';
 import './collections/email.js';
+import '/imports/api/collections/vacancies.js';
 
 Meteor.methods({
   saveUser: function (data, type) {
@@ -12,5 +13,8 @@ Meteor.methods({
     Roles.addUsersToRoles(id, type, 'default-group');
 
     return true;
+  },
+  saveVacancy: function (vacancy) {
+    Vacancies.insert(vacancy);
   }
 });

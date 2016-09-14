@@ -2,6 +2,7 @@ import {
   Template
 } from 'meteor/templating';
 import '/client/html/pages/panel/add-vacancy.html';
+import '/imports/api/collections/vacancies.js';
 
 var json = require('/imports/ui/components/skills.json');
 
@@ -16,6 +17,35 @@ Template.newVacancy.onRendered(function() {
     placeholder_text_multiple: "Selecione tags para identificação"
   });
 });
+
+Template.newVacancy.events({
+  "submit form": function(event) {
+    event.preventDefault();
+    //REMOVE ERRORS
+    $('.warning').removeClass('warning');
+
+    let target = event.target;
+
+    vacancy = {
+      categoria: targetValue(target["categoria"]),
+      tipo_vaga: targetValue(target["tipo_vaga"]),
+      nome: targetValue(target["nome"]),
+      descricao: targetValue(target["descricao"]),
+      especial: $('#especial').is(':checked'),
+      tags: $('#tags').val()
+    }
+
+    Meteor.call('saveVacancy', vacancy, function(error) {
+      if (error) {
+        Meteor.call('displayErrors', error);
+      }
+    });
+  }
+});
+
+function targetValue(target) {
+  return target.value != "" ? target.value : undefined;
+}
 
 Template.newVacancy.helpers({
   skills: function() {
