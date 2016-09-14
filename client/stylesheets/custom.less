@@ -308,3 +308,35 @@ body [class*=" md-"],
   max-height: 62px;
   height: 100%;
 }
+
+/* Home padding top fix */
+.padding-top {
+  padding-top: 5%;
+  @media (max-width: 480px) {
+    padding-top: 0;
+  }
+}
+
+#homeCarousel {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.mobile_bg {
+  background: none;
+  @media(max-width: 768px) {
+    background: url('img/home-bg2.jpg') no-repeat center center;
+    background-size: cover;
+  }
+}
+
+.mob-center {
+  padding: 16px;
+  img {
+    @media(max-width: 768px) {
+      margin: 0px auto;
+      display: block;
+    }
+  }
+}
