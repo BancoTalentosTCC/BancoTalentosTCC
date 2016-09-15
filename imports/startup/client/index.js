@@ -11,6 +11,7 @@ import './materialadmin-load.js';
 import '/imports/ui/layouts/layout.js';
 import '/imports/ui/pages/home.js';
 import '/imports/ui/pages/panel/index.js';
+import '/imports/ui/pages/panel/jobs/index.js';
 import '/imports/ui/pages/panel/jobs/new.js';
 import '/imports/ui/pages/signup/students.js';
 import '/imports/ui/pages/signup/companies.js';

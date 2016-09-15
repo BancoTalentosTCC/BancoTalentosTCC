@@ -5,7 +5,7 @@ Template.menubar.helpers({
   pathForStudentPanel: function() {
     return FlowRouter.path("student");
   },
-  pathForJobSearch: function() {
+  pathForJob: function() {
     if(Roles.userIsInRole(Meteor.userId(), 'student', 'default-group')){
       return FlowRouter.path("studentjobs");
     }
