@@ -1,16 +1,16 @@
 import {
   Template
 } from 'meteor/templating';
-import '/client/html/pages/panel/add-vacancy.html';
-import '/imports/api/collections/vacancies.js';
+import '/client/html/pages/panel/jobs/new.html';
+import '/imports/api/collections/jobs.js';
 
 var json = require('/imports/ui/components/skills.json');
 
-Template.newVacancy.onCreated(function() {
+Template.newJob.onCreated(function() {
   this.skills = new ReactiveVar(json);
 });
 
-Template.newVacancy.onRendered(function() { 
+Template.newJob.onRendered(function() { 
   $("#tags").chosen({
     no_results_text: "Sem resultados para",
     placeholder_text_single: "Selecione uma opção",
@@ -18,7 +18,7 @@ Template.newVacancy.onRendered(function() {
   });
 });
 
-Template.newVacancy.events({
+Template.newJob.events({
   "submit form": function(event) {
     event.preventDefault();
     //REMOVE ERRORS
@@ -35,7 +35,7 @@ Template.newVacancy.events({
       tags: $('#tags').val()
     }
 
-    Meteor.call('saveVacancy', vacancy, function(error) {
+    Meteor.call('saveJob', vacancy, function(error) {
       if (error) {
         Meteor.call('displayErrors', error);
       }
@@ -57,7 +57,7 @@ function resetForm() {
   $('select').trigger('chosen:updated');
 }
 
-Template.newVacancy.helpers({
+Template.newJob.helpers({
   skills: function() {
     return Template.instance().skills.get();
   }

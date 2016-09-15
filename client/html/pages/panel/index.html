@@ -34,7 +34,7 @@
                 {{#if isInRole 'company' 'default-group'}}
                   <p>Abaixo, confira as últimas vagas registradas pela sua empresa:</p>
                   <div class="pull-right">
-                    <a href="{{pathForNewVacancy}}" class="btn ink-reaction btn-floating-action btn-primary">
+                    <a href="{{pathForNewJob}}" class="btn ink-reaction btn-floating-action btn-primary">
                       <i class="md mdi mdi-plus"></i>
                     </a>
                   </div>
@@ -45,8 +45,8 @@
             <ul class="timeline collapse-lg timeline-hairline">
 
               {{#if isInRole 'student' 'default-group'}}
-                {{#if vacancies}}
-                  {{#each vacancy in vacancies}}
+                {{#if jobs}}
+                  {{#each vacancy in jobs}}
                     <li class="timeline-inverted">
                       <div class="timeline-circ circ-xl style-primary">
                         <i class="md mdi mdi-calendar-check"></i>
