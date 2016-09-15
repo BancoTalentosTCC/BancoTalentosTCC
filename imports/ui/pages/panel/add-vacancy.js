@@ -40,7 +40,7 @@ Template.newVacancy.events({
         Meteor.call('displayErrors', error);
       }
       else {
-        toastr.success('Nova oportunidade cadastrada com sucesso', 'Vaga Regitrada!');
+        toastr.success('Nova oportunidade cadastrada com sucesso', 'Vaga Registrada!');
         resetForm();
       }
     });
