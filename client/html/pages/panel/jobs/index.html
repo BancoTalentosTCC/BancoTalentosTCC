@@ -1,4 +1,4 @@
-<template name="jobSearch">
+<template name="jobs">
   <section>
     <div class="section-header">
       <ol class="breadcrumb">
@@ -7,7 +7,6 @@
     </div>
     <div class="section-body contain-lg">
       <div class="card tabs-left style-default-light">
-        <!-- BEGIN SEARCH BAR -->
         <div class="card-body style-primary no-y-padding">
           <form class="form form-inverse">
             <div class="form-group">
@@ -21,25 +20,18 @@
                 </div>
               </div>
             </div>
-            <!--end .form-group -->
           </form>
         </div>
-        <!--end .card-body -->
-        <!-- END SEARCH BAR -->
-        <!-- BEGIN TAB RESULTS -->
-        <!--ul class="card-head nav nav-tabs tabs-accent" data-toggle="tabs">
-								<li class="active"><a href="#web1">Web</a></li>
-							</ul-->
-        <!-- END TAB RESULTS -->
-        <!-- BEGIN TAB CONTENT -->
         <div class="card-body tab-content style-default-bright">
           <div class="tab-pane active" id="web1">
             <div class="row">
               <div class="col-lg-12">
-                <!-- BEGIN PAGE HEADER -->
-                <div class="margin-bottom-xxl"> <span class="text-light text-lg">Foram encontradas <strong>2</strong> vagas</span>
+                <div class="margin-bottom-xxl">
+                  <span class="text-light text-lg">Foram encontradas <strong>{{jobs.length}}</strong> vagas</span>
                   <div class="btn-group btn-group-sm pull-right">
-                    <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-arrow-down"></span> Filtrar por </button>
+                    <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-arrow-down"></span> Filtrar por
+                    </button>
                     <ul class="dropdown-menu dropdown-menu-left animation-dock" role="menu">
                       <li class="active">
                         <div class="checkbox checkbox-styled">
@@ -104,59 +96,38 @@
                     </ul>
                   </div>
                   <div class="btn-group btn-group-sm pull-right">
-                    <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-arrow-down"></span> Ordenar por </button>
+                    <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-arrow-down"></span> Ordenar por
+                    </button>
                     <ul class="dropdown-menu dropdown-menu-right animation-dock" role="menu">
                       <li class="active"><a href="#">Data</a></li>
                       <li><a href="#">Nome</a></li>
                     </ul>
                   </div>
                 </div>
-                <!--end .margin-bottom-xxl -->
-                <!-- END PAGE HEADER -->
-                <!-- BEGIN RESULT LIST -->
                 <div class="list-results list-results-underlined">
-                  <div class="col-xs-12">
-                    <p> <a class="text-medium text-lg text-primary" href="#">Desenvolvedor Web Front-End</a>
-                      <br/> <a class="opacity-75" href="#">http://www.ibm.com/br-pt/</a> </p>
-                    <div class="contain-xs pull-left"> Estamos à procura de um profissional que possa atender aos seguintes requisitos: - Estar cursando os cursos de (...) </div>
-                  </div>
-                  <!--end .col -->
-                  <div class="col-xs-12">
-                    <p> <a class="text-medium text-lg text-primary" href="#">Material Design Search</a>
-                      <br/> <a class="opacity-75" href="#">http://www.codecovers.eu/search/help</a> </p>
-                    <div class="contain-xs pull-left"> You should have around 60 characters per line if you want a good reading experience. Having the right amount of characters on each line is key to the readability of your text. </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <p>Ops... Parece que não encontramos o que está procurando :(</p>
-                  </div>
-                  <!--end .col -->
+                  {{#if jobs}}
+                    {{#each jobs}}
+                      <div class="col-xs-12">
+                        <p>
+                          <a class="text-medium text-lg text-primary" href="#">{{nome}}</a>
+                          <br/>
+                          <strong>{{companyName}}</strong>
+                        </p>
+                        <div class="contain-lg">{{descricao}}</div>
+                      </div>
+                    {{/each}}
+                  {{else}}
+                    <div class="col-xs-12">
+                      <p>Ops... Parece que não encontramos o que está procurando :(</p>
+                    </div>
+                  {{/if}}
                 </div>
-                <!--end .list-results -->
-                <!-- END RESULTS LIST -->
-                <!-- BEGIN PAGING -->
-                <!-- TODO: Do we need a pagination? Or will we display everything in a single page? -->
-                <!--ul class="pagination">
-												<li class="disabled"><a href="#">«</a></li>
-												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-												<li><a href="#">2</a></li>
-												<li><a href="#">3</a></li>
-												<li><a href="#">4</a></li>
-												<li><a href="#">5</a></li>
-												<li><a href="#">»</a></li>
-											</ul-->
-                <!-- END PAGING -->
               </div>
-              <!--end .col -->
             </div>
-            <!--end .row -->
           </div>
-          <!--end .tab-pane -->
         </div>
-        <!--end .card-body -->
-        <!-- END TAB CONTENT -->
       </div>
-      <!--end .card -->
     </div>
-    <!--end .section-body -->
   </section>
 </template>

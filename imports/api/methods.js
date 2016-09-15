@@ -1,6 +1,6 @@
 import './collections/password.js';
 import './collections/email.js';
-import '/imports/api/collections/vacancies.js';
+import '/imports/api/collections/jobs.js';
 
 Meteor.methods({
   saveUser: function (data, type) {
@@ -14,7 +14,7 @@ Meteor.methods({
 
     return true;
   },
-  saveVacancy: function (vacancy) {
-    Vacancies.insert(vacancy);
+  saveJob: function (vacancy) {
+    Jobs.insert(vacancy);
   }
 });

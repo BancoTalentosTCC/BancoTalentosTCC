@@ -2,15 +2,15 @@ import {
   Template
 } from 'meteor/templating';
 
-Template.PanelLayout.onRendered(function() {
-  setMasks();
-  setCalendar();
-});
+FlowRouter.triggers.enter([init]);
 
-Template.HomeLayout.onRendered(function() {
-  setMasks();
-  setCalendar();
-});
+function init() {
+// WE SHOULD FIND A BETTER SOLUTION FOR THIS, TIMEOUT IS NOT A GOOD IDEA
+ Meteor.setTimeout(function() {
+    setMasks();
+    setCalendar();
+ }, 500);
+}
 
 function setMasks() {
   $('.phone-number').inputmask("(99) 99999999[9]", {

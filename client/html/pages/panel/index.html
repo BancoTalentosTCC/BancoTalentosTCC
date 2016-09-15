@@ -34,7 +34,7 @@
                 {{#if isInRole 'company' 'default-group'}}
                   <p>Abaixo, confira as últimas vagas registradas pela sua empresa:</p>
                   <div class="pull-right">
-                    <a href="{{pathForNewVacancy}}" class="btn ink-reaction btn-floating-action btn-primary">
+                    <a href="{{pathForNewJob}}" class="btn ink-reaction btn-floating-action btn-primary">
                       <i class="md mdi mdi-plus"></i>
                     </a>
                   </div>
@@ -44,42 +44,42 @@
             </div>
             <ul class="timeline collapse-lg timeline-hairline">
 
-            {{#if isInRole 'student' 'default-group'}}
-              {{#each vacancy in vacancies}}
-                <li class="timeline-inverted">
-                  <div class="timeline-circ circ-xl style-primary">
-                    <i class="md mdi mdi-calendar-check"></i>
-                  </div>
-                  <div class="timeline-entry">
-                    <div class="card style-default-light">
-                      <div class="card-body small-padding">
-                        <span class="text-medium">
-                          <span class="text-primary">{{vacancy.companyName}}</span> cadastrou uma 
-                            <a class="text-primary" href="#">vaga</a> para {{vacancy.nome}}.
-                          </span>
-                          <br>
-                        <span class="opacity-50">{{vacancy.createdAt}}</span>
+              {{#if isInRole 'student' 'default-group'}}
+                {{#if jobs}}
+                  {{#each jobs}}
+                    <li class="timeline-inverted">
+                      <div class="timeline-circ circ-xl style-primary">
+                        <i class="md mdi mdi-calendar-check"></i>
+                      </div>
+                      <div class="timeline-entry">
+                        <div class="card style-default-light">
+                          <div class="card-body small-padding">
+                            <span class="text-medium">
+                              <span class="text-primary">{{companyName}}</span> cadastrou uma 
+                                <a class="text-primary" href="#">vaga</a> para {{nome}}.
+                              </span>
+                              <br>
+                            <span class="opacity-50">{{createdAt}}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  {{/each}}
+                {{else}}
+                  <li class="timeline-inverted">
+                    <div class="timeline-circ circ-xl style-primary">
+                      <i class="md mdi mdi-calendar-check"></i>
+                    </div>
+                    <div class="timeline-entry">
+                      <div class="card style-default-light">
+                        <div class="card-body small-padding">
+                          <p>Ops, ainda não há nenhuma atividade registrada :(</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-              {{/each}}
-
-              {{else}}
-
-              <li class="timeline-inverted">
-                <div class="timeline-circ circ-xl style-primary">
-                  <i class="md mdi mdi-calendar-check"></i>
-                </div>
-                <div class="timeline-entry">
-                  <div class="card style-default-light">
-                    <div class="card-body small-padding">
-                      <p>Ops, ainda não há nenhuma atividade registrada :(</p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              {{/if}} 
+                  </li>
+                {{/if}}
+              {{/if}}
 
             </ul>
           </div>

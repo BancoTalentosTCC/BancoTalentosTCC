@@ -5,12 +5,12 @@ Template.menubar.helpers({
   pathForStudentPanel: function() {
     return FlowRouter.path("student");
   },
-  pathForVacancySearch: function() {
+  pathForJob: function() {
     if(Roles.userIsInRole(Meteor.userId(), 'student', 'default-group')){
-      return FlowRouter.path("studentJobSearch");
+      return FlowRouter.path("studentjobs");
     }
     else if(Roles.userIsInRole(Meteor.userId(), 'company', 'default-group')){
-      return FlowRouter.path("companyJobSearch");
+      return FlowRouter.path("companyjobs");
     }
   }
 });

@@ -1,13 +1,13 @@
-Vacancies = new Mongo.Collection("vacancies");
+Jobs = new Mongo.Collection("jobs");
 
 //is not working
-Vacancies.allow({
+Jobs.allow({
   insert: function(userId, doc) {
     return Roles.userIsInRole(Meteor.userId(), 'company', 'default-group');
   }
 });
 
-Vacancy = new SimpleSchema({
+Job = new SimpleSchema({
   categoria: {
     type: String,
     label: "Categoria"
@@ -57,4 +57,4 @@ Vacancy = new SimpleSchema({
   }
 });
 
-Vacancies.attachSchema(Vacancy);
+Jobs.attachSchema(Job);

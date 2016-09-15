@@ -1,6 +1,6 @@
 Template.mainPanel.helpers({
-  pathForNewVacancy: function() {
-    return FlowRouter.path("newVacancy");
+  pathForNewJob: function() {
+    return FlowRouter.path("newJob");
   },
   pathForStudentProfile: function() {
     return FlowRouter.path("studentProfile");
@@ -8,8 +8,8 @@ Template.mainPanel.helpers({
   pathForCompanyProfile: function() {
     return FlowRouter.path("companyProfile");
   },
-  vacancies: function() {
-    return Vacancies.find().fetch();
+  jobs: function() {
+    return Jobs.find().fetch();
   }
 });
 
