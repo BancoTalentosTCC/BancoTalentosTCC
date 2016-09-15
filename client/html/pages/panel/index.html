@@ -44,41 +44,26 @@
             </div>
             <ul class="timeline collapse-lg timeline-hairline">
 
-              {{#if isInRole 'student' 'default-group'}}
-              <li class="timeline-inverted">
-                <div class="timeline-circ circ-xl style-primary">
-                  <i class="md mdi mdi-calendar-check"></i>
-                </div>
-                <div class="timeline-entry">
-                  <div class="card style-default-light">
-                    <div class="card-body small-padding">
-                      <span class="text-medium">
-                        <span class="text-primary">Microsoft</span> cadastrou uma 
-                          <a class="text-primary" href="#">vaga.</a>
-                        </span>
-                        <br>
-                      <span class="opacity-50"> Terça, 21 de Outubro, 2016 </span>
+            {{#if isInRole 'student' 'default-group'}}
+              {{#each vacancy in vacancies}}
+                <li class="timeline-inverted">
+                  <div class="timeline-circ circ-xl style-primary">
+                    <i class="md mdi mdi-calendar-check"></i>
+                  </div>
+                  <div class="timeline-entry">
+                    <div class="card style-default-light">
+                      <div class="card-body small-padding">
+                        <span class="text-medium">
+                          <span class="text-primary">{{vacancy.companyName}}</span> cadastrou uma 
+                            <a class="text-primary" href="#">vaga</a> para {{vacancy.nome}}.
+                          </span>
+                          <br>
+                        <span class="opacity-50">{{vacancy.createdAt}}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-circ circ-xl style-primary">
-                  <i class="md mdi mdi-calendar-check"></i>
-                </div>
-                <div class="timeline-entry">
-                  <div class="card style-default-light">
-                    <div class="card-body small-padding">
-                      <span class="text-medium">
-                       <span class="text-primary">IBM</span> cadastrou uma 
-                          <a class="text-primary" href="#">vaga.</a>
-                        </span>
-                        <br>
-                      <span class="opacity-50"> Sábado, 18 de Outubro, 2016 </span>
-                    </div>
-                  </div>
-                </div>
-              </li>
+                </li>
+              {{/each}}
 
               {{else}}
 

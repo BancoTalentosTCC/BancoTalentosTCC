@@ -39,12 +39,22 @@ Template.newVacancy.events({
       if (error) {
         Meteor.call('displayErrors', error);
       }
+      else {
+        toastr.success('Nova oportunidade cadastrada com sucesso', 'Vaga Regitrada!');
+        resetForm();
+      }
     });
   }
 });
 
 function targetValue(target) {
   return target.value != "" ? target.value : undefined;
+}
+
+function resetForm() {
+  $("form")[0].reset();
+  $('select option:selected').removeAttr('selected');
+  $('select').trigger('chosen:updated');
 }
 
 Template.newVacancy.helpers({

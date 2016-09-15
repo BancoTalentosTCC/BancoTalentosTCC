@@ -7,5 +7,9 @@ Template.mainPanel.helpers({
   },
   pathForCompanyProfile: function() {
     return FlowRouter.path("companyProfile");
+  },
+  vacancies: function() {
+    return Vacancies.find().fetch();
   }
 });
+

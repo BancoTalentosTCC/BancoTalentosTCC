@@ -34,7 +34,14 @@ Vacancy = new SimpleSchema({
     type: String,
     label: "ID da Empresa",
     autoValue: function(){
-      return this.userId;
+      return Meteor.userId();
+    }
+  },
+  companyName: {
+    type: String,
+    label: "Nome da Empresa",
+    autoValue: function(){
+      return Meteor.user().profile.razaosoc;
     }
   },
   especial: {
