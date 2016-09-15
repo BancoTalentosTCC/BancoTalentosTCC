@@ -48,7 +48,7 @@
 
             {{#if isInRole 'student' 'default-group'}}
               <li>
-                <a href="#">
+                <a href="{{pathForCompanySearch}}">
                   <div class="gui-icon"> 
                     <i class="md mdi mdi-domain"></i>
                   </div> 
@@ -59,7 +59,7 @@
 
             {{#if isInRole 'company' 'default-group'}}
               <li>
-                <a href="#">
+                <a href="{{pathForStudentSearch}}">
                   <div class="gui-icon"> 
                     <i class="md mdi mdi-account"></i> 
                   </div> <span class="title">Alunos</span> 
