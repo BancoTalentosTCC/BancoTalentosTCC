@@ -16,6 +16,12 @@ Template.header.helpers({
   },
   pathForStudentPanel: function() {
     return FlowRouter.path("student");
+  },
+  pathForCompanySearch: function() {
+    return FlowRouter.path("studentSearch");
+  },
+  pathForStudentSearch: function() {
+    return FlowRouter.path("companySearch");
   }
 });
 
