@@ -8,7 +8,8 @@ import '/imports/ui/materialadmin/libs/bootstrap-datepicker/locales/bootstrap-da
 import './materialadmin-load.js';
 
 /* Meteor related JS imports */
-import '/imports/ui/layouts/layout.js';
+import '/imports/ui/global.js';
+import '/imports/ui/layouts/home.js';
 import '/imports/ui/pages/home.js';
 import '/imports/ui/pages/panel/index.js';
 import '/imports/ui/pages/panel/jobs/index.js';

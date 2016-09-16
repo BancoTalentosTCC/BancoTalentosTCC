@@ -49,10 +49,10 @@ Job = new SimpleSchema({
     label: "Especial"
   },
   createdAt: {
-    type: Date,
+    type: Number,
     label: "Data de Criação",
     autoValue: function(){
-      return new Date();
+      return new Date().getTime();
     }
   }
 });
