@@ -9,7 +9,7 @@ Template.mainPanel.helpers({
     return FlowRouter.path("companyProfile");
   },
   jobs: function() {
-    return Jobs.find().fetch();
+    return Jobs.find({}, {sort: {createdAt: -1}}).fetch();
   }
 });
 

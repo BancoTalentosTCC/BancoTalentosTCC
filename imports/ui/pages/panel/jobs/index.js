@@ -1,13 +1,21 @@
 orderBy = new Deps.Dependency();
-orderByValue = 'createdAt'
+orderByValue = ""
+findByValue = ""
+searchValue = ""
 
 Template.jobs.events({
-  "click #orderByDate": function(event) {
-    orderByValue = "createdAt";
+  "click #orderBy a": function(event) {
+    orderByValue = event.toElement.id;
     orderBy.changed();
   },
-  "click #orderByName": function(event) {
-    orderByValue = "nome";
+  "click #findBy a": function(event) {
+    findByValue = event.toElement.id;
+    orderBy.changed();
+  },
+  "input #searchInput": function(event) {
+    searchValue = event.currentTarget.value;
+    orderByValue = 'createdAt'
+    findByValue = {}
     orderBy.changed();
   }
 });
@@ -15,7 +23,11 @@ Template.jobs.events({
 Template.jobs.helpers({
   jobs: function() {
     orderBy.depend();
-    if (orderByValue == "createdAt") return Jobs.find({}, {sort: {createdAt: 1}}).fetch();
-    else if (orderByValue == "nome") return Jobs.find({}, {sort: {nome: 1}}).fetch();
+    if (orderByValue) {
+      var sortBy = {};
+      if (orderByValue == "nome") sortBy[orderByValue] = 1;
+      else if (orderByValue == "createdAt") sortBy[orderByValue] = -1;
+    }
+    return Jobs.find({ nome: eval("/.*"+searchValue+".*/i"), categoria: eval("/.*"+findByValue+".*/i")}, {sort: sortBy} ).fetch();
   }
 });
