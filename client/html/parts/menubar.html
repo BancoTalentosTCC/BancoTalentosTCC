@@ -19,7 +19,7 @@
           <ul id="main-menu" class="gui-controls">
             <li>
 
-              {{#if isInRole 'student' 'default-group'}}
+              {{#if isInRole 'student' 'user-type'}}
                 <a href="{{pathForStudentPanel}}">
                   <div class="gui-icon">
                     <i class="md mdi mdi-home"></i>
@@ -28,7 +28,7 @@
                 </a>
               {{/if}}
 
-              {{#if isInRole 'company' 'default-group'}}
+              {{#if isInRole 'company' 'user-type'}}
                 <a href="{{pathForCompanyPanel}}">
                   <div class="gui-icon">
                     <i class="md mdi mdi-home"></i>
@@ -46,9 +46,9 @@
               </a>
             </li>
 
-            {{#if isInRole 'student' 'default-group'}}
+            {{#if isInRole 'student' 'user-type'}}
               <li>
-                <a href="{{pathForCompanySearch}}">
+                <a href="{{pathForCompanies}}">
                   <div class="gui-icon"> 
                     <i class="md mdi mdi-domain"></i>
                   </div> 
@@ -57,9 +57,9 @@
               </li>
             {{/if}}
 
-            {{#if isInRole 'company' 'default-group'}}
+            {{#if isInRole 'company' 'user-type'}}
               <li>
-                <a href="{{pathForStudentSearch}}">
+                <a href="{{pathForStudents}}">
                   <div class="gui-icon"> 
                     <i class="md mdi mdi-account"></i> 
                   </div> <span class="title">Alunos</span> 

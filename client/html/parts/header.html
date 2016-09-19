@@ -32,18 +32,18 @@
               <span class="profile-info">
                 {{ user.profile.nome }}
 
-                {{#if isInRole 'student' 'default-group'}}
+                {{#if isInRole 'student' 'user-type'}}
                   <small>{{ user.profile.formacao.curso }}</small>
                 {{/if}}
 
-                {{#if isInRole 'company' 'default-group'}}
+                {{#if isInRole 'company' 'user-type'}}
                   <small>{{ user.profile.razaosoc }}</small>
                 {{/if}}
 
               </span>
             </a>
 
-            {{#if isInRole 'student' 'default-group'}}
+            {{#if isInRole 'student' 'user-type'}}
               <ul class="dropdown-menu animation-dock">
                 <li>
                   <a href="{{pathForStudentPanel}}">Meu painel</a>
@@ -57,7 +57,7 @@
               </ul>
             {{/if}}
 
-            {{#if isInRole 'company' 'default-group'}}
+            {{#if isInRole 'company' 'user-type'}}
               <ul class="dropdown-menu animation-dock">
                 <li>
                   <a href="{{pathForCompanyPanel}}">Meu painel</a>

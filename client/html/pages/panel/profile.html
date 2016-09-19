@@ -1,11 +1,11 @@
 <template name="profile">
   <section class="full-bleed">
     <div class="section-body style-default-dark force-padding text-shadow">
-      {{#if isInRole 'student' 'default-group'}}
+      {{#if isInRole 'student' 'user-type'}}
         <div class="img-backdrop" style="background-image: url('/img/student-profile-bg.jpg')"></div>
       {{/if}}
 
-      {{#if isInRole 'company' 'default-group'}}
+      {{#if isInRole 'company' 'user-type'}}
         <div class="img-backdrop" style="background-image: url('/img/company-profile-bg.jpg')"></div>
       {{/if}}
       <div class="overlay overlay-shade-top stick-top-left height-3"></div>
@@ -15,12 +15,12 @@
             <img class="img-circle border-white border-xl img-responsive auto-width" src="{{avatar 146}}" alt="Avatar" /> 
           {{/with}}
           <h3>
-            {{#if isInRole 'student' 'default-group'}}
+            {{#if isInRole 'student' 'user-type'}}
               {{ user.profile.nome }}<br/>
               <small>{{ user.profile.perfil }} na Universidade do Vale do Sapucaí</small>
             {{/if}}
 
-            {{#if isInRole 'company' 'default-group'}}
+            {{#if isInRole 'company' 'user-type'}}
               {{user.profile.dados}}<br/>
               <small>Responsável pela {{ user.profile.nome }}</small>
             {{/if}}
@@ -58,7 +58,7 @@
           </article>
           <br/>
 
-          {{#if isInRole 'student' 'default-group'}}
+          {{#if isInRole 'student' 'user-type'}}
           <h3 class="opacity-50">Experience</h3>
           <ul class="timeline collapse-lg timeline-hairline no-shadow">
             <li class="timeline-inverted">

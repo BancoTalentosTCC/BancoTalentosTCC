@@ -13,10 +13,10 @@ Template.login.events({
         Meteor.call('displayErrors', error);
       }
       else {
-        if(Roles.userIsInRole(Meteor.userId(), 'student', 'default-group')){
+        if(Roles.userIsInRole(Meteor.userId(), 'student', 'user-type')){
           FlowRouter.go("student");
         }
-        else if(Roles.userIsInRole(Meteor.userId(), 'company', 'default-group')){
+        else if(Roles.userIsInRole(Meteor.userId(), 'company', 'user-type')){
           FlowRouter.go("company");
         }
       }

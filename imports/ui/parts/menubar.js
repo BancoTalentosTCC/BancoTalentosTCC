@@ -6,17 +6,17 @@ Template.menubar.helpers({
     return FlowRouter.path("student");
   },
   pathForJob: function() {
-    if(Roles.userIsInRole(Meteor.userId(), 'student', 'default-group')){
+    if(Roles.userIsInRole(Meteor.userId(), 'student', 'user-type')){
       return FlowRouter.path("studentjobs");
     }
-    else if(Roles.userIsInRole(Meteor.userId(), 'company', 'default-group')){
+    else if(Roles.userIsInRole(Meteor.userId(), 'company', 'user-type')){
       return FlowRouter.path("companyjobs");
     }
   },
-  pathForCompanySearch: function() {
-    return FlowRouter.path("companySearch");
+  pathForCompanies: function() {
+    return FlowRouter.path("companies");
   },
-  pathForStudentSearch: function() {
-    return FlowRouter.path("studentSearch");
+  pathForStudents: function() {
+    return FlowRouter.path("companyStudents");
   }
 });
