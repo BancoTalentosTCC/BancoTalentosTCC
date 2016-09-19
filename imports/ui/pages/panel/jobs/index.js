@@ -15,7 +15,7 @@ Template.jobs.events({
   "input #searchInput": function(event) {
     searchValue = event.currentTarget.value;
     orderByValue = 'createdAt'
-    findByValue = {}
+    findByValue = ""
     orderBy.changed();
   }
 });

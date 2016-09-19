@@ -10,7 +10,7 @@ Meteor.methods({
       require('/imports/api/collections/companies.js');
     }
     id = Accounts.createUser(data);
-    Roles.addUsersToRoles(id, type, 'default-group');
+    Roles.addUsersToRoles(id, type, 'user-type');
 
     return true;
   },

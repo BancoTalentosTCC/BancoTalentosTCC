@@ -4,11 +4,11 @@
       <div class="row">
         <div class="col-md-8">
 
-          {{#if isInRole 'student' 'default-group'}}
+          {{#if isInRole 'student' 'user-type'}}
             <h2>Bem vindo(a), {{ user.profile.nome }}!</h2>
           {{/if}}
 
-          {{#if isInRole 'company' 'default-group'}}
+          {{#if isInRole 'company' 'user-type'}}
             <h2>Bem vindo(a), {{ user.profile.dados }}!</h2>
           {{/if}}
 
@@ -16,22 +16,22 @@
             <div class="card card-underline no-margin">
               <div class="card-head">
 
-                {{#if isInRole 'student' 'default-group'}}
+                {{#if isInRole 'student' 'user-type'}}
                   <header>O que está acontecendo?</header>
                 {{/if}}
 
-                {{#if isInRole 'company' 'default-group'}}
+                {{#if isInRole 'company' 'user-type'}}
                   <header>Ultimas vagas cadastradas</header>
                 {{/if}} 
 
               </div>
               <div class="card-body">
 
-                {{#if isInRole 'student' 'default-group'}}
+                {{#if isInRole 'student' 'user-type'}}
                   <p>Abaixo, as últimas atividades registradas pelas empresas:</p>
                 {{/if}}
 
-                {{#if isInRole 'company' 'default-group'}}
+                {{#if isInRole 'company' 'user-type'}}
                   <p>Abaixo, confira as últimas vagas registradas pela sua empresa:</p>
                   <div class="pull-right">
                     <a href="{{pathForNewJob}}" class="btn ink-reaction btn-floating-action btn-primary">
@@ -44,7 +44,7 @@
             </div>
             <ul class="timeline collapse-lg timeline-hairline">
 
-              {{#if isInRole 'student' 'default-group'}}
+              {{#if isInRole 'student' 'user-type'}}
                 {{#if jobs}}
                   {{#each jobs}}
                     <li class="timeline-inverted">
@@ -108,11 +108,11 @@
                     </div>
                     <div class="tile-text">
 
-                      {{#if isInRole 'student' 'default-group'}}
+                      {{#if isInRole 'student' 'user-type'}}
                         <a class="ink-reaction" href="{{pathForStudentProfile}}">{{ user.profile.nome }}</a>
                       {{/if}}
 
-                      {{#if isInRole 'company' 'default-group'}}
+                      {{#if isInRole 'company' 'user-type'}}
                         <a class="ink-reaction" href="{{pathForCompanyProfile}}">{{ user.profile.dados }}</a>
                       {{/if}}
 
@@ -127,11 +127,11 @@
           <div class="card card-underline">
             <div class="card-head style-primary">
 
-              {{#if isInRole 'student' 'default-group'}}
+              {{#if isInRole 'student' 'user-type'}}
                 <header>Vagas candidatadas</header>
               {{/if}}
 
-              {{#if isInRole 'company' 'default-group'}}
+              {{#if isInRole 'company' 'user-type'}}
                 <header>Vagas com candidatos</header>
               {{/if}}
 

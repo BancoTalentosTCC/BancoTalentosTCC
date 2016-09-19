@@ -6,7 +6,8 @@ Template.registerHelper(
 
 Template.registerHelper(
   'avatar', (avatarSize, user) => {
-    var md5hash = Gravatar.hash(Meteor.user().emails[0].address);
+    if (user._id) var md5hash = Gravatar.hash(user.emails[0].address);
+    else var md5hash = Gravatar.hash(Meteor.user().emails[0].address);
     md5hash = md5hash || "3eda6fcd3204ef285fa52176c28c4d3e"; // Equivalent to Gravatar.hash( 'none@none.com' );
     return Gravatar.imageUrl(md5hash, {
       secure: true,
