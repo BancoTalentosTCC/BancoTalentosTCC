@@ -3,6 +3,12 @@ Jobs = new Mongo.Collection("jobs");
 Jobs.allow({
   insert: function(userId, doc) {
     return Roles.userIsInRole(userId, 'company', 'default-group');
+  },
+  update: function(userId, doc) {
+    return doc.company === user_Id;
+  },
+  remove: function(userId, doc) {
+    return doc.company === user_Id;
   }
 });
 
