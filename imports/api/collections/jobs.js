@@ -1,11 +1,11 @@
 Jobs = new Mongo.Collection("jobs");
 
-//is not working
 Jobs.allow({
   insert: function(userId, doc) {
-    return Roles.userIsInRole(Meteor.userId(), 'company', 'default-group');
+    return Roles.userIsInRole(userId, 'company', 'default-group');
   }
 });
+
 
 Job = new SimpleSchema({
   categoria: {

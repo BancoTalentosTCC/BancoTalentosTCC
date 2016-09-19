@@ -5,7 +5,7 @@
         <div class="col-md-8">
 
           {{#if isInRole 'student' 'default-group'}}
-          <h2>Bem vindo(a), {{ user.profile.nome }}!</h2>
+            <h2>Bem vindo(a), {{ user.profile.nome }}!</h2>
           {{/if}}
 
           {{#if isInRole 'company' 'default-group'}}
@@ -56,7 +56,7 @@
                           <div class="card-body small-padding">
                             <span class="text-medium">
                               <span class="text-primary">{{companyName}}</span> cadastrou uma 
-                                <a class="text-primary" href="#">vaga</a> para {{nome}}.
+                                <a class="text-primary" href="{{pathForShowJob _id}}">vaga</a> para {{nome}}.
                               </span>
                               <br>
                             <span class="opacity-50">{{formatDate createdAt}}</span>
