@@ -1,0 +1,13 @@
+<template name="showJob">
+  {{job.nome}}
+  {{job.descricao}}
+  {{job.tipo_vaga}}
+  {{job.categoria}}
+  {{job.created_at}}
+  {{job.especial}}
+  {{job.company}}
+  {{job.company_name}}
+  {{#each tag in job.tags}}
+    {{tag}}
+  {{/each}}
+</template>
