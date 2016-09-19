@@ -47,7 +47,7 @@ Job = new SimpleSchema({
     type: String,
     label: "Nome da Empresa",
     autoValue: function(){
-      return Meteor.user().profile.razaosoc;
+      return Meteor.user().profile.nome;
     }
   },
   especial: {
