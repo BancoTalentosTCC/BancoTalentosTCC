@@ -14,7 +14,7 @@
               <div class="form-group">
                 <div class="input-group input-group-lg">
                   <div class="input-group-content">
-                    <input type="text" class="form-control" id="searchInput" placeholder="Digite uma palavra chave">
+                    <input if="searchInput" type="text" class="form-control" id="searchInput" placeholder="Digite uma palavra chave">
                     <div class="form-control-line"></div>
                   </div>
                   <div class="input-group-btn">
@@ -47,8 +47,9 @@
                       <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-arrow-down"></span> Filtrar por curso
                       </button>
-                      <ul class="dropdown-menu dropdown-menu-right animation-dock" role="menu">
-                        <li class="active"><a href="#" id="adm">Administração</a></li>
+                      <ul id="findBy" class="dropdown-menu dropdown-menu-right animation-dock" role="menu">
+                        <li class="active"><a href="#">Todos</a></li>
+                        <li><a href="#" id="adm">Administração</a></li>
                         <li><a href="#" id="ciencbio">Ciências Biológicas</a></li>
                         <li><a href="#" id="cienccont">Ciências Contábeis</a></li>
                         <li><a href="#" id="edfisic">Educação Física</a></li>
@@ -79,7 +80,7 @@
                           <img class="pull-left width-2 img-circle" src="{{avatar 120 student}}" alt="" />
                           <p>
                             <a class="text-medium text-lg text-primary" href="#">{{student.profile.nome}}</a><br/>
-                            <span>{{student.profile.formacao.curso}}</span>
+                            <span>{{t9n student.profile.formacao.curso}}</span>
                           </p>
                           <div class="contain-xs pull-left">
                             Search results where only texts will be shown. You can decide for yourself how much text you want to display in this field.
