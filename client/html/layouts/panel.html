@@ -1,15 +1,15 @@
 <template name="PanelLayout">
   {{#if currentUser}}
     <header id="header" class="header">
-      {{> Template.dynamic template=header}}
+      {{> header }}
     </header>
 
     <div id="base">
-      {{> Template.dynamic template=menubar}}
+      {{> menubar }}
       <div id="content">
         {{> Template.dynamic template=main}}
       </div>
-      {{> Template.dynamic template=offcanvas}}
+      {{> offcanvas }}
     </div>
   {{/if}}
 </template>
