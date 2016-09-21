@@ -1,17 +1,20 @@
 import './collections/password.js';
 import './collections/email.js';
 import '/imports/api/collections/jobs.js';
+import '/imports/api/collections/companies.js';
+import '/imports/api/collections/students.js';
 
 Meteor.methods({
-  saveUser: function (data, type) {
-    if (type == "student") {
-      require('/imports/api/collections/students.js');
-    } else {
-      require('/imports/api/collections/companies.js');
-    }
+  saveCompany: function (data) {
+    Meteor.users.attachSchema(Company);
     id = Accounts.createUser(data);
-    Roles.addUsersToRoles(id, type, 'user-type');
-
+    Roles.addUsersToRoles(id, 'company', 'user-type');
+    return true;
+  },
+  saveStudent: function (data) {
+    Meteor.users.attachSchema(Student);
+    id = Accounts.createUser(data);
+    Roles.addUsersToRoles(id, 'student', 'user-type');
     return true;
   },
   saveJob: function (vacancy) {

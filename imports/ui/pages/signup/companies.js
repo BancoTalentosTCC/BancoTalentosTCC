@@ -32,7 +32,7 @@ Template.companySignup.events({
       }
     }
 
-    Meteor.call('saveUser', user, "company", function(error, result) {
+    Meteor.call('saveCompany', user, function(error, result) {
       if (error) {
         Meteor.call('displayErrors', error);
       } else if (result) {
