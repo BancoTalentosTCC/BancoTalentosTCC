@@ -61,7 +61,7 @@ StudentsSchema1 = new SimpleSchema({
   nascimento: {
     type: String,
     label: "Nascimento",
-    regEx: /^((?:19|20)\d\d)[- -.](0[1-9]|1[012])[- -.](0[1-9]|[12][0-9]|3[01])$/
+    regEx: /^(0[1-9]|[12][0-9]|3[01])[- -.](0[1-9]|1[012])[- -.]((?:19|20)\d\d)$/
   },
   perfil: {
     type: String,

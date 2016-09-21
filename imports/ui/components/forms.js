@@ -32,10 +32,14 @@ function setMasks() {
 
 function setCalendar() {
   $('#nascimento').datepicker({
-    format: 'yyyy-mm-dd',
+    format: 'dd-mm-yyyy',
     language: 'pt-BR',
-    maxDate: new Date
+    endDate: new Date
   });
+
+  $('#nascimento').focus(function() {
+    $('#nascimento').blur();
+  })
 }
 
 function setSummernote() {
