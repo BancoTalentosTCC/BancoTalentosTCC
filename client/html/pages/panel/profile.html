@@ -43,6 +43,7 @@
   <section>
     <div class="section-body no-margin">
       <div class="col-md-12">
+        {{#if isInRole 'student' 'user-type'}}
         <div class="tab-pane" id="details">
           <h3 class="opacity-50">Sobre mim</h3>
           <article class="text-columns-2">
@@ -136,7 +137,14 @@
           </div> -->
           <br/>
         </div>
+        {{/if}}
       </div>
+      
+      {{#if isInRole 'company' 'user-type'}}
+      <div>
+        <h1>Still in progress... wait</h1>
+      </div>
+      {{/if}}
     </div>
   </section>
 </template>

@@ -8,7 +8,7 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <div class="required">
                     <select class="form-control required" id="categoria" name="categoria" required>
@@ -26,11 +26,7 @@
                     <label for="categoria" class="control-label">Escolha uma categoria</label>
                   </div>
                 </div>
-              </div>
-              <div class="col-offset-md-6"></div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
+
                 <div class="form-group">
                   <div class="required">
                     <select class="form-control required" id="tipo_vaga" name="tipo-vaga" required>
@@ -44,30 +40,15 @@
                     <label for="tipo_vaga" class="control-label">Tipo de vaga ofertada</label>
                   </div>
                 </div>
-              </div>
-              <div class="col-offset-md-6"></div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
+
                 <div class="form-group">
                   <div class="required">
                     <input type="text" class="form-control required" id="nome" name="nome" data-rule-minlength="2" required>
                     <label for="nome" class="control-label">Nome para a vaga</label>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <textarea id="descricao" name="descricao" class="form-control" rows="6"></textarea>
-                  <label for="descricao" class="control-label">Descrição da vaga</label>
-                </div>
-              </div>
-              <div class="col-sm-offset-6"></div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
+                
+                <br>
                 <div class="form-group">
                   <select class="form-control" id="tags" name="tags" multiple="multiple">
                     {{#each skills.skills}}
@@ -78,15 +59,22 @@
                 </div>
                 <small>Dica: escolha habilidades ou áreas que são relacionadas com esta vaga</small>
               </div>
-              <div class="col-md-6"></div>
+              <div class="col-sm-8">
+                <div class="form-group">
+                  <textarea id="descricao" name="descricao" class="form-control control-3-rows" spellcheck="false"></textarea>
+                </div>
+              </div>
             </div>
+            
             <div class="row">
-              <div class="checkbox checkbox-styled col-sm-offset-6 col-sm-6">
+              <br>
+              <div class="checkbox checkbox-styled col-sm-6">
                 <label>
                   <input type="checkbox" id="especial" name="especial">
                   <span>Vaga preferencial para Portador de Necessidades Especiais</span>
                 </label>
               </div>
+              <div class="col-sm-offset-6"></div>
             </div>
             <div class="form-group">
               <div class="col-sm-offset-10 col-sm-2">

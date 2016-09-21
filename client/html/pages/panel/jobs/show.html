@@ -8,18 +8,21 @@
                   <header><i class="fa fa-fw fa-tag"></i>{{job.nome}}</header>
                 </div>
                 <div class="card-body style-default-bright">
-                  <div class="pull-right col-md-3">
+                  <div class="col-md-3 col-xs-6 col-sm-4">
                     <img class="img-circle border-xl border-white img-responsive auto-width" src="{{avatar 120}}" alt="">
                     <h3>{{job.company}}<br><small>{{job.companyName}}</small></h3>
                     <br>
-                    {{#if isInRole 'student' 'default-group'}}
-                      <a href="#" class="btn btn-primary btn-send">Candidatar-se</a>
+                    {{#if isInRole 'student' 'user-type'}}
+                      <button class="btn btn-primary btn-send">Candidatar-se</button>
                     {{/if}}
+
+                    <br>
+                    <br>
                   </div>
-                  <div class="col-md-9">
+                  <div class="col-md-9 col-xs-12 col-sm-8">
                     <div class="row">
                       <h2 class="text-primary">Descrição</h2>
-                      <p>{{job.descricao}}</p>
+                      <p>{{{job.descricao}}}</p>
                     </div>
                     <div class="row">
                       <h2 class="text-primary">Detalhes</h2>
