@@ -241,9 +241,7 @@ StudentsSchema5 = new SimpleSchema({
   }
 });
 
-Schemas = {};
-
-Schemas.UserProfile = new SimpleSchema({
+Profile = new SimpleSchema({
   formacao: {
     type: StudentsSchema2,
     label: "Formação",
@@ -266,9 +264,9 @@ Schemas.UserProfile = new SimpleSchema({
   }
 });
 
-Schemas.UserProfile._schema = _.extend(Schemas.UserProfile._schema, StudentsSchema1._schema);
+Profile._schema = _.extend(Profile._schema, StudentsSchema1._schema);
 
-Schemas.User = new SimpleSchema({
+Student = new SimpleSchema({
   username: {
     type: String,
     optional: true
@@ -290,7 +288,7 @@ Schemas.User = new SimpleSchema({
     type: Date
   },
   profile: {
-    type: Schemas.UserProfile,
+    type: Profile,
     label: "Perfil",
     optional: false
   },
@@ -309,5 +307,3 @@ Schemas.User = new SimpleSchema({
     optional: true
   }
 });
-
-Meteor.users.attachSchema(Schemas.User);

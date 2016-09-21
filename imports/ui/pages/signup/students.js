@@ -104,7 +104,7 @@ Template.studentSignup.events({
       }
     }
 
-    Meteor.call('saveUser', user, "student", function(error, result) {
+    Meteor.call('saveStudent', user, function(error, result) {
       if (error) {
         Meteor.call('displayErrors', error);
       } else if (result) {

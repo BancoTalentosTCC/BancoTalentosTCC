@@ -1,8 +1,7 @@
 import './password.js';
 import './email.js';
 
-Schema = {};
-Schema.UserProfile = new SimpleSchema({
+Profile = new SimpleSchema({
   nome: {
     type: String,
     label: "Nome",
@@ -110,7 +109,7 @@ Schema.UserProfile = new SimpleSchema({
   },
 });
 
-Schema.User = new SimpleSchema({
+Company = new SimpleSchema({
   username: {
     type: String,
     optional: true
@@ -132,7 +131,7 @@ Schema.User = new SimpleSchema({
     type: Date
   },
   profile: {
-    type: Schema.UserProfile,
+    type: Profile,
     label: "Perfil",
     optional: false
   },
@@ -151,5 +150,3 @@ Schema.User = new SimpleSchema({
     optional: true
   }
 });
-
-Meteor.users.attachSchema(Schema.User);
