@@ -5,6 +5,7 @@ import '/imports/ui/materialadmin/libs/jquery-validation/dist/localization/messa
 import '/imports/ui/materialadmin/libs/moment/moment.min.js';
 import '/imports/ui/materialadmin/libs/bootstrap-datepicker/bootstrap-datepicker.js';
 import '/imports/ui/materialadmin/libs/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.js';
+import '/imports/ui/materialadmin/libs/summernote/summernote.min.js';
 import './materialadmin-load.js';
 
 /* Meteor related JS imports */

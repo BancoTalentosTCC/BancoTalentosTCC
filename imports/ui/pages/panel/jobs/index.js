@@ -31,6 +31,13 @@ Template.jobs.helpers({
     return Jobs.find({ nome: eval("/.*"+searchValue+".*/i"), categoria: eval("/.*"+findByValue+".*/i")}, {sort: sortBy} ).fetch();
   },
   pathForShowJob: function(id) {
-    return FlowRouter.path("/estudante/vagas/" + id);
+    if(Roles.userIsInRole(Meteor.userId(), 'student', 'user-type')){
+      return FlowRouter.path("/estudante/vagas/" + id);
+    }
+    else if(Roles.userIsInRole(Meteor.userId(), 'company', 'user-type')){
+      return FlowRouter.path("/empresa/vagas/" + id);
+    }
+
+    
   }
 });

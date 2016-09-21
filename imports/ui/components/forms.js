@@ -9,6 +9,7 @@ function init() {
  Meteor.setTimeout(function() {
     setMasks();
     setCalendar();
+    setSummernote();
  }, 500);
 }
 
@@ -32,6 +33,23 @@ function setMasks() {
 function setCalendar() {
   $('#nascimento').datepicker({
     format: 'yyyy-mm-dd',
-    language: 'pt-BR'
+    language: 'pt-BR',
+    maxDate: new Date
+  });
+}
+
+function setSummernote() {
+  $('#descricao').summernote({
+    height: $('#descricao').height() + 150,
+
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']]
+    ]
   });
 }
