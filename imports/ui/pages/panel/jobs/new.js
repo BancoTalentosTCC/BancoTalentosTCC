@@ -10,13 +10,15 @@ Template.newJob.onCreated(function() {
   this.skills = new ReactiveVar(json);
 });
 
-Template.newJob.onRendered(function() { 
-  $("#tags").chosen({
-    no_results_text: "Sem resultados para",
-    placeholder_text_single: "Selecione uma opção",
-    placeholder_text_multiple: "Selecione tags para identificação"
-  });
-});
+Template.newJob.rendered = function() {
+  this.autorun(_.bind(function() {
+    Deps.afterFlush(function() {
+      // only initialize when DOM is ready
+      reloadChosen();
+      setSummernote();
+    });
+  }, this));
+}
 
 Template.newJob.events({
   "submit form": function(event) {
@@ -55,6 +57,20 @@ function resetForm() {
   $("form")[0].reset();
   $('select option:selected').removeAttr('selected');
   $('select').trigger('chosen:updated');
+}
+
+function reloadChosen() {
+  $("#tags").chosen({
+    no_results_text: "Sem resultados para",
+    placeholder_text_single: "Selecione uma opção",
+    placeholder_text_multiple: "Selecione tags para identificação"
+  });
+}
+
+function setSummernote() {
+  $('#descricao').summernote({
+    height: $('#descricao').height() + 150
+  });
 }
 
 Template.newJob.helpers({

@@ -18,5 +18,13 @@ Template.menubar.helpers({
   },
   pathForStudents: function() {
     return FlowRouter.path("companyStudents");
+  },
+  pathForSettings: function() {
+    if(Roles.userIsInRole(Meteor.userId(), 'student', 'user-type')){
+      return FlowRouter.path("studentsettings");
+    }
+    else if(Roles.userIsInRole(Meteor.userId(), 'company', 'user-type')){
+      return FlowRouter.path("companysettings");
+    }
   }
 });

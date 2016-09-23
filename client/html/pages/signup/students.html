@@ -83,8 +83,15 @@
                     </div>
                   </div>
                 </div>
+                <br>
                 <div class="row">
-                  <div class="col-sm-10">
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <input type="text" class="form-control cep" id="cep" name="cep" data-rule-minlength="8" required>
+                      <label for="cep" class="control-label">CEP</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
                     <div class="form-group">
                       <input type="text" class="form-control" name="endereco" id="endereco" required>
                       <label for="endereco" class="control-label">Endereço</label>
@@ -104,20 +111,20 @@
                       <label for="complement" class="control-label">Complemento</label>
                     </div>
                   </div>
-                  <div class="col-sm-5">
+                  <div class="col-sm-6">
                     <div class="form-group">
                       <input type="text" class="form-control" id="bairro" name="bairro" data-rule-minlength="2" required>
                       <label for="bairro" class="control-label">Bairro</label>
                     </div>
                   </div>
+                </div>
+                <div class="row">
                   <div class="col-sm-5">
                     <div class="form-group">
                       <input type="text" class="form-control" id="cidade" name="cidade" data-rule-minlength="2" required>
                       <label for="cidade" class="control-label">Cidade</label>
                     </div>
                   </div>
-                </div>
-                <div class="row">
                   <div class="col-sm-4">
                     <div class="form-group">
                       <select class="form-control" id="uf" name="uf" required>
@@ -150,12 +157,6 @@
                         <option value="to">Tocantins</option>
                       </select>
                       <label for="uf" class="control-label">UF</label>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="form-group">
-                      <input type="text" class="form-control cep" id="cep" name="cep" data-rule-minlength="8" required>
-                      <label for="cep" class="control-label">CEP</label>
                     </div>
                   </div>
                 </div>
