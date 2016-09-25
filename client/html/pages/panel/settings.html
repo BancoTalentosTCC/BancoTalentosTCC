@@ -1,153 +1,153 @@
 <template name="settings">
-  				<section>
-					<div class="section-header">
-						<ol class="breadcrumb">
-							<li class="active">Configurações</li>
-						</ol>
+	<section>
+		<div class="section-header">
+			<ol class="breadcrumb">
+				<li class="active">Configurações</li>
+			</ol>
+		</div>
+		<div class="section-body">
+			<div class="card">
+
+				<!-- BEGIN CONTACT DETAILS HEADER -->
+				<div class="card-head style-primary">
+					<div class="tools pull-left">
+						<header>Configurações da conta</header>
 					</div>
-					<div class="section-body">
-						<div class="card">
+					<!--end .tools -->
+					<div class="tools">
+						<a class="btn btn-flat hidden-xs" href="#"><span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar</a>
+					</div>
+					<!--end .tools -->
+				</div>
 
-							<!-- BEGIN CONTACT DETAILS HEADER -->
-							<div class="card-head style-primary">
-								<div class="tools pull-left">
-									<header>Configurações da conta</header>
-								</div><!--end .tools -->
-								<div class="tools">
-									<a class="btn btn-flat hidden-xs" href="#"><span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar</a>
-								</div><!--end .tools -->
-							</div><!--end .card-head -->
-							<!-- END CONTACT DETAILS HEADER -->
+				<!-- BEGIN CONTACT DETAILS -->
+				<div class="card-tiles">
+					<div class="hbox-md col-md-12">
+						<div class="hbox-column col-md-9">
+							<div class="row">
 
-							<!-- BEGIN CONTACT DETAILS -->
-							<div class="card-tiles">
-								<div class="hbox-md col-md-12">
-									<div class="hbox-column col-md-9">
-										<div class="row">
+								<!-- BEGIN CONTACTS NAV -->
+								<div class="col-sm-5 col-md-4 col-lg-3">
+									<ul class="nav nav-pills nav-stacked">
+										<li><small>CATEGORIAS</small></li>
+										<li><a href="#">Dados Pessoais</a></li>
+										<li><a href="#">Formação</a></li>
+										<li><a href="#">Idiomas</a></li>
+										<li><a href="#">Qualificações</a></li>
+										<li><a href="#">Experiência Profissional</a></li>
+									</ul>
+								</div>
 
-											<!-- BEGIN CONTACTS NAV -->
-											<div class="col-sm-5 col-md-4 col-lg-3">
-												<ul class="nav nav-pills nav-stacked">
-													<li><small>CATEGORIAS</small></li>
-													<li><a href="#">Dados Pessoais</a></li>
-													<li><a href="#">Formação</a></li>
-													<li><a href="#">Idiomas</a></li>
-                          <li><a href="#">Qualificações</a></li>
-                          <li><a href="#">Experiência Profissional</a></li>
-												</ul>
-											</div><!--end .col -->
-											<!-- END CONTACTS NAV -->
+								<!-- BEGIN CONTACTS MAIN CONTENT -->
+								<div class="col-sm-7 col-md-8 col-lg-9">
+									<div class="margin-bottom-xxl">
+										<div class="pull-left width-3 clearfix hidden-xs">
+											<img class="img-circle size-2" src="{{avatar 100}}" alt="" />
+										</div>
 
-											<!-- BEGIN CONTACTS MAIN CONTENT -->
-											<div class="col-sm-7 col-md-8 col-lg-9">
-												<div class="margin-bottom-xxl">
-													<div class="pull-left width-3 clearfix hidden-xs">
-														<img class="img-circle size-2" src="{{avatar 100}}" alt="" />
-													</div>
-													<h1 class="text-light no-margin">Philip Ericsson</h1>
-													<h5>
-														Manager director of Covers. Inc.
-													</h5>
-												</div><!--end .margin-bottom-xxl -->
-												<ul class="nav nav-tabs" data-toggle="tabs">
-													<li class="active"><a href="#notes">NOTES</a></li>
-													<li><a href="#activity">ACTIVITY</a></li>
-													<li><a href="#details">DETAILS</a></li>
-												</ul>
-												<div class="tab-content">
+										{{#if isInRole 'student' 'user-type'}}
+										<h1 class="text-light no-margin">{{ user.profile.nome }}</h1>
+										<h5>
+											{{ user.profile.perfil }} na Universidade do Vale do Sapucaí
+										</h5>
+										{{/if}} {{#if isInRole 'company' 'user-type'}}
+										<h1 class="text-light no-margin">{{user.profile.dados}}</h1>
+										<h5>
+											<small>Responsável pela {{ user.profile.nome }}</small>
+										</h5>
+										{{/if}}
 
-													<!-- BEGIN CONTACTS NOTES -->
-													<div class="tab-pane active" id="notes">
-														<br/>
-														<form class="form" id="formNote" accept-charset="utf-8" method="post">
-															<span class="opacity-50">Faça um breve resumo profissional para ser adicionado em seu perfil</span>
-															<div class="form-group">
-																<textarea id="aboutme" name="message" class="form-control control-3-rows" placeholder="Enter note ..." spellcheck="false"></textarea>
-															</div>
-															<div class="form-group clearfix">
-																<button type="submit" class="btn btn-raised btn-default-light pull-right">Adicionar ao perfil</button>
-															</div>
-														</form>
-														<div>
 
-														</div>
-													</div><!--end #notes -->
-													<!-- END CONTACTS NOTES -->
+									</div>
+									<!--end .margin-bottom-xxl -->
+									<ul class="nav nav-tabs" data-toggle="tabs">
+										<li class="active"><a href="#notes">NOTES</a></li>
+										<li><a href="#activity">ACTIVITY</a></li>
+										<li><a href="#details">DETAILS</a></li>
+									</ul>
+									<div class="tab-content">
 
-													<!-- BEGIN CONTACTS ACTIVITY -->
-													<div class="tab-pane" id="activity">
-														
-												</div><!--end #activity -->
-												<!-- END CONTACTS ACTIVITY -->
-
-												<!-- BEGIN CONTACTS DETAILS -->
-												<div class="tab-pane" id="details">
-													
-												</div><!--end #details -->
-												<!-- END CONTACTS DETAILS -->
-
-											</div><!--end .tab-content -->
-										</div><!--end .col -->
-										<!-- END CONTACTS MAIN CONTENT -->
-
-									</div><!--end .row -->
-								</div><!--end .hbox-column -->
-
-								<!-- BEGIN CONTACTS COMMON DETAILS -->
-								<div class="hbox-column col-md-3 style-default-light">
-									<div class="row">
-										<div class="col-xs-12">
-											<h4>Short info</h4>
+										<!-- BEGIN CONTACTS NOTES -->
+										<div class="tab-pane active" id="notes">
 											<br/>
-											<dl class="dl-horizontal dl-icon">
-												<dt><span class="fa fa-fw fa-graduation-cap fa-lg opacity-50"></span></dt>
-												<dd>
-													<span class="opacity-50">Career</span><br/>
-													<span class="text-medium">Manager director, Commercial manager, Commercial assistant</span>
-												</dd>
-												<dt><span class="fa fa-fw fa-gift fa-lg opacity-50"></span></dt>
-												<dd>
-													<span class="opacity-50">Birthday</span><br/>
-													<span class="text-medium">Juli 30</span>
-												</dd>
-											</dl><!--end .dl-horizontal -->
-											<br/>
-											<h4>Contact info</h4>
-											<br/>
-											<dl class="dl-horizontal dl-icon">
-												<dt><span class="fa fa-fw fa-mobile fa-lg opacity-50"></span></dt>
-												<dd>
-													<span class="opacity-50">Phone</span><br/>
-													<span class="text-medium">233-332-342</span> &nbsp;<span class="opacity-50">work</span><br/>
-													<span class="text-medium">766-766-4532</span> &nbsp;<span class="opacity-50">mobile</span>
-												</dd>
-												<dt><span class="fa fa-fw fa-envelope-square fa-lg opacity-50"></span></dt>
-												<dd>
-													<span class="opacity-50">Email</span><br/>
-													<a class="text-medium" href="../../../html/mail/compose.html">philip@Ericsson.com</a>
-												</dd>
-												<dt><span class="fa fa-fw fa-location-arrow fa-lg opacity-50"></span></dt>
-												<dd>
-													<span class="opacity-50">Address</span><br/>
-													<span class="text-medium">
-														Damrak 7<br/>
-														Amsterdam, 1012 LG<br/>
-														Netherlands
+											<form class="form" id="formNote" accept-charset="utf-8" method="post">
+												<span class="opacity-50">Faça um breve resumo profissional para ser adicionado em seu perfil</span>
+												<div class="form-group">
+													<textarea id="aboutme" name="message" class="form-control control-3-rows" placeholder="Enter note ..." spellcheck="false"></textarea>
+												</div>
+												<div class="form-group clearfix">
+													<button type="submit" class="btn btn-raised btn-default-light pull-right">Adicionar ao perfil</button>
+												</div>
+											</form>
+											<div>
+
+											</div>
+										</div>
+
+										<!-- BEGIN CONTACTS ACTIVITY -->
+										<div class="tab-pane" id="activity">
+											<p>there might be sth here </p>
+										</div>
+										<p>there will be sth here</p>
+										<!-- BEGIN CONTACTS DETAILS -->
+										<div class="tab-pane" id="details">
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- BEGIN CONTACTS COMMON DETAILS -->
+						<div class="hbox-column col-md-3 style-default-light">
+							<div class="row">
+								<div class="col-xs-12">
+									<h4>Sobre você</h4>
+									<br/>
+									<dl class="dl-horizontal dl-icon">
+										<dt><span class="fa fa-fw fa-graduation-cap fa-lg opacity-50"></span></dt>
+										<dd>
+											<span class="opacity-50">Formação</span><br/>
+											<span class="text-medium">{{ user.profile.formacao.curso }}</span><br>
+											<span class="text-medium">{{ user.profile.formacao.formacao }}</span>
+										</dd>
+										<dt><span class="fa fa-fw fa-gift fa-lg opacity-50"></span></dt>
+										<dd>
+											<span class="opacity-50">Aniversário</span><br/>
+											<span class="text-medium">{{ user.profile.nascimento}}</span>
+										</dd>
+									</dl>
+									<br/>
+									<h4>Informações</h4>
+									<br/>
+									<dl class="dl-horizontal dl-icon">
+										<dt><span class="fa fa-fw fa-mobile fa-lg opacity-50"></span></dt>
+										<dd>
+											<span class="opacity-50">Telefones para contato</span><br/>
+											<span class="text-medium">{{ user.profile.phone }}</span> &nbsp;<span class="opacity-50">Telefone</span><br/>
+											<span class="text-medium">{{ user.profile.celular }}</span> &nbsp;<span class="opacity-50">Celular</span>
+										</dd>
+										<dt><span class="fa fa-fw fa-envelope-square fa-lg opacity-50"></span></dt>
+										<dd>
+											<span class="opacity-50">Email</span><br/>
+											<a class="text-medium" href="mailto:{{user.emails.[0].address}}">{{user.emails.[0].address}}</a>
+										</dd>
+										<dt><span class="fa fa-fw fa-location-arrow fa-lg opacity-50"></span></dt>
+										<dd>
+											<span class="opacity-50">Endereço</span><br/>
+											<span class="text-medium">
+														{{ user.profile.endereco }} - {{ user.profile.numero }}<br/>
+														{{ user.profile.bairro }}<br/>
+														{{ user.profile.cidade }} - CEP {{ user.profile.cep }}
 													</span>
-												</dd>
-												<dd class="full-width"><div id="map-canvas" class="border-white border-xl height-5"></div></dd>
-											</dl><!--end .dl-horizontal -->
-										</div><!--end .col -->
-									</div><!--end .row -->
-								</div><!--end .hbox-column -->
-								<!-- END CONTACTS COMMON DETAILS -->
-
-							</div><!--end .hbox-md -->
-						</div><!--end .card-tiles -->
-						<!-- END CONTACT DETAILS -->
-
-					</div><!--end .card -->
-				</div><!--end .section-body -->
-			</section>
-
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </template>
