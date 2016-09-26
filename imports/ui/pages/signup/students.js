@@ -110,7 +110,7 @@ Template.studentSignup.events({
       } else if (result) {
         toastr.success('Você já pode acessar o painel do aluno', 'Estudante Cadastrado!');
         FlowRouter.go('home');
-      }
+      }      
     });
   },
   "click #add-language": function() {
