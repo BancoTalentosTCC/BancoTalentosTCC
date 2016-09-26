@@ -2,20 +2,36 @@ import {
   Template
 } from 'meteor/templating';
 
-/* Runs fixFloatingLabels() before the route is completely changed */
-FlowRouter.triggers.enter([init]);
 
-function init() {
- Meteor.setTimeout(function() {
-    fixFloatingLabels();
-    reloadChosen();
- }, 10);
+Template.HomeLayout.rendered = function() {
+  this.autorun(_.bind(function() {
+    Deps.afterFlush(function() {
+      // only initialize when DOM is ready
+      import '/imports/ui/materialadmin/core/source/AppForm.js';
+      fixFloatingLabels();
+    });
+  }, this));
 }
 
-/* NOTICE: This was created due to a bug that I haven't managed to solve so far.
- * When a route is switched, somehow the floating labels from AppForm.js suddenly
- * stop working. This was the only way I managed to fix it.
- */
+Template.PanelLayout.rendered = function() {
+  this.autorun(_.bind(function() {
+    Deps.afterFlush(function() {
+      // only initialize when DOM is ready
+      loadApp();
+    });
+  }, this));
+}
+
+function loadApp() {
+  import '/imports/ui/materialadmin/core/source/App.js';		
+  import '/imports/ui/materialadmin/core/source/AppNavigation.js';		
+  import '/imports/ui/materialadmin/core/source/AppOffcanvas.js';		
+  import '/imports/ui/materialadmin/core/source/AppCard.js';		
+  import '/imports/ui/materialadmin/core/source/AppForm.js';		
+  import '/imports/ui/materialadmin/core/source/AppNavSearch.js';		
+  import '/imports/ui/materialadmin/core/source/AppVendor.js';
+}
+
 function fixFloatingLabels() {
   var o = this;
   $('.floating-label .form-control').on('keyup change', function(e) {
@@ -37,23 +53,3 @@ function fixFloatingLabels() {
   });
 }
 
-function reloadChosen() {
-  $("#tags").chosen({
-    no_results_text: "Sem resultados para",
-    placeholder_text_single: "Selecione uma opção",
-    placeholder_text_multiple: "Selecione tags para identificação"
-  });
-}
-
-Template.HomeLayout.onRendered(loadApp);
-Template.PanelLayout.onRendered(loadApp);
-
-function loadApp() {		
-  import '/imports/ui/materialadmin/core/source/App.js';		
-  import '/imports/ui/materialadmin/core/source/AppNavigation.js';		
-  import '/imports/ui/materialadmin/core/source/AppOffcanvas.js';		
-  import '/imports/ui/materialadmin/core/source/AppCard.js';		
-  import '/imports/ui/materialadmin/core/source/AppForm.js';		
-  import '/imports/ui/materialadmin/core/source/AppNavSearch.js';		
-  import '/imports/ui/materialadmin/core/source/AppVendor.js';
-}

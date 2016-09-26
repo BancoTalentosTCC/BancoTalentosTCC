@@ -3,9 +3,9 @@
     <!-- MENUBAR CONTENT GOES HERE -->
     <div class="menubar-fixed-panel">
       <div>
-        <a class="btn btn-icon-toggle btn-default menubar-toggle" href="#" data-toggle="menubar">
+        <button class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar">
           <i class="fa fa-bars"></i>
-        </a>
+        </button>
       </div>
       <div class="brand-holder">
         <a href="#">
@@ -17,7 +17,7 @@
       <div tabindex="0">
         <div class="menubar-scroll-panel">
           <ul id="main-menu" class="gui-controls">
-            <li>
+            <li class="{{isActivePath '/estudante'}}">
 
               {{#if isInRole 'student' 'user-type'}}
                 <a href="{{pathForStudentPanel}}">
@@ -29,7 +29,7 @@
               {{/if}}
 
               {{#if isInRole 'company' 'user-type'}}
-                <a href="{{pathForCompanyPanel}}">
+                <a href="{{pathForCompanyPanel}}" class="{{isActivePath '/empresa'}}">
                   <div class="gui-icon">
                     <i class="md mdi mdi-home"></i>
                   </div>
@@ -38,7 +38,7 @@
               {{/if}}
               
             </li>
-            <li>
+            <li class="{{isActivePath regex='/estudante/vagas|/empresa/vagas'}}">
               <a href="{{pathForJob}}">
                 <div class="gui-icon">
                   <i class="md mdi mdi-magnify"></i>
@@ -58,7 +58,7 @@
             {{/if}}
 
             {{#if isInRole 'company' 'user-type'}}
-              <li>
+              <li class="{{isActivePath '/empresa/alunos'}}">
                 <a href="{{pathForStudents}}">
                   <div class="gui-icon"> 
                     <i class="md mdi mdi-account"></i> 
@@ -67,8 +67,8 @@
               </li>
             {{/if}}
             
-            <li>
-              <a href="#">
+            <li class="{{isActivePath regex='/estudante/configuracoes|/empresa/configuracoes'}}">
+              <a href="{{pathForSettings}}">
                 <div class="gui-icon"> 
                   <i class="md mdi mdi-settings"></i> 
                 </div>
