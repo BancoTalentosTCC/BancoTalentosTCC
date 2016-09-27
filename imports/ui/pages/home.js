@@ -4,6 +4,7 @@ import {
 import '/client/html/pages/home.html';
 
 Template.home.onRendered(function() {
+  import '/imports/ui/materialadmin/core/source/AppForm.js';
   $('#homeCarousel').carousel({
       interval: 6000,
       cycle: true

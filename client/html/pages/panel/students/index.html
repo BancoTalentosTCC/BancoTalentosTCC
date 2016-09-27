@@ -74,6 +74,13 @@
 
                   <!-- BEGIN RESULT LIST -->
                   <div class="list-results list-results-underlined">
+                    {{#unless currentUser.emails.[0].verified}}
+                      <section>
+                        <h3>Você precisa confirmar o seu endereço de email antes de utilizar esse portal!</h3>
+                        <h4>Verifique seu email {{user.emails.[0].address}} ou <a href="#" class="resend-verification-link">envie o link de verificação novamente</a></h4>
+                      </section>
+                    {{else}}
+
                     {{#if students}}
                       {{#each student in students}}
                         <div class="col-xs-12">
@@ -92,6 +99,7 @@
                         <p class="text-medium text-lg">Ops... Parece que não encontramos o que está procurando :(</p>
                       </div>
                    {{/if}}
+                   {{/unless}}
                   </div>
 
                   <!-- BEGIN PAGING -->

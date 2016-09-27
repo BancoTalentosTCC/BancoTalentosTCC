@@ -22,6 +22,12 @@
             </div>
           </form>
         </div>
+        {{#unless currentUser.emails.[0].verified}}
+          <section>
+            <h3>Você precisa confirmar o seu endereço de email antes de utilizar esse portal!</h3>
+            <h4>Verifique seu email {{user.emails.[0].address}} ou <a href="#" class="resend-verification-link">envie o link de verificação novamente</a></h4>
+          </section>
+        {{else}}
         <div class="card-body tab-content style-default-bright">
           <div class="tab-pane active" id="web1">
             <div class="row">
@@ -103,6 +109,7 @@
             </div>
           </div>
         </div>
+        {{/unless}}
       </div>
     </div>
   </section>

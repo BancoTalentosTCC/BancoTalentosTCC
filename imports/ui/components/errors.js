@@ -10,6 +10,11 @@ Meteor.methods({
     } else Meteor.call('generateErrors', '', T9n.get('error.accounts.' + error.reason));
   },
   generateErrors: function(name, reason) {
+    //html5 vibration api
+    if (navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate) {
+      navigator.vibrate([500, 300, 100]);
+    }
+
     $('#' + name).addClass('warning');
     toastr.error(reason, 'ERRO');
 

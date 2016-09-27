@@ -37,7 +37,7 @@ Template.companySignup.events({
         Meteor.call('displayErrors', error);
       } else if (result) {
         toastr.success('Você já pode acessar o painel da empresa', 'Empresa Cadastrada!');
-        FlowRouter.go('home')
+        FlowRouter.go('home');
       }
     });
   }
