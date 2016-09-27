@@ -7,4 +7,8 @@
 //process.env.MAIL_URL = "<Our URL here>"; 
 //https://themeteorchef.com/snippets/using-the-email-package/#tmc-configuration
 
-process.env.MAIL_URL = "smtp://postmaster%40<postmaster@sandbox778df5b5adf948f9af95ceb5bf2eff93.mailgun.org>.mailgun.org:b6f57a0a9f50d3aa2e3ac949dfd43d1b@smtp.mailgun.org:587";
+Meteor.startup(function () {
+  // The correct way
+  var url = "smtp://postmaster%40sandbox778df5b5adf948f9af95ceb5bf2eff93.mailgun.org:b6f57a0a9f50d3aa2e3ac949dfd43d1b@smtp.mailgun.org:587";
+  process.env.MAIL_URL = url;
+});

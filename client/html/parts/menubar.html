@@ -17,27 +17,28 @@
       <div tabindex="0">
         <div class="menubar-scroll-panel">
           <ul id="main-menu" class="gui-controls">
+            {{#if isInRole 'student' 'user-type'}}
             <li class="{{isActivePath '/estudante'}}">
-
-              {{#if isInRole 'student' 'user-type'}}
-                <a href="{{pathForStudentPanel}}">
-                  <div class="gui-icon">
-                    <i class="md mdi mdi-home"></i>
-                  </div>
-                  <span class="title">Página Inicial</span>
-                </a>
-              {{/if}}
-
-              {{#if isInRole 'company' 'user-type'}}
-                <a href="{{pathForCompanyPanel}}" class="{{isActivePath '/empresa'}}">
-                  <div class="gui-icon">
-                    <i class="md mdi mdi-home"></i>
-                  </div>
-                  <span class="title">Página Inicial</span>
-                </a>
-              {{/if}}
-              
+              <a href="{{pathForStudentPanel}}">
+                <div class="gui-icon">
+                  <i class="md mdi mdi-home"></i>
+                </div>
+                <span class="title">Página Inicial</span>
+              </a>
             </li>
+            {{/if}}
+
+            {{#if isInRole 'company' 'user-type'}}
+            <li class="{{isActivePath '/empresa'}}">
+              <a href="{{pathForCompanyPanel}}">
+                <div class="gui-icon">
+                  <i class="md mdi mdi-home"></i>
+                </div>
+                <span class="title">Página Inicial</span>
+              </a>
+            </li>
+            {{/if}}
+              
             <li class="{{isActivePath regex='/estudante/vagas|/empresa/vagas'}}">
               <a href="{{pathForJob}}">
                 <div class="gui-icon">

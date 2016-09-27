@@ -13,7 +13,8 @@
           {{/if}}
 
           {{#unless currentUser.emails.[0].verified}}
-            <h3>Você precisa confirmar o seu endereço de email antes de utilizar esse portal. Verifique seu email {{user.emails.[0].address}}</h3>
+            <h3>Você precisa confirmar o seu endereço de email antes de utilizar esse portal!</h3>
+            <h4>Verifique seu email {{user.emails.[0].address}} ou <a href="#" class="resend-verification-link">envie o link de verificação novamente</a></h4>
           {{else}}
           <div id="activity" class="tab-pane">
             <div class="card card-underline no-margin">

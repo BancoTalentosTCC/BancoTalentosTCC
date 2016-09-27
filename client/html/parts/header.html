@@ -33,7 +33,7 @@
                 {{ user.profile.nome }}
 
                 {{#if isInRole 'student' 'user-type'}}
-                  <small>{{ user.profile.formacao.curso }}</small>
+                  <small>{{t9n user.profile.formacao.curso }}</small>
                 {{/if}}
 
                 {{#if isInRole 'company' 'user-type'}}

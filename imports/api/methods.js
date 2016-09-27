@@ -24,13 +24,10 @@ Meteor.methods({
   saveJob: function (vacancy) {
     Jobs.insert(vacancy);
   },
-  // passar o usuário ()
+  // send verification link
   sendVerificationLink: function(data) {
-    console.log("send verification called");
-    console.log(data);
     let userId = data;
     if ( userId ) {
-      console.log("sending verification called");
       return Accounts.sendVerificationEmail( userId );
     }
   }
