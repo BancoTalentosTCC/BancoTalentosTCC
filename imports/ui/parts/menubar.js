@@ -28,3 +28,16 @@ Template.menubar.helpers({
     }
   }
 });
+
+Template.header.events({
+  // fix toggle button event
+  'click .menubar-toggle': function(e) {
+    console.log("menubar clicked");
+    e.preventDefault();
+    if (!materialadmin.App.isBreakpoint('xs')) {
+			$('body').toggleClass('menubar-pin');
+		}
+  }
+});
+
+
