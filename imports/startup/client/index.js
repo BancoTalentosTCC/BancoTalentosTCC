@@ -26,3 +26,4 @@ import '/imports/ui/parts/menubar.js';
 import '/imports/ui/components/forms.js';
 import '/imports/ui/components/errors.js';
 import '/imports/ui/components/T9n.js';
+import '/imports/ui/components/navigation.js';
