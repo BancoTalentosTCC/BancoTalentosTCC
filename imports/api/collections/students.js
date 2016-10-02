@@ -66,12 +66,12 @@ StudentsSchema1 = new SimpleSchema({
   perfil: {
     type: String,
     label: "perfil",
-    allowedValues: ['Aluno', 'Ex-aluno']
+    allowedValues: ['aluno', 'ex-aluno']
   },
   sexo: {
     type: String,
     label: "Sexo",
-    allowedValues: ['Masculino', 'Feminino']
+    allowedValues: ['m', 'f']
   },
   endereco: {
     type: String,

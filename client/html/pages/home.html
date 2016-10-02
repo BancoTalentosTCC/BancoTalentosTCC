@@ -11,20 +11,15 @@
               <br/>
               <br/>
               <form class="form floating-label" id="loginForm">
-                <div class="form-group">
-                  <input type="email" class="form-control" id="email" name="email">
-                  <label class="control-label" for="email">Email</label>
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" id="password" name="password">
-                  <label class="control-label" for="password">Senha</label>
-                </div>
+                {{> formField name='Email' value='email' type='email'}}
+                {{> formField name='Senha' value='password' type='password'}}
                 <br/>
                 <div class="row">
                   <div class="col-xs-6 text-left">
                     <div class="checkbox checkbox-inline checkbox-styled">
                       <label>
-                        <input type="checkbox"> <span>Lembrar-me nesse dispositivo</span>
+                        <input type="checkbox">
+                        <span>Lembrar-me nesse dispositivo</span>
                       </label>
                     </div>
                   </div>
