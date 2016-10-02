@@ -1,3 +1,9 @@
+// define global title
+FlowRouter.globals.push({
+  title: 'Banco de Talentos'
+});
+
+// further routes and titles
 FlowRouter.route('/', {
   name: 'home',
   triggersEnter: [
@@ -25,6 +31,7 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/cadastro/estudante', {
   name: 'studentSignup',
+  title: "Banco de Talentos - Cadastrar Aluno",
   action: function(params) {
     BlazeLayout.render('HomeLayout', { header: "header", main: "studentSignup" });
   }
@@ -32,6 +39,7 @@ FlowRouter.route('/cadastro/estudante', {
 
 FlowRouter.route('/cadastro/empresa', {
   name: 'companySignup',
+  title: "Banco de Talentos - Cadastrar Empresa",
   action: function(params) {
     BlazeLayout.render('HomeLayout', { header: "header", main: "companySignup" });
   }
@@ -72,12 +80,14 @@ var company = panel.group({
 
 company.route('/', {
   name: 'company',
+  title: "Banco de Talentos - Home",
   action: function() {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "mainPanel" });
   }
 });
 
 company.route('/perfil', {
+  title: "Banco de Talentos - Perfil",
   name: 'companyProfile',
   action: function() {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "profile" });
@@ -86,12 +96,14 @@ company.route('/perfil', {
 
 company.route('/vagas/nova', {
   name: 'newJob',
+  title: "Banco de Talentos - Criar Vaga",
   action: function(params) {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "newJob" });
   }
 });
 
 company.route('/vagas', {
+  title: "Banco de Talentos - Procurar Vagas",
   name: 'companyjobs',
   action: function(params) {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "jobs" });
@@ -105,6 +117,7 @@ company.route('/alunos', {
     }
   ],
   name: 'companyStudents',
+  title: "Banco de Talentos",
   action: function(params) {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "students" });
   }
@@ -112,6 +125,7 @@ company.route('/alunos', {
 
 company.route('/vagas/:id', {
   name: 'companyJob',
+  title: "Banco de Talentos - Vaga",
   action: function() {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "showJob" });
   }
@@ -119,6 +133,7 @@ company.route('/vagas/:id', {
 
 company.route('/configuracoes', {
   name: 'companysettings',
+  title: "Banco de Talentos - Configurações ",
   action: function(params) {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings" });
   }
@@ -142,6 +157,7 @@ var student = panel.group({
 
 student.route('/', {
   name: 'student',
+  title: "Banco de Talentos - Home ",
   action: function() {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "mainPanel" });
   }
@@ -149,6 +165,7 @@ student.route('/', {
 
 student.route('/perfil', {
   name: 'studentProfile',
+  title: "Banco de Talentos - Perfil",
   action: function() {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "profile" });
   }
@@ -156,6 +173,7 @@ student.route('/perfil', {
 
 student.route('/vagas', {
   name: 'studentjobs',
+  title: "Banco de Talentos - Procurar Vagas ",
   action: function(params) {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "jobs" });
   }
@@ -163,12 +181,14 @@ student.route('/vagas', {
 
 student.route('/vagas/:id', {
   name: 'studentJob',
+  title: "Banco de Talentos - Vaga",
   action: function() {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "showJob" });
   }
 });
 
 student.route('/alunos', {
+  title: "Banco de Talentos - Procurar Alunos ",
   name: 'students',
   action: function(params) {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "students" });
@@ -177,6 +197,7 @@ student.route('/alunos', {
 
 student.route('/configuracoes', {
   name: 'studentsettings',
+  title: "Banco de Talentos - Configurações",
   action: function(params) {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings" });
   }
@@ -190,6 +211,7 @@ FlowRouter.notFound = {
 
 FlowRouter.route( '/verify-email/:token', {
   name: 'verify-email',
+  title: "Banco de Talentos - Verificando E-mail: ",
   action: function(params) {
     Accounts.verifyEmail( params.token, ( error ) =>{
       if ( error ) {
@@ -201,3 +223,6 @@ FlowRouter.route( '/verify-email/:token', {
     });
   }
 });
+
+// initialize flow router title
+new FlowRouterTitle(FlowRouter);
