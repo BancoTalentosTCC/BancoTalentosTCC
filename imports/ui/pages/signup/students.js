@@ -1,17 +1,12 @@
-import {
-  Template
-} from 'meteor/templating';
+import {Template} from 'meteor/templating';
+import '/imports/ui/components/form-field.js';
 import '/imports/api/collections/students.js';
 
 languageDep = new Deps.Dependency();
 experienceDep = new Deps.Dependency();
 
-var amountLanguages = [
-  ["idioma0", "nivel_do_idioma0"]
-];
-var amountExperience = [
-  ["nome_emp0", "cargo_emp0", "atribuicoes0", "duracao_emp0", "cidade_emp0", "uf_emp0"]
-]
+var amountLanguages = [];
+var amountExperience = [];
 
 Template.studentSignup.events({
   "submit form": function(event) {

@@ -29,13 +29,13 @@
              <li>
                <a href="#tab4" data-toggle="tab">
                  <span class="mdi mdi-wrench step"></span>
-                <span class="title">Qualificações</span>
+                 <span class="title">Qualificações</span>
                </a>
              </li>
              <li>
                <a href="#tab5" data-toggle="tab">
                  <span class="mdi mdi-worker step"></span>
-               <span class="title">Experiência Profissional</span>
+                 <span class="title">Experiência Profissional</span>
                </a>
               </li>
             </ul>
@@ -47,148 +47,66 @@
               <!-- Step 1 -->
               <div class="form-row form-border">
                 <h1>Dados pessoais</h1>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="nome" name="nome" data-rule-minlength="2" required>
-                  <label for="nome" class="control-label">Nome</label>
-                </div>
+                {{> formField name='Nome' value='nome' type='text' drml="2" required="required"}}
                 <div class="row">
                   <div class="col-sm-3">
-                    <div class="form-group">
-                      <input type="text" class="form-control cpf" id="cpf" name="cpf" data-rule-minlength="11" required="">
-                      <label for="cpf" class="control-label">CPF</label>
-                    </div>
+                    {{> formField name='CPF' value='cpf' type='text' drml="11" fieldClass="cpf" required='required'}}
                   </div>
                   <div class="col-sm-3">
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="nascimento" name="nascimento" required>
-                      <label for="nascimento" class="control-label">Data de Nascimento</label>
-                    </div>
+                    {{> formField name='Data de Nascimento' value='nascimento' type='text' required="required"}}
                   </div>
                   <div class="col-sm-3">
-                    <div class="form-group">
-                      <select class="form-control" id="perfil" name="perfil" required>
-                        <option>Aluno</option>
-                        <option>Ex-aluno</option>
-                      </select>
-                      <label for="perfil" class="control-label">Perfil</label>
-                    </div>
+                    {{> formField name='Perfil' value='perfil' type='select' options=options_perfil required="required"}}
                   </div>
                   <div class="col-sm-3">
-                    <div class="form-group">
-                      <select class="form-control" id="sexo" name="sexo" required>
-                        <option>Masculino</option>
-                        <option>Feminino</option>
-                      </select>
-                      <label for="sexo" class="control-label">Sexo</label>
-                    </div>
+                    {{> formField name='Sexo' value='sexo' type='select' options=options_sexo required="required"}}
                   </div>
                 </div>
                 <br>
                 <div class="row">
                   <div class="col-sm-2">
-                    <div class="form-group">
-                      <input type="text" class="form-control cep" id="cep" name="cep" data-rule-minlength="8" required>
-                      <label for="cep" class="control-label">CEP</label>
-                    </div>
+                    {{> formField name='CEP' value='cep' type='text' drml="8" fieldClass="cep" required='required'}}
                   </div>
                   <div class="col-sm-8">
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="endereco" id="endereco" required>
-                      <label for="endereco" class="control-label">Endereço</label>
-                    </div>
+                    {{> formField name='Endereço' value='endereco' type='text' required='required'}}
                   </div>
                   <div class="col-sm-2">
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="numero" name="numero" data-rule-minlength="1" required>
-                      <label for="numero" class="control-label">Numero</label>
-                    </div>
+                    {{> formField name='Número' value='numero' type='text' drml="1" required='required'}}
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-2">
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="complemento" name="complemento">
-                      <label for="complement" class="control-label">Complemento</label>
-                    </div>
+                    {{> formField name='Complemento' value='complemento' type='text'}}
                   </div>
                   <div class="col-sm-6">
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="bairro" name="bairro" data-rule-minlength="2" required>
-                      <label for="bairro" class="control-label">Bairro</label>
-                    </div>
+                    {{> formField name='Bairro' value='bairro' type='text' drml="2" required='required'}}
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-5">
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="cidade" name="cidade" data-rule-minlength="2" required>
-                      <label for="cidade" class="control-label">Cidade</label>
-                    </div>
+                    {{> formField name='Cidade' value='cidade' type='text' drml="2" required='required'}}
                   </div>
                   <div class="col-sm-4">
-                    <div class="form-group">
-                      <select class="form-control" id="uf" name="uf" required>
-                        <option value="ac">Acre</option>
-                        <option value="al">Alagoas</option>
-                        <option value="am">Amazonas</option>
-                        <option value="ap">Amapá</option>
-                        <option value="ba">Bahia</option>
-                        <option value="ce">Ceará</option>
-                        <option value="df">Distrito Federal</option>
-                        <option value="es">Espírito Santo</option>
-                        <option value="go">Goiás</option>
-                        <option value="ma">Maranhão</option>
-                        <option value="mt">Mato Grosso</option>
-                        <option value="ms">Mato Grosso do Sul</option>
-                        <option value="mg">Minas Gerais</option>
-                        <option value="pa">Pará</option>
-                        <option value="pb">Paraíba</option>
-                        <option value="pr">Paraná</option>
-                        <option value="pe">Pernambuco</option>
-                        <option value="pi">Piauí</option>
-                        <option value="rj">Rio de Janeiro</option>
-                        <option value="rn">Rio Grande do Norte</option>
-                        <option value="ro">Rondônia</option>
-                        <option value="rs">Rio Grande do Sul</option>
-                        <option value="rr">Roraima</option>
-                        <option value="sc">Santa Catarina</option>
-                        <option value="se">Sergipe</option>
-                        <option value="sp">São Paulo</option>
-                        <option value="to">Tocantins</option>
-                      </select>
-                      <label for="uf" class="control-label">UF</label>
-                    </div>
+                    {{> formField name='Estado' value='uf' type='select' options=options_estado required="required"}}
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
-                    <div class="form-group">
-                      <input type="tel" class="form-control phone-number" id="phone" name="phone">
-                      <label for="phone-residencial" class="control-label">Telefone Residencial</label>
-                    </div>
+                    {{> formField name='Telefone Residencial' fieldClass="phone-number" value='phone' type='text' drml="10"}}
                   </div>
                   <div class="col-sm-6">
-                    <div class="form-group">
-                      <input type="text" class="form-control phone-number" id="celular" name="celular" data-rule-minlength="10" required>
-                      <label for="celular" class="control-label">Celular</label>
-                    </div>
+                    {{> formField name='Celular' fieldClass="phone-number" value='celular' type='text' drml="10" required="required"}}
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-8">
-                    <div class="form-group">
-                      <input type="email" class="form-control" id="email" name="email" data-rule-email="true" required for="username">
-                      <label for="email" class="control-label">Email</label>
-                    </div>
+                    {{> formField name='Email' value='email' type='email' dre="true" required="required"}}
                   </div>
                 </div>
                 <div class="form-senha">
                   <div class="row">
                     <div class="col-sm-8">
-                      <div class="form-group">
-                        <input type="password" class="form-control" id="password" name="password" data-rule-minlength="8" required>
-                        <label for="password" class="control-label">Senha</label>
-                      </div>
+                      {{> formField name='Senha' value='password' type='password' required='required' drml="8"}}
                     </div>
                     <div class="col-sm-4">
                       <div id="passstrength" class="dropdown-progress">
@@ -202,48 +120,30 @@
                   </div>
                   <div class="row">
                     <div class="col-sm-8">
-                      <div class="form-group">
-                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" data-rule-minlength="8" required>
-                        <label for="password_confirmation" class="control-label">Confirmação de Senha</label>
-                      </div>
+                      {{> formField name='Confirmação de Senha' value='password_confirmation' type='password' required='required' drml="8"}}
                     </div>
                     <div class="col-sm-offset-4"></div>
                   </div>
                   <h3>Links para redes sociais</h3>
                     <div class="row">
                       <div class="col-sm-6">
-                        <div class="form-group">
-                          <input type="url" class="form-control" id="facebook" data-rule-url="true">
-                          <label for="facebook" name="facebook" class="control-label">Facebook</label>
-                        </div>
+                        {{> formField name='Facebook' value='facebook' type='url' dru="true"}}
                       </div>
                       <div class="col-sm-6">
-                        <div class="form-group">
-                          <input type="url" class="form-control" id="twitter" data-rule-url="true">
-                          <label for="twitter" name="twitter" class="control-label">Twitter</label>
-                        </div>
+                        {{> formField name='Twitter' value='twitter' type='url' dru="true"}}
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-sm-6">
-                        <div class="form-group">
-                          <input type="url" class="form-control" id="linkedin" data-rule-url="true">
-                          <label for="linkedin" name="twitter" class="control-label">LinkedIn</label>
-                        </div>
+                        {{> formField name='LinkedIn' value='linkedin' type='url' dru="true"}}
                       </div>
                       <div class="col-sm-6">
-                        <div class="form-group">
-                          <input type="text" class="form-control" id="skype" data-rule-url="true">
-                          <label for="skype" name="skype" class="control-label">Skype ID</label>
-                        </div>
+                        {{> formField name='Skype ID' value='skype'}}
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-sm-6">
-                        <div class="form-group">
-                          <input type="url" class="form-control" id="pers_website" data-rule-url="true">
-                          <label for="pers_website" name="pers_website" class="control-label">Site Pessoal</label>
-                        </div>
+                        {{> formField name='Site Pessoal' value='pers_website' type='url' dru="true"}}
                       </div>
                       <div class="col-sm-offset-6"></div>
                     </div> 
@@ -262,53 +162,19 @@
               <br/>
               <div class="row">
                 <div class="col-sm-6">
-                  <div class="form-group">
-                    <select id="formacao" class="form-control" name="formacao" required>
-                      <option>Graduação</option>
-                      <option>Pós Graduação</option>
-                      <option>Mestrado</option>
-                      <option>Doutorado</option>
-                    </select>
-                    <label for="formacao" class="control-label">Tipo de formação:</label>
-                  </div>
+                  {{> formField name='Tipo de Formação' value='formacao' type='select' options=options_formacao required="required"}}
                 </div>
                 <div class="col-sm-offset-6"></div>
               </div>
               <div class="row">
                 <div class="col-sm-6">
-                  <div class="form-group">
-                    <select id="curso" name="curso" class="form-control" required>
-                      <option value="adm" selected="selected">Administração</option>
-                      <option value="ciencbio">Ciências Biológicas</option>
-                      <option value="cienccont">Ciências Contábeis</option>
-                      <option value="edfisic">Educação Física</option>
-                      <option value="enferm">Enfermagem</option>
-                      <option value="engprod">Engenharia de Produção</option>
-                      <option value="farmac">Farmácia</option>
-                      <option value="fisiot">Fisioterapia</option>
-                      <option value="gastro">Gastronomia</option>
-                      <option value="gpi">Gestão da Produção Industrial</option>
-                      <option value="grh">Gestão de Recursos Humanos</option>
-                      <option value="hist">História</option>
-                      <option value="letr">Letras</option>
-                      <option value="sist">Sistemas de Informação</option>
-                      <option value="mat">Matemática</option>
-                      <option value="med">Medicina</option>
-                      <option value="pedag">Pedagogia</option>
-                      <option value="psicol">Psicologia</option>
-                      <option value="pubpr">Publicidade e Propaganda</option>
-                    </select>
-                    <label for="curso" class="control-label">Curso:</label>
-                  </div>
+                  {{> formField name='Curso' value='curso' type='select' options=options_curso required="required"}}
                 </div>
                 <div class="col-sm-offset-6"></div>
               </div>
               <div class="row">
                 <div class="col-sm-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="conclusao" name="conclusao" required>
-                    <label for="conclusao" class="control-label">Ano de formação</label>
-                  </div>
+                  {{> formField name='Conclusão' value='conclusao' required="required"}}
                 </div>
                 <div class="col-sm-offset-6"></div>
               </div>
@@ -322,29 +188,10 @@
                   <div class="card">
                     <div class="card-body border-bottom">
                       <div class="col-sm-6">
-                        <div class="form-group">
-                          <select id={{language.[0]}} name={{language.[0]}} class="form-control idioma static dirty" required>
-                            <option>Espanhol</option>
-                            <option>Inglês</option>
-                            <option>Frances</option>
-                            <option>Alemão</option>
-                            <option>Italiano</option>
-                            <option>Mandarim</option>
-                            <option>Japonês</option>
-                          </select>
-                          <label for={{language.[0]}} class="control-label">Idioma</label>
-                        </div>
+                        {{> formField name='Idioma' value=language.[0] type='select' fieldClass="idioma" options=options_idioma required="required"}}
                       </div>
                       <div class="col-sm-6">
-                        <div class="form-group">
-                          <select id={{language.[1]}} name={{language.[1]}} class="form-control nivel_do_idioma static dirty" required>
-                            <option>Básico</option>
-                            <option>Intermediário</option>
-                            <option>Avançado</option>
-                            <option>Fluente</option>
-                          </select>
-                          <label for={{language.[1]}} class="control-label">Nível</label>
-                        </div>
+                        {{> formField name='Nível' value=language.[1] type='select' fieldClass="nivel_do_idioma" options=options_nivel_idioma required="required"}}
                       </div>
                     </div>
                   </div>
@@ -359,28 +206,19 @@
               <br/>
               <div class="row">
                 <div class="col-sm-6">
-                  <div class="form-group">
-                    <input type="url" class="form-control" id="lattes" data-rule-url="true">
-                    <label for="lattes" name="lattes" class="control-label">Curriculo Lattes</label>
-                  </div>
+                  {{> formField name='Currículo Lattes' value='lattes' type='url' dru="true"}}
                 </div>
                 <div class="col-sm-offset-6"></div>
               </div>
               <div class="row">
                 <div class="col-sm-6">
-                  <div class="form-group">
-                    <textarea id="qualificacao" name="qualificacao" class="form-control" rows="4"></textarea>
-                    <label for="qualificacao" class="control-label">Qualificações</label>
-                  </div>
+                  {{> formField name='Qualificações' value='qualificacao' type='textarea' rows="4"}}
                 </div>
                 <div class="col-sm-offset-6"></div>
               </div>
               <div class="row">
                 <div class="col-sm-6">
-                  <div class="form-group">
-                    <textarea id="cursos_extras" name="cursos_extras" class="form-control" rows="6"></textarea>
-                    <label for="cursos_extras" class="control-label">Cursos Extras</label>
-                  </div>
+                  {{> formField name='Cursos Extras' value='cursos_extras' type='textarea' rows="6"}}
                 </div>
                 <div class="col-sm-offset-6"></div>
               </div>
@@ -394,72 +232,26 @@
                   <div class="card-body border-bottom">
                     <div class="row">
                       <div class="col-sm-6">
-                        <div class="form-group">
-                          <input type="text" class="form-control nome_emp" id={{experience.[0]}} name={{experience.[0]}}>
-                          <label for={{experience.[0]}} class="control-label">Empresa</label>
-                        </div>
+                        {{> formField name='Empresa' value=experience.[0] type='text' fieldClass="nome_emp" required="required"}}
                       </div>
                       <div class="col-sm-6">
-                        <div class="form-group">
-                          <input type="text" class="form-control cargo_emp" id={{experience.[1]}} name={{experience.[1]}}>
-                          <label for={{experience.[1]}} class="control-label">Cargo</label>
-                        </div>
+                        {{> formField name='Cargo' value=experience.[1] type='text' fieldClass="cargo_emp" required="required"}}
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-sm-12">
-                        <div class="form-group">
-                          <textarea id={{experience.[2]}} name={{experience.[2]}} class="form-control atribuicoes" rows="4"></textarea>
-                          <label for={{experience.[2]}} class="control-label">Atribuições</label>
-                        </div>
+                        {{> formField name='Atribuições' value=experience.[2] type='textarea' fieldClass="atribuicoes" rows="4" required="required"}}
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-sm-4">
-                        <div class="form-group">
-                          <input type="text" class="form-control duracao_emp" id={{experience.[3]}} name={{experience.[3]}}>
-                          <label for={{experience.[3]}} class="control-label">Tempo de Trabalho (em anos)</label>
-                        </div>
+                        {{> formField name='Tempo de Trabalho (em anos)' value=experience.[3] type='text' fieldClass="duracao_emp" required="required"}}
                       </div>
                       <div class="col-sm-4">
-                        <div class="form-group">
-                          <input type="text" class="form-control cidade_emp" id={{experience.[4]}} name={{experience.[4]}}>
-                          <label for={{experience.[4]}} class="control-label">Cidade</label>
-                        </div>
+                        {{> formField name='Cidade' value=experience.[5] type='text' fieldClass="cidade_emp" required="required"}}
                       </div>
                       <div class="col-sm-4">
-                        <div class="form-group">
-                          <select class="form-control static dirty uf_emp" id={{experience.[5]}} name={{experience.[5]}}>
-                            <option value="ac">Acre</option>
-                            <option value="al">Alagoas</option>
-                            <option value="am">Amazonas</option>
-                            <option value="ap">Amapá</option>
-                            <option value="ba">Bahia</option>
-                            <option value="ce">Ceará</option>
-                            <option value="df">Distrito Federal</option>
-                            <option value="es">Espírito Santo</option>
-                            <option value="go">Goiás</option>
-                            <option value="ma">Maranhão</option>
-                            <option value="mt">Mato Grosso</option>
-                            <option value="ms">Mato Grosso do Sul</option>
-                            <option value="mg">Minas Gerais</option>
-                            <option value="pa">Pará</option>
-                            <option value="pb">Paraíba</option>
-                            <option value="pr">Paraná</option>
-                            <option value="pe">Pernambuco</option>
-                            <option value="pi">Piauí</option>
-                            <option value="rj">Rio de Janeiro</option>
-                            <option value="rn">Rio Grande do Norte</option>
-                            <option value="ro">Rondônia</option>
-                            <option value="rs">Rio Grande do Sul</option>
-                            <option value="rr">Roraima</option>
-                            <option value="sc">Santa Catarina</option>
-                            <option value="se">Sergipe</option>
-                            <option value="sp">São Paulo</option>
-                            <option value="to">Tocantins</option>
-                          </select>
-                          <label for={{experience.[5]}} class="control-label">UF</label>
-                        </div>
+                        {{> formField name='UF' value=language.[4] type='select' fieldClass="uf_emp" options=options_estado required="required"}}
                       </div>
                     </div>
                   </div>

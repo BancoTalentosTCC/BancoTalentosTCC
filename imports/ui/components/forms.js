@@ -2,29 +2,21 @@ import {
   Template
 } from 'meteor/templating';
 
-Template.studentSignup.rendered = function() {
-  this.autorun(_.bind(function() {
-    Deps.afterFlush(function() {
-      // only initialize when DOM is ready
-      setMasks();
-      setCalendar(); 
-      setWizard();
-      fixFloatingLabels();
-      pwdValidate();
-      autocompleteCEP();
-    });
-  }, this));
-}
+Template.studentSignup.rendered =
+Template.companySignup.rendered = initForm; 
 
-Template.companySignup.rendered = function() {
-  this.autorun(_.bind(function() {
-    Deps.afterFlush(function() {
-      // only initialize when DOM is ready
-      setMasks();
-      fixFloatingLabels();
-      pwdValidate();
-      autocompleteCEP();
-    });
+function initForm() {
+  this.autorun(
+    _.bind(function() {
+      Deps.afterFlush(function() {
+        // only initialize when DOM is ready
+        setWizard();
+        setMasks();
+        setCalendar();
+        pwdValidate();
+        autocompleteCEP();
+      }
+    );
   }, this));
 }
 
@@ -151,27 +143,6 @@ function autocompleteCEP() {
         limpa_formulário_cep();
       }
     });
-  });
-}
-
-function fixFloatingLabels() {
-  var o = this;
-  $('.floating-label .form-control').on('keyup change', function(e) {
-    var input = $(e.currentTarget);
-    if ($.trim(input.val()) !== '') {
-      input.addClass('dirty').removeClass('static');
-    } else {
-      input.removeClass('dirty').removeClass('static');
-    }
-  });
-  $('.floating-label .form-control').each(function() {
-    var input = $(this);
-    if ($.trim(input.val()) !== '') {
-      input.addClass('static').addClass('dirty');
-    }
-  });
-  $('.floating-label .form-control').each(function() {
-    $(this).after('<div class="form-control-line"></div>');
   });
 }
 

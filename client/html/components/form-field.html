@@ -1,0 +1,22 @@
+<template name="formField">
+  <div class="form-group">
+    {{#if isText type}}
+      <!-- Is a normal input -->
+      <input type="{{type}}" class="form-control {{fieldClass}}" id="{{value}}" name="{{value}}" 
+      data-rule-minlength="{{drml}}" data-rule-email="{{dre}}" data-rule-url="{{dru}}" {{required}}>
+    {{/if}}
+    {{#if isSelect type}}
+      <!-- Is a select -->
+      <select class="form-control {{fieldClass}}" id="{{value}}" name="{{value}}" {{required}}>
+        {{#each options}}
+          <option value={{value}}>{{text}}</option>
+        {{/each}}
+      </select>
+    {{/if}}
+    {{#if isTextArea type}}
+      <!-- Is a textarea -->
+      <textarea id="{{value}}" name="{{value}}" class="form-control {{fieldClass}}" rows="{{rows}}" {{required}}></textarea>
+    {{/if}}
+    <label class="control-label" for="{{value}}">{{name}}</label>
+  </div>
+</template>

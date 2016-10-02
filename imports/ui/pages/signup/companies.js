@@ -1,6 +1,5 @@
-import {
-  Template
-} from 'meteor/templating';
+import {Template} from 'meteor/templating';
+import '/imports/ui/components/form-field.js';
 import '/imports/api/collections/companies.js';
 
 Template.companySignup.events({
