@@ -1,11 +1,10 @@
 Template.header.events({
   // fix toggle button event
-  'click .menubar-toggle': function(e) {
+  'click .menubar-toggle': function (e) {
     e.preventDefault();
     if (!materialadmin.App.isBreakpoint('xs')) {
-			$('body').toggleClass('menubar-pin');
-		}
-    else {
+      $('body').toggleClass('menubar-pin');
+    } else {
       handleToggleMob();
     }
   }
@@ -23,7 +22,7 @@ function handleToggleMob() {
     });
 
     $('body').addClass('menubar-visible');
-		$('#menubar').data('expanded', true);
+    $('#menubar').data('expanded', true);
 
     $('#menubar').triggerHandler('enter');
   }
@@ -31,7 +30,7 @@ function handleToggleMob() {
 
 function handleMenubarLeave() {
   $('body').removeClass('menubar-visible');
-		
+
   // Don't close the menus when it is pinned on large viewports
   if (materialadmin.App.minBreakpoint('md')) {
     if ($('body').hasClass('menubar-pin')) {
