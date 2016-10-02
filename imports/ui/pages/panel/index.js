@@ -15,4 +15,3 @@ Template.mainPanel.helpers({
     return Jobs.find({}, {sort: {createdAt: -1}}).fetch();
   }
 });
-

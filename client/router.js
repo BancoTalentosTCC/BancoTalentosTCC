@@ -25,7 +25,7 @@ FlowRouter.route('/', {
     }
   ],
   action: function(params) {
-    BlazeLayout.render('HomeLayout', { header: "header", main: "home" });
+    BlazeLayout.render('HomeLayout', {main: "home" });
   }
 });
 
@@ -33,7 +33,7 @@ FlowRouter.route('/cadastro/estudante', {
   name: 'studentSignup',
   title: "Banco de Talentos - Cadastrar Aluno",
   action: function(params) {
-    BlazeLayout.render('HomeLayout', { header: "header", main: "studentSignup" });
+    BlazeLayout.render('HomeLayout', {main: "studentSignup" });
   }
 });
 
@@ -41,7 +41,7 @@ FlowRouter.route('/cadastro/empresa', {
   name: 'companySignup',
   title: "Banco de Talentos - Cadastrar Empresa",
   action: function(params) {
-    BlazeLayout.render('HomeLayout', { header: "header", main: "companySignup" });
+    BlazeLayout.render('HomeLayout', {main: "companySignup" });
   }
 });
 
@@ -70,7 +70,7 @@ var company = panel.group({
         var ready = Roles.subscription.ready();
         var isCompany = Roles.userIsInRole(Meteor.userId(), 'company', 'user-type');
         if (ready && !isCompany) {
-          BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "notAllowed" });
+          BlazeLayout.render('PanelLayout', { main: "notAllowed" });
           stop();
         }
       });
@@ -82,7 +82,7 @@ company.route('/', {
   name: 'company',
   title: "Banco de Talentos - Home",
   action: function() {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "mainPanel" });
+    BlazeLayout.render('PanelLayout', { main: "mainPanel" });
   }
 });
 
@@ -90,7 +90,7 @@ company.route('/perfil', {
   title: "Banco de Talentos - Perfil",
   name: 'companyProfile',
   action: function() {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "profile" });
+    BlazeLayout.render('PanelLayout', { main: "profile" });
   }
 });
 
@@ -98,7 +98,7 @@ company.route('/vagas/nova', {
   name: 'newJob',
   title: "Banco de Talentos - Criar Vaga",
   action: function(params) {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "newJob" });
+    BlazeLayout.render('PanelLayout', { main: "newJob" });
   }
 });
 
@@ -106,7 +106,7 @@ company.route('/vagas', {
   title: "Banco de Talentos - Procurar Vagas",
   name: 'companyjobs',
   action: function(params) {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "jobs" });
+    BlazeLayout.render('PanelLayout', { main: "jobs" });
   }
 });
 
@@ -119,7 +119,7 @@ company.route('/alunos', {
   name: 'companyStudents',
   title: "Banco de Talentos",
   action: function(params) {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "students" });
+    BlazeLayout.render('PanelLayout', { main: "students" });
   }
 });
 
@@ -147,7 +147,7 @@ var student = panel.group({
         var ready = Roles.subscription.ready();
         var isStudent = Roles.userIsInRole(Meteor.userId(), 'student', 'user-type');
         if (ready && !isStudent) {
-          BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "notAllowed" });
+          BlazeLayout.render('PanelLayout', { main: "notAllowed" });
           stop();
         }
       });
@@ -159,7 +159,7 @@ student.route('/', {
   name: 'student',
   title: "Banco de Talentos - Home ",
   action: function() {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "mainPanel" });
+    BlazeLayout.render('PanelLayout', { main: "mainPanel" });
   }
 });
 
@@ -167,7 +167,7 @@ student.route('/perfil', {
   name: 'studentProfile',
   title: "Banco de Talentos - Perfil",
   action: function() {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "profile" });
+    BlazeLayout.render('PanelLayout', { main: "profile" });
   }
 });
 
@@ -175,15 +175,18 @@ student.route('/vagas', {
   name: 'studentjobs',
   title: "Banco de Talentos - Procurar Vagas ",
   action: function(params) {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "jobs" });
+    BlazeLayout.render('PanelLayout', { main: "jobs" });
   }
 });
 
 student.route('/vagas/:id', {
   name: 'studentJob',
   title: "Banco de Talentos - Vaga",
+  subscriptions: function(params) {
+    Meteor.subscribe('company', params);
+  },
   action: function() {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "showJob" });
+    BlazeLayout.render('PanelLayout', { main: "showJob" });
   }
 });
 
@@ -191,7 +194,7 @@ student.route('/alunos', {
   title: "Banco de Talentos - Procurar Alunos ",
   name: 'students',
   action: function(params) {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "students" });
+    BlazeLayout.render('PanelLayout', { main: "students" });
   }
 });
 
@@ -205,7 +208,7 @@ student.route('/configuracoes', {
 
 FlowRouter.notFound = {
   action: function() {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "pageNotFound" });
+    BlazeLayout.render('PanelLayout', { main: "pageNotFound" });
   }
 };
 

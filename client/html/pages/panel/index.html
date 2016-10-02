@@ -48,28 +48,8 @@
             </div>
             <ul class="timeline collapse-lg timeline-hairline">
 
-              {{#if isInRole 'student' 'user-type'}}
-                {{#if jobs}}
-                  {{#each jobs}}
-                    <li class="timeline-inverted">
-                      <div class="timeline-circ circ-xl style-primary">
-                        <i class="md mdi mdi-calendar-check"></i>
-                      </div>
-                      <div class="timeline-entry">
-                        <div class="card style-default-light">
-                          <div class="card-body small-padding">
-                            <span class="text-medium">
-                              <span class="text-primary">{{companyName}}</span> cadastrou uma 
-                                <a class="text-primary" href="{{pathForShowJob _id}}">vaga</a> para {{nome}}.
-                              </span>
-                              <br>
-                            <span class="opacity-50">{{formatDate createdAt}}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  {{/each}}
-                {{else}}
+              {{#if jobs}}
+                {{#each jobs}}
                   <li class="timeline-inverted">
                     <div class="timeline-circ circ-xl style-primary">
                       <i class="md mdi mdi-calendar-check"></i>
@@ -77,12 +57,30 @@
                     <div class="timeline-entry">
                       <div class="card style-default-light">
                         <div class="card-body small-padding">
-                          <p>Ops, ainda não há nenhuma atividade registrada :(</p>
+                          <span class="text-medium">
+                            <span class="text-primary">{{companyName}}</span> cadastrou uma 
+                              <a class="text-primary" href="{{pathForShowJob _id}}">vaga</a> para {{nome}}.
+                            </span>
+                            <br>
+                          <span class="opacity-50">{{formatDate createdAt}}</span>
                         </div>
                       </div>
                     </div>
                   </li>
-                {{/if}}
+                {{/each}}
+              {{else}}
+                <li class="timeline-inverted">
+                  <div class="timeline-circ circ-xl style-primary">
+                    <i class="md mdi mdi-calendar-check"></i>
+                  </div>
+                  <div class="timeline-entry">
+                    <div class="card style-default-light">
+                      <div class="card-body small-padding">
+                        <p>Ops, ainda não há nenhuma atividade registrada :(</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
               {{/if}}
 
             </ul>
