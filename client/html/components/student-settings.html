@@ -1,0 +1,381 @@
+<template name="personalData">
+  <ul class="nav nav-tabs" data-toggle="tabs">
+    <li class="active"><a href="#summary">RESUMO PROFISSIONAL</a></li>
+    <li><a href="#aboutyou">SOBRE VOCÊ</a></li>
+    <li><a href="#address">ENDEREÇO</a></li>
+    <li><a href="#contato">CONTATO E REDES SOCIAIS</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="summary">
+      <br/>
+      <form class="form" id="formNote" accept-charset="utf-8" method="post">
+        <span class="opacity-50">Faça um breve resumo profissional para ser adicionado em seu perfil</span>
+        <div class="form-group">
+          <textarea id="aboutme" name="message" class="form-control control-3-rows" placeholder="Enter note ..." spellcheck="false"></textarea>
+        </div>
+        <div class="form-group clearfix">
+          <button type="submit" class="btn btn-raised btn-default-light pull-right">Adicionar ao perfil</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="tab-pane" id="aboutyou">
+      <br>
+      <form class="form">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group">
+              <input type="text" class="form-control" id="nome">
+              <label for="nome">Nome</label>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="cpf" disabled data-toggle="tooltip" data-placement="top" title="Não é possível alterar seu CPF">
+                  <label for="cpf">CPF</label>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="nascimento">
+                  <label for="nascimento">Data de Nascimento</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <select id="perfil" name="perfil" class="form-control">
+                    <option value="aluno">Aluno</option>
+                    <option value="ex-aluno">Ex-aluno</option>
+                  </select>
+                  <label for="perfil">Perfil</label>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <select id="sexo" name="sexo" class="form-control">
+                    <option value="m">Masculino</option>
+                    <option value="f">Feminino</option>
+                  </select>
+                  <label for="sexo">Sexo</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" id="email" disabled data-toggle="tooltip" data-placement="top" title="Não é possível alterar seu email principal">
+              <label for="email">Email</label>
+            </div>
+            <div class="form-group">
+              <input type="email2nd" class="form-control" id="email2nd">
+              <label for="email2nd">Email Secundário</label>
+            </div>
+            <br>
+            <div class="form-group">
+              <p><span class="text-danger">*</span> Seu avatar é sincronizado automaticamente com o servico Gravatar®, caso queira alterá-lo favor consultar <a href="https://pt.gravatar.com/" target='_blank' class="text-primary-dark">esse link</a>.</p>
+            </div>
+            <br>
+            <br>
+            <div class="checkbox checkbox-styled">
+              <label>
+                <input type="checkbox" value="">
+                <span>Portador de Necessidades Especiais</span>
+              </label>
+            </div>
+          </div>
+          <!--end .card-body -->
+          <div class="card-actionbar">
+            <div class="card-actionbar-row">
+              <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="tab-pane" id="address">
+      <br>
+      <form class="form">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="cep">
+                  <label for="cep">CEP</label>
+                </div>
+              </div>
+              <div class="col-sm-10">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="endereco">
+                  <label for="endereco">Endereço</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="numero">
+                  <label for="numero">Número</label>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="complemento">
+                  <label for="complemento">Complemento</label>
+                </div>
+              </div>
+              <div class="col-sm-7">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="bairro">
+                  <label for="bairro">Bairro</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="cidade">
+                  <label for="cidade">Cidade</label>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <select class="form-control static dirty" id="uf" name="uf" required="">     
+                    <option value="ac">Acre</option>        
+                    <option value="al">Alagoas</option>
+                    <option value="am">Amazonas</option>
+                    <option value="ap">Amapá</option>
+                    <option value="ba">Bahia</option>
+                    <option value="ce">Ceará</option>
+                    <option value="df">Distrito Federal</option>
+                    <option value="es">Espírito Santo</option>
+                    <option value="go">Goiás</option>
+                    <option value="ma">Maranhão</option>
+                    <option value="mt">Mato Grosso</option>
+                    <option value="ms">Mato Grosso</option>
+                    <option value="mg">Minas Gerais</option>
+                    <option value="pa">Pará</option>
+                    <option value="pb">Paraíba</option>
+                    <option value="pr">Paraná</option>
+                    <option value="pe">Pernambuco</option>
+                    <option value="pi">Piauí</option>
+                    <option value="rj">Rio de Janeiro</option>
+                    <option value="rn">Rio Grande do Norte</option>
+                    <option value="ro">Rondônia</option>
+                    <option value="rs">Rio Grande de Sul</option>
+                    <option value="rr">Roraima</option>
+                    <option value="sc">Santa Catarina</option>
+                    <option value="se">Sergipe</option>
+                    <option value="sp">São Paulo</option>
+                    <option value="to">Tocantins</option>
+                  </select>
+                  <label for="uf">Estado</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end .card-body -->
+          <div class="card-actionbar">
+            <div class="card-actionbar-row">
+              <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="tab-pane" id="contato">
+      <br>
+      <form class="form">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="phone">
+                  <label for="phone">Telefone Residencial</label>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="celular">
+                  <label for="celular">Celular</label>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="url" class="form-control" id="facebook">
+                  <label for="facebook">Facebook</label>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="url" class="form-control" id="twitter">
+                  <label for="twitter">Twitter</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="linkedin">
+                  <label for="linkedin">LinkedIn</label>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="skype">
+                  <label for="skype">Skype ID</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="url" class="form-control" id="pers_website">
+                  <label for="pers_website">Site Pessoal</label>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="url" class="form-control" id="github">
+                  <label for="github">GitHub</label>
+                </div>
+              </div>
+            </div>
+            <!-- This will be available separatedely -->
+            <!--div class="form-group">
+              <input type="password" class="form-control" id="Password1">
+              <label for="Password1">Password</label>
+            </div-->
+          </div>
+          <!--end .card-body -->
+          <div class="card-actionbar">
+            <div class="card-actionbar-row">
+              <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+
+<template name="education">
+  <br>
+  <form class="form">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <select id="formacao" name="formacao" class="form-control">
+            <option value="grad">Graduação</option>
+            <option value="pos">Pós-Graduação</option>
+            <option value="mest">Mestrado</option>
+            <option value="dout">Doutorado</option>
+          </select>
+          <label for="formacao">Tipo de Formação</label>
+        </div>
+        <div class="form-group">
+          <select class="form-control" id="curso" name="curso">
+            <option value="adm">Administração</option>
+            <option value="ciencbio">Ciências Biológicas</option> 
+            <option value="cienccont">Ciências Contábeis</option>   
+            <option value="edfisic">Educação Física</option>  
+            <option value="enferm">Enfermagem</option>
+            <option value="engprod">Engenharia de Produção</option>
+            <option value="farmac">Farmácia</option>
+            <option value="fisiot">Fisioterapia</option>
+            <option value="gastro">Gastronomia</option>
+            <option value="gpi">Gestão da Produção Industrial</option>
+            <option value="grh">Gestão de Recursos Humanos</option>
+            <option value="hist">História</option>
+            <option value="letr">Letras</option>
+            <option value="sist">Sistemas de Informação</option>
+            <option value="mat">Matemática</option>
+            <option value="med">Medicina</option>
+            <option value="pedag">Pedagogia</option>
+            <option value="psicol">Psicologia</option>
+            <option value="pubpr">Publicidade e Propaganda</option>
+          </select>
+          <label for="formacao">Curso</label>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="conclusao">
+          <label for="conclusao">Conclusão</label>
+        </div>
+      </div>
+      <!--end .card-body -->
+      <div class="card-actionbar">
+        <div class="card-actionbar-row">
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>
+
+<template name="idioms">
+  <br>
+  <form class="form">
+    <div class="card">
+      <div class="card-body">
+        <p>To be implemented</p>
+      </div>
+      <!--end .card-body -->
+      <div class="card-actionbar">
+        <div class="card-actionbar-row">
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>
+
+<template name="qualifications">
+  <br>
+  <form class="form">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <input type="url" class="form-control" id="lattes">
+          <label for="lattes">Currículo Lattes</label>
+        </div>
+        <div class="form-group">
+          <textarea id="qualificacao" name="qualificacao" class="form-control" rows="4"></textarea>
+          <label class="control-label" for="qualificacao">Qualificações</label>
+        </div>
+        <div class="form-group">
+          <textarea id="cursos_extras" name="cursos_extras" class="form-control" rows="6"></textarea>
+          <label class="control-label" for="cursos_extras">Cursos Extras</label>
+        </div>
+      </div>
+      <!--end .card-body -->
+      <div class="card-actionbar">
+        <div class="card-actionbar-row">
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>
+
+<template name="professionalexp">
+  <br>
+  <form class="form">
+    <div class="card">
+      <div class="card-body">
+        <p>To be implemented</p>
+      </div>
+      <!--end .card-body -->
+      <div class="card-actionbar">
+        <div class="card-actionbar-row">
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>
