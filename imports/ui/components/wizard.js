@@ -1,4 +1,5 @@
 import {Template} from 'meteor/templating';
+import '/imports/ui/materialadmin/libs/wizard/jquery.bootstrap.wizard.min.js';
 
 Template.wizard.onRendered(function(){
   var template = this;

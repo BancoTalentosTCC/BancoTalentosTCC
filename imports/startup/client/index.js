@@ -1,7 +1,4 @@
 /* Additional material admin JS imports */
-import '/imports/ui/materialadmin/libs/wizard/jquery.bootstrap.wizard.min.js';
-import '/imports/ui/materialadmin/libs/jquery-validation/dist/jquery.validate.min.js';
-import '/imports/ui/materialadmin/libs/jquery-validation/dist/localization/messages_pt_BR.min.js';
 import '/imports/ui/materialadmin/libs/moment/moment.min.js';
 import '/imports/ui/materialadmin/libs/bootstrap-datepicker/bootstrap-datepicker.js';
 import '/imports/ui/materialadmin/libs/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.js';
