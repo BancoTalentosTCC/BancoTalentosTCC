@@ -1,5 +1,6 @@
 import {Template} from 'meteor/templating';
 import '/imports/ui/components/form-field.js';
+import '/imports/ui/components/wizard.js';
 import '/imports/api/collections/students.js';
 
 languageDep = new Deps.Dependency();
@@ -8,7 +9,11 @@ experienceDep = new Deps.Dependency();
 var amountLanguages = [];
 var amountExperience = [];
 
-Template.studentSignup.events({
+Template.studentSignup.onRendered(function(){
+  BlazeLayout.render('wizard', {content: "studentSteps"});
+});
+
+Template.studentSteps.events({
   "submit form": function(event) {
     event.preventDefault();
     //REMOVE ERRORS
@@ -66,7 +71,14 @@ Template.studentSignup.events({
         FlowRouter.go('home');
       }      
     });
-  },
+  }
+});
+
+function targetValue(target) {
+  return target.value != "" ? target.value : undefined;
+}
+
+Template.step3.events({
   "click #add-language": function() {
     let length = amountLanguages.length;
     amountLanguages.push(["idioma" + length, "nivel_do_idioma" + length]);
@@ -75,33 +87,13 @@ Template.studentSignup.events({
   "click #remove-language": function() {
     amountLanguages.pop();
     languageDep.changed();
-  },
-  "click #add-experience": function() {
-    let length = amountExperience.length;
-    amountExperience.push([
-      "nome_emp" + length, "cargo_emp" + length, "atribuicoes" + length,
-      "duracao_emp" + length, "cidade_emp" + length, "uf_emp" + length
-    ]);
-    experienceDep.changed();
-  },
-  "click #remove-experience": function() {
-    amountExperience.pop();
-    experienceDep.changed();
-  },
+  }
 });
 
-/*
-    HELPERS GO HERE
-*/
-
-Template.studentSignup.helpers({
+Template.step3.helpers({
   languages() {
     languageDep.depend();
     return amountLanguages;
-  },
-  experiences() {
-    experienceDep.depend();
-    return amountExperience;
   }
 });
 
@@ -118,6 +110,28 @@ function getIdiomas() {
   }
   return array;
 }
+
+Template.step5.events({
+  "click #add-experience": function() {
+    let length = amountExperience.length;
+    amountExperience.push([
+      "nome_emp" + length, "cargo_emp" + length, "atribuicoes" + length,
+      "duracao_emp" + length, "cidade_emp" + length, "uf_emp" + length
+    ]);
+    experienceDep.changed();
+  },
+  "click #remove-experience": function() {
+    amountExperience.pop();
+    experienceDep.changed();
+  },
+});
+
+Template.step5.helpers({
+  experiences() {
+    experienceDep.depend();
+    return amountExperience;
+  }
+});
 
 function getExperiences() {
   let nome_emp = $('.nome_emp');
@@ -139,8 +153,4 @@ function getExperiences() {
     });
   }
   return array;
-}
-
-function targetValue(target) {
-  return target.value != "" ? target.value : undefined;
 }
