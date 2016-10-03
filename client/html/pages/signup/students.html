@@ -44,223 +44,28 @@
             <div class="tab-pane active" id="tab1">
               <br/>
               <br/>
-              <!-- Step 1 -->
-              <div class="form-row form-border">
-                <h1>Dados pessoais</h1>
-                {{> formField name='Nome' value='nome' type='text' drml="2" required="required"}}
-                <div class="row">
-                  <div class="col-sm-3">
-                    {{> formField name='CPF' value='cpf' type='text' drml="11" fieldClass="cpf" required='required'}}
-                  </div>
-                  <div class="col-sm-3">
-                    {{> formField name='Data de Nascimento' value='nascimento' type='text' required="required"}}
-                  </div>
-                  <div class="col-sm-3">
-                    {{> formField name='Perfil' value='perfil' type='select' options=options_perfil required="required"}}
-                  </div>
-                  <div class="col-sm-3">
-                    {{> formField name='Sexo' value='sexo' type='select' options=options_sexo required="required"}}
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col-sm-2">
-                    {{> formField name='CEP' value='cep' type='text' drml="8" fieldClass="cep" required='required'}}
-                  </div>
-                  <div class="col-sm-8">
-                    {{> formField name='Endereço' value='endereco' type='text' required='required'}}
-                  </div>
-                  <div class="col-sm-2">
-                    {{> formField name='Número' value='numero' type='text' drml="1" required='required'}}
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-2">
-                    {{> formField name='Complemento' value='complemento' type='text'}}
-                  </div>
-                  <div class="col-sm-6">
-                    {{> formField name='Bairro' value='bairro' type='text' drml="2" required='required'}}
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-5">
-                    {{> formField name='Cidade' value='cidade' type='text' drml="2" required='required'}}
-                  </div>
-                  <div class="col-sm-4">
-                    {{> formField name='Estado' value='uf' type='select' options=options_estado required="required"}}
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-6">
-                    {{> formField name='Telefone Residencial' fieldClass="phone-number" value='phone' type='text' drml="10"}}
-                  </div>
-                  <div class="col-sm-6">
-                    {{> formField name='Celular' fieldClass="phone-number" value='celular' type='text' drml="10" required="required"}}
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-8">
-                    {{> formField name='Email' value='email' type='email' dre="true" required="required"}}
-                  </div>
-                </div>
-                <div class="form-senha">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      {{> formField name='Senha' value='password' type='password' required='required' drml="8"}}
-                    </div>
-                    <div class="col-sm-4">
-                      <div id="passstrength" class="dropdown-progress">
-                        <div class="progress no-margin">
-                          <div>
-                            <p></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-8">
-                      {{> formField name='Confirmação de Senha' value='password_confirmation' type='password' required='required' drml="8"}}
-                    </div>
-                    <div class="col-sm-offset-4"></div>
-                  </div>
-                  <h3>Links para redes sociais</h3>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        {{> formField name='Facebook' value='facebook' type='url' dru="true"}}
-                      </div>
-                      <div class="col-sm-6">
-                        {{> formField name='Twitter' value='twitter' type='url' dru="true"}}
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        {{> formField name='LinkedIn' value='linkedin' type='url' dru="true"}}
-                      </div>
-                      <div class="col-sm-6">
-                        {{> formField name='Skype ID' value='skype'}}
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        {{> formField name='Site Pessoal' value='pers_website' type='url' dru="true"}}
-                      </div>
-                      <div class="col-sm-offset-6"></div>
-                    </div> 
-                </div>
-                <div class="form-group">
-                  <div class="checkbox checkbox-styled col-sm-offset-8 col-sm-4">
-                    <label>
-                      <input type="checkbox" id="especial" name="especial"> <span>Portador de Necessidades Especiais</span> </label>
-                  </div>
-                </div>
-              </div>
+              {{> step1 }}
             </div>
-            <!--end #tab1 -->
             <div class="tab-pane" id="tab2">
               <br/>
               <br/>
-              <div class="row">
-                <div class="col-sm-6">
-                  {{> formField name='Tipo de Formação' value='formacao' type='select' options=options_formacao required="required"}}
-                </div>
-                <div class="col-sm-offset-6"></div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  {{> formField name='Curso' value='curso' type='select' options=options_curso required="required"}}
-                </div>
-                <div class="col-sm-offset-6"></div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  {{> formField name='Conclusão' value='conclusao' required="required"}}
-                </div>
-                <div class="col-sm-offset-6"></div>
-              </div>
+              {{> step2}}
             </div>
-            <!--end #tab2 -->
             <div class="tab-pane" id="tab3">
               <br/>
               <br/>
-              <div class="row">
-                {{#each language in languages}}
-                  <div class="card">
-                    <div class="card-body border-bottom">
-                      <div class="col-sm-6">
-                        {{> formField name='Idioma' value=language.[0] type='select' fieldClass="idioma" options=options_idioma required="required"}}
-                      </div>
-                      <div class="col-sm-6">
-                        {{> formField name='Nível' value=language.[1] type='select' fieldClass="nivel_do_idioma" options=options_nivel_idioma required="required"}}
-                      </div>
-                    </div>
-                  </div>
-                {{/each}}
-                <button type="button" id="add-language" class="btn btn-icon-toggle btn-primary"> <i class="fa fa-plus"></i> </button>
-                <button type="button" id="remove-language" class="btn btn-icon-toggle btn-danger"> <i class="fa fa-minus"></i> </button>
-              </div>
+              {{> step3}}
             </div>
-            <!--end #tab3 -->
             <div class="tab-pane" id="tab4">
               <br/>
               <br/>
-              <div class="row">
-                <div class="col-sm-6">
-                  {{> formField name='Currículo Lattes' value='lattes' type='url' dru="true"}}
-                </div>
-                <div class="col-sm-offset-6"></div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  {{> formField name='Qualificações' value='qualificacao' type='textarea' rows="4"}}
-                </div>
-                <div class="col-sm-offset-6"></div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  {{> formField name='Cursos Extras' value='cursos_extras' type='textarea' rows="6"}}
-                </div>
-                <div class="col-sm-offset-6"></div>
-              </div>
+              {{> step4}}
             </div>
-            <!--end #tab4 -->
             <div class="tab-pane" id="tab5">
               <br/>
               <br/>
-              {{#each experience in experiences}}
-                <div class="card">
-                  <div class="card-body border-bottom">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        {{> formField name='Empresa' value=experience.[0] type='text' fieldClass="nome_emp" required="required"}}
-                      </div>
-                      <div class="col-sm-6">
-                        {{> formField name='Cargo' value=experience.[1] type='text' fieldClass="cargo_emp" required="required"}}
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        {{> formField name='Atribuições' value=experience.[2] type='textarea' fieldClass="atribuicoes" rows="4" required="required"}}
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-4">
-                        {{> formField name='Tempo de Trabalho (em anos)' value=experience.[3] type='text' fieldClass="duracao_emp" required="required"}}
-                      </div>
-                      <div class="col-sm-4">
-                        {{> formField name='Cidade' value=experience.[5] type='text' fieldClass="cidade_emp" required="required"}}
-                      </div>
-                      <div class="col-sm-4">
-                        {{> formField name='UF' value=language.[4] type='select' fieldClass="uf_emp" options=options_estado required="required"}}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {{/each}}
-              <button type="button" id="add-experience" class="btn btn-icon-toggle btn-primary"> <i class="fa fa-plus"></i> </button>
-              <button type="button" id="remove-experience" class="btn btn-icon-toggle btn-danger"> <i class="fa fa-minus"></i> </button>
+              {{> step5}}
             </div>
-            <!--end #tab5 -->
           </div>
           <ul class="pager wizard">
             <li class="previous first"><a id="first" class="btn-raised" href="">Primeiro</a>
@@ -280,5 +85,230 @@
         </form>
       </div>
     </div>
+  </div>
+</template>
+
+<template name="step1">
+  <div class="form-row form-border">
+    <h1>Dados pessoais</h1>
+    {{> formField name='Nome' value='nome' type='text' drml="2" required="required"}}
+    <div class="row">
+      <div class="col-sm-3">
+        {{> formField name='CPF' value='cpf' type='text' drml="11" fieldClass="cpf" required='required'}}
+      </div>
+      <div class="col-sm-3">
+        {{> formField name='Data de Nascimento' value='nascimento' type='text' required="required"}}
+      </div>
+      <div class="col-sm-3">
+        {{> formField name='Perfil' value='perfil' type='select' options=options_perfil required="required"}}
+      </div>
+      <div class="col-sm-3">
+        {{> formField name='Sexo' value='sexo' type='select' options=options_sexo required="required"}}
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-2">
+        {{> formField name='CEP' value='cep' type='text' drml="8" fieldClass="cep" required='required'}}
+      </div>
+      <div class="col-sm-8">
+        {{> formField name='Endereço' value='endereco' type='text' required='required'}}
+      </div>
+      <div class="col-sm-2">
+        {{> formField name='Número' value='numero' type='text' drml="1" required='required'}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        {{> formField name='Complemento' value='complemento' type='text'}}
+      </div>
+      <div class="col-sm-6">
+        {{> formField name='Bairro' value='bairro' type='text' drml="2" required='required'}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">
+        {{> formField name='Cidade' value='cidade' type='text' drml="2" required='required'}}
+      </div>
+      <div class="col-sm-4">
+        {{> formField name='Estado' value='uf' type='select' options=options_estado required="required"}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        {{> formField name='Telefone Residencial' fieldClass="phone-number" value='phone' type='text' drml="10"}}
+      </div>
+      <div class="col-sm-6">
+        {{> formField name='Celular' fieldClass="phone-number" value='celular' type='text' drml="10" required="required"}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        {{> formField name='Email' value='email' type='email' dre="true" required="required"}}
+      </div>
+    </div>
+    <div class="form-senha">
+      <div class="row">
+        <div class="col-sm-8">
+          {{> formField name='Senha' value='password' type='password' required='required' drml="8"}}
+        </div>
+        <div class="col-sm-4">
+          <div id="passstrength" class="dropdown-progress">
+            <div class="progress no-margin">
+              <div>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          {{> formField name='Confirmação de Senha' value='password_confirmation' type='password' required='required' drml="8"}}
+        </div>
+        <div class="col-sm-offset-4"></div>
+      </div>
+      <h3>Links para redes sociais</h3>
+        <div class="row">
+          <div class="col-sm-6">
+            {{> formField name='Facebook' value='facebook' type='url' dru="true"}}
+          </div>
+          <div class="col-sm-6">
+            {{> formField name='Twitter' value='twitter' type='url' dru="true"}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            {{> formField name='LinkedIn' value='linkedin' type='url' dru="true"}}
+          </div>
+          <div class="col-sm-6">
+            {{> formField name='Skype ID' value='skype'}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            {{> formField name='Site Pessoal' value='pers_website' type='url' dru="true"}}
+          </div>
+          <div class="col-sm-offset-6"></div>
+        </div> 
+    </div>
+    <div class="form-group">
+      <div class="checkbox checkbox-styled col-sm-offset-8 col-sm-4">
+        <label>
+          <input type="checkbox" id="especial" name="especial"> <span>Portador de Necessidades Especiais</span> </label>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="step2">
+  <div class="form-row form-border">
+    <h1>Formação</h1>
+    <div class="row">
+      <div class="col-sm-6">
+        {{> formField name='Tipo de Formação' value='formacao' type='select' options=options_formacao required="required"}}
+      </div>
+      <div class="col-sm-offset-6"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        {{> formField name='Curso' value='curso' type='select' options=options_curso required="required"}}
+      </div>
+      <div class="col-sm-offset-6"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        {{> formField name='Conclusão' value='conclusao' required="required"}}
+      </div>
+      <div class="col-sm-offset-6"></div>
+    </div>
+  </div>
+</template>
+
+<template name="step3">
+  <div class="form-row form-border">
+    <h1>Idiomas</h1>
+    <div class="row">
+      {{#each language in languages}}
+        <div class="card">
+          <div class="card-body border-bottom">
+            <div class="col-sm-6">
+              {{> formField name='Idioma' value=language.[0] type='select' fieldClass="idioma" options=options_idioma required="required"}}
+            </div>
+            <div class="col-sm-6">
+              {{> formField name='Nível' value=language.[1] type='select' fieldClass="nivel_do_idioma" options=options_nivel_idioma required="required"}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      <button type="button" id="add-language" class="btn btn-icon-toggle btn-primary"> <i class="fa fa-plus"></i> </button>
+      <button type="button" id="remove-language" class="btn btn-icon-toggle btn-danger"> <i class="fa fa-minus"></i> </button>
+    </div>
+  </div>
+</template>
+
+<template name="step4">
+  <div class="form-row form-border">
+    <h1>Qualificações</h1>
+    <div class="row">
+      <div class="col-sm-6">
+        {{> formField name='Currículo Lattes' value='lattes' type='url' dru="true"}}
+      </div>
+      <div class="col-sm-offset-6"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        {{> formField name='Qualificações' value='qualificacao' type='textarea' rows="4"}}
+      </div>
+      <div class="col-sm-offset-6"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        {{> formField name='Cursos Extras' value='cursos_extras' type='textarea' rows="6"}}
+      </div>
+      <div class="col-sm-offset-6"></div>
+    </div>
+  </div>
+</template>
+
+<template name="step5">
+  <div class="form-row form-border">
+    <h1>Experiência Profissional</h1>
+    {{#each experience in experiences}}
+      <div class="card">
+        <div class="card-body border-bottom">
+          <div class="row">
+            <div class="col-sm-6">
+              {{> formField name='Empresa' value=experience.[0] type='text' fieldClass="nome_emp" required="required"}}
+            </div>
+            <div class="col-sm-6">
+              {{> formField name='Cargo' value=experience.[1] type='text' fieldClass="cargo_emp" required="required"}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              {{> formField name='Atribuições' value=experience.[2] type='textarea' fieldClass="atribuicoes" rows="4" required="required"}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              {{> formField name='Tempo de Trabalho (em anos)' value=experience.[3] type='text' fieldClass="duracao_emp" required="required"}}
+            </div>
+            <div class="col-sm-4">
+              {{> formField name='Cidade' value=experience.[4] type='text' fieldClass="cidade_emp" required="required"}}
+            </div>
+            <div class="col-sm-4">
+              {{> formField name='UF' value=experience.[5] type='select' fieldClass="uf_emp" options=options_estado required="required"}}
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+    <button type="button" id="add-experience" class="btn btn-icon-toggle btn-primary">
+      <i class="fa fa-plus"></i>
+    </button>
+    <button type="button" id="remove-experience" class="btn btn-icon-toggle btn-danger">
+      <i class="fa fa-minus"></i>
+    </button>
   </div>
 </template>
