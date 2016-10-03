@@ -31,14 +31,16 @@ Template.companySignup.events({
       }
     }
 
-    Meteor.call('saveCompany', user, function(error, result) {
-      if (error) {
-        Meteor.call('displayErrors', error);
-      } else if (result) {
-        toastr.success('Você já pode acessar o painel da empresa', 'Empresa Cadastrada!');
-        FlowRouter.go('home');
-      }
-    });
+    if (confirm("Você clicou em confirmar. Já terminou seu cadastro?")) {
+      Meteor.call('saveCompany', user, function(error, result) {
+        if (error) {
+          Meteor.call('displayErrors', error);
+        } else if (result) {
+          toastr.success('Você já pode acessar o painel da empresa', 'Empresa Cadastrada!');
+          FlowRouter.go('home');
+        }
+      });
+    }
   }
 });
 
