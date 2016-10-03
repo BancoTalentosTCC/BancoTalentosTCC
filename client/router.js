@@ -33,7 +33,7 @@ FlowRouter.route('/cadastro/estudante', {
   name: 'studentSignup',
   title: "Banco de Talentos - Cadastrar Aluno",
   action: function(params) {
-    BlazeLayout.render('HomeLayout', {main: "studentSignup" });
+    BlazeLayout.render('HomeLayout', {main: "studentSignup", wizard: "studentSteps" });
   }
 });
 
