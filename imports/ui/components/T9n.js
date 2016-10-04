@@ -7,6 +7,7 @@ Meteor.startup(function() {
         "Match failed": "Erro de Validação"
       }
     },
+    //COURSES
     adm: "Administração",
     sist: "Sistemas de Informação",
     ciencbio: "Ciências Biológias",
@@ -25,7 +26,24 @@ Meteor.startup(function() {
     med: "Medicina",
     pedag: "Pedagogia",
     psicol: "Psicologia",
-    pubpr: "Publicidade e Propaganda"
+    pubpr: "Publicidade e Propaganda",
+    //CATEGORIES
+    "advog-lei": "Advogados & Leis",
+    "design-cri": "Design & Criação",
+    "eng-arq": "Engenharia & Arquitetura",
+    "escr-trad": "Escrita & Tradução",
+    "fot-audiov": "Fotografia & Audiovisual",
+    serv: "Serviços Empresariais",
+    suporteadm: "Suporte Administrativo",
+    vendas: "Vendas & Marketing",
+    "web-desenv": "Web & Desenvolvimento",
+    //TYPES
+    estagio: "Estágio",
+    trainee: "Trainee",
+    junior: "Júnior",
+    pleno: "Pleno",
+    senior: "Sênior",
+    freelancer: "Freelancer"
   }
 
   T9n.map('pt', pt);
