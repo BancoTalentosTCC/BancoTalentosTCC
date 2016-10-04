@@ -1,5 +1,6 @@
 import {Template} from 'meteor/templating';
 import '/imports/ui/components/form-field.js';
+import '/imports/ui/components/wizard.js';
 import '/imports/api/collections/students.js';
 
 languageDep = new Deps.Dependency();
@@ -8,7 +9,24 @@ experienceDep = new Deps.Dependency();
 var amountLanguages = [];
 var amountExperience = [];
 
-Template.studentSignup.events({
+Template.studentSignup.onRendered(function(){
+  // THIS EVENT IS NOT BEING LISTED in THE 'METEOR' WAY, BECAUSE THE EVENTS ARE TRIGGERED 
+  // AFTER WHAT IS INSIDE OF 'onRendered' IS EXECUTED, AND IT HAD TO BE EXECUTED BEFORE
+  // WHAT IS INSIDE THE 'onRendered' IN THE 'wizard' TEMPLATE
+  $("a").click(function(event) {
+    Meteor.setTimeout(function() {
+      var button = $('form button[type="submit"]');
+      if ($('#tab5 > div > h1').is(":visible") && button.hasClass('disabled')) {
+        button.removeClass('disabled')
+      }
+      else if (!button.hasClass('disabled')) {
+        button.addClass('disabled')
+      }
+    }, 200);
+  });
+});
+
+Template.studentSteps.events({
   "submit form": function(event) {
     event.preventDefault();
     //REMOVE ERRORS
@@ -58,15 +76,24 @@ Template.studentSignup.events({
       }
     }
 
-    Meteor.call('saveStudent', user, function(error, result) {
-      if (error) {
-        Meteor.call('displayErrors', error);
-      } else if (result) {
-        toastr.success('Você já pode acessar o painel do aluno', 'Estudante Cadastrado!');
-        FlowRouter.go('home');
-      }      
-    });
-  },
+    if (confirm("Você clicou em confirmar. Já terminou seu cadastro?")) {
+      Meteor.call('saveStudent', user, function(error, result) {
+        if (error) {
+          Meteor.call('displayErrors', error);
+        } else if (result) {
+          toastr.success('Você já pode acessar o painel do aluno', 'Estudante Cadastrado!');
+          FlowRouter.go('home');
+        }      
+      });
+    }
+  }
+});
+
+function targetValue(target) {
+  return target.value != "" ? target.value : undefined;
+}
+
+Template.step3.events({
   "click #add-language": function() {
     let length = amountLanguages.length;
     amountLanguages.push(["idioma" + length, "nivel_do_idioma" + length]);
@@ -75,33 +102,13 @@ Template.studentSignup.events({
   "click #remove-language": function() {
     amountLanguages.pop();
     languageDep.changed();
-  },
-  "click #add-experience": function() {
-    let length = amountExperience.length;
-    amountExperience.push([
-      "nome_emp" + length, "cargo_emp" + length, "atribuicoes" + length,
-      "duracao_emp" + length, "cidade_emp" + length, "uf_emp" + length
-    ]);
-    experienceDep.changed();
-  },
-  "click #remove-experience": function() {
-    amountExperience.pop();
-    experienceDep.changed();
-  },
+  }
 });
 
-/*
-    HELPERS GO HERE
-*/
-
-Template.studentSignup.helpers({
+Template.step3.helpers({
   languages() {
     languageDep.depend();
     return amountLanguages;
-  },
-  experiences() {
-    experienceDep.depend();
-    return amountExperience;
   }
 });
 
@@ -118,6 +125,28 @@ function getIdiomas() {
   }
   return array;
 }
+
+Template.step5.events({
+  "click #add-experience": function() {
+    let length = amountExperience.length;
+    amountExperience.push([
+      "nome_emp" + length, "cargo_emp" + length, "atribuicoes" + length,
+      "duracao_emp" + length, "cidade_emp" + length, "uf_emp" + length
+    ]);
+    experienceDep.changed();
+  },
+  "click #remove-experience": function() {
+    amountExperience.pop();
+    experienceDep.changed();
+  },
+});
+
+Template.step5.helpers({
+  experiences() {
+    experienceDep.depend();
+    return amountExperience;
+  }
+});
 
 function getExperiences() {
   let nome_emp = $('.nome_emp');
@@ -139,8 +168,4 @@ function getExperiences() {
     });
   }
   return array;
-}
-
-function targetValue(target) {
-  return target.value != "" ? target.value : undefined;
 }
