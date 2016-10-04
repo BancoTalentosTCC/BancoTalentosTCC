@@ -1,5 +1,6 @@
 import {Template} from 'meteor/templating';
 import '/imports/ui/components/selects.js';
+import '/imports/ui/materialadmin/libs/jquery-validation/dist/jquery.validate.min.js';
 
 Template.formField.onRendered(function(){
   var template = this;

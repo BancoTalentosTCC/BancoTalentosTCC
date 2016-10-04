@@ -1,3 +1,5 @@
+import '/imports/ui/materialadmin/libs/jquery-validation/dist/localization/messages_pt_BR.min.js';
+
 Meteor.startup(function() {
   T9n.setLanguage("pt");
 
