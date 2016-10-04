@@ -8,4 +8,12 @@ Template.showJob.helpers({
   company: function() {
     return Session.get("company");
   },
+  pathForJob: function() {
+    if(Roles.userIsInRole(Meteor.userId(), 'student', 'user-type')){
+      return FlowRouter.path("studentjobs");
+    }
+    else if(Roles.userIsInRole(Meteor.userId(), 'company', 'user-type')){
+      return FlowRouter.path("companyjobs");
+    }
+  }
 });
