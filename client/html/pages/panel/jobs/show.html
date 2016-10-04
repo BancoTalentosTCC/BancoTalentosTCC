@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body style-default-bright">
                   <div class="col-md-3 col-xs-6 col-sm-4">
-                    <img class="img-circle border-xl border-white img-responsive auto-width" src="{{avatar 120}}" alt="">
+                    <img class="img-circle border-xl border-white img-responsive auto-width" src="{{avatar 120 company}}" alt="">
                     <h3>{{job.company}}<br><small>{{job.companyName}}</small></h3>
                     <br>
                     {{#if isInRole 'student' 'user-type'}}
@@ -30,7 +30,7 @@
                     <div class="row">
                       <h2 class="text-primary">Detalhes</h2>
                       <p>{{job.tipo_vaga}}</p>
-                      <p>{{job.categoria}}</p>
+                      <p>{{t9n job.categoria}}</p>
                       <p>{{job.created_at}}</p>
 
                       <!-- TODO: Create a logic to display if it has special needs or not -->

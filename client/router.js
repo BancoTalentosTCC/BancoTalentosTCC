@@ -29,7 +29,12 @@ FlowRouter.route('/', {
   }
 });
 
-FlowRouter.route('/cadastro/estudante', {
+var signup = FlowRouter.group({
+  prefix: "/cadastro",
+  name: "signup"
+});
+
+signup.route('/estudante', {
   name: 'studentSignup',
   title: "Banco de Talentos - Cadastrar Aluno",
   action: function(params) {
@@ -37,7 +42,7 @@ FlowRouter.route('/cadastro/estudante', {
   }
 });
 
-FlowRouter.route('/cadastro/empresa', {
+signup.route('/empresa', {
   name: 'companySignup',
   title: "Banco de Talentos - Cadastrar Empresa",
   action: function(params) {
@@ -183,7 +188,11 @@ student.route('/vagas/:id', {
   name: 'studentJob',
   title: "Banco de Talentos - Vaga",
   subscriptions: function(params) {
-    Meteor.subscribe('company', params);
+    Meteor.call('findCompanyByJob', params.id, function(error, result) {
+      Meteor.subscribe('company', result, function() {
+        Session.set('company', Meteor.users.find({_id: result}).fetch()[0]);
+      });
+    });
   },
   action: function() {
     BlazeLayout.render('PanelLayout', { main: "showJob" });

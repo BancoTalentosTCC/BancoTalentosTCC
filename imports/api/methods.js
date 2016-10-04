@@ -9,7 +9,6 @@ Meteor.methods({
     Meteor.users.attachSchema(Company);
     id = Accounts.createUser(data);
     Roles.addUsersToRoles(id, 'company', 'user-type');
-
     Meteor.call('sendVerificationLink', id);
     return true;
   },
@@ -17,7 +16,6 @@ Meteor.methods({
     Meteor.users.attachSchema(Student);
     id = Accounts.createUser(data);
     Roles.addUsersToRoles(id, 'student', 'user-type');
-
     Meteor.call('sendVerificationLink', id);
     return true;
   },
@@ -30,5 +28,8 @@ Meteor.methods({
     if ( userId ) {
       return Accounts.sendVerificationEmail( userId );
     }
+  },
+  findCompanyByJob: function (id) {
+    return Jobs.find({_id: id}).fetch()[0].company;
   }
 });
