@@ -10,10 +10,12 @@ var amountLanguages = [];
 var amountExperience = [];
 
 Template.studentSignup.onRendered(function(){
+  var template = this;
+  var link = this.findAll("a");
   // THIS EVENT IS NOT BEING LISTED in THE 'METEOR' WAY, BECAUSE THE EVENTS ARE TRIGGERED 
   // AFTER WHAT IS INSIDE OF 'onRendered' IS EXECUTED, AND IT HAD TO BE EXECUTED BEFORE
   // WHAT IS INSIDE THE 'onRendered' IN THE 'wizard' TEMPLATE
-  $("a").click(function(event) {
+  $(link).click(function(event) {
     Meteor.setTimeout(function() {
       var button = $('form button[type="submit"]');
       if ($('#tab5 > div > h1').is(":visible") && button.hasClass('disabled')) {
