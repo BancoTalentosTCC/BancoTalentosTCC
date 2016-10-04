@@ -28,6 +28,45 @@
             <h4>Verifique seu email {{user.emails.[0].address}} ou <a href="#" class="resend-verification-link">envie o link de verificação novamente</a></h4>
           </section>
         {{else}}
+        <div class="card-head nav nav-tabs tabs-accent">
+          <ul id="findBy" class="nav nav-pills nav-stacked nav-search" data-toggle="tabs">
+            <li><small>CATEGORIAS</small></li>
+            <li class="active"><a href="#">Todos</a></li>
+            <li><a href="#" id="admin">Administrativo</a></li>
+            <li><a href="#" id="atend">Atendimento</a></li>
+            <li><a href="#" id="comun">Comunicação</a></li>
+            <li><a href="#" id="criat">Criatividade, Arte e Cultura</a></li>
+            <li><a href="#" id="desig">Design</a></li>
+            <li><a href="#" id="edu">Educação</a></li>
+            <li><a href="#" id="eng">Engenharia</a></li>
+            <li><a href="#" id="escr-trad">Escrita e Tradução</a></li>
+            <li><a href="#" id="fot-audiov">Fotografia e Audiovisual</a></li>
+            <li><a href="#" id="facil">Facilities</a></li>
+            <li><a href="#" id="finan">Finanças</a></li>
+            <li><a href="#" id="fisc">Fiscal e Tributária</a></li>
+            <li><a href="#" id="jurid">Jurídica</a></li>
+            <li><a href="#" id="logist">Logística e Supply Chain</a></li>
+            <li><a href="#" id="market">Marketing</a></li>
+            <li><a href="#" id="pesq">Pesquisa e Desenvolvimento</a></li>
+            <li><a href="#" id="plan">Planejamento e Estratégia</a></li>
+            <li><a href="#" id="prod">Produção e Fabricação</a></li>
+            <li><a href="#" id="proj">Projetos</a></li>
+            <li><a href="#" id="qual">Qualidade</a></li>
+            <li><a href="#" id="relac">Relações Públicas</a></li>
+            <li><a href="#" id="rh">RH e Desenvolvimento</a></li>
+            <li><a href="#" id="saud">Saúde</a></li>
+            <li><a href="#" id="serv">Serviços</a></li>
+            <li><a href="#" id="supr">Suprimentos (Compras)</a></li>
+            <li><a href="#" id="sust">Sustentabilidade</a></li>
+            <li><a href="#" id="tecn">Tecnologia</a></li>
+            <li><a href="#" id="textil">Têxtil e Moda</a></li>
+            <li><a href="#" id="prod">Produtora</a></li>
+            <li><a href="#" id="vend">Vendas e Comercial</a></li>
+            <li><a href="#" id="varej">Varejo</a></li>
+            <li><a href="#" id="outra">Outra Categoria</a></li>
+          </ul>
+          <br>
+        </div>
         <div class="card-body tab-content style-default-bright">
           <div class="tab-pane active" id="web1">
             <div class="row">
@@ -37,46 +76,6 @@
                     Foram encontradas 
                     <strong>{{jobs.length}}</strong>
                    vagas</span>
-                  <div class="btn-group btn-group-sm pull-right">
-                    <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown">
-                      <span class="glyphicon glyphicon-arrow-down"></span> Filtrar por
-                    </button>
-                    <ul id="findBy" class="dropdown-menu dropdown-menu-left animation-dock" role="menu">
-                      <li class="active">
-                        <a href="#">Todos</a>
-                      </li>
-                      <li>
-                        <a href="#" id="advog-lei">Advogados & Leis</a>
-                      </li>
-                      <li>
-                        <a href="#" id="design-cri">Design & Criação</a>
-                      </li>
-                      <li>
-                        <a href="#" id="eng-arq">Engenharia & Arquitetura</a>
-                      </li>
-                      <li>
-                        <a href="#" id="escr-trad">Escrita & Tradução</a>
-                      </li>
-                      <li>
-                        <a href="#" id="fot-audiov">Fotografia & Audiovisual</a>
-                      </li>
-                      <li>
-                        <a href="#" id="serv">Serviços Empresariais</a>
-                      </li>
-                      <li>
-                        <a href="#" id="suporteadm">Suporte Administrativo</a>
-                      </li>
-                      <li>
-                        <a href="#" id="vendas">Vendas & Marketing</a>
-                      </li>
-                      <li>
-                        <a href="#" id="web-desenv">Web & Desenvolvimento</a>
-                      </li>
-                      <li>
-                        <a href="#" id="outra">Outra Categoria</a>
-                      </li>
-                    </ul>
-                  </div>
                   <div class="btn-group btn-group-sm pull-right">
                     <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown">
                       <span class="glyphicon glyphicon-arrow-down"></span> Ordenar por
@@ -91,12 +90,19 @@
                   {{#if jobs}}
                     {{#each jobs}}
                       <div class="col-xs-12">
+                        <img class="pull-left width-2 img-circle" src="{{avatar 120 company}}" alt="" />
                         <p>
                           <a class="text-medium text-lg text-primary" href="{{pathForShowJob _id}}">{{nome}}</a>
                           <br/>
                           <strong>{{companyName}}</strong>
                         </p>
-                        <!--div class="contain-lg">{{{descricao}}}</div-->
+                        <div class="row">
+                          <ul class="tags-choices">
+                          {{#each tag in tags}}
+                            <li class="each-tag"><span>{{tag}}</span></li>
+                          {{/each}}
+                          </ul>
+                        </div>   
                       </div>
                     {{/each}}
                   {{else}}
