@@ -7,13 +7,13 @@
                 <div class="card-head">
                   <header><i class="fa fa-fw fa-tag"></i>{{job.nome}}</header>
                   <div class="tools">
-                    <a class="btn btn-flat hidden-xs" href="#"><span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar</a>
+                    <a class="btn btn-flat hidden-xs" href="{{pathForJob}}"><span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar</a>
                   </div>
                 </div>
                 <div class="card-body style-default-bright">
                   <div class="col-md-3 col-xs-6 col-sm-4">
-                    <img class="img-circle border-xl border-white img-responsive auto-width" src="{{avatar 120}}" alt="">
-                    <h3>{{job.company}}<br><small>{{job.companyName}}</small></h3>
+                    <img class="img-circle border-xl border-white img-responsive auto-width" src="{{avatar 120 company}}" alt="">
+                    <h3>{{job.companyName}}</h3>
                     <br>
                     {{#if isInRole 'student' 'user-type'}}
                       <button class="btn btn-primary btn-send">Candidatar-se</button>
@@ -29,8 +29,8 @@
                     </div>
                     <div class="row">
                       <h2 class="text-primary">Detalhes</h2>
-                      <p>{{job.tipo_vaga}}</p>
-                      <p>{{job.categoria}}</p>
+                      <p>{{t9n job.tipo_vaga}}</p>
+                      <p>{{t9n job.categoria}}</p>
                       <p>{{job.created_at}}</p>
 
                       <!-- TODO: Create a logic to display if it has special needs or not -->
