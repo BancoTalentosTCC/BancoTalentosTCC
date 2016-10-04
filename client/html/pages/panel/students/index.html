@@ -35,6 +35,32 @@
           </ul-->
 
           <!-- BEGIN TAB CONTENT -->
+          <div class="card-head nav nav-tabs tabs-accent">
+            <ul id="findBy" class="nav nav-pills nav-stacked nav-search" data-toggle="tabs">
+              <li><small>FILTRAR POR CURSO</small></li>
+              <li class="active"><a href="#">Todos</a></li>
+              <li><a href="#" id="adm">Administração</a></li>
+              <li><a href="#" id="ciencbio">Ciências Biológicas</a></li>
+              <li><a href="#" id="cienccont">Ciências Contábeis</a></li>
+              <li><a href="#" id="edfisic">Educação Física</a></li>
+              <li><a href="#" id="enferm">Enfermagem</a></li>
+              <li><a href="#" id="engprod">Engenharia de Produção</a></li>
+              <li><a href="#" id="farmac">Farmácia</a></li>
+              <li><a href="#" id="fisiot">Fisioterapia</a></li>
+              <li><a href="#" id="gastro">Gastronomia</a></li>
+              <li><a href="#" id="gpi">Gestão da Produção Industrial</a></li>
+              <li><a href="#" id="grh">Gestão de Recursos Humanos</a></li>
+              <li><a href="#" id="hist">História</a></li>
+              <li><a href="#" id="letr">Letras</a></li>
+              <li><a href="#" id="sist">Sistemas de Informação</a></li>
+              <li><a href="#" id="mat">Matemática</a></li>
+              <li><a href="#" id="med">Medicina</a></li>
+              <li><a href="#" id="pedag">Pedagogia</a></li>
+              <li><a href="#" id="psicol">Psicologia</a></li>
+              <li><a href="#" id="pubpr">Publicidade e Propaganda</a></li>
+            </ul>
+            <br>
+          </div>
           <div class="card-body tab-content style-default-bright">
             <div class="tab-pane active" id="web2">
               <div class="row">
@@ -45,29 +71,10 @@
                     <span class="text-light text-lg">Foram encontrados <strong>{{students.length}}</strong> alunos</span>
                     <div class="btn-group btn-group-sm pull-right">
                       <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-arrow-down"></span> Filtrar por curso
+                        <span class="glyphicon glyphicon-arrow-down"></span> Ordenar por
                       </button>
-                      <ul id="findBy" class="dropdown-menu dropdown-menu-right animation-dock" role="menu">
-                        <li class="active"><a href="#">Todos</a></li>
-                        <li><a href="#" id="adm">Administração</a></li>
-                        <li><a href="#" id="ciencbio">Ciências Biológicas</a></li>
-                        <li><a href="#" id="cienccont">Ciências Contábeis</a></li>
-                        <li><a href="#" id="edfisic">Educação Física</a></li>
-                        <li><a href="#" id="enferm">Enfermagem</a></li>
-                        <li><a href="#" id="engprod">Engenharia de Produção</a></li>
-                        <li><a href="#" id="farmac">Farmácia</a></li>
-                        <li><a href="#" id="fisiot">Fisioterapia</a></li>
-                        <li><a href="#" id="gastro">Gastronomia</a></li>
-                        <li><a href="#" id="gpi">Gestão da Produção Industrial</a></li>
-                        <li><a href="#" id="grh">Gestão de Recursos Humanos</a></li>
-                        <li><a href="#" id="hist">História</a></li>
-                        <li><a href="#" id="letr">Letras</a></li>
-                        <li><a href="#" id="sist">Sistemas de Informação</a></li>
-                        <li><a href="#" id="mat">Matemática</a></li>
-                        <li><a href="#" id="med">Medicina</a></li>
-                        <li><a href="#" id="pedag">Pedagogia</a></li>
-                        <li><a href="#" id="psicol">Psicologia</a></li>
-                        <li><a href="#" id="pubpr">Publicidade e Propaganda</a></li>
+                      <ul id="orderBy" class="dropdown-menu dropdown-menu-right animation-dock" role="menu">
+                        <li><a href="" id="nome">Nome</a></li>
                       </ul>
                     </div>
                   </div>
