@@ -38,3 +38,10 @@ Template.registerHelper(
     return Roles.userIsInRole(Meteor.userId(), 'student', 'user-type');
   }
 );
+
+Template.body.events({
+  'click .nav-tabs a': function(e) {
+    e.preventDefault();
+    $(e.currentTarget).tab('show'); 
+  }
+});

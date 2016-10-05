@@ -140,7 +140,7 @@ company.route('/configuracoes', {
   name: 'companysettings',
   title: "Banco de Talentos - Configurações ",
   action: function(params) {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "companyGenSettings"  });
+    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "companySettings"  });
   }
 });
 
@@ -211,7 +211,7 @@ student.route('/configuracoes', {
   name: 'studentsettings',
   title: "Banco de Talentos - Configurações",
   action: function(params) {
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "personalData" });
+    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "studentSettings" });
   }
 });
 

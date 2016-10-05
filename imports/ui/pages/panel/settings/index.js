@@ -1,13 +1,4 @@
-import {
-  Template
-} from 'meteor/templating';
-
-Template.settings.onRendered(function(){
-  $('.nav-settings-tab a').click(function (e) { 
-    e.preventDefault(); 
-    $(this).tab('show'); 
-  });
-});
+import {Template} from 'meteor/templating';
 
 Template.settings.events({
   'click #personalData': function(event) { 
@@ -32,25 +23,12 @@ Template.settings.events({
   }
 });
 
-Template.personalData.onRendered(function () {
-  //tabs
-  $('.nav-tabs a').click(function (e) { 
-    e.preventDefault(); 
-    $(this).tab('show'); 
-  });
-
+Template.studentSettings.onRendered(function () {
   //summernote 
   if (! $('#aboutme').data('summernote')) {
-      $('#aboutme').summernote({
-        height: $('#aboutme').height() + 150
-      });
+    $('#aboutme').summernote({
+      height: $('#aboutme').height() + 150
+    });
   };
 });
 
-Template.companyGenSettings.onRendered(function () {
-  //tabs
-  $('.nav-tabs a').click(function (e) { 
-    e.preventDefault(); 
-    $(this).tab('show'); 
-  });
-});
