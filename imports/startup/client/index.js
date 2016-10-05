@@ -13,7 +13,7 @@ import '/imports/ui/pages/panel/jobs/index.js';
 import '/imports/ui/pages/panel/jobs/new.js';
 import '/imports/ui/pages/panel/jobs/show.js';
 import '/imports/ui/pages/panel/students/index.js';
-import '/imports/ui/pages/panel/settings.js';
+import '/imports/ui/pages/panel/settings/index.js';
 import '/imports/ui/pages/signup/students.js';
 import '/imports/ui/pages/signup/companies.js';
 import '/imports/ui/parts/header.js';

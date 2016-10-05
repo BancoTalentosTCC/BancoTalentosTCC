@@ -31,11 +31,3 @@ Template.jobs.helpers({
     return Jobs.find({ nome: eval("/.*"+searchValue+".*/i"), categoria: eval("/.*"+findByValue+".*/i")}, {sort: sortBy} ).fetch();
   }
 });
-
-Template.jobs.onRendered(function () {
-  //tabs
-  $('.nav-tabs a').click(function (e) { 
-    e.preventDefault(); 
-    $(this).tab('show'); 
-  });
-});
