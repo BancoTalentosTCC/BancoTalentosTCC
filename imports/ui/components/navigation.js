@@ -10,6 +10,10 @@ Template.header.events({
   }
 });
 
+Template.header.onRendered(function(){
+  treatMenuHover();
+});
+
 function handleToggleMob() {
   var offcanvasVisible = $('body').hasClass('offcanvas-left-expanded');
   var menubarExpanded = $('#menubar').data('expanded');
@@ -36,4 +40,12 @@ function handleMenubarLeave() {
     }
   }
   $('#menubar').data('expanded', false);
+}
+
+function treatMenuHover() {
+  $('body.menubar-hoverable').on('mouseenter', '#menubar', function (e) {
+    setTimeout(function () {
+      handleToggleMob();
+    }, 1);
+  });
 }

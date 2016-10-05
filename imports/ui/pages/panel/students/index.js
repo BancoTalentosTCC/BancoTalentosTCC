@@ -21,3 +21,11 @@ Template.students.helpers({
     return Meteor.users.find({_id:{$ne:Meteor.userId()}, "profile.nome": eval("/.*"+searchValue+".*/i"), "profile.formacao.curso": eval("/.*"+findByValue+".*/i")}, {sort: {"profile.nome": 1}}).fetch();
   }
 });
+
+Template.students.onRendered(function () {
+  //tabs
+  $('.nav-tabs a').click(function (e) { 
+    e.preventDefault(); 
+    $(this).tab('show'); 
+  });
+});
