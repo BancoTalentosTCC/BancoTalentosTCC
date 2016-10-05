@@ -4,38 +4,27 @@
       <div class="row">
         <div class="col-md-8">
 
-          {{#if isInRole 'student' 'user-type'}}
+          {{#if isStudent}}
             <h2>Bem vindo(a), {{ user.profile.nome }}!</h2>
-          {{/if}}
-
-          {{#if isInRole 'company' 'user-type'}}
+          {{else}}
             <h2>Bem vindo(a), {{ user.profile.dados }}!</h2>
           {{/if}}
 
-          {{#unless currentUser.emails.[0].verified}}
-            <h3>Você precisa confirmar o seu endereço de email antes de utilizar esse portal!</h3>
-            <h4>Verifique seu email {{user.emails.[0].address}} ou <a href="#" class="resend-verification-link">envie o link de verificação novamente</a></h4>
-          {{else}}
           <div id="activity" class="tab-pane">
             <div class="card card-underline no-margin">
               <div class="card-head">
 
-                {{#if isInRole 'student' 'user-type'}}
+                {{#if isStudent}}
                   <header>O que está acontecendo?</header>
-                {{/if}}
-
-                {{#if isInRole 'company' 'user-type'}}
+                {{else}}
                   <header>Ultimas vagas cadastradas</header>
                 {{/if}} 
 
               </div>
               <div class="card-body">
-
-                {{#if isInRole 'student' 'user-type'}}
+                {{#if isStudent}}
                   <p>Abaixo, as últimas atividades registradas pelas empresas:</p>
-                {{/if}}
-
-                {{#if isInRole 'company' 'user-type'}}
+                {{else}}
                   <p>Abaixo, confira as últimas vagas registradas pela sua empresa:</p>
                   <div class="pull-right">
                     <a href="{{pathForNewJob}}" class="btn ink-reaction btn-floating-action btn-primary">
@@ -43,11 +32,9 @@
                     </a>
                   </div>
                 {{/if}} 
-
               </div>
             </div>
             <ul class="timeline collapse-lg timeline-hairline">
-
               {{#if jobs}}
                 {{#each jobs}}
                   <li class="timeline-inverted">
@@ -59,7 +46,7 @@
                         <div class="card-body small-padding">
                           <span class="text-medium">
                             <span class="text-primary">{{companyName}}</span> cadastrou uma 
-                              <a class="text-primary" href="{{pathForShowJob _id}}">vaga</a> para {{nome}}.
+                              <a class="text-primary" href="{{pathForJob _id}}">vaga</a> para {{nome}}.
                             </span>
                             <br>
                           <span class="opacity-50">{{formatDate createdAt}}</span>
@@ -82,10 +69,8 @@
                   </div>
                 </li>
               {{/if}}
-
             </ul>
           </div>
-          {{/unless}}
         </div>
         <!-- Profile's card -->
         <div class="col-lg-offset-1 col-lg-3 col-md-4">
@@ -103,22 +88,16 @@
                 <li class="tile">
                   <div class="tile-content">
                     <div class="tile-icon">
-
-                      {{#with currentUser}}
-                        <img src="{{avatar 40}}" alt="Perfil" />
-                      {{/with}}
-
+                      <img src="{{avatar 40}}" alt="Perfil" />
                     </div>
                     <div class="tile-text">
-
-                      {{#if isInRole 'student' 'user-type'}}
-                        <a class="ink-reaction" href="{{pathForStudentProfile}}">{{ user.profile.nome }}</a>
-                      {{/if}}
-
-                      {{#if isInRole 'company' 'user-type'}}
-                        <a class="ink-reaction" href="{{pathForCompanyProfile}}">{{ user.profile.dados }}</a>
-                      {{/if}}
-
+                      <a class="ink-reaction" href="{{pathForProfile}}">
+                        {{#if isStudent}}
+                          {{ user.profile.nome }}
+                        {{else}}
+                          {{ user.profile.dados }}
+                        {{/if}}
+                      </a>
                       <small>Lorem ipsum dolor sit amet, consectetur adipisicing</small>
                      </div>
                    </div>
@@ -129,15 +108,11 @@
           
           <div class="card card-underline">
             <div class="card-head style-primary">
-
-              {{#if isInRole 'student' 'user-type'}}
+              {{#if isStudent}}
                 <header>Vagas candidatadas</header>
-              {{/if}}
-
-              {{#if isInRole 'company' 'user-type'}}
+              {{else}}
                 <header>Vagas com candidatos</header>
               {{/if}}
-
             </div>
             <div class="card-body"></div>
           </div>

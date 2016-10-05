@@ -17,38 +17,31 @@
       <div tabindex="0">
         <div class="menubar-scroll-panel">
           <ul id="main-menu" class="gui-controls">
-            {{#if isInRole 'student' 'user-type'}}
-            <li class="{{isActivePath '/estudante'}}">
-              <a href="{{pathForStudentPanel}}">
+            <li class="
+            {{#if isStudent}}
+              {{isActiveRoute 'student'}}
+            {{else}}
+              {{isActiveRoute 'company'}}
+            {{/if}}"
+            >
+              <a href="{{pathForPanel}}">
                 <div class="gui-icon">
                   <i class="md mdi mdi-home"></i>
                 </div>
                 <span class="title">Página Inicial</span>
               </a>
             </li>
-            {{/if}}
-
-            {{#if isInRole 'company' 'user-type'}}
-            <li class="{{isActivePath '/empresa'}}">
-              <a href="{{pathForCompanyPanel}}">
-                <div class="gui-icon">
-                  <i class="md mdi mdi-home"></i>
-                </div>
-                <span class="title">Página Inicial</span>
-              </a>
-            </li>
-            {{/if}}
               
-            <li class="{{isActivePath regex='/estudante/vagas|/empresa/vagas'}}">
-              <a href="{{pathForJob}}">
+            <li class="{{isActiveRoute regex='companyjobs|studentjobs'}}">
+              <a href="{{pathForJobs}}">
                 <div class="gui-icon">
                   <i class="md mdi mdi-magnify"></i>
                 </div> <span class="title">Vagas</span>
               </a>
             </li>
 
-            {{#if isInRole 'student' 'user-type'}}
-              <li class="{{isActivePath '/estudante/empresas'}}">
+            {{#if isStudent}}
+              <li class="{{isActiveRoute 'studentCompanies'}}">
                 <a href="{{pathForCompanies}}">
                   <div class="gui-icon"> 
                     <i class="md mdi mdi-domain"></i>
@@ -56,10 +49,8 @@
                   <span class="title">Empresas</span>
                 </a>
               </li>
-            {{/if}}
-
-            {{#if isInRole 'company' 'user-type'}}
-              <li class="{{isActivePath '/empresa/alunos'}}">
+            {{else}}
+              <li class="{{isActiveRoute 'companyStudents'}}">
                 <a href="{{pathForStudents}}">
                   <div class="gui-icon"> 
                     <i class="md mdi mdi-account"></i> 
@@ -67,8 +58,8 @@
                 </a>
               </li>
             {{/if}}
-            
-            <li class="{{isActivePath regex='/estudante/configuracoes|/empresa/configuracoes'}}">
+
+            <li class="{{isActiveRoute regex='companysettings/studentsettings'}}">
               <a href="{{pathForSettings}}">
                 <div class="gui-icon"> 
                   <i class="md mdi mdi-settings"></i> 

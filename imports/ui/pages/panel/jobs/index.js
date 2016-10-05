@@ -29,16 +29,6 @@ Template.jobs.helpers({
       else if (orderByValue == "createdAt") sortBy[orderByValue] = -1;
     }
     return Jobs.find({ nome: eval("/.*"+searchValue+".*/i"), categoria: eval("/.*"+findByValue+".*/i")}, {sort: sortBy} ).fetch();
-  },
-  pathForShowJob: function(id) {
-    if(Roles.userIsInRole(Meteor.userId(), 'student', 'user-type')){
-      return FlowRouter.path("/estudante/vagas/" + id);
-    }
-    else if(Roles.userIsInRole(Meteor.userId(), 'company', 'user-type')){
-      return FlowRouter.path("/empresa/vagas/" + id);
-    }
-
-    
   }
 });
 

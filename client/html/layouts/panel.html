@@ -7,12 +7,32 @@
     <div id="base">
       {{> menubar }}
       <div id="content">
-        {{> Template.dynamic template=main}}
+        {{#unless currentUser.emails.[0].verified}}
+          {{> notVerified }}
+        {{else}}
+          {{> Template.dynamic template=main}}
+        {{/unless}}
       </div>
       {{> offcanvas }}
     </div>
   {{/if}}
-
+  
   {{> aboutUs }}
 </template>
 
+<template name="notVerified">
+  <section class="hasPaddingTop">
+    <div class="section-body no-margin">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1>
+            <span class="text-light">Você precisa confirmar o seu endereço de email antes de utilizar esse portal!</span>
+          </h1>
+          <h2 class="text-light">Verifique seu email {{user.emails.[0].address}} ou 
+            <a href="#" class="resend-verification-link">envie o link de verificação novamente</a>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

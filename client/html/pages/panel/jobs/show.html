@@ -12,13 +12,18 @@
                 </div>
                 <div class="card-body style-default-bright">
                   <div class="col-md-3 col-xs-6 col-sm-4">
-                    <img class="img-circle border-xl border-white img-responsive auto-width" src="{{avatar 120 company}}" alt="">
+                    <img class="img-circle border-xl border-white img-responsive auto-width" src="
+                    {{#if isStudent}}
+                      {{avatar 120 company}}
+                    {{else}}
+                      {{avatar 120}}
+                    {{/if}}
+                    " alt="">
                     <h3>{{job.companyName}}</h3>
                     <br>
-                    {{#if isInRole 'student' 'user-type'}}
+                    {{#if isStudent}}
                       <button class="btn btn-primary btn-send">Candidatar-se</button>
                     {{/if}}
-
                     <br>
                     <br>
                   </div>
