@@ -40,7 +40,8 @@ Template.registerHelper(
 );
 
 Template.body.events({
-  'click .nav-tabs a': function(e) {
+  // horizontal and vertical search tabs
+  'click .nav-tabs a, click .nav-tabs-vert a': function(e) {
     e.preventDefault();
     $(e.currentTarget).tab('show'); 
   }

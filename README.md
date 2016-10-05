@@ -24,20 +24,21 @@ opportunities as well as companies can search for talents.
 * [MeteorJS](https://www.meteor.com/)
 * [Material Admin by CodeCovers](http://preview.themeforest.net/item/material-admin-bootstrap-admin-html5-app/full_screen_preview/10646222?_ga=1.73827348.70667604.1475687602)
 
-![alt tag](http://bit.ly/2d3J5dH)
+![alt tag](https://s12.postimg.org/ifbbhwy8t/technologies.png)
 
 ## Screenshots:
-Desktop layout:
 
-![alt tag](https://s16.postimg.org/i5zd4obqp/Screenshot_2016_10_05_14_19_47.png)
+###Desktop layout:
+
+![alt tag](https://s16.postimg.org/l1cgbjfqp/Screenshot_from_2016_10_05_14_09_33.png)
 
 ![alt tag](https://s21.postimg.org/78uvc06f7/002.png)
 
 ![alt tag](https://s21.postimg.org/ym026rczn/003.png)
 
-Responsive layout:
+###Responsive layout:
 
-![alt tag](https://s16.postimg.org/l1cgbjfqp/Screenshot_from_2016_10_05_14_09_33.png)
+![alt tag](https://s16.postimg.org/i5zd4obqp/Screenshot_2016_10_05_14_19_47.png)
 
 ![alt tag](https://s21.postimg.org/g55nfxx1f/002_1.png)
 

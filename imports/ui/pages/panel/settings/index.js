@@ -3,7 +3,7 @@ import {Template} from 'meteor/templating';
 Template.settings.events({
   'click #personalData': function(event) { 
     event.preventDefault();
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "personalData" });
+    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "studentSettings" });
   },
   'click #education': function(event) { 
     event.preventDefault();

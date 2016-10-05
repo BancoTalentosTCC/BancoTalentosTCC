@@ -201,9 +201,9 @@ student.route('/vagas/:id', {
 
 student.route('/empresas', {
   title: "Banco de Talentos - Procurar Empresas",
-  name: 'companies',
+  name: 'studentCompanies',
   action: function(params) {
-    BlazeLayout.render('PanelLayout', { main: "companies" });
+    BlazeLayout.render('PanelLayout', { main: "studentCompanies" });
   }
 });
 
