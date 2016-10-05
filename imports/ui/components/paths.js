@@ -18,9 +18,9 @@ Template.registerHelper('pathForPanel', () => {
   return routeForUser("student", "company");
 });
 
-// Template.registerHelper('pathForCompanies', () => {
-//   return FlowRouter.path("studentCompanies");
-// });
+Template.registerHelper('pathForCompanies', () => {
+  return FlowRouter.path("studentCompanies");
+});
 
 Template.registerHelper('pathForStudents', () => {
   return FlowRouter.path("companyStudents");
