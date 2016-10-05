@@ -1,64 +1,62 @@
 <template name="showJob">
-  <section>
-    <div class="section-body">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card style-primary">
-                <div class="card-head">
-                  <header><i class="fa fa-fw fa-tag"></i>{{job.nome}}</header>
-                  <div class="tools">
-                    <a class="btn btn-flat hidden-xs" href="{{pathForJobs}}"><span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar</a>
+  <div class="section-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card style-primary">
+              <div class="card-head">
+                <header><i class="fa fa-fw fa-tag"></i>{{job.nome}}</header>
+                <div class="tools">
+                  <a class="btn btn-flat hidden-xs" href="{{pathForJobs}}"><span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar</a>
+                </div>
+              </div>
+              <div class="card-body style-default-bright">
+                <div class="col-md-3 col-xs-6 col-sm-4">
+                  <img class="img-circle border-xl border-white img-responsive auto-width" src="
+                  {{#if isStudent}}
+                    {{avatar 120 company}}
+                  {{else}}
+                    {{avatar 120}}
+                  {{/if}}
+                  " alt="">
+                  <h3>{{job.companyName}}</h3>
+                  <br>
+                  {{#if isStudent}}
+                    <button class="btn btn-primary btn-send">Candidatar-se</button>
+                  {{/if}}
+                  <br>
+                  <br>
+                </div>
+                <div class="col-md-9 col-xs-12 col-sm-8">
+                  <div class="row">
+                    <h2 class="text-primary">Descrição</h2>
+                    <p>{{{job.descricao}}}</p>
+                  </div>
+                  <div class="row">
+                    <h2 class="text-primary">Detalhes</h2>
+                    <span class="text-bold">Tipo da vaga: </span><p>{{t9n job.tipo_vaga}}</p>
+                    <span class="text-bold">Categoria: </span><p>{{t9n job.categoria}}</p>
+                    <span class="text-bold">Criada em: </span><p>{{job.created_at}}</p>
+
+                    <!-- TODO: Create a logic to display if it has special needs or not -->
+                    <!--
+                    {{#if !job.especial}}
+                      <span><i class="md mdi mdi-check"></i> Exclusiva para portadores de necessidades especiais</span>
+                    {{/if}}
+                    -->
+                  </div>
+
+                  <div class="row">
+                    <h3 class="text-primary">Tags</h3>
+                    <ul class="tags-choices">
+                    {{#each tag in job.tags}}
+                      <li class="each-tag"><span>{{tag}}</span></li>
+                    {{/each}}
+                    </ul>
                   </div>
                 </div>
-                <div class="card-body style-default-bright">
-                  <div class="col-md-3 col-xs-6 col-sm-4">
-                    <img class="img-circle border-xl border-white img-responsive auto-width" src="
-                    {{#if isStudent}}
-                      {{avatar 120 company}}
-                    {{else}}
-                      {{avatar 120}}
-                    {{/if}}
-                    " alt="">
-                    <h3>{{job.companyName}}</h3>
-                    <br>
-                    {{#if isStudent}}
-                      <button class="btn btn-primary btn-send">Candidatar-se</button>
-                    {{/if}}
-                    <br>
-                    <br>
-                  </div>
-                  <div class="col-md-9 col-xs-12 col-sm-8">
-                    <div class="row">
-                      <h2 class="text-primary">Descrição</h2>
-                      <p>{{{job.descricao}}}</p>
-                    </div>
-                    <div class="row">
-                      <h2 class="text-primary">Detalhes</h2>
-                      <span class="text-bold">Tipo da vaga: </span><p>{{t9n job.tipo_vaga}}</p>
-                      <span class="text-bold">Categoria: </span><p>{{t9n job.categoria}}</p>
-                      <span class="text-bold">Criada em: </span><p>{{job.created_at}}</p>
-
-                      <!-- TODO: Create a logic to display if it has special needs or not -->
-                      <!--
-                      {{#if !job.especial}}
-                        <span><i class="md mdi mdi-check"></i> Exclusiva para portadores de necessidades especiais</span>
-                      {{/if}}
-                      -->
-                    </div>
-
-                    <div class="row">
-                      <h3 class="text-primary">Tags</h3>
-                      <ul class="tags-choices">
-                      {{#each tag in job.tags}}
-                        <li class="each-tag"><span>{{tag}}</span></li>
-                      {{/each}}
-                      </ul>
-                    </div>
-                  </div>
-              </div>
             </div>
           </div>
-      </div>
+        </div>
     </div>
-  </section>
+  </div>
 </template>

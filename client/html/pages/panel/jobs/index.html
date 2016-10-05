@@ -1,120 +1,113 @@
 <template name="jobs">
-  <section>
-    <div class="section-header">
-      <ol class="breadcrumb">
-        <li class="active">Pesquisar vagas</li>
-      </ol>
-    </div>
-    <div class="section-body contain-lg">
-      <div class="card tabs-left style-default-light">
-        <div class="card-body style-primary no-y-padding">
-          <form class="form form-inverse">
-            <div class="form-group">
-              <div class="input-group input-group-lg">
-                <div class="input-group-content">
-                  <input type="text" class="form-control" id="searchInput" placeholder="Qual vaga deseja encontrar?">
-                  <div class="form-control-line"></div>
-                </div>
-                <div class="input-group-btn">
-                  <button class="btn btn-floating-action btn-default-bright" type="button"><i class="fa fa-search"></i></button>
-                </div>
+  <div class="section-body">
+    <div class="card tabs-left style-default-light">
+      <div class="card-body style-primary no-y-padding">
+        <form class="form form-inverse">
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+              <div class="input-group-content">
+                <input type="text" class="form-control" id="searchInput" placeholder="Qual vaga deseja encontrar?">
+                <div class="form-control-line"></div>
+              </div>
+              <div class="input-group-btn">
+                <button class="btn btn-floating-action btn-default-bright" type="button"><i class="fa fa-search"></i></button>
               </div>
             </div>
-          </form>
-        </div>
-        <div class="card-head nav nav-tabs tabs-accent">
-          <ul id="findBy" class="nav nav-pills nav-stacked nav-search" data-toggle="tabs">
-            <li><small>CATEGORIAS</small></li>
-            <li class="active"><a href="#">Todos</a></li>
-            <li><a href="#" id="admin">Administrativo</a></li>
-            <li><a href="#" id="atend">Atendimento</a></li>
-            <li><a href="#" id="comun">Comunicação</a></li>
-            <li><a href="#" id="criat">Criatividade, Arte e Cultura</a></li>
-            <li><a href="#" id="desig">Design</a></li>
-            <li><a href="#" id="edu">Educação</a></li>
-            <li><a href="#" id="eng">Engenharia</a></li>
-            <li><a href="#" id="escr-trad">Escrita e Tradução</a></li>
-            <li><a href="#" id="fot-audiov">Fotografia e Audiovisual</a></li>
-            <li><a href="#" id="facil">Facilities</a></li>
-            <li><a href="#" id="finan">Finanças</a></li>
-            <li><a href="#" id="fisc">Fiscal e Tributária</a></li>
-            <li><a href="#" id="jurid">Jurídica</a></li>
-            <li><a href="#" id="logist">Logística e Supply Chain</a></li>
-            <li><a href="#" id="market">Marketing</a></li>
-            <li><a href="#" id="pesq">Pesquisa e Desenvolvimento</a></li>
-            <li><a href="#" id="plan">Planejamento e Estratégia</a></li>
-            <li><a href="#" id="prod">Produção e Fabricação</a></li>
-            <li><a href="#" id="proj">Projetos</a></li>
-            <li><a href="#" id="qual">Qualidade</a></li>
-            <li><a href="#" id="relac">Relações Públicas</a></li>
-            <li><a href="#" id="rh">RH e Desenvolvimento</a></li>
-            <li><a href="#" id="saud">Saúde</a></li>
-            <li><a href="#" id="serv">Serviços</a></li>
-            <li><a href="#" id="supr">Suprimentos (Compras)</a></li>
-            <li><a href="#" id="sust">Sustentabilidade</a></li>
-            <li><a href="#" id="tecn">Tecnologia</a></li>
-            <li><a href="#" id="textil">Têxtil e Moda</a></li>
-            <li><a href="#" id="prod">Produtora</a></li>
-            <li><a href="#" id="vend">Vendas e Comercial</a></li>
-            <li><a href="#" id="varej">Varejo</a></li>
-            <li><a href="#" id="outra">Outra Categoria</a></li>
-          </ul>
-          <br>
-        </div>
-        <div class="card-body tab-content style-default-bright">
-          <div class="tab-pane active" id="web1">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="margin-bottom-xxl">
-                  <span class="text-light text-lg">
-                    Foram encontradas 
-                    <strong>{{jobs.length}}</strong>
-                    vagas
-                  </span>
-                  <div class="btn-group btn-group-sm pull-right">
-                    <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown">
-                      <span class="glyphicon glyphicon-arrow-down"></span> Ordenar por
-                    </button>
-                    <ul id="orderBy" class="dropdown-menu dropdown-menu-right animation-dock" role="menu">
-                      <li class="active">
-                        <a href="" id="createdAt">Data</a>
-                      </li>
-                      <li>
-                        <a href="" id="nome">Nome</a>
-                      </li>
-                    </ul>
-                  </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-head nav nav-tabs tabs-accent">
+        <ul id="findBy" class="nav nav-pills nav-stacked nav-search" data-toggle="tabs">
+          <li><small>CATEGORIAS</small></li>
+          <li class="active"><a href="#">Todos</a></li>
+          <li><a href="#" id="admin">Administrativo</a></li>
+          <li><a href="#" id="atend">Atendimento</a></li>
+          <li><a href="#" id="comun">Comunicação</a></li>
+          <li><a href="#" id="criat">Criatividade, Arte e Cultura</a></li>
+          <li><a href="#" id="desig">Design</a></li>
+          <li><a href="#" id="edu">Educação</a></li>
+          <li><a href="#" id="eng">Engenharia</a></li>
+          <li><a href="#" id="escr-trad">Escrita e Tradução</a></li>
+          <li><a href="#" id="fot-audiov">Fotografia e Audiovisual</a></li>
+          <li><a href="#" id="facil">Facilities</a></li>
+          <li><a href="#" id="finan">Finanças</a></li>
+          <li><a href="#" id="fisc">Fiscal e Tributária</a></li>
+          <li><a href="#" id="jurid">Jurídica</a></li>
+          <li><a href="#" id="logist">Logística e Supply Chain</a></li>
+          <li><a href="#" id="market">Marketing</a></li>
+          <li><a href="#" id="pesq">Pesquisa e Desenvolvimento</a></li>
+          <li><a href="#" id="plan">Planejamento e Estratégia</a></li>
+          <li><a href="#" id="prod">Produção e Fabricação</a></li>
+          <li><a href="#" id="proj">Projetos</a></li>
+          <li><a href="#" id="qual">Qualidade</a></li>
+          <li><a href="#" id="relac">Relações Públicas</a></li>
+          <li><a href="#" id="rh">RH e Desenvolvimento</a></li>
+          <li><a href="#" id="saud">Saúde</a></li>
+          <li><a href="#" id="serv">Serviços</a></li>
+          <li><a href="#" id="supr">Suprimentos (Compras)</a></li>
+          <li><a href="#" id="sust">Sustentabilidade</a></li>
+          <li><a href="#" id="tecn">Tecnologia</a></li>
+          <li><a href="#" id="textil">Têxtil e Moda</a></li>
+          <li><a href="#" id="prod">Produtora</a></li>
+          <li><a href="#" id="vend">Vendas e Comercial</a></li>
+          <li><a href="#" id="varej">Varejo</a></li>
+          <li><a href="#" id="outra">Outra Categoria</a></li>
+        </ul>
+        <br>
+      </div>
+      <div class="card-body tab-content style-default-bright">
+        <div class="tab-pane active" id="web1">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="margin-bottom-xxl">
+                <span class="text-light text-lg">
+                  Foram encontradas 
+                  <strong>{{jobs.length}}</strong>
+                  vagas
+                </span>
+                <div class="btn-group btn-group-sm pull-right">
+                  <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-arrow-down"></span> Ordenar por
+                  </button>
+                  <ul id="orderBy" class="dropdown-menu dropdown-menu-right animation-dock" role="menu">
+                    <li class="active">
+                      <a href="" id="createdAt">Data</a>
+                    </li>
+                    <li>
+                      <a href="" id="nome">Nome</a>
+                    </li>
+                  </ul>
                 </div>
-                <div class="list-results list-results-underlined">
-                  {{#if jobs}}
-                    {{#each jobs}}
-                      <div class="col-xs-12">
-                        <img class="pull-left width-2 img-circle" src="{{avatar 120 company}}" alt="" />
-                        <p>
-                          <a class="text-medium text-lg text-primary" href="{{pathForJob _id}}">{{nome}}</a>
-                          <br/>
-                          <strong>{{companyName}}</strong>
-                        </p>
-                        <div class="row">
-                          <ul class="tags-choices">
-                          {{#each tag in tags}}
-                            <li class="each-tag"><span>{{tag}}</span></li>
-                          {{/each}}
-                          </ul>
-                        </div>   
-                      </div>
-                    {{/each}}
-                  {{else}}
+              </div>
+              <div class="list-results list-results-underlined">
+                {{#if jobs}}
+                  {{#each jobs}}
                     <div class="col-xs-12">
-                      <p>Ops... Parece que não encontramos o que está procurando :(</p>
+                      <img class="pull-left width-2 img-circle" src="{{avatar 120 company}}" alt="" />
+                      <p>
+                        <a class="text-medium text-lg text-primary" href="{{pathForJob _id}}">{{nome}}</a>
+                        <br/>
+                        <strong>{{companyName}}</strong>
+                      </p>
+                      <div class="row">
+                        <ul class="tags-choices">
+                        {{#each tag in tags}}
+                          <li class="each-tag"><span>{{tag}}</span></li>
+                        {{/each}}
+                        </ul>
+                      </div>   
                     </div>
-                  {{/if}}
-                </div>
+                  {{/each}}
+                {{else}}
+                  <div class="col-xs-12">
+                    <p>Ops... Parece que não encontramos o que está procurando :(</p>
+                  </div>
+                {{/if}}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>

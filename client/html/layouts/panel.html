@@ -10,7 +10,10 @@
         {{#unless currentUser.emails.[0].verified}}
           {{> notVerified }}
         {{else}}
-          {{> Template.dynamic template=main}}
+          <section>
+            {{> breadcrumb }}
+            {{> Template.dynamic template=main}}
+          </section>
         {{/unless}}
       </div>
       {{> offcanvas }}
