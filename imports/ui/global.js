@@ -26,3 +26,15 @@ Template.registerHelper(
     return dateFormated ;
   }
 );
+
+Template.registerHelper(
+  'isCompany', () => {
+    return Roles.userIsInRole(Meteor.userId(), 'company', 'user-type');
+  }
+);
+
+Template.registerHelper(
+  'isStudent', () => {
+    return Roles.userIsInRole(Meteor.userId(), 'student', 'user-type');
+  }
+);

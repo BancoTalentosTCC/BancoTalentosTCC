@@ -13,9 +13,6 @@
           <a class="btn btn-icon-toggle menubar-toggle" href="#" data-toggle="menubar">
             <i class="fa fa-bars"></i>
           </a>
-          <!--button class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar">
-            <i class="fa fa-bars"></i>
-          </button-->
         </li>
       </ul>
     </div>
@@ -24,52 +21,31 @@
         <ul class="header-nav header-nav-profile">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
-
-              {{#with currentUser}}
-                <img src="{{avatar 140}}" alt="Perfil" />
-              {{/with}}
-              
+              <img src="{{avatar 140}}" alt="Perfil" />
               <span class="profile-info">
                 {{ user.profile.nome }}
-
-                {{#if isInRole 'student' 'user-type'}}
-                  <small>{{ t9n user.profile.formacao.curso }}</small>
-                {{/if}}
-
-                {{#if isInRole 'company' 'user-type'}}
-                  <small>{{ user.profile.razaosoc }}</small>
-                {{/if}}
-
+                <small>
+                  {{#if isStudent}}
+                    {{ t9n user.profile.formacao.curso }}
+                  {{else}}
+                    {{ user.profile.razaosoc }}
+                  {{/if}}
+                </small>
               </span>
             </a>
-
-            {{#if isInRole 'student' 'user-type'}}
-              <ul class="dropdown-menu animation-dock">
-                <li>
-                  <a href="{{pathForStudentPanel}}">Meu painel</a>
-                </li>
-                <li>
-                  <a href="{{pathForStudentProfile}}"> Meu perfil</a>
-                </li>
-                <li>
-                  <a id="logout" href=""><i class="fa fa-fw fa-power-off text-danger"></i> Sair </a>
-                </li>
-              </ul>
-            {{/if}}
-
-            {{#if isInRole 'company' 'user-type'}}
-              <ul class="dropdown-menu animation-dock">
-                <li>
-                  <a href="{{pathForCompanyPanel}}">Meu painel</a>
-                </li>
-                <li>
-                  <a href="{{pathForCompanyProfile}}"> Meu perfil</a>
-                </li>
-                <li>
-                  <a id="logout" href=""><i class="fa fa-fw fa-power-off text-danger"></i> Sair </a>
-                </li>
-              </ul>
-            {{/if}}
+            <ul class="dropdown-menu animation-dock">
+              <li>
+                <a href="{{pathForPanel}}">Meu painel</a>
+              </li>
+              <li>
+                <a href="{{pathForProfile}}"> Meu perfil</a>
+              </li>
+              <li>
+                <a id="logout" href="">
+                  <i class="fa fa-fw fa-power-off text-danger"></i> Sair
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>

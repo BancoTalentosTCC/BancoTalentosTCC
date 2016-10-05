@@ -1,26 +1,20 @@
 <template name="profile">
   <section class="full-bleed">
     <div class="section-body style-default-dark force-padding text-shadow">
-      {{#if isInRole 'student' 'user-type'}}
+      {{#if isStudent}}
         <div class="img-backdrop" style="background-image: url('/img/student-profile-bg.jpg')"></div>
-      {{/if}}
-
-      {{#if isInRole 'company' 'user-type'}}
+      {{else}}
         <div class="img-backdrop" style="background-image: url('/img/company-profile-bg.jpg')"></div>
       {{/if}}
       <div class="overlay overlay-shade-top stick-top-left height-3"></div>
       <div class="row">
         <div class="col-md-3 col-xs-5">
-          {{#with currentUser}}
-            <img class="img-circle border-white border-xl img-responsive auto-width" src="{{avatar 146}}" alt="Avatar" /> 
-          {{/with}}
+          <img class="img-circle border-white border-xl img-responsive auto-width" src="{{avatar 146}}" alt="Avatar" /> 
           <h3>
-            {{#if isInRole 'student' 'user-type'}}
+            {{#if isStudent}}
               {{ user.profile.nome }}<br/>
               <small>{{ user.profile.perfil }} na Universidade do Vale do Sapucaí</small>
-            {{/if}}
-
-            {{#if isInRole 'company' 'user-type'}}
+            {{else}}
               {{user.profile.dados}}<br/>
               <small>Responsável pela {{ user.profile.nome }}</small>
             {{/if}}
@@ -43,108 +37,103 @@
   <section>
     <div class="section-body no-margin">
       <div class="col-md-12">
-        {{#if isInRole 'student' 'user-type'}}
-        <div class="tab-pane" id="details">
-          <h3 class="opacity-50">Sobre mim</h3>
-          <article class="text-columns-2">
-            <h5 class="text-primary">A young professional</h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <h5 class="text-primary">Wanted by</h5>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula.</p>
-            <h5 class="text-primary">And finally</h5>
-            <p> Donec lobortis risus a elit. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p>
-          </article>
-          <br/>
-
-          {{#if isInRole 'student' 'user-type'}}
-          <h3 class="opacity-50">Experience</h3>
-          <ul class="timeline collapse-lg timeline-hairline no-shadow">
-            <li class="timeline-inverted">
-              <div class="timeline-circ style-accent"></div>
-              <div class="timeline-entry">
-                <div class="card style-default-bright">
-                  <div class="card-body small-padding">
-                    <small class="text-uppercase text-primary pull-right">January, 2014 - Present</small>
-                    <p>
-                      <span class="text-lg text-medium">Manager director</span><br/>
-                      <span class="text-lg text-light">Web Design Studios</span>
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula, magna et bibendum malesuada, purus augue suscipit dolor, vitae fringilla dui nibh non lectus. Curabitur in pellentesque tortor. Nunc posuere vestibulum augue, quis posuere orci blandit vitae. Suspendisse dignissim elit dui, ac dictum felis interdum nec.
-                    </p>
+        {{#if isStudent}}
+          <div class="tab-pane" id="details">
+            <h3 class="opacity-50">Sobre mim</h3>
+            <article class="text-columns-2">
+              <h5 class="text-primary">A young professional</h5>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <h5 class="text-primary">Wanted by</h5>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula.</p>
+              <h5 class="text-primary">And finally</h5>
+              <p> Donec lobortis risus a elit. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p>
+            </article>
+            <br/>
+            <h3 class="opacity-50">Experience</h3>
+            <ul class="timeline collapse-lg timeline-hairline no-shadow">
+              <li class="timeline-inverted">
+                <div class="timeline-circ style-accent"></div>
+                <div class="timeline-entry">
+                  <div class="card style-default-bright">
+                    <div class="card-body small-padding">
+                      <small class="text-uppercase text-primary pull-right">January, 2014 - Present</small>
+                      <p>
+                        <span class="text-lg text-medium">Manager director</span><br/>
+                        <span class="text-lg text-light">Web Design Studios</span>
+                      </p>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula, magna et bibendum malesuada, purus augue suscipit dolor, vitae fringilla dui nibh non lectus. Curabitur in pellentesque tortor. Nunc posuere vestibulum augue, quis posuere orci blandit vitae. Suspendisse dignissim elit dui, ac dictum felis interdum nec.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-circ style-accent"></div>
-              <div class="timeline-entry">
-                <div class="card style-default-bright">
-                  <div class="card-body small-padding">
-                    <small class="text-uppercase text-primary pull-right">Juli, 2008 - January, 2014</small>
-                    <p>
-                      <span class="text-lg text-medium">Commercial manager</span><br/>
-                      <span class="text-lg text-light">Creation Inc.</span>
-                    </p>
-                    <p>
-                      Nunc vehicula, magna et bibendum malesuada, purus augue suscipit dolor, vitae fringilla dui nibh non lectus. Curabitur in pellentesque tortor. Nunc posuere vestibulum augue, quis posuere orci blandit vitae. Suspendisse dignissim elit dui, ac dictum felis interdum nec.
-                    </p>
+              </li>
+              <li>
+                <div class="timeline-circ style-accent"></div>
+                <div class="timeline-entry">
+                  <div class="card style-default-bright">
+                    <div class="card-body small-padding">
+                      <small class="text-uppercase text-primary pull-right">Juli, 2008 - January, 2014</small>
+                      <p>
+                        <span class="text-lg text-medium">Commercial manager</span><br/>
+                        <span class="text-lg text-light">Creation Inc.</span>
+                      </p>
+                      <p>
+                        Nunc vehicula, magna et bibendum malesuada, purus augue suscipit dolor, vitae fringilla dui nibh non lectus. Curabitur in pellentesque tortor. Nunc posuere vestibulum augue, quis posuere orci blandit vitae. Suspendisse dignissim elit dui, ac dictum felis interdum nec.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-circ style-accent"></div>
-              <div class="timeline-entry">
-                <div class="card style-default-bright">
-                  <div class="card-body small-padding">
-                    <small class="text-uppercase text-primary pull-right">March, 2002 - Juli, 2008</small>
-                    <p>
-                      <span class="text-lg text-medium">Commercial assistant</span><br/>
-                      <span class="text-lg text-light">Designers Corp.</span>
-                    </p>
-                    <p>
-                      Suspendisse dignissim elit dui, ac dictum felis interdum nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula, magna et bibendum malesuada, purus augue suscipit dolor, vitae fringilla dui nibh non lectus. Curabitur in pellentesque tortor. Nunc posuere vestibulum augue, quis posuere orci blandit vitae.
-                    </p>
+              </li>
+              <li>
+                <div class="timeline-circ style-accent"></div>
+                <div class="timeline-entry">
+                  <div class="card style-default-bright">
+                    <div class="card-body small-padding">
+                      <small class="text-uppercase text-primary pull-right">March, 2002 - Juli, 2008</small>
+                      <p>
+                        <span class="text-lg text-medium">Commercial assistant</span><br/>
+                        <span class="text-lg text-light">Designers Corp.</span>
+                      </p>
+                      <p>
+                        Suspendisse dignissim elit dui, ac dictum felis interdum nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula, magna et bibendum malesuada, purus augue suscipit dolor, vitae fringilla dui nibh non lectus. Curabitur in pellentesque tortor. Nunc posuere vestibulum augue, quis posuere orci blandit vitae.
+                      </p>
+                    </div>
                   </div>
                 </div>
+              </li>
+            </ul>
+            <br/>
+            <!-- TODO: Put tags here -->
+            <!--
+            <h3 class="opacity-50">Skills</h3>
+            <div class="row">
+              <div class="col-md-12 col-lg-8">
+                <dl>
+                  <dt>Communication</dt>
+                  <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 95%"></div></div></dd>
+                  <dt>Problem solving</dt>
+                  <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 85%"></div></div></dd>
+                  <dt>Team Player</dt>
+                  <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 69%"></div></div></dd>
+                  <dt>Planning and organizing</dt>
+                  <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 60%"></div></div></dd>
+                  <dt>Systems knowledge</dt>
+                  <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 55%"></div></div></dd>
+                </dl>
               </div>
-            </li>
-          </ul>
-          {{/if}}
-          <br/>
-          <!-- TODO: Put tags here -->
-          <!--
-          <h3 class="opacity-50">Skills</h3>
-          <div class="row">
-            <div class="col-md-12 col-lg-8">
-              <dl>
-                <dt>Communication</dt>
-                <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 95%"></div></div></dd>
-                <dt>Problem solving</dt>
-                <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 85%"></div></div></dd>
-                <dt>Team Player</dt>
-                <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 69%"></div></div></dd>
-                <dt>Planning and organizing</dt>
-                <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 60%"></div></div></dd>
-                <dt>Systems knowledge</dt>
-                <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 55%"></div></div></dd>
-              </dl>
-            </div>
-          </div> -->
-          <br/>
-        </div>
+            </div> -->
+            <br/>
+          </div>
+        {{else}}
+          <div>
+            <h1>Still in progress... wait</h1>
+          </div>
         {{/if}}
       </div>
-      
-      {{#if isInRole 'company' 'user-type'}}
-      <div>
-        <h1>Still in progress... wait</h1>
-      </div>
-      {{/if}}
     </div>
   </section>
 </template>
