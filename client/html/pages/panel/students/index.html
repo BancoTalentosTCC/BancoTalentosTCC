@@ -1,124 +1,117 @@
 <template name="students">
-    <section>
-      <div class="section-header">
-        <ol class="breadcrumb">
-          <li class="active">Pesquisar alunos</li>
-        </ol>
+  <div class="section-body">
+    <div class="card tabs-left style-default-light">
+
+      <!-- BEGIN SEARCH BAR -->
+      <div class="card-body style-primary no-y-padding">
+        <form class="form form-inverse">
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+              <div class="input-group-content">
+                <input if="searchInput" type="text" class="form-control" id="searchInput" placeholder="Digite uma palavra chave">
+                <div class="form-control-line"></div>
+              </div>
+              <div class="input-group-btn">
+                <button class="btn btn-floating-action btn-default-bright" type="button"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="section-body contain-lg">
-        <div class="card tabs-left style-default-light">
 
-          <!-- BEGIN SEARCH BAR -->
-          <div class="card-body style-primary no-y-padding">
-            <form class="form form-inverse">
-              <div class="form-group">
-                <div class="input-group input-group-lg">
-                  <div class="input-group-content">
-                    <input if="searchInput" type="text" class="form-control" id="searchInput" placeholder="Digite uma palavra chave">
-                    <div class="form-control-line"></div>
-                  </div>
-                  <div class="input-group-btn">
-                    <button class="btn btn-floating-action btn-default-bright" type="button"><i class="fa fa-search"></i></button>
-                  </div>
+      <!-- BEGIN TAB RESULTS -->
+      <!--ul class="card-head nav nav-tabs tabs-accent" data-toggle="tabs">
+        <li class="active"><a href="#web2">Web</a></li>
+        <li><a href="#web2">Images</a></li>
+        <li><a href="#web2">Documents</a></li>
+        <li><a href="#web2">Videos</a></li>
+        <li><a href="#web2">Contacts</a></li>
+      </ul-->
+
+      <!-- BEGIN TAB CONTENT -->
+      <div class="card-head nav nav-tabs tabs-accent">
+        <ul id="findBy" class="nav nav-pills nav-stacked nav-search" data-toggle="tabs">
+          <li><small>FILTRAR POR CURSO</small></li>
+          <li class="active"><a href="#">Todos</a></li>
+          <li><a href="#" id="adm">Administração</a></li>
+          <li><a href="#" id="ciencbio">Ciências Biológicas</a></li>
+          <li><a href="#" id="cienccont">Ciências Contábeis</a></li>
+          <li><a href="#" id="edfisic">Educação Física</a></li>
+          <li><a href="#" id="enferm">Enfermagem</a></li>
+          <li><a href="#" id="engprod">Engenharia de Produção</a></li>
+          <li><a href="#" id="farmac">Farmácia</a></li>
+          <li><a href="#" id="fisiot">Fisioterapia</a></li>
+          <li><a href="#" id="gastro">Gastronomia</a></li>
+          <li><a href="#" id="gpi">Gestão da Produção Industrial</a></li>
+          <li><a href="#" id="grh">Gestão de Recursos Humanos</a></li>
+          <li><a href="#" id="hist">História</a></li>
+          <li><a href="#" id="letr">Letras</a></li>
+          <li><a href="#" id="sist">Sistemas de Informação</a></li>
+          <li><a href="#" id="mat">Matemática</a></li>
+          <li><a href="#" id="med">Medicina</a></li>
+          <li><a href="#" id="pedag">Pedagogia</a></li>
+          <li><a href="#" id="psicol">Psicologia</a></li>
+          <li><a href="#" id="pubpr">Publicidade e Propaganda</a></li>
+        </ul>
+        <br>
+      </div>
+      <div class="card-body tab-content style-default-bright">
+        <div class="tab-pane active" id="web2">
+          <div class="row">
+            <div class="col-lg-12">
+
+              <!-- BEGIN PAGE HEADER -->
+              <div class="margin-bottom-xxl">
+                <span class="text-light text-lg">Foram encontrados 
+                  <strong>{{students.length}}</strong> alunos
+                </span>
+                <div class="btn-group btn-group-sm pull-right">
+                  <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-arrow-down"></span> Ordenar por
+                  </button>
+                  <ul id="orderBy" class="dropdown-menu dropdown-menu-right animation-dock" role="menu">
+                    <li><a href="" id="nome">Nome</a></li>
+                  </ul>
                 </div>
               </div>
-            </form>
-          </div>
 
-          <!-- BEGIN TAB RESULTS -->
-          <!--ul class="card-head nav nav-tabs tabs-accent" data-toggle="tabs">
-            <li class="active"><a href="#web2">Web</a></li>
-            <li><a href="#web2">Images</a></li>
-            <li><a href="#web2">Documents</a></li>
-            <li><a href="#web2">Videos</a></li>
-            <li><a href="#web2">Contacts</a></li>
-          </ul-->
-
-          <!-- BEGIN TAB CONTENT -->
-          <div class="card-head nav nav-tabs tabs-accent">
-            <ul id="findBy" class="nav nav-pills nav-stacked nav-search" data-toggle="tabs">
-              <li><small>FILTRAR POR CURSO</small></li>
-              <li class="active"><a href="#">Todos</a></li>
-              <li><a href="#" id="adm">Administração</a></li>
-              <li><a href="#" id="ciencbio">Ciências Biológicas</a></li>
-              <li><a href="#" id="cienccont">Ciências Contábeis</a></li>
-              <li><a href="#" id="edfisic">Educação Física</a></li>
-              <li><a href="#" id="enferm">Enfermagem</a></li>
-              <li><a href="#" id="engprod">Engenharia de Produção</a></li>
-              <li><a href="#" id="farmac">Farmácia</a></li>
-              <li><a href="#" id="fisiot">Fisioterapia</a></li>
-              <li><a href="#" id="gastro">Gastronomia</a></li>
-              <li><a href="#" id="gpi">Gestão da Produção Industrial</a></li>
-              <li><a href="#" id="grh">Gestão de Recursos Humanos</a></li>
-              <li><a href="#" id="hist">História</a></li>
-              <li><a href="#" id="letr">Letras</a></li>
-              <li><a href="#" id="sist">Sistemas de Informação</a></li>
-              <li><a href="#" id="mat">Matemática</a></li>
-              <li><a href="#" id="med">Medicina</a></li>
-              <li><a href="#" id="pedag">Pedagogia</a></li>
-              <li><a href="#" id="psicol">Psicologia</a></li>
-              <li><a href="#" id="pubpr">Publicidade e Propaganda</a></li>
-            </ul>
-            <br>
-          </div>
-          <div class="card-body tab-content style-default-bright">
-            <div class="tab-pane active" id="web2">
-              <div class="row">
-                <div class="col-lg-12">
-
-                  <!-- BEGIN PAGE HEADER -->
-                  <div class="margin-bottom-xxl">
-                    <span class="text-light text-lg">Foram encontrados 
-                      <strong>{{students.length}}</strong> alunos
-                    </span>
-                    <div class="btn-group btn-group-sm pull-right">
-                      <button type="button" class="btn btn-default-light dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-arrow-down"></span> Ordenar por
-                      </button>
-                      <ul id="orderBy" class="dropdown-menu dropdown-menu-right animation-dock" role="menu">
-                        <li><a href="" id="nome">Nome</a></li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <!-- BEGIN RESULT LIST -->
-                  <div class="list-results list-results-underlined">
-                    {{#if students}}
-                      {{#each student in students}}
-                        <div class="col-xs-12">
-                          <img class="pull-left width-2 img-circle" src="{{avatar 120 student}}" alt="" />
-                          <p>
-                            <a class="text-medium text-lg text-primary" href="#">{{student.profile.nome}}</a><br/>
-                            <span>{{t9n student.profile.formacao.curso}}</span>
-                          </p>
-                          <div class="contain-xs pull-left">
-                            Search results where only texts will be shown. You can decide for yourself how much text you want to display in this field.
-                          </div>
-                        </div>
-                      {{/each}}
-                    {{else}}
-                      <div class="col-xs-12">
-                        <p class="text-medium text-lg">Ops... Parece que não encontramos o que está procurando :(</p>
+              <!-- BEGIN RESULT LIST -->
+              <div class="list-results list-results-underlined">
+                {{#if students}}
+                  {{#each student in students}}
+                    <div class="col-xs-12">
+                      <img class="pull-left width-2 img-circle" src="{{avatar 120 student}}" alt="" />
+                      <p>
+                        <a class="text-medium text-lg text-primary" href="#">{{student.profile.nome}}</a><br/>
+                        <span>{{t9n student.profile.formacao.curso}}</span>
+                      </p>
+                      <div class="contain-xs pull-left">
+                        Search results where only texts will be shown. You can decide for yourself how much text you want to display in this field.
                       </div>
-                    {{/if}}
-                  </div>
-
-                  <!-- BEGIN PAGING -->
-                  <!--ul class="pagination">
-                    <li class="disabled"><a href="#">«</a></li>
-                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
-                  </ul-->
-
-                </div>
+                    </div>
+                  {{/each}}
+                {{else}}
+                    <div class="col-xs-12">
+                      <p class="text-medium text-lg">Ops... Parece que não encontramos o que está procurando :(</p>
+                    </div>
+                {{/if}}
               </div>
+
+              <!-- BEGIN PAGING -->
+              <!--ul class="pagination">
+                <li class="disabled"><a href="#">«</a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">»</a></li>
+              </ul-->
+
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
 </template>

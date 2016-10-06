@@ -1,0 +1,17 @@
+<template name="breadcrumb">
+  {{#if breadcrumb}}
+    <div class="section-header">
+      <ol class="breadcrumb">
+        {{#each breadcrumb}}
+          <li class="{{status}}">
+            {{#if path}}
+              <a href="{{path}}">{{title}}</a>
+            {{else}}
+              {{title}}
+            {{/if}}
+          </li>
+        {{/each}}
+      </ol>
+    </div>
+  {{/if}}
+</template>

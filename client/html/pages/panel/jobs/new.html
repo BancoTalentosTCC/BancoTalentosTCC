@@ -1,114 +1,112 @@
 <template name="newJob">
-  <section class="hasPaddingTop">
-    <div class="section-body no-margin">
-      <form class="form">
-        <div class="card">
-          <div class="card-head style-primary">
-            <header>Incluir uma vaga</header>
-            <div class="tools">
-              <a class="btn btn-flat hidden-xs" href="{{pathForJobs}}"><span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar</a>
+  <div class="section-body">
+    <form class="form">
+      <div class="card">
+        <div class="card-head style-primary">
+          <header>Incluir uma vaga</header>
+          <div class="tools">
+            <a class="btn btn-flat hidden-xs" href="{{pathForJobs}}"><span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="required">
+                  <select class="form-control required" id="categoria" name="categoria" required>                     
+                    <option value="admin">Administrativo</option>
+                    <option value="atend">Atendimento</option>
+                    <option value="comun">Comunicação</option>
+                    <option value="criat">Criatividade, Arte e Cultura</option>
+                    <option value="desig">Design</option>
+                    <option value="edu">Educação</option>
+                    <option value="eng">Engenharia</option>
+                    <option value="escr-trad">Escrita e Tradução</option>
+                    <option value="facil">Facilities</option>
+                    <option value="finan">Finanças</option>
+                    <option value="fisc">Fiscal e Tributária</option>
+                    <option value="fot-audiov">Fotografia e Audiovisual</option>
+                    <option value="jurid">Jurídica</option>
+                    <option value="logist">Logística e Supply Chain</option>
+                    <option value="market">Marketing</option>
+                    <option value="pesq">Pesquisa e Desenvolvimento</option>
+                    <option value="plan">Planejamento e Estratégia</option>
+                    <option value="prod">Produção e Fabricação</option>
+                    <option value="proj">Projetos</option>
+                    <option value="qual">Qualidade</option>
+                    <option value="relac">Relações Públicas</option>
+                    <option value="rh">RH e Desenvolvimento</option>
+                    <option value="saud">Saúde</option>
+                    <option value="serv">Serviços</option>
+                    <option value="supr">Suprimentos (Compras)</option>
+                    <option value="sust">Sustentabilidade</option>
+                    <option value="tecn">Tecnologia</option>
+                    <option value="textil">Têxtil e Moda</option>
+                    <option value="prod">Produtora</option>
+                    <option value="vend">Vendas e Comercial</option>
+                    <option value="varej">Varejo</option>
+                    <option value="outra">Outra Categoria</option>
+                  </select>
+                  <label for="categoria" class="control-label">Escolha uma categoria</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="required">
+                  <select class="form-control required" id="tipo_vaga" name="tipo-vaga" required>
+                    <option value="estagio">Estágio</option>
+                    <option value="trainee">Trainee</option>
+                    <option value="junior">Junior</option>
+                    <option value="pleno">Pleno</option>
+                    <option value="senior">Sênior</option>
+                    <option value="freelancer">Freelancer</option>
+                  </select>
+                  <label for="tipo_vaga" class="control-label">Tipo de vaga ofertada</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="required">
+                  <input type="text" class="form-control required" id="nome" name="nome" data-rule-minlength="2" required>
+                  <label for="nome" class="control-label">Nome para a vaga</label>
+                </div>
+              </div>
+              
+              <br>
+              <div class="form-group">
+                <select class="form-control" id="tags" name="tags" multiple="multiple">
+                  {{#each skills.skills}}
+                    <option value={{this.value}}>{{this.value}}</option>
+                  {{/each}} 
+                </select>
+                <label for="tags" class="control-label">Quais habilidades são desejadas?</label>
+              </div>
+              <small>Dica: escolha habilidades ou áreas que são relacionadas com esta vaga</small>
+            </div>
+            <div class="col-sm-8">
+              <div class="form-group">
+                <textarea id="descricao" name="descricao" class="form-control control-3-rows" spellcheck="false"></textarea>
+              </div>
             </div>
           </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group">
-                  <div class="required">
-                    <select class="form-control required" id="categoria" name="categoria" required>                     
-                      <option value="admin">Administrativo</option>
-                      <option value="atend">Atendimento</option>
-                      <option value="comun">Comunicação</option>
-                      <option value="criat">Criatividade, Arte e Cultura</option>
-                      <option value="desig">Design</option>
-                      <option value="edu">Educação</option>
-                      <option value="eng">Engenharia</option>
-                      <option value="escr-trad">Escrita e Tradução</option>
-                      <option value="facil">Facilities</option>
-                      <option value="finan">Finanças</option>
-                      <option value="fisc">Fiscal e Tributária</option>
-                      <option value="fot-audiov">Fotografia e Audiovisual</option>
-                      <option value="jurid">Jurídica</option>
-                      <option value="logist">Logística e Supply Chain</option>
-                      <option value="market">Marketing</option>
-                      <option value="pesq">Pesquisa e Desenvolvimento</option>
-                      <option value="plan">Planejamento e Estratégia</option>
-                      <option value="prod">Produção e Fabricação</option>
-                      <option value="proj">Projetos</option>
-                      <option value="qual">Qualidade</option>
-                      <option value="relac">Relações Públicas</option>
-                      <option value="rh">RH e Desenvolvimento</option>
-                      <option value="saud">Saúde</option>
-                      <option value="serv">Serviços</option>
-                      <option value="supr">Suprimentos (Compras)</option>
-                      <option value="sust">Sustentabilidade</option>
-                      <option value="tecn">Tecnologia</option>
-                      <option value="textil">Têxtil e Moda</option>
-                      <option value="prod">Produtora</option>
-                      <option value="vend">Vendas e Comercial</option>
-                      <option value="varej">Varejo</option>
-                      <option value="outra">Outra Categoria</option>
-                    </select>
-                    <label for="categoria" class="control-label">Escolha uma categoria</label>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <div class="required">
-                    <select class="form-control required" id="tipo_vaga" name="tipo-vaga" required>
-                      <option value="estagio">Estágio</option>
-                      <option value="trainee">Trainee</option>
-                      <option value="junior">Junior</option>
-                      <option value="pleno">Pleno</option>
-                      <option value="senior">Sênior</option>
-                      <option value="freelancer">Freelancer</option>
-                    </select>
-                    <label for="tipo_vaga" class="control-label">Tipo de vaga ofertada</label>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <div class="required">
-                    <input type="text" class="form-control required" id="nome" name="nome" data-rule-minlength="2" required>
-                    <label for="nome" class="control-label">Nome para a vaga</label>
-                  </div>
-                </div>
-                
-                <br>
-                <div class="form-group">
-                  <select class="form-control" id="tags" name="tags" multiple="multiple">
-                    {{#each skills.skills}}
-                      <option value={{this.value}}>{{this.value}}</option>
-                    {{/each}} 
-                  </select>
-                  <label for="tags" class="control-label">Quais habilidades são desejadas?</label>
-                </div>
-                <small>Dica: escolha habilidades ou áreas que são relacionadas com esta vaga</small>
-              </div>
-              <div class="col-sm-8">
-                <div class="form-group">
-                  <textarea id="descricao" name="descricao" class="form-control control-3-rows" spellcheck="false"></textarea>
-                </div>
-              </div>
+          
+          <div class="row">
+            <br>
+            <div class="checkbox checkbox-styled col-sm-6">
+              <label>
+                <input type="checkbox" id="especial" name="especial">
+                <span>Vaga preferencial para Portador de Necessidades Especiais</span>
+              </label>
             </div>
-            
-            <div class="row">
-              <br>
-              <div class="checkbox checkbox-styled col-sm-6">
-                <label>
-                  <input type="checkbox" id="especial" name="especial">
-                  <span>Vaga preferencial para Portador de Necessidades Especiais</span>
-                </label>
-              </div>
-              <div class="col-sm-offset-6"></div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-10 col-sm-2">
-                <button type="submit" class="btn btn-primary btn-send">Confirmar</button>
-              </div>
+            <div class="col-sm-offset-6"></div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-10 col-sm-2">
+              <button type="submit" class="btn btn-primary btn-send">Confirmar</button>
             </div>
           </div>
         </div>
-      </form>
-    </div>
-  </section>
+      </div>
+    </form>
+  </div>
 </template>

@@ -1,161 +1,159 @@
 <template name="settings">
-  <section>
-    <div class="section-body">
-      <div class="card">
+  <div class="section-body">
+    <div class="card">
 
-        <!-- BEGIN CONTACT DETAILS HEADER -->
-        <div class="card-head style-primary">
-          <div class="tools pull-left">
-            <header>Configurações da conta</header>
-          </div>
-          <!--end .tools -->
-          <div class="tools">
-            <a class="btn btn-flat hidden-xs" href="{{pathForPanel}}">
-              <span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar
-            </a>
-          </div>
-          <!--end .tools -->
+      <!-- BEGIN CONTACT DETAILS HEADER -->
+      <div class="card-head style-primary">
+        <div class="tools pull-left">
+          <header>Configurações da conta</header>
         </div>
+        <!--end .tools -->
+        <div class="tools">
+          <a class="btn btn-flat hidden-xs" href="{{pathForPanel}}">
+            <span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar
+          </a>
+        </div>
+        <!--end .tools -->
+      </div>
 
-        <!-- BEGIN CONTACT DETAILS -->
-        <div class="card-tiles">
-          <div class="hbox-md col-md-12">
-            <div class="hbox-column col-md-9">
-              <div class="row">
+      <!-- BEGIN CONTACT DETAILS -->
+      <div class="card-tiles">
+        <div class="hbox-md col-md-12">
+          <div class="hbox-column col-md-9">
+            <div class="row">
 
-                <!-- BEGIN CONTACTS NAV -->
-                <div class="col-sm-5 col-md-4 col-lg-3">
-                  <ul class="nav nav-pills nav-stacked nav-tabs-vert" data-toggle="tabs">
-                    <li><small>CATEGORIAS</small></li>
-                    {{#if isStudent}}
-                      <li class="active">
-                        <a id="personalData" href="#">
-                          <span class="mdi mdi-account step"></span>
-                          <span class="title">Dados Pessoais</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a id="education" href="#">
-                          <span class="mdi mdi-library-books step"></span>
-                          <span class="title">Formação</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a id="idioms" href="#">
-                          <span class="mdi mdi-message-text step"></span>
-                          <span class="title">Idiomas</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a id="qualifications" href="#">
-                          <span class="mdi mdi-wrench step"></span>
-                          <span class="title">Qualificações</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a id="professionalexp" href="#">
-                          <span class="mdi mdi-worker step"></span>
-                          <span class="title">Experiência Profissional</span>
-                        </a>
-                      </li>
-                    {{else}}
-                      <li class="active">
-                        <a href="#">
-                          <span class="mdi mdi-account step"></span>
-                          <span class="title">Dados gerais</span>
-                        </a>
-                      </li>
-                    {{/if}}
-                  </ul>
-                </div>
-  
-                <!-- BEGIN CONTACTS MAIN CONTENT -->
-                <div class="col-sm-7 col-md-8 col-lg-9">
-                  <div class="margin-bottom-xxl">
-                    <div class="pull-left width-3 clearfix hidden-xs">
-                      <img class="img-circle size-2" src="{{avatar 100}}" alt="" />
-                    </div>
+              <!-- BEGIN CONTACTS NAV -->
+              <div class="col-sm-5 col-md-4 col-lg-3">
+                <ul class="nav nav-pills nav-stacked nav-tabs-vert" data-toggle="tabs">
+                  <li><small>CATEGORIAS</small></li>
+                  {{#if isStudent}}
+                    <li class="active">
+                      <a id="personalData" href="#">
+                        <span class="mdi mdi-account step"></span>
+                        <span class="title">Dados Pessoais</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a id="education" href="#">
+                        <span class="mdi mdi-library-books step"></span>
+                        <span class="title">Formação</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a id="idioms" href="#">
+                        <span class="mdi mdi-message-text step"></span>
+                        <span class="title">Idiomas</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a id="qualifications" href="#">
+                        <span class="mdi mdi-wrench step"></span>
+                        <span class="title">Qualificações</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a id="professionalexp" href="#">
+                        <span class="mdi mdi-worker step"></span>
+                        <span class="title">Experiência Profissional</span>
+                      </a>
+                    </li>
+                  {{else}}
+                    <li class="active">
+                      <a href="#">
+                        <span class="mdi mdi-account step"></span>
+                        <span class="title">Dados gerais</span>
+                      </a>
+                    </li>
+                  {{/if}}
+                </ul>
+              </div>
 
-                    {{#if isStudent}}
-                      <h1 class="text-light no-margin">{{ user.profile.nome }}</h1>
-                      <h5>
-                        {{ user.profile.perfil }} na Universidade do Vale do Sapucaí
-                      </h5>
-                    {{else}}
-                      <h1 class="text-light no-margin">{{user.profile.dados}}</h1>
-                      <h5>
-                        Responsável pela {{ user.profile.nome }}
-                      </h5>
-                    {{/if}}
-
+              <!-- BEGIN CONTACTS MAIN CONTENT -->
+              <div class="col-sm-7 col-md-8 col-lg-9">
+                <div class="margin-bottom-xxl">
+                  <div class="pull-left width-3 clearfix hidden-xs">
+                    <img class="img-circle size-2" src="{{avatar 100}}" alt="" />
                   </div>
-                  <!--end .margin-bottom-xxl -->
-                  {{> Template.dynamic template=settings}}
+
+                  {{#if isStudent}}
+                    <h1 class="text-light no-margin">{{ user.profile.nome }}</h1>
+                    <h5>
+                      {{ user.profile.perfil }} na Universidade do Vale do Sapucaí
+                    </h5>
+                  {{else}}
+                    <h1 class="text-light no-margin">{{user.profile.dados}}</h1>
+                    <h5>
+                      Responsável pela {{ user.profile.nome }}
+                    </h5>
+                  {{/if}}
+
                 </div>
+                <!--end .margin-bottom-xxl -->
+                {{> Template.dynamic template=settings}}
               </div>
             </div>
+          </div>
 
-            <!-- BEGIN CONTACTS COMMON DETAILS -->
-            <div class="hbox-column col-md-3 style-default-light">
-              <div class="row">
-                <div class="col-xs-12">
-                  {{#if isStudent}}
-                    <h4>Sobre você</h4>
-                    <br/>
-                    <dl class="dl-horizontal dl-icon">
-                      <dt><span class="fa fa-fw fa-graduation-cap fa-lg opacity-50"></span></dt>
-                      <dd>
-                        <span class="opacity-50">Formação</span><br/>
-                        <span class="text-medium">{{t9n user.profile.formacao.curso }}</span><br>
-                        <span class="text-medium">{{ user.profile.formacao.formacao }}</span>
-                      </dd>
-                      <dt><span class="fa fa-fw fa-gift fa-lg opacity-50"></span></dt>
-                      <dd>
-                        <span class="opacity-50">Aniversário</span><br/>
-                        <span class="text-medium">{{ user.profile.nascimento}}</span>
-                      </dd>
-                    </dl>
-                  {{/if}}
-                  <br/>
-                  <h4>Informações</h4>
+          <!-- BEGIN CONTACTS COMMON DETAILS -->
+          <div class="hbox-column col-md-3 style-default-light">
+            <div class="row">
+              <div class="col-xs-12">
+                {{#if isStudent}}
+                  <h4>Sobre você</h4>
                   <br/>
                   <dl class="dl-horizontal dl-icon">
-                    <dt><span class="fa fa-fw fa-mobile fa-lg opacity-50"></span></dt>
+                    <dt><span class="fa fa-fw fa-graduation-cap fa-lg opacity-50"></span></dt>
                     <dd>
-                      <span class="opacity-50">Telefones para contato</span><br/>
-                      <span class="text-medium">{{ user.profile.phone }}</span> &nbsp;
-                      <span class="opacity-50">Telefone</span><br/>
-                      {{#if isStudent}}
-                        <span class="text-medium">{{ user.profile.celular }}</span> &nbsp;
-                        <span class="opacity-50">Celular</span>
-                      {{else}}
-                        <span class="text-medium">{{ user.profile.fax }}</span> &nbsp;
-                        <span class="opacity-50">Fax</span>
-                      {{/if}}
+                      <span class="opacity-50">Formação</span><br/>
+                      <span class="text-medium">{{t9n user.profile.formacao.curso }}</span><br>
+                      <span class="text-medium">{{ user.profile.formacao.formacao }}</span>
                     </dd>
-                    <dt><span class="fa fa-fw fa-envelope-square fa-lg opacity-50"></span></dt>
+                    <dt><span class="fa fa-fw fa-gift fa-lg opacity-50"></span></dt>
                     <dd>
-                      <span class="opacity-50">Email</span><br/>
-                      <a class="text-medium" href="mailto:{{user.emails.[0].address}}">
-                        {{user.emails.[0].address}}
-                      </a>
-                    </dd>
-                    <dt><span class="fa fa-fw fa-location-arrow fa-lg opacity-50"></span></dt>
-                    <dd>
-                      <span class="opacity-50">Endereço</span><br/>
-                      <span class="text-medium">
-                        {{ user.profile.endereco }} - {{ user.profile.numero }}<br/>
-                        {{ user.profile.bairro }}<br/>
-                        {{ user.profile.cidade }} - CEP {{ user.profile.cep }}
-                      </span>
+                      <span class="opacity-50">Aniversário</span><br/>
+                      <span class="text-medium">{{ user.profile.nascimento}}</span>
                     </dd>
                   </dl>
-                </div>
+                {{/if}}
+                <br/>
+                <h4>Informações</h4>
+                <br/>
+                <dl class="dl-horizontal dl-icon">
+                  <dt><span class="fa fa-fw fa-mobile fa-lg opacity-50"></span></dt>
+                  <dd>
+                    <span class="opacity-50">Telefones para contato</span><br/>
+                    <span class="text-medium">{{ user.profile.phone }}</span> &nbsp;
+                    <span class="opacity-50">Telefone</span><br/>
+                    {{#if isStudent}}
+                      <span class="text-medium">{{ user.profile.celular }}</span> &nbsp;
+                      <span class="opacity-50">Celular</span>
+                    {{else}}
+                      <span class="text-medium">{{ user.profile.fax }}</span> &nbsp;
+                      <span class="opacity-50">Fax</span>
+                    {{/if}}
+                  </dd>
+                  <dt><span class="fa fa-fw fa-envelope-square fa-lg opacity-50"></span></dt>
+                  <dd>
+                    <span class="opacity-50">Email</span><br/>
+                    <a class="text-medium" href="mailto:{{user.emails.[0].address}}">
+                      {{user.emails.[0].address}}
+                    </a>
+                  </dd>
+                  <dt><span class="fa fa-fw fa-location-arrow fa-lg opacity-50"></span></dt>
+                  <dd>
+                    <span class="opacity-50">Endereço</span><br/>
+                    <span class="text-medium">
+                      {{ user.profile.endereco }} - {{ user.profile.numero }}<br/>
+                      {{ user.profile.bairro }}<br/>
+                      {{ user.profile.cidade }} - CEP {{ user.profile.cep }}
+                    </span>
+                  </dd>
+                </dl>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
