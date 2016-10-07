@@ -11,15 +11,15 @@ Meteor.publish('jobs', function() {
 });
 
 Meteor.publish('students', function() {
-  return Roles.getUsersInRole('student', 'user-type', {fields: {'profile.cpf': 0, services: 0, roles: 0}});
+  return Roles.getUsersInRole('student', 'user-type', {fields: {'profile.cpf': 0, services: 0}});
 });
 
 Meteor.publish('companies', function() {
-  return Roles.getUsersInRole('company', 'user-type', {fields: {'profile.cnpj': 0, services: 0, roles: 0}});
+  return Roles.getUsersInRole('company', 'user-type', {fields: {'profile.cnpj': 0, services: 0}});
 });
 
 Meteor.publish('user', function(params) {
-  return Meteor.users.find({_id: params.id}, {fields: {'profile.cnpj': 0, 'profile.cpf': 0, services: 0, roles: 0}});
+  return Meteor.users.find({_id: params.id}, {fields: {'profile.cnpj': 0, 'profile.cpf': 0, services: 0}});
 });
 
 Meteor.publish('company', function(id) {
