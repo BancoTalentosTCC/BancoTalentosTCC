@@ -1,7 +1,7 @@
 <template name="profile">
   <section class="full-bleed">
     <div class="section-body style-default-dark force-padding text-shadow">
-      {{#if isStudent}}
+      {{#if isStudent user}}
         <div class="img-backdrop" style="background-image: url('/img/student-profile-bg.jpg')"></div>
       {{else}}
         <div class="img-backdrop" style="background-image: url('/img/company-profile-bg.jpg')"></div>
@@ -9,9 +9,9 @@
       <div class="overlay overlay-shade-top stick-top-left height-3"></div>
       <div class="row">
         <div class="col-md-3 col-xs-5">
-          <img class="img-circle border-white border-xl img-responsive auto-width" src="{{avatar 146}}" alt="Avatar" /> 
+          <img class="img-circle border-white border-xl img-responsive auto-width" src="{{avatar 146 user}}" alt="Avatar" /> 
           <h3>
-            {{#if isStudent}}
+            {{#if isStudent user}}
               {{ user.profile.nome }}<br/>
               <small>{{ user.profile.perfil }} na Universidade do Vale do Sapucaí</small>
             {{else}}
@@ -37,7 +37,7 @@
   <section>
     <div class="section-body no-margin">
       <div class="col-md-12">
-        {{#if isStudent}}
+        {{#if isStudent user}}
           <div class="tab-pane" id="details">
             <h3 class="opacity-50">Sobre mim</h3>
             <article class="text-columns-2">

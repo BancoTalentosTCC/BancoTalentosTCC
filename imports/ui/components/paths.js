@@ -10,7 +10,7 @@ Template.registerHelper('pathForNewJob', () => {
   return FlowRouter.path("newJob");
 });
 
-Template.registerHelper('pathForProfile', () => {
+Template.registerHelper('pathForMyProfile', () => {
   return routeForUser("studentProfile", "companyProfile");
 });
 
@@ -24,6 +24,10 @@ Template.registerHelper('pathForCompanies', () => {
 
 Template.registerHelper('pathForStudents', () => {
   return FlowRouter.path("companyStudents");
+});
+
+Template.registerHelper('pathForProfile', (id) => {
+  return routeForUser("/estudante/empresas/" + id, "/empresa/alunos/" + id)
 });
 
 Template.registerHelper('pathForSettings', () => {

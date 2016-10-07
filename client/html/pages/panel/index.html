@@ -45,7 +45,13 @@
                       <div class="card style-default-light">
                         <div class="card-body small-padding">
                           <span class="text-medium">
-                            <span class="text-primary">{{companyName}}</span> cadastrou uma 
+                            <span class="text-primary">
+                              {{#if isStudent}}
+                                <a href="{{pathForProfile company}}">{{companyName}}</a>
+                              {{else}}
+                                <a href="{{pathForMyProfile}}">{{companyName}}</a>
+                              {{/if}}
+                              </span> cadastrou uma 
                               <a class="text-primary" href="{{pathForJob _id}}">vaga</a> para {{nome}}.
                             </span>
                             <br>
@@ -88,10 +94,10 @@
                 <li class="tile">
                   <div class="tile-content">
                     <div class="tile-icon">
-                      <img src="{{avatar 40}}" alt="Perfil" />
+                      <img src="{{avatar 40 user}}" alt="Perfil" />
                     </div>
                     <div class="tile-text">
-                      <a class="ink-reaction" href="{{pathForProfile}}">
+                      <a class="ink-reaction" href="{{pathForMyProfile}}">
                         {{#if isStudent}}
                           {{ user.profile.nome }}
                         {{else}}

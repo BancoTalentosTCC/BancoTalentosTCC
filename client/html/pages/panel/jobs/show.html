@@ -16,10 +16,16 @@
                     {{#if isStudent}}
                       {{avatar 120 company}}
                     {{else}}
-                      {{avatar 120}}
+                      {{avatar 120 user}}
                     {{/if}}
                     " alt="">
-                    <h3>{{job.companyName}}</h3>
+                    <h3>
+                      {{#if isStudent}}
+                        <a href="{{pathForProfile job.company}}">{{job.companyName}}</a>
+                      {{else}}
+                        <a href="{{pathForMyProfile}}">{{job.companyName}}</a>
+                      {{/if}}
+                    </h3>
                     <br>
                     {{#if isStudent}}
                       <button class="btn btn-primary btn-send">Candidatar-se</button>
@@ -36,7 +42,7 @@
                       <h2 class="text-primary">Detalhes</h2>
                       <span class="text-bold">Tipo da vaga: </span><p>{{t9n job.tipo_vaga}}</p>
                       <span class="text-bold">Categoria: </span><p>{{t9n job.categoria}}</p>
-                      <span class="text-bold">Criada em: </span><p>{{job.created_at}}</p>
+                      <span class="text-bold">Criada em: </span><p>{{formatDate job.createdAt}}</p>
 
                       <!-- TODO: Create a logic to display if it has special needs or not -->
                       <!--
