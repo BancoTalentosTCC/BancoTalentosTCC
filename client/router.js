@@ -221,6 +221,17 @@ student.route('/empresas', {
   }
 });
 
+student.route('/empresas/:id', {
+  name: 'studentCompany',
+  title: "Banco de Talentos - Empresa",
+  subscriptions: function(params) {
+    Meteor.subscribe('user', params);
+  },
+  action: function(params) {
+    BlazeLayout.render('PanelLayout', { main: "profile" });
+  }
+});
+
 student.route('/configuracoes', {
   name: 'studentsettings',
   title: "Banco de Talentos - Configurações",

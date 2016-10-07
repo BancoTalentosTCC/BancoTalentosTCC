@@ -19,7 +19,13 @@
                       {{avatar 120 user}}
                     {{/if}}
                     " alt="">
-                    <h3>{{job.companyName}}</h3>
+                    <h3>
+                      {{#if isStudent}}
+                        <a href="{{pathForProfile job.company}}">{{job.companyName}}</a>
+                      {{else}}
+                        <a href="{{pathForMyProfile}}">{{job.companyName}}</a>
+                      {{/if}}
+                    </h3>
                     <br>
                     {{#if isStudent}}
                       <button class="btn btn-primary btn-send">Candidatar-se</button>

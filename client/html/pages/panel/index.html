@@ -45,7 +45,13 @@
                       <div class="card style-default-light">
                         <div class="card-body small-padding">
                           <span class="text-medium">
-                            <span class="text-primary">{{companyName}}</span> cadastrou uma 
+                            <span class="text-primary">
+                              {{#if isStudent}}
+                                <a href="{{pathForProfile company}}">{{companyName}}</a>
+                              {{else}}
+                                <a href="{{pathForMyProfile}}">{{companyName}}</a>
+                              {{/if}}
+                              </span> cadastrou uma 
                               <a class="text-primary" href="{{pathForJob _id}}">vaga</a> para {{nome}}.
                             </span>
                             <br>
