@@ -6,9 +6,11 @@ Template.registerHelper(
 
 Template.registerHelper(
   'avatar', (avatarSize, user) => {
-    if (typeof(user) == "string") Meteor.users.find({_id: user}).fetch();
+    if (typeof(user) == "string") {
+      var email = Meteor.users.find({_id: user}).fetch()[0].emails[0].address;
+      var md5hash = Gravatar.hash(email);
+    }
     else if (user._id) var md5hash = Gravatar.hash(user.emails[0].address);
-    else var md5hash = Gravatar.hash(Meteor.user().emails[0].address);
     md5hash = md5hash || "3eda6fcd3204ef285fa52176c28c4d3e"; // Equivalent to Gravatar.hash( 'none@none.com' );
     return Gravatar.imageUrl(md5hash, {
       secure: true,
@@ -28,14 +30,16 @@ Template.registerHelper(
 );
 
 Template.registerHelper(
-  'isCompany', () => {
-    return Roles.userIsInRole(Meteor.userId(), 'company', 'user-type');
+  'isCompany', (user) => {
+    if (user) return Roles.userIsInRole(user._id, 'company', 'user-type');
+    else return Roles.userIsInRole(Meteor.userId(), 'company', 'user-type');
   }
 );
 
 Template.registerHelper(
-  'isStudent', () => {
-    return Roles.userIsInRole(Meteor.userId(), 'student', 'user-type');
+  'isStudent', (user) => {
+    if (user) return Roles.userIsInRole(user._id, 'student', 'user-type');
+    else return Roles.userIsInRole(Meteor.userId(), 'student', 'user-type');
   }
 );
 

@@ -189,6 +189,9 @@ student.route('/perfil', {
 
 student.route('/vagas', {
   name: 'studentjobs',
+  subscriptions: function() {
+    Meteor.subscribe('companies');
+  },
   title: "Banco de Talentos - Procurar Vagas ",
   action: function(params) {
     BlazeLayout.render('PanelLayout', { main: "jobs" });
