@@ -122,9 +122,20 @@ company.route('/alunos', {
     }
   ],
   name: 'companyStudents',
-  title: "Banco de Talentos",
+  title: "Banco de Talentos - Alunos",
   action: function(params) {
     BlazeLayout.render('PanelLayout', { main: "students" });
+  }
+});
+
+company.route('/alunos/:id', {
+  name: 'companyStudent',
+  title: "Banco de Talentos - Aluno",
+  subscriptions: function(params) {
+    Meteor.subscribe('user', params);
+  },
+  action: function(params) {
+    BlazeLayout.render('PanelLayout', { main: "profile" });
   }
 });
 
