@@ -24,7 +24,6 @@ Template.home.events({
     //REMOVE ERRORS
     $('.warning').removeClass('warning');
 
-    console.log(event);
     if ( $('#rememberme:checkbox:checked').length > 0) {
       Session.setPersistent("email", event.target["email"].value);
       Session.setPersistent("password", event.target["password"].value);

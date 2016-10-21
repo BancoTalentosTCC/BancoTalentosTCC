@@ -9,6 +9,12 @@ Meteor.startup(function() {
         "Match failed": "Erro de Validação"
       }
     },
+    // GENDER
+    m: "Masculino",
+    f: "Feminino",
+    // STUDENT ROLE
+    aluno: "Aluno",
+    "ex-aluno": "Ex-aluno",
     //COURSES
     adm: "Administração",
     sist: "Sistemas de Informação",
@@ -29,6 +35,11 @@ Meteor.startup(function() {
     pedag: "Pedagogia",
     psicol: "Psicologia",
     pubpr: "Publicidade e Propaganda",
+    // COURSE TYPES
+    grad: "Graduação",
+    pos: "Pós-Graduação",
+    mest: "Mestrado",
+    dout: "Doutorado",
     //CATEGORIES
     admin: "Administrativo",
     atend: "Atendimento",
