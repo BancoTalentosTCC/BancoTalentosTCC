@@ -3,16 +3,29 @@ Template.header.events({
   'click .menubar-toggle': function (e) {
     e.preventDefault();
     if (!$('.device-xs').is(':visible')) {
-      $('body').toggleClass('menubar-pin');
+      handleToggle();
     } else {
       handleToggleMob();
     }
+  },
+  "click #logout": function(e) {
+    e.preventDefault();
+    $('body').removeClass('menubar-pin');
   }
 });
 
 Template.header.onRendered(function(){
   treatMenuHover();
 });
+
+function handleToggle() {
+  if(!$('body').hasClass('menubar-pin')) {
+    $('body').toggleClass('menubar-pin');
+  }
+  else {
+    $('body').removeClass('menubar-pin');
+  }
+}
 
 function handleToggleMob() {
   var offcanvasVisible = $('body').hasClass('offcanvas-left-expanded');
@@ -27,6 +40,12 @@ function handleToggleMob() {
     $('body').addClass('menubar-visible');
     $('#menubar').data('expanded', true);
     $('#menubar').triggerHandler('enter');
+  }
+
+  if(menuItemClicked === true) {
+    $("#base").on( "click", function() {
+      $('body').removeClass('menubar-pin');
+    });
   }
 }
 
