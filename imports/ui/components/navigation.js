@@ -8,23 +8,20 @@ Template.header.events({
       handleToggleMob();
     }
   },
-  "click #logout": function(e) {
+  "click #logout": function (e) {
     e.preventDefault();
-    $('body').removeClass('menubar-pin');
+    if ($('body').hasClass('menubar-pin')) {
+      handleToggle();
+    }
   }
 });
 
-Template.header.onRendered(function(){
+Template.header.onRendered(function () {
   treatMenuHover();
 });
 
 function handleToggle() {
-  if(!$('body').hasClass('menubar-pin')) {
-    $('body').toggleClass('menubar-pin');
-  }
-  else {
-    $('body').removeClass('menubar-pin');
-  }
+  $('body').toggleClass('menubar-pin');
 }
 
 function handleToggleMob() {
@@ -42,8 +39,8 @@ function handleToggleMob() {
     $('#menubar').triggerHandler('enter');
   }
 
-  if(menuItemClicked === true) {
-    $("#base").on( "click", function() {
+  if (menuItemClicked === true) {
+    $("#base").on("click", function () {
       $('body').removeClass('menubar-pin');
     });
   }

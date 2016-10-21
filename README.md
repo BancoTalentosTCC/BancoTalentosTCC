@@ -1,5 +1,5 @@
 # Banco de Talentos - Univás
-[![Version](https://img.shields.io/badge/Meteor-1.3.5.1-blue.svg)](https://img.shields.io/badge/Meteor-1.3.5.1-blue.svg)
+[![Version](https://img.shields.io/badge/Meteor-1.4.1.2-blue.svg)](https://img.shields.io/badge/Meteor-1.4.1.2-blue.svg)
 
 
 ## Welcome
