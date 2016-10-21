@@ -79,7 +79,7 @@
                     {{#if isStudent}}
                       <h1 class="text-light no-margin">{{ user.profile.nome }}</h1>
                       <h5>
-                        {{ user.profile.perfil }} na Universidade do Vale do Sapucaí
+                        {{t9n user.profile.perfil }} na Universidade do Vale do Sapucaí
                       </h5>
                     {{else}}
                       <h1 class="text-light no-margin">{{user.profile.dados}}</h1>
@@ -107,7 +107,7 @@
                       <dd>
                         <span class="opacity-50">Formação</span><br/>
                         <span class="text-medium">{{t9n user.profile.formacao.curso }}</span><br>
-                        <span class="text-medium">{{ user.profile.formacao.formacao }}</span>
+                        <span class="text-medium">{{t9n user.profile.formacao.formacao }}</span>
                       </dd>
                       <dt><span class="fa fa-fw fa-gift fa-lg opacity-50"></span></dt>
                       <dd>

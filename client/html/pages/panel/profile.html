@@ -13,7 +13,7 @@
           <h3>
             {{#if isStudent user}}
               {{ user.profile.nome }}<br/>
-              <small>{{ user.profile.perfil }} na Universidade do Vale do Sapucaí</small>
+              <small>{{t9n user.profile.perfil }} na Universidade do Vale do Sapucaí</small>
             {{else}}
               {{user.profile.dados}}<br/>
               <small>Responsável pela {{ user.profile.nome }}</small>
