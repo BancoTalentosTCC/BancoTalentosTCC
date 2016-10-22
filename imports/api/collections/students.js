@@ -261,7 +261,12 @@ Profile = new SimpleSchema({
     type: [StudentsSchema5],
     label: "Experiência Profissional",
     optional: true
-  }
+  },
+  applications: {
+    type: [String],
+    label: "Candidaturas",
+    optional: true
+  },
 });
 
 Profile._schema = _.extend(Profile._schema, StudentsSchema1._schema);
