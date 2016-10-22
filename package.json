@@ -1,0 +1,23 @@
+{
+  "name": "bancotalentos",
+  "version": "1.0.0",
+  "description": "[![Version](https://img.shields.io/badge/Meteor-1.4.1.2-blue.svg)](https://img.shields.io/badge/Meteor-1.4.1.2-blue.svg)",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^0.8.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BancoTalentosTCC/BancoTalentosTCC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BancoTalentosTCC/BancoTalentosTCC/issues"
+  },
+  "homepage": "https://github.com/BancoTalentosTCC/BancoTalentosTCC#readme"
+}
