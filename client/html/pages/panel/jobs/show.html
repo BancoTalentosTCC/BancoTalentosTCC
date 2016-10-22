@@ -28,7 +28,11 @@
                     </h3>
                     <br>
                     {{#if isStudent}}
-                      <button class="btn btn-primary btn-send">Candidatar-se</button>
+                      {{#if appliedToJob job}}
+                        Você ja se candidatou a essa vaga!
+                      {{else}}
+                        <button id="apply" class="btn btn-primary btn-send">Candidatar-se</button>
+                      {{/if}}
                     {{/if}}
                     <br>
                     <br>

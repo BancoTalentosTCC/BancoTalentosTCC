@@ -60,7 +60,12 @@ Job = new SimpleSchema({
     autoValue: function(){
       return new Date().getTime();
     }
-  }
+  },
+  applications: {
+    type: [String],
+    label: "Candidaturas",
+    optional: true
+  }, 
 });
 
 Jobs.attachSchema(Job);

@@ -120,7 +120,25 @@
                 <header>Vagas com candidatos</header>
               {{/if}}
             </div>
-            <div class="card-body"></div>
+            <div class="card-body no-padding">
+              <ul class="list">
+                {{#each applications}}
+                  <li class="tile">
+                    <div class="tile-content">
+                      <div class="tile-icon">
+                        <img src="{{avatar 40 company}}" alt="Perfil" />
+                      </div>
+                      <div class="tile-text">
+                        <a class="ink-reaction" href="{{pathForJob _id}}">
+                          {{nome}}
+                        </a>
+                        <small>{{t9n tipo_vaga}}</small>
+                      </div>
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

@@ -31,5 +31,16 @@ Meteor.methods({
   },
   findCompanyByJob: function (id) {
     return Jobs.find({_id: id}).fetch()[0].company;
+  },
+  applyToJob: function(job) {
+    let userId = Meteor.userId();
+    
+    Jobs.update(job, {
+      $push: { applications: userId }}, {getAutoValues: false}
+    );
+
+    Meteor.users.update(userId, {
+      $push: { "profile.applications": job }}, {getAutoValues: false}
+    );
   }
 });
