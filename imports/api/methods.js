@@ -36,6 +36,10 @@ Meteor.methods({
     let userId = Meteor.userId();
     
     Jobs.update(job, {
+      /*  
+        "getAutoValues: false" is to avoid updating the fields that are autoValues, 
+        such as createdAt, otherwise everytime we update the schema will have a new createdAt date.  
+      */
       $push: { applications: userId }}, {getAutoValues: false}
     );
 
