@@ -26,5 +26,8 @@ Template.showJob.helpers({
     return job.applications.map(function(studentId) {
       if (Meteor.userId() == studentId) return true
     });
+  },
+  isNotActive: function(status) {
+    if (status !== "active") return true;
   }
 });

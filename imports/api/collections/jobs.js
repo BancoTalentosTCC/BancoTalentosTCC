@@ -61,6 +61,18 @@ Job = new SimpleSchema({
       return new Date().getTime();
     }
   },
+  expiration: {
+    type: Number,
+    label: "Data de Expiração"
+  },
+  status: {
+    type: String,
+    label: "Status",
+    allowedValues: ['active', 'expired', 'disabled'],
+    autoValue: function(){
+      return 'active'
+    }
+  },
   applications: {
     type: [String],
     label: "Candidaturas",

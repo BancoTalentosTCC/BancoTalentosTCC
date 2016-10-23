@@ -20,7 +20,7 @@ Meteor.methods({
     return true;
   },
   saveJob: function (vacancy) {
-    Jobs.insert(vacancy);
+    return Jobs.insert(vacancy);
   },
   // send verification link
   sendVerificationLink: function(data) {
