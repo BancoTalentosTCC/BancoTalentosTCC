@@ -150,6 +150,7 @@ company.route('/vagas/:id', {
 company.route('/configuracoes', {
   name: 'companysettings',
   title: "Banco de Talentos - Configurações ",
+  triggersExit: [trackRouteClose],
   action: function(params) {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "companySettings"  });
   }
@@ -235,6 +236,7 @@ student.route('/empresas/:id', {
 student.route('/configuracoes', {
   name: 'studentsettings',
   title: "Banco de Talentos - Configurações",
+  triggersExit: [trackRouteClose],
   action: function(params) {
     BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "studentSettings" });
   }
@@ -260,6 +262,16 @@ FlowRouter.route( '/verify-email/:token', {
     });
   }
 });
+
+function trackRouteClose() {
+  // if isn't yet saved
+  if (!$('.btn-update').prop('disabled')) {
+
+    if(!confirm("Suas alterações não foram salvas. Deseja sair?")) {
+      FlowRouter.go();
+    }
+  }
+}
 
 // initialize flow router title
 new FlowRouterTitle(FlowRouter);

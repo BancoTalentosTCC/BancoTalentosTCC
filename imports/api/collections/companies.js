@@ -107,6 +107,24 @@ Profile = new SimpleSchema({
     regEx: SimpleSchema.RegEx.Url,
     optional: true
   },
+  facebook: {
+    type: String,
+    label: "Facebook",
+    regEx: SimpleSchema.RegEx.Url,
+    optional: true
+  },
+  twitter: {
+    type: String,
+    label: "Twitter",
+    regEx: SimpleSchema.RegEx.Url,
+    optional: true
+  },
+  github: {
+    type: String,
+    label: "GitHub",
+    regEx: SimpleSchema.RegEx.Url,
+    optional: true
+  }
 });
 
 Company = new SimpleSchema({

@@ -16,36 +16,36 @@
   <div class="tab-content">
     <div class="tab-pane active" id="summary">
       <br/>
-      <form class="form" id="formNote" accept-charset="utf-8" method="post">
+      <form class="form" id="formNote" accept-charset="utf-8">
         <span class="opacity-50">Faça um breve resumo profissional para ser adicionado em seu perfil</span>
         <div class="form-group">
-          <textarea id="aboutme" name="message" class="form-control control-3-rows" placeholder="Enter note ..." spellcheck="false"></textarea>
+          <textarea id="aboutme" name="aboutme" class="form-control control-3-rows" spellcheck="false" value="{{ user.profile.aboutme }}"></textarea>
         </div>
         <div class="form-group clearfix">
-          <button type="submit" class="btn btn-raised btn-default-light pull-right">Adicionar ao perfil</button>
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction pull-right">Adicionar ao perfil</button>
         </div>
       </form>
     </div>
 
     <div class="tab-pane" id="aboutyou">
       <br>
-      <form class="form">
+      <form class="form" id="upd-aboutyou">
         <div class="card">
           <div class="card-body">
             <div class="form-group">
-              <input type="text" class="form-control" id="nome">
+              <input type="text" class="form-control" id="nome" value="{{ user.profile.nome }}">
               <label for="nome">Nome</label>
             </div>
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="cpf" disabled data-toggle="tooltip" data-placement="top" title="Não é possível alterar seu CPF">
+                  <input type="text" class="form-control cpf" id="cpf" value="{{ user.profile.cpf }}" disabled data-toggle="tooltip" data-placement="top" title="Não é possível alterar seu CPF">
                   <label for="cpf">CPF</label>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="nascimento">
+                  <input type="text" class="form-control" id="nascimento" value="{{ user.profile.nascimento }}">
                   <label for="nascimento">Data de Nascimento</label>
                 </div>
               </div>
@@ -53,7 +53,7 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <select id="perfil" name="perfil" class="form-control">
+                  <select id="perfil" name="perfil" class="form-control" selected="{{ user.profile.perfil }}">
                     <option value="aluno">Aluno</option>
                     <option value="ex-aluno">Ex-aluno</option>
                   </select>
@@ -62,7 +62,7 @@
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <select id="sexo" name="sexo" class="form-control">
+                  <select id="sexo" name="sexo" class="form-control" selected="{{ user.profile.sexo }}">
                     <option value="m">Masculino</option>
                     <option value="f">Feminino</option>
                   </select>
@@ -71,11 +71,11 @@
               </div>
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" id="email" disabled data-toggle="tooltip" data-placement="top" title="Não é possível alterar seu email principal">
+              <input type="email" class="form-control" id="email" value="{{user.emails.[0].address}}" disabled data-toggle="tooltip" data-placement="top" title="Não é possível alterar seu email principal">
               <label for="email">Email</label>
             </div>
             <div class="form-group">
-              <input type="email2nd" class="form-control" id="email2nd">
+              <input type="email2nd" class="form-control" id="email2nd" value="{{user.emails.[1].address}}">
               <label for="email2nd">Email Secundário</label>
             </div>
             <br>
@@ -86,7 +86,7 @@
             <br>
             <div class="checkbox checkbox-styled">
               <label>
-                <input type="checkbox" value="">
+                <input type="checkbox" value="{{user.profile.especial}}">
                 <span>Portador de Necessidades Especiais</span>
               </label>
             </div>
@@ -94,7 +94,7 @@
           <!--end .card-body -->
           <div class="card-actionbar">
             <div class="card-actionbar-row">
-              <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
             </div>
           </div>
         </div>
@@ -103,19 +103,19 @@
 
     <div class="tab-pane" id="address">
       <br>
-      <form class="form">
+      <form class="form" id="upd-address">
         <div class="card">
           <div class="card-body">
             <div class="row">
               <div class="col-sm-4">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="cep">
+                  <input type="text" class="form-control cep" id="cep" value="{{ user.profile.cep }}">
                   <label for="cep">CEP</label>
                 </div>
               </div>
               <div class="col-sm-10">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="endereco">
+                  <input type="text" class="form-control" id="endereco" value="{{ user.profile.endereco }}">
                   <label for="endereco">Endereço</label>
                 </div>
               </div>
@@ -123,19 +123,19 @@
             <div class="row">
               <div class="col-sm-2">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="numero">
+                  <input type="text" class="form-control" id="numero" value="{{ user.profile.numero }}">
                   <label for="numero">Número</label>
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="complemento">
+                  <input type="text" class="form-control" id="complemento" value="{{ user.profile.complemento }}">
                   <label for="complemento">Complemento</label>
                 </div>
               </div>
               <div class="col-sm-7">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="bairro">
+                  <input type="text" class="form-control" id="bairro" value="{{ user.profile.bairro }}">
                   <label for="bairro">Bairro</label>
                 </div>
               </div>
@@ -143,13 +143,13 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="cidade">
+                  <input type="text" class="form-control" id="cidade" value="{{ user.profile.cidade }}">
                   <label for="cidade">Cidade</label>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <select class="form-control static dirty" id="uf" name="uf" required="">     
+                  <select class="form-control static dirty" id="uf" name="uf" required  value="{{ user.profile.uf }}">     
                     <option value="ac">Acre</option>        
                     <option value="al">Alagoas</option>
                     <option value="am">Amazonas</option>
@@ -186,7 +186,7 @@
           <!--end .card-body -->
           <div class="card-actionbar">
             <div class="card-actionbar-row">
-              <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
             </div>
           </div>
         </div>
@@ -195,19 +195,19 @@
 
     <div class="tab-pane" id="contato">
       <br>
-      <form class="form">
+      <form class="form" id="upd-contact">
         <div class="card">
           <div class="card-body">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="phone">
+                  <input type="text" class="form-control phone-number" id="phone" value="{{ user.profile.phone }}">
                   <label for="phone">Telefone Residencial</label>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="celular">
+                  <input type="text" class="form-control phone-number" id="celular" value="{{ user.profile.celular }}">
                   <label for="celular">Celular</label>
                 </div>
               </div>
@@ -216,13 +216,13 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input type="url" class="form-control" id="facebook">
+                  <input type="url" class="form-control" id="facebook" value="{{ user.profile.facebook }}">
                   <label for="facebook">Facebook</label>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input type="url" class="form-control" id="twitter">
+                  <input type="url" class="form-control" id="twitter" value="{{ user.profile.twitter }}">
                   <label for="twitter">Twitter</label>
                 </div>
               </div>
@@ -230,13 +230,13 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="linkedin">
+                  <input type="text" class="form-control" id="linkedin" value="{{ user.profile.linkedin }}">
                   <label for="linkedin">LinkedIn</label>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="skype">
+                  <input type="text" class="form-control" id="skype" value="{{ user.profile.skype }}">
                   <label for="skype">Skype ID</label>
                 </div>
               </div>
@@ -244,13 +244,13 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input type="url" class="form-control" id="pers_website">
+                  <input type="url" class="form-control" id="pers_website" value="{{ user.profile.pers_website }}">
                   <label for="pers_website">Site Pessoal</label>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input type="url" class="form-control" id="github">
+                  <input type="url" class="form-control" id="github" value="{{ user.profile.github }}">
                   <label for="github">GitHub</label>
                 </div>
               </div>
@@ -264,7 +264,7 @@
           <!--end .card-body -->
           <div class="card-actionbar">
             <div class="card-actionbar-row">
-              <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
             </div>
           </div>
         </div>
@@ -275,11 +275,11 @@
 
 <template name="education">
   <br>
-  <form class="form">
+  <form class="form" id="upd-education">
     <div class="card">
       <div class="card-body">
         <div class="form-group">
-          <select id="formacao" name="formacao" class="form-control">
+          <select id="formacao" name="formacao" class="form-control" selected="{{ user.profile.formacao.formacao }}">
             <option value="grad">Graduação</option>
             <option value="pos">Pós-Graduação</option>
             <option value="mest">Mestrado</option>
@@ -288,7 +288,7 @@
           <label for="formacao">Tipo de Formação</label>
         </div>
         <div class="form-group">
-          <select class="form-control" id="curso" name="curso">
+          <select class="form-control" id="curso" name="curso" selected="{{ user.profile.formacao.curso }}">
             <option value="adm">Administração</option>
             <option value="ciencbio">Ciências Biológicas</option> 
             <option value="cienccont">Ciências Contábeis</option>   
@@ -312,14 +312,14 @@
           <label for="formacao">Curso</label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" id="conclusao">
+          <input type="text" class="form-control" id="conclusao" value="{{ user.profile.formacao.conclusao }}">
           <label for="conclusao">Conclusão</label>
         </div>
       </div>
       <!--end .card-body -->
       <div class="card-actionbar">
         <div class="card-actionbar-row">
-          <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
         </div>
       </div>
     </div>
@@ -328,7 +328,7 @@
 
 <template name="idioms">
   <br>
-  <form class="form">
+  <form class="form" id="upd-idioms">
     <div class="card">
       <div class="card-body">
         <p>To be implemented</p>
@@ -336,7 +336,7 @@
       <!--end .card-body -->
       <div class="card-actionbar">
         <div class="card-actionbar-row">
-          <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
         </div>
       </div>
     </div>
@@ -345,26 +345,26 @@
 
 <template name="qualifications">
   <br>
-  <form class="form">
+  <form class="form" id="upd-qualifications">
     <div class="card">
       <div class="card-body">
         <div class="form-group">
-          <input type="url" class="form-control" id="lattes">
+          <input type="url" class="form-control" id="lattes" value="{{ user.profile.qualificacao.lattes }}">
           <label for="lattes">Currículo Lattes</label>
         </div>
         <div class="form-group">
-          <textarea id="qualificacao" name="qualificacao" class="form-control" rows="4"></textarea>
+          <textarea id="qualificacao" name="qualificacao" class="form-control" rows="4" value="{{ user.profile.qualificacao.qualificacao }}"></textarea>
           <label class="control-label" for="qualificacao">Qualificações</label>
         </div>
         <div class="form-group">
-          <textarea id="cursos_extras" name="cursos_extras" class="form-control" rows="6"></textarea>
+          <textarea id="cursos_extras" name="cursos_extras" class="form-control" rows="6" value="{{ user.profile.qualificacao.cursos_extras }}"></textarea>
           <label class="control-label" for="cursos_extras">Cursos Extras</label>
         </div>
       </div>
       <!--end .card-body -->
       <div class="card-actionbar">
         <div class="card-actionbar-row">
-          <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
         </div>
       </div>
     </div>
@@ -373,7 +373,7 @@
 
 <template name="professionalexp">
   <br>
-  <form class="form">
+  <form class="form" id="upd-professionalexp">
     <div class="card">
       <div class="card-body">
         <p>To be implemented</p>
@@ -381,7 +381,7 @@
       <!--end .card-body -->
       <div class="card-actionbar">
         <div class="card-actionbar-row">
-          <button type="submit" class="btn btn-flat btn-primary ink-reaction">Atualizar dados</button>
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
         </div>
       </div>
     </div>
