@@ -10,5 +10,6 @@
 Meteor.startup(function () {
   // The correct way
   var url = "smtp://postmaster%40bancotalentos.herokuapp.com:b7cc135f721ebbc55658a985bf1667a8@smtp.mailgun.org:587";
+  //var url = "smtp://postmaster%40sandbox778df5b5adf948f9af95ceb5bf2eff93.mailgun.org:b6f57a0a9f50d3aa2e3ac949dfd43d1b@smtp.mailgun.org:587";
   process.env.MAIL_URL = url;
 });

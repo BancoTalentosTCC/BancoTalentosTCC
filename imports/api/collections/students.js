@@ -82,8 +82,6 @@ StudentsSchema1 = new SimpleSchema({
   complemento: {
     type: String,
     label: "Complemento",
-    min: 15,
-    max: 100,
     optional: true
   },
   numero: {

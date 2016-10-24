@@ -29,14 +29,18 @@
                     <br>
                     {{#if isStudent}}
                       {{#if appliedToJob job}}
-                        <a type="button" class="btn ink-reaction btn-raised btn-primary disabled"><i class="md mdi mdi-check"></i> Candidatado!</a>
+                        <a type="button" class="btn ink-reaction btn-raised btn-primary disabled">
+                          <i class="md mdi mdi-check"></i> Candidatado!</a>
                       {{else}}
-                        {{#if isNotActive job.status}}
-                          Essa vaga está {{t9n job.status}}
+                        {{#if isNotActive job.status}}     
+                          <p class="btn btn-block ink-reaction btn-danger"><i class="md mdi mdi-exclamation"></i>Essa vaga está {{t9n job.status}}</p>
                         {{else}}
                           <button id="apply" class="btn btn-primary btn-send">Candidatar-se</button>
                         {{/if}}
                       {{/if}}
+                      <br>
+                      <br>
+                      <span class="text-bold">Status:</span><p>{{t9n job.status}}</p>
                     {{/if}}
                     <br>
                     <br>
@@ -48,10 +52,14 @@
                     </div>
                     <div class="row">
                       <h2 class="text-primary">Detalhes</h2>
-                      <span class="text-bold">Tipo da vaga: </span><p>{{t9n job.tipo_vaga}}</p>
-                      <span class="text-bold">Categoria: </span><p>{{t9n job.categoria}}</p>
-                      <span class="text-bold">Criada em: </span><p>{{formatDate job.createdAt}}</p>
-                      <span class="text-bold">Expira em: </span><p>{{formatDate job.expiration}}</p>
+                      <div class="col-sm-6">
+                        <span class="text-bold">Tipo da vaga: </span><p>{{t9n job.tipo_vaga}}</p>
+                        <span class="text-bold">Categoria:&nbsp;</span><p>{{t9n job.categoria}}</p>
+                      </div>
+                      <div class="col-sm-6">
+                        <span class="text-bold">Criada em:&nbsp;</span><p>{{formatDate job.createdAt}}</p>
+                        <span class="text-bold">Expira em:&nbsp;</span><p>{{formatDate job.expiration}}</p>
+                      </div>
 
                       <!-- TODO: Create a logic to display if it has special needs or not -->
                       <!--

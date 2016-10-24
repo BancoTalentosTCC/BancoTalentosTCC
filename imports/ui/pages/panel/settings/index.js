@@ -3,9 +3,12 @@ import {
 } from 'meteor/templating';
 
 Template.settings.events({
-  'click .nav-tabs-vert a': function(event) { 
+  'click .nav-tabs-vert a': function (event) {
     event.preventDefault();
-    BlazeLayout.render('PanelLayout', { main: "settings", settings: event.currentTarget.id });
+    BlazeLayout.render('PanelLayout', {
+      main: "settings",
+      settings: event.currentTarget.id
+    });
   },
   'submit form': function (event) {
     event.preventDefault();
@@ -55,10 +58,11 @@ Template.settings.onRendered(function () {
 
   setMasks();
   setCalendar();
-  autocompleteCEP();
 });
 
 function update(target, formID) {
+  var user = {};
+
   /* handle student update */
   if (Roles.userIsInRole(Meteor.userId(), 'student', 'user-type')) {
     switch (formID) {
@@ -68,23 +72,12 @@ function update(target, formID) {
             aboutme: targetValue(target["aboutme"]),
           }
         }
-
-        //In case aboutme is not undefined, initially it's undefined
-        if(user.profile.aboutme !== undefined)
-          Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'),function(error, result) {
-            if (error) {
-              Meteor.call('displayErrors', error);
-            } else if (result) {
-              toastr.success('Dados atualizados!', 'Update!');
-            }      
-          });
-
         break;
 
       case "upd-aboutyou":
         user = {
           emails: {
-            address:targetValue(target["email2nd"]),
+            address: targetValue(target["email2nd"]),
             verified: false,
           },
           profile: {
@@ -94,17 +87,7 @@ function update(target, formID) {
             sexo: targetValue(target["sexo"]),
             especial: $('#especial').is(':checked'),
           }
-        } 
-
-        Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'), function(error, result) {
-          if (error) {
-            Meteor.call('displayErrors', error);
-          } else if (result) {
-            toastr.success('Dados atualizados!', 'Update!');
-            $('.btn-update').prop('disabled', true);
-          }      
-        });
-
+        }
         break;
 
       case "upd-address":
@@ -119,16 +102,6 @@ function update(target, formID) {
             cep: targetValue(target["cep"])
           }
         }
-
-        Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'),function(error, result) {
-          if (error) {
-            Meteor.call('displayErrors', error);
-          } else if (result) {
-            toastr.success('Dados atualizados!', 'Update!');
-            $('.btn-update').prop('disabled', true);
-          }      
-        });
-
         break;
 
       case "upd-contact":
@@ -144,16 +117,6 @@ function update(target, formID) {
             github: targetValue(target["github"]),
           }
         }
-
-        Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'),function(error, result) {
-          if (error) {
-            Meteor.call('displayErrors', error);
-          } else if (result) {
-            toastr.success('Dados atualizados!', 'Update!');
-            $('.btn-update').prop('disabled', true);
-          }      
-        });
-
         break;
 
       case "upd-education":
@@ -166,16 +129,6 @@ function update(target, formID) {
             }
           }
         }
-
-        Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'),function(error, result) {
-          if (error) {
-            Meteor.call('displayErrors', error);
-          } else if (result) {
-            toastr.success('Dados atualizados!', 'Update!');
-            $('.btn-update').prop('disabled', true);
-          }      
-        });
-
         break;
 
       case "upd-idioms":
@@ -185,16 +138,6 @@ function update(target, formID) {
             idiomas: idiomas,
           }
         }
-
-        Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'),function(error, result) {
-          if (error) {
-            Meteor.call('displayErrors', error);
-          } else if (result) {
-            toastr.success('Dados atualizados!', 'Update!');
-            $('.btn-update').prop('disabled', true);
-          }      
-        });
-
         break;
 
       case "upd-qualifications":
@@ -207,16 +150,6 @@ function update(target, formID) {
             }
           }
         }
-
-        Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'),function(error, result) {
-          if (error) {
-            Meteor.call('displayErrors', error);
-          } else if (result) {
-            toastr.success('Dados atualizados!', 'Update!');
-            $('.btn-update').prop('disabled', true);
-          }      
-        });
-
         break;
 
       case "upd-professionalexp":
@@ -226,20 +159,18 @@ function update(target, formID) {
             experiencia: experiences
           }
         }
-
-        Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'),function(error, result) {
-          if (error) {
-            Meteor.call('displayErrors', error);
-          } else if (result) {
-            toastr.success('Dados atualizados!', 'Update!');
-            $('.btn-update').prop('disabled', true);
-          }      
-        });
-
         break;
     }
-
-  } 
+    // Now update user
+    Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'), function (error, result) {
+      if (error) {
+        Meteor.call('displayErrors', error);
+      } else if (result) {
+        toastr.success('Dados atualizados!', 'Update!');
+        $('.btn-update').prop('disabled', true);
+      }
+    });
+  }
 
   /* handle company update  */
   else if (Roles.userIsInRole(Meteor.userId(), 'company', 'user-type')) {
@@ -247,24 +178,14 @@ function update(target, formID) {
       case "upd-general":
         user = {
           emails: {
-            address:targetValue(target["email2nd"]),
+            address: targetValue(target["email2nd"]),
             verified: false,
           },
           profile: {
             nome: targetValue(target["nome"]),
             razaosoc: targetValue(target["razaosoc"])
           }
-        } 
-
-        Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'), function(error, result) {
-          if (error) {
-            Meteor.call('displayErrors', error);
-          } else if (result) {
-            toastr.success('Dados atualizados!', 'Update!');
-            $('.btn-update').prop('disabled', true);
-          }      
-        });
-
+        }
         break;
 
       case "upd-address":
@@ -279,16 +200,6 @@ function update(target, formID) {
             cep: targetValue(target["cep"])
           }
         }
-
-        Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'),function(error, result) {
-          if (error) {
-            Meteor.call('displayErrors', error);
-          } else if (result) {
-            toastr.success('Dados atualizados!', 'Update!');
-            $('.btn-update').prop('disabled', true);
-          }      
-        });
-
         break;
 
       case "upd-contact":
@@ -303,18 +214,17 @@ function update(target, formID) {
             pers_website: targetValue(target["pers_website"])
           }
         }
-
-        Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'),function(error, result) {
-          if (error) {
-            Meteor.call('displayErrors', error);
-          } else if (result) {
-            toastr.success('Dados atualizados!', 'Update!');
-            $('.btn-update').prop('disabled', true);
-          }      
-        });
-
         break;
-    } 
+    }
+
+    Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'), function (error, result) {
+      if (error) {
+        Meteor.call('displayErrors', error);
+      } else if (result) {
+        toastr.success('Dados atualizados!', 'Update!');
+        $('.btn-update').prop('disabled', true);
+      }
+    });
   }
 }
 
@@ -382,7 +292,7 @@ function setCalendar() {
     endDate: new Date
   });
 
-  $('#nascimento').focus(function() {
+  $('#nascimento').focus(function () {
     $('#nascimento').blur();
   })
 }

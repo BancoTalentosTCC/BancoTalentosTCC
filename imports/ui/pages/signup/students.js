@@ -62,9 +62,7 @@ Template.studentSteps.events({
         skype: targetValue(target["skype"]),
         twitter: targetValue(target["twitter"]),
         linkedin: targetValue(target["linkedin"]),
-        github: targetValue(target["github"]),
         pers_website: targetValue(target["pers_website"]),
-        aboutme: targetValue(target["aboutme"]),
         especial: $('#especial').is(':checked'),
         formacao: {
           formacao: targetValue(target["formacao"]),
