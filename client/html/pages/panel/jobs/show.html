@@ -31,7 +31,11 @@
                       {{#if appliedToJob job}}
                         Você ja se candidatou a essa vaga!
                       {{else}}
-                        <button id="apply" class="btn btn-primary btn-send">Candidatar-se</button>
+                        {{#if isNotActive job.status}}
+                          Essa vaga está {{t9n job.status}}
+                        {{else}}
+                          <button id="apply" class="btn btn-primary btn-send">Candidatar-se</button>
+                        {{/if}}
                       {{/if}}
                     {{/if}}
                     <br>
@@ -47,6 +51,7 @@
                       <span class="text-bold">Tipo da vaga: </span><p>{{t9n job.tipo_vaga}}</p>
                       <span class="text-bold">Categoria: </span><p>{{t9n job.categoria}}</p>
                       <span class="text-bold">Criada em: </span><p>{{formatDate job.createdAt}}</p>
+                      <span class="text-bold">Expira em: </span><p>{{formatDate job.expiration}}</p>
 
                       <!-- TODO: Create a logic to display if it has special needs or not -->
                       <!--

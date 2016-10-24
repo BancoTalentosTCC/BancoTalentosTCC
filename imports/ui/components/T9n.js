@@ -79,7 +79,11 @@ Meteor.startup(function() {
     junior: "Júnior",
     pleno: "Pleno",
     senior: "Sênior",
-    freelancer: "Freelancer"
+    freelancer: "Freelancer",
+    //STATUS
+    expired: "Expirada",
+    disabled: "Desabilitada",
+    active: "Ativa"
   }
 
   T9n.map('pt', pt);

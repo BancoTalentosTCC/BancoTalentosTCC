@@ -1,25 +1,9 @@
 import {Template} from 'meteor/templating';
 
 Template.settings.events({
-  'click #personalData': function(event) { 
+  'click .nav-tabs-vert a': function(event) { 
     event.preventDefault();
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "studentSettings" });
-  },
-  'click #education': function(event) { 
-    event.preventDefault();
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "education" });
-  },
-  'click #idioms': function(event) { 
-    event.preventDefault();
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "idioms" });
-  },
-  'click #qualifications': function(event) { 
-    event.preventDefault();
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "qualifications" });
-  },
-  'click #professionalexp': function(event) { 
-    event.preventDefault();
-    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "settings", settings: "professionalexp" });
+    BlazeLayout.render('PanelLayout', { main: "settings", settings: event.currentTarget.id });
   }
 });
 
