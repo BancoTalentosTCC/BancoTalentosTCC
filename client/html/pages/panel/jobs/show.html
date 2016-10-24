@@ -29,7 +29,7 @@
                     <br>
                     {{#if isStudent}}
                       {{#if appliedToJob job}}
-                        Você ja se candidatou a essa vaga!
+                        <a type="button" class="btn ink-reaction btn-raised btn-primary disabled"><i class="md mdi mdi-check"></i> Candidatado!</a>
                       {{else}}
                         {{#if isNotActive job.status}}
                           Essa vaga está {{t9n job.status}}

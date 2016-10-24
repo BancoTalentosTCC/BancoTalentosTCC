@@ -136,6 +136,17 @@
                       </div>
                     </div>
                   </li>
+
+                {{else}}
+                  <li class="tile">
+                    <div class="tile-content">
+                      {{#if isStudent}}
+                        <p class="tile-text center-text">Não há vagas candidatadas.</p>
+                      {{else}}
+                        <p class="tile-text center-text">Não há vagas com candidatos.</p>
+                      {{/if}}
+                    </div>
+                  </li>
                 {{/each}}
               </ul>
             </div>
