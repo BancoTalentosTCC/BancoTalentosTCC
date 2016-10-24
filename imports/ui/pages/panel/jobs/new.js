@@ -1,13 +1,12 @@
-import {
-  Template
-} from 'meteor/templating';
+import {Template} from 'meteor/templating';
 import '/client/html/pages/panel/jobs/new.html';
 import '/imports/api/collections/jobs.js';
-
-var json = require('/imports/ui/components/skills.json');
+import '/imports/api/collections/tags.js';
 
 Template.newJob.onCreated(function() {
-  this.skills = new ReactiveVar(json);
+  this.skills = new ReactiveVar(
+    Tags.find().fetch()
+  );
 });
 
 Template.newJob.rendered = function() {
@@ -92,3 +91,4 @@ Template.newJob.helpers({
     return Template.instance().skills.get();
   }
 });
+
