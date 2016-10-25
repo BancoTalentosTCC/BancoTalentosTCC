@@ -10,6 +10,10 @@ Template.registerHelper('pathForNewJob', () => {
   return FlowRouter.path("newJob");
 });
 
+Template.registerHelper('pathForJobDetails', (id) => {
+  return "/empresa/vagas/"+ id +"/detalhes";
+});
+
 Template.registerHelper('pathForMyProfile', () => {
   return routeForUser("studentProfile", "companyProfile");
 });

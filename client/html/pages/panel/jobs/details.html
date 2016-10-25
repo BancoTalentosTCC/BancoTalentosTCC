@@ -1,4 +1,4 @@
-<template name="showJob">
+<template name='jobDetails'>
   <section>
     <div class="section-body">
         <div class="row">
@@ -7,7 +7,7 @@
                 <div class="card-head">
                   <header><i class="fa fa-fw fa-tag"></i>{{job.nome}}</header>
                   <div class="tools">
-                    <a class="btn btn-flat hidden-xs" href="{{pathForJobs}}">
+                    <a class="btn btn-flat hidden-xs" href="{{pathForJob job._id}}">
                       <span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar
                     </a>
                   </div>
@@ -42,11 +42,7 @@
                       <br>
                       <span class="text-bold">Status:</span><p>{{t9n job.status}}</p>
                     {{/if}}
-                    Candidaturas: {{job.applications.length}}
-                    <br>
-                    {{#if isCompany}}
-                      <a href='{{pathForJobDetails job._id}}'>Detalhes</a>
-                    {{/if}}  
+                    Applicações: {{job.applications.length}}
                     <br>
                     <br>
                   </div>
@@ -65,13 +61,6 @@
                         <span class="text-bold">Criada em:&nbsp;</span><p>{{formatDate job.createdAt}}</p>
                         <span class="text-bold">Expira em:&nbsp;</span><p>{{formatDate job.expiration}}</p>
                       </div>
-
-                      <!-- TODO: Create a logic to display if it has special needs or not -->
-                      <!--
-                      {{#if !job.especial}}
-                        <span><i class="md mdi mdi-check"></i> Exclusiva para portadores de necessidades especiais</span>
-                      {{/if}}
-                      -->
                     </div>
 
                     <div class="row">
@@ -80,6 +69,28 @@
                       {{#each tag in job.tags}}
                         <li class="each-tag"><span>{{tag}}</span></li>
                       {{/each}}
+                      </ul>
+                    </div>
+
+                    <div class="row">
+                      <h3 class="text-primary">Candidatos</h3>
+                      <ul class="list">
+                        {{#each application in job.applications}}
+                          {{#each userById application}}
+                            <li class="tile">
+                              <div class="tile-content">
+                                <div class="tile-icon">
+                                  <img src="{{avatar 40 _id}}" alt="Perfil" />
+                                </div>
+                                <div class="tile-text">
+                                  <a class="ink-reaction" href="{{pathForProfile _id}}">
+                                    {{profile.nome}}
+                                  </a>
+                                </div>
+                              </div>
+                            </li>
+                          {{/each}}
+                        {{/each}}
                       </ul>
                     </div>
                 </div>

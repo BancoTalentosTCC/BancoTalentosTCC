@@ -122,32 +122,44 @@
             </div>
             <div class="card-body no-padding">
               <ul class="list">
-                {{#each applications}}
-                  <li class="tile">
-                    <div class="tile-content">
-                      <div class="tile-icon">
-                        <img src="{{avatar 40 company}}" alt="Perfil" />
+                {{#if isStudent}}
+                  {{#each applications}}
+                    <li class="tile">
+                      <div class="tile-content">
+                        <div class="tile-icon">
+                          <img src="{{avatar 40 company}}" alt="Perfil" />
+                        </div>
+                        <div class="tile-text">
+                          <a class="ink-reaction" href="{{pathForJob _id}}">
+                            {{nome}}
+                          </a>
+                          <small>{{t9n tipo_vaga}}</small>
+                        </div>
                       </div>
-                      <div class="tile-text">
-                        <a class="ink-reaction" href="{{pathForJob _id}}">
-                          {{nome}}
-                        </a>
-                        <small>{{t9n tipo_vaga}}</small>
-                      </div>
-                    </div>
-                  </li>
-
+                    </li>
+                  {{else}}
+                    <p class="tile-text center-text">Não há vagas candidatadas.</p>
+                  {{/each}}
                 {{else}}
-                  <li class="tile">
-                    <div class="tile-content">
-                      {{#if isStudent}}
-                        <p class="tile-text center-text">Não há vagas candidatadas.</p>
-                      {{else}}
-                        <p class="tile-text center-text">Não há vagas com candidatos.</p>
-                      {{/if}}
-                    </div>
-                  </li>
-                {{/each}}
+                  {{#each job in jobs}}
+                    {{#if job.applications}}
+                      <li class="tile">
+                        <div class="tile-content">
+                          <div class="tile-text">
+                            <a class="ink-reaction" href="{{pathForJob job._id}}">
+                              {{job.nome}}
+                            </a>
+                            <small>Número de candidatos: 
+                              <strong>{{job.applications.length}}</strong>
+                            </small>
+                          </div>
+                        </div>
+                      </li>
+                    {{/if}}
+                  {{else}}
+                    <p class="tile-text center-text">Não há vagas com candidatos.</p>
+                  {{/each}}
+                {{/if}}
               </ul>
             </div>
           </div>
