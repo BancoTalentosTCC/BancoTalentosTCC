@@ -77,7 +77,7 @@ Meteor.methods({
           break;
 
         case "upd-aboutyou":
-          if (Meteor.user.emails.length < 2) {
+          if (Meteor.user().emails.length < 2 && user.emails.address !== undefined) {
             Meteor.users.update(userId, {
               $push: {
                 "emails": user.emails
@@ -85,10 +85,11 @@ Meteor.methods({
             }, {
               getAutoValues: false
             });
-          } else if (Meteor.user.emails < 3) {
+          } else if (Meteor.user().emails.length < 3 && user.emails.address !== undefined) {
             Meteor.users.update(userId, {
               $set: {
-                "emails": user.emails
+                "emails.1.address": user.emails.address,
+                "email.1.verified": user.emails.verified
               }
             }, {
               getAutoValues: false
@@ -199,7 +200,7 @@ Meteor.methods({
       Meteor.users.attachSchema(Company);
       switch (formID) {
         case "upd-aboutyou":
-          if (Meteor.user.emails.length < 2) {
+          if (Meteor.user().emails.length < 2 && user.emails.address !== undefined) {
             Meteor.users.update(userId, {
               $push: {
                 "emails": user.emails
@@ -207,7 +208,7 @@ Meteor.methods({
             }, {
               getAutoValues: false
             });
-          } else if (Meteor.user.emails < 3) {
+          } else if (Meteor.user().emails.length < 3 && user.emails.address !== undefined) {
             Meteor.users.update(userId, {
               $set: {
                 "emails": user.emails
