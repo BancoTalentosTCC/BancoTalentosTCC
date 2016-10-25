@@ -141,6 +141,14 @@ company.route('/vagas/:id', {
   }
 });
 
+company.route('/vagas/:id/detalhes', {
+  name: 'companyJobDetails',
+  title: "Banco de Talentos - Detalhes da Vaga",
+  action: function() {
+    BlazeLayout.render('PanelLayout', { header: "header", menubar: "menubar", main: "jobDetails" });
+  }
+});
+
 company.route('/configuracoes', {
   name: 'companysettings',
   title: "Banco de Talentos - Configurações ",

@@ -11,14 +11,6 @@ Template.showJob.helpers({
     var id = FlowRouter.getParam('id');
     return Jobs.find({_id: id}).fetch()[0];
   },
-  pathForJob: function() {
-    if(Roles.userIsInRole(Meteor.userId(), 'student', 'user-type')){
-      return FlowRouter.path("studentjobs");
-    }
-    else if(Roles.userIsInRole(Meteor.userId(), 'company', 'user-type')){
-      return FlowRouter.path("companyjobs");
-    }
-  },
   appliedToJob: function(job) {
     return job.applications.filter(function(studentId) {
       return (Meteor.userId() == studentId);

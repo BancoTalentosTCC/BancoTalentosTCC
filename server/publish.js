@@ -10,6 +10,9 @@ Meteor.publish('jobs', function() {
   }
 });
 
+// We decided to publish all users and make them available for everyone
+// In case the app is having a bad performance, running slowly, it could be
+// a good idea to only publish those users needed at the moment
 Meteor.publish('users', function() {
   return Meteor.users.find({}, {fields: {'profile.cpf': 0, 'profile.cnpj': 0, services: 0}});
 });
