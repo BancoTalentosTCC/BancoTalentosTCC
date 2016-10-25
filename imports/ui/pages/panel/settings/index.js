@@ -27,6 +27,19 @@ Template.studentSettings.onRendered(function () {
   if (!$('#aboutme').data('summernote')) {
     $('#aboutme').summernote({
       height: $('#aboutme').height() + 150,
+      // clear clipboard before paste
+      callbacks: {
+        onPaste: function (e) {
+          var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+
+          e.preventDefault();
+
+          // Firefox fix
+          setTimeout(function () {
+            document.execCommand('insertText', false, bufferText);
+          }, 10);
+        }
+      },
       toolbar: [
         // [groupName, [list of button]]
         ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -161,6 +174,7 @@ function update(target, formID) {
         }
         break;
     }
+    console.log(user);
     // Now update user
     Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'), function (error, result) {
       if (error) {

@@ -1,6 +1,9 @@
 @import "materialadmin/assets/less/materialadmin.import.less";
 @import "custom.mixing.less";
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,700';
+@import "materialadmin/assets/less/libs/summernote/summernote.import.less";
+@import "materialadmin/assets/less/shared/variables.import.less";
+@import "materialadmin/assets/less/shared/mixins.import.less";
 
 /* Fix font rendering on crossbrosing and font issues like, color, etc */
 
@@ -490,27 +493,37 @@ section {
 
 // Shorten style upgrade
 .short-desc {
+  .allcontent {
+    width: 100%;
+  }
   span {
-    background: linear-gradient(to top,#fff,#fff 60%,rgba(255,255,255,0));
+    margin: 0px auto;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );   
     .morelink {
       display: block;
+      width: 100%; 
+      text-align: center; 
       margin: 0px auto;
       color: #8bc34a;
       font-weight: bold;
       text-align: center;
       text-decoration: none;
-      padding: 4.5px 7px;
-      background-color: transparent;
-      border-color: transparent;
-      max-width: 100px;
       font-size: 15px;
-      -webkit-transition: width 1s; /* Safari */
-      transition: width 1s;
-      &:hover, &:active {
-        color: #313534;
-        -webkit-transition: width 1s; /* Safari */
-        transition: width 1s;
-      }
+      max-width: 100px;
     }
   }
+}
+
+/* Summernote Material Admin theme fix 
+ * As we're using a package from Atmosphere to replace the original one,
+ * we need to have this to fix its layout
+*/
+.note-editor {
+  border: 1px solid @border-color !important;
 }
