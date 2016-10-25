@@ -487,3 +487,30 @@ section {
 .center-text {
   text-align: center;
 }
+
+// Shorten style upgrade
+.short-desc {
+  span {
+    background: linear-gradient(to top,#fff,#fff 60%,rgba(255,255,255,0));
+    .morelink {
+      display: block;
+      margin: 0px auto;
+      color: #8bc34a;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      padding: 4.5px 7px;
+      background-color: transparent;
+      border-color: transparent;
+      max-width: 100px;
+      font-size: 15px;
+      -webkit-transition: width 1s; /* Safari */
+      transition: width 1s;
+      &:hover, &:active {
+        color: #313534;
+        -webkit-transition: width 1s; /* Safari */
+        transition: width 1s;
+      }
+    }
+  }
+}
