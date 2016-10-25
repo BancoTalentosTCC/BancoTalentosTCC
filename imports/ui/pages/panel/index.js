@@ -9,9 +9,6 @@ Template.mainPanel.helpers({
     applications.map(function(application) {
       let job = Jobs.find({_id: application}).fetch()[0];
       jobs.push(job);
-
-      // SUBSCRIBE TO GET COMPANY DETAILS
-      Meteor.subscribe('company', job.company);
     });
     return jobs;
   }

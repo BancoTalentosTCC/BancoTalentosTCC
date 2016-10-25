@@ -11,9 +11,6 @@ Template.showJob.helpers({
     var id = FlowRouter.getParam('id');
     return Jobs.find({_id: id}).fetch()[0];
   },
-  company: function() {
-    return Session.get("company");
-  },
   pathForJob: function() {
     if(Roles.userIsInRole(Meteor.userId(), 'student', 'user-type')){
       return FlowRouter.path("studentjobs");
@@ -23,11 +20,14 @@ Template.showJob.helpers({
     }
   },
   appliedToJob: function(job) {
-    return job.applications.map(function(studentId) {
-      if (Meteor.userId() == studentId) return true
+    return job.applications.filter(function(studentId) {
+      return (Meteor.userId() == studentId);
     });
   },
   isNotActive: function(status) {
     if (status !== "active") return true;
+  },
+  userById: function(id) {
+    return Meteor.users.find({_id: id}).fetch();
   }
 });

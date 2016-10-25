@@ -52,6 +52,7 @@ signup.route('/empresa', {
 
 var panel = FlowRouter.group({
   subscriptions: function(params) {
+    Meteor.subscribe('users');
     Meteor.subscribe('jobs');
     Meteor.subscribe('tags');
   },
@@ -117,11 +118,6 @@ company.route('/vagas', {
 });
 
 company.route('/alunos', {
-  triggersEnter: [
-    function(context, redirect) {
-      Meteor.subscribe('students');
-    }
-  ],
   name: 'companyStudents',
   title: "Banco de Talentos - Alunos",
   action: function(params) {
@@ -132,9 +128,6 @@ company.route('/alunos', {
 company.route('/alunos/:id', {
   name: 'companyStudent',
   title: "Banco de Talentos - Aluno",
-  subscriptions: function(params) {
-    Meteor.subscribe('user', params);
-  },
   action: function(params) {
     BlazeLayout.render('PanelLayout', { main: "profile" });
   }
@@ -191,9 +184,6 @@ student.route('/perfil', {
 
 student.route('/vagas', {
   name: 'studentjobs',
-  subscriptions: function() {
-    Meteor.subscribe('companies');
-  },
   title: "Banco de Talentos - Procurar Vagas ",
   action: function(params) {
     BlazeLayout.render('PanelLayout', { main: "jobs" });
@@ -203,13 +193,6 @@ student.route('/vagas', {
 student.route('/vagas/:id', {
   name: 'studentJob',
   title: "Banco de Talentos - Vaga",
-  subscriptions: function(params) {
-    Meteor.call('findCompanyByJob', params.id, function(error, result) {
-      Meteor.subscribe('company', result, function() {
-        Session.set('company', Meteor.users.find({_id: result}).fetch()[0]);
-      });
-    });
-  },
   action: function() {
     BlazeLayout.render('PanelLayout', { main: "showJob" });
   }
@@ -226,9 +209,6 @@ student.route('/empresas', {
 student.route('/empresas/:id', {
   name: 'studentCompany',
   title: "Banco de Talentos - Empresa",
-  subscriptions: function(params) {
-    Meteor.subscribe('user', params);
-  },
   action: function(params) {
     BlazeLayout.render('PanelLayout', { main: "profile" });
   }

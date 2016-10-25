@@ -1,5 +1,4 @@
 import '/imports/api/collections/jobs.js';
-import '/imports/api/collections/students.js';
 import '/imports/api/collections/tags.js';
 
 Meteor.publish('jobs', function() {
@@ -11,20 +10,8 @@ Meteor.publish('jobs', function() {
   }
 });
 
-Meteor.publish('students', function() {
-  return Roles.getUsersInRole('student', 'user-type', {fields: {'profile.cpf': 0, services: 0}});
-});
-
-Meteor.publish('companies', function() {
-  return Roles.getUsersInRole('company', 'user-type', {fields: {'profile.cnpj': 0, services: 0}});
-});
-
-Meteor.publish('user', function(params) {
-  return Meteor.users.find({_id: params.id}, {fields: {'profile.cnpj': 0, 'profile.cpf': 0, services: 0}});
-});
-
-Meteor.publish('company', function(id) {
-  return Meteor.users.find({_id: id}, {fields: {'profile.cnpj': 0, services: 0}});
+Meteor.publish('users', function() {
+  return Meteor.users.find({}, {fields: {'profile.cpf': 0, 'profile.cnpj': 0, services: 0}});
 });
 
 Meteor.publish('tags', function() {
