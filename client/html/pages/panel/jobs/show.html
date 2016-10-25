@@ -46,15 +46,16 @@
                     {{/if}}
                     <br>
                     <div class="job-details">
-                        <span class="text-bold">Status: </span><p>{{t9n job.status}}</p>
-                        <br>
-                        {{#if job.applications.length}}
-                          <span class="text-bold">Candidaturas: </span><p>{{job.applications.length}}</p>
-                        {{else}}
-                          <p>Ainda não há candidatos para esta vaga.</p>
-                        {{/if}}
-                      </div>
+                      <span class="text-bold">Status: </span><p>{{t9n job.status}}</p>
+                      <br>
+                      {{#if job.applications.length}}
+                        <span class="text-bold">Candidaturas: </span><p>{{job.applications.length}}</p>
+                      {{else}}
+                        <p>Ainda não há candidatos para esta vaga.</p>
+                      {{/if}}
+                    </div>
                     <br>
+                    {{daysAgo job.createdAt}}
                     <br>
                   </div>
                   <div class="col-md-9 col-xs-12 col-sm-8">

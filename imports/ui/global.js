@@ -49,6 +49,18 @@ Template.registerHelper(
   }
 );
 
+Template.registerHelper(
+  'daysAgo', (date) => {
+    let now = new Date().getTime();
+    let diff = now - date;
+    diff = parseInt(diff / 86400000);
+    if(diff == 0) return 'Hoje';
+    else if(diff == 1) return 'Há 1 dia atrás';
+    else return ('Há ' + diff + ' dias atrás');
+
+  }
+);
+
 Template.body.events({
   // horizontal and vertical search tabs
   'click .nav-tabs a, click .nav-tabs-vert a': function(e) {
