@@ -51,10 +51,11 @@ signup.route('/empresa', {
 });
 
 var panel = FlowRouter.group({
+  subscriptions: function(params) {
+    Meteor.subscribe('jobs');
+    Meteor.subscribe('tags');
+  },
   triggersEnter: [
-    function(context, redirect) {
-      Meteor.subscribe('jobs');
-    },
     function(context, redirect, stop) {
       Tracker.autorun(function() {
         var id = Meteor.userId();

@@ -1,5 +1,6 @@
 import '/imports/api/collections/jobs.js';
 import '/imports/api/collections/students.js';
+import '/imports/api/collections/tags.js';
 
 Meteor.publish('jobs', function() {
   if(Roles.userIsInRole(this.userId, 'student', 'user-type')){
@@ -24,4 +25,8 @@ Meteor.publish('user', function(params) {
 
 Meteor.publish('company', function(id) {
   return Meteor.users.find({_id: id}, {fields: {'profile.cnpj': 0, services: 0}});
+});
+
+Meteor.publish('tags', function() {
+  return Tags.find();
 });
