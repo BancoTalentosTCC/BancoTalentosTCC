@@ -51,6 +51,7 @@ Template.studentSteps.events({
         sexo: targetValue(target["sexo"]),
         endereco: targetValue(target["endereco"]),
         numero: targetValue(target["numero"]),
+        complemento: targetValue(target["complemento"]),
         bairro: targetValue(target["bairro"]),
         cidade: targetValue(target["cidade"]),
         uf: targetValue(target["uf"]),

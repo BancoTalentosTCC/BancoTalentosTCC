@@ -20,6 +20,7 @@ Template.companySignup.events({
         razaosoc: targetValue(target["razaosoc"]),
         endereco: targetValue(target["endereco"]),
         numero: targetValue(target["numero"]),
+        complemento: targetValue(target["complemento"]),
         bairro: targetValue(target["bairro"]),
         cidade: targetValue(target["cidade"]),
         uf: targetValue(target["uf"]),
@@ -27,6 +28,9 @@ Template.companySignup.events({
         phone: targetValue(target["phone"]),
         fax: targetValue(target["fax"]),
         dados: targetValue(target["dados"]),
+        facebook: targetValue(target["facebook"]),
+        twitter: targetValue(target["twitter"]),
+        github: targetValue(target["github"]),
         pers_website: targetValue(target["pers_website"])
       }
     }

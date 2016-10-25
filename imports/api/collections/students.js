@@ -82,8 +82,6 @@ StudentsSchema1 = new SimpleSchema({
   complemento: {
     type: String,
     label: "Complemento",
-    min: 15,
-    max: 100,
     optional: true
   },
   numero: {
@@ -145,10 +143,21 @@ StudentsSchema1 = new SimpleSchema({
     label: "Skype ID",
     optional: true
   },
+  github: {
+    type: String,
+    label: "GitHub",
+    regEx: SimpleSchema.RegEx.Url,
+    optional: true
+  },
   pers_website: {
     type: String,
     label: "Site Pessoal",
     regEx: SimpleSchema.RegEx.Url,
+    optional: true
+  },
+  aboutme: {
+    type: String,
+    label: "About Me",
     optional: true
   },
   especial: {
