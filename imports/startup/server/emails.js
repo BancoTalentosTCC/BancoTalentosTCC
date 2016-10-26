@@ -1,7 +1,7 @@
 // Template for building an verification email :)
 
-Accounts.emailTemplates.siteName = "Banco de Talentos UNIVÁS";
-Accounts.emailTemplates.from     = "Administrador <admin@univas.edu.br>";
+Accounts.emailTemplates.siteName = "Banco de Talentos";
+Accounts.emailTemplates.from     = "Administrador <admin@bancotalentos.herukuapp.com>";
 
 Accounts.emailTemplates.verifyEmail = {
   subject() {
