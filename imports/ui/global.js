@@ -63,9 +63,9 @@ Template.registerHelper(
 
 Template.registerHelper(
   'jobStatus', (status) => {
-    if (status == 'active') return '<span class="label label-primary">Ativa</span>';
-    else if (status == 'expired') return '<span class="label label-warning">Expirada</span>';
-    else if (status == 'disabled') return '<span class="label label-default">Desabilitada</span>';
+    if (status == 'active') return '<span class="label label-primary"><i class="md mdi mdi-checkbox-marked-circle"></i>&nbsp;Ativa</span>';
+    else if (status == 'expired') return '<span class="label label-warning"><i class="md mdi mdi-alert-circle"></i>&nbsp;Expirada</span>';
+    else if (status == 'disabled') return '<span class="label label-default"><i class="md mdi mdi-minus-circle"></i>&nbsp;Desabilitada</span>';
   }
 );
 

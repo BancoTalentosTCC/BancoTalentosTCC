@@ -32,7 +32,6 @@
                         {{#if isNotActive job.status}}   
                           <div class="col-sm-9 clear-left">  
                             <p class="btn btn-block ink-reaction btn-danger">
-                              <i class="md mdi mdi-exclamation"></i>
                               Vaga {{t9n job.status}}
                             </p>
                           </div>
@@ -74,6 +73,11 @@
                       <div class="col-sm-6">
                         <span class="text-bold">Criada em:&nbsp;</span><p>{{formatDate job.createdAt}}</p>
                         <span class="text-bold">Expira em:&nbsp;</span><p>{{formatDate job.expiration}}</p>
+                      </div>
+                      <div class="col-sm-12">
+                        {{#if isNotActive job.status}} 
+                          <p><span class="text-danger"><i class="md mdi mdi-alert-circle"></i></span>&nbsp;Esta vaga não aceita mais candidaturas.</p>
+                        {{/if}}
                       </div>
 
                       <!-- TODO: Create a logic to display if it has special needs or not -->
