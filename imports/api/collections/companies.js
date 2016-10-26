@@ -124,7 +124,27 @@ Profile = new SimpleSchema({
     label: "GitHub",
     regEx: SimpleSchema.RegEx.Url,
     optional: true
-  }
+  },
+  anofundacao: {
+    type: String,
+    label: "Fundação",
+    regEx: /^((?:19|20)\d\d)$/
+  },
+  missao: {
+    type: String,
+    label: "Missão",
+    optional: true
+  },
+  visao: {
+    type: String,
+    label: "Visão",
+    optional: true
+  },
+  sobre: {
+    type: String,
+    label: "Sobre a Organização",
+    optional: true
+  },
 });
 
 Company = new SimpleSchema({

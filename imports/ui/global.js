@@ -43,6 +43,12 @@ Template.registerHelper(
   }
 );
 
+Template.registerHelper(
+  'isSelected', (key, value) => {
+    return key == value ? 'selected' : '';
+  }
+);
+
 Template.body.events({
   // horizontal and vertical search tabs
   'click .nav-tabs a, click .nav-tabs-vert a': function(e) {

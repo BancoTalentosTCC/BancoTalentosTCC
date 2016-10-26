@@ -259,6 +259,19 @@ Meteor.methods({
           });
 
           break;
+        
+        case "upd-aboutcompany": 
+          Meteor.users.update(userId, {
+            $set: {
+              "profile.anofundacao": user.profile.anofundacao,
+              "profile.missao": user.profile.missao,
+              "profile.visao": user.profile.visao,
+              "profile.sobre": user.profile.sobre
+            }
+          }, {
+            getAutoValues: false
+          });
+          break;
       }
       return true;
     }
