@@ -53,18 +53,18 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <select id="perfil" name="perfil" class="form-control" selected="{{ user.profile.perfil }}">
-                    <option value="aluno">Aluno</option>
-                    <option value="ex-aluno">Ex-aluno</option>
+                  <select id="perfil" name="perfil" class="form-control">
+                    <option value="aluno" {{isSelected "aluno" user.profile.perfil}}>Aluno</option>
+                    <option value="ex-aluno" {{isSelected "ex-aluno" user.profile.perfil}}>Ex-aluno</option>
                   </select>
                   <label for="perfil">Perfil</label>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <select id="sexo" name="sexo" class="form-control" selected="{{ user.profile.sexo }}">
-                    <option value="m">Masculino</option>
-                    <option value="f">Feminino</option>
+                  <select id="sexo" name="sexo" class="form-control">
+                    <option value="m" {{isSelected "m" user.profile.sexo}}>Masculino</option>
+                    <option value="f" {{isSelected "f" user.profile.sexo}}>Feminino</option>
                   </select>
                   <label for="sexo">Sexo</label>
                 </div>
@@ -149,34 +149,34 @@
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <select class="form-control static dirty" id="uf" name="uf" required  value="{{ user.profile.uf }}">     
-                    <option value="ac">Acre</option>        
-                    <option value="al">Alagoas</option>
-                    <option value="am">Amazonas</option>
-                    <option value="ap">Amapá</option>
-                    <option value="ba">Bahia</option>
-                    <option value="ce">Ceará</option>
-                    <option value="df">Distrito Federal</option>
-                    <option value="es">Espírito Santo</option>
-                    <option value="go">Goiás</option>
-                    <option value="ma">Maranhão</option>
-                    <option value="mt">Mato Grosso</option>
-                    <option value="ms">Mato Grosso</option>
-                    <option value="mg">Minas Gerais</option>
-                    <option value="pa">Pará</option>
-                    <option value="pb">Paraíba</option>
-                    <option value="pr">Paraná</option>
-                    <option value="pe">Pernambuco</option>
-                    <option value="pi">Piauí</option>
-                    <option value="rj">Rio de Janeiro</option>
-                    <option value="rn">Rio Grande do Norte</option>
-                    <option value="ro">Rondônia</option>
-                    <option value="rs">Rio Grande de Sul</option>
-                    <option value="rr">Roraima</option>
-                    <option value="sc">Santa Catarina</option>
-                    <option value="se">Sergipe</option>
-                    <option value="sp">São Paulo</option>
-                    <option value="to">Tocantins</option>
+                  <select class="form-control static dirty" id="uf" name="uf" required>     
+                    <option value="ac" {{isSelected "ac" user.profile.uf}}>Acre</option>        
+                    <option value="al" {{isSelected "al" user.profile.uf}}>Alagoas</option>
+                    <option value="am" {{isSelected "am" user.profile.uf}}>Amazonas</option>
+                    <option value="ap" {{isSelected "ap" user.profile.uf}}>Amapá</option>
+                    <option value="ba" {{isSelected "ba" user.profile.uf}}>Bahia</option>
+                    <option value="ce" {{isSelected "ce" user.profile.uf}}>Ceará</option>
+                    <option value="df" {{isSelected "df" user.profile.uf}}>Distrito Federal</option>
+                    <option value="es" {{isSelected "es" user.profile.uf}}>Espírito Santo</option>
+                    <option value="go" {{isSelected "go" user.profile.uf}}>Goiás</option>
+                    <option value="ma" {{isSelected "ma" user.profile.uf}}>Maranhão</option>
+                    <option value="mt" {{isSelected "mt" user.profile.uf}}>Mato Grosso</option>
+                    <option value="ms" {{isSelected "ms" user.profile.uf}}>Mato Grosso</option>
+                    <option value="mg" {{isSelected "mg" user.profile.uf}}>Minas Gerais</option>
+                    <option value="pa" {{isSelected "pa" user.profile.uf}}>Pará</option>
+                    <option value="pb" {{isSelected "pb" user.profile.uf}}>Paraíba</option>
+                    <option value="pr" {{isSelected "pr" user.profile.uf}}>Paraná</option>
+                    <option value="pe" {{isSelected "pe" user.profile.uf}}>Pernambuco</option>
+                    <option value="pi" {{isSelected "pi" user.profile.uf}}>Piauí</option>
+                    <option value="rj" {{isSelected "rj" user.profile.uf}}>Rio de Janeiro</option>
+                    <option value="rn" {{isSelected "rn" user.profile.uf}}>Rio Grande do Norte</option>
+                    <option value="ro" {{isSelected "ro" user.profile.uf}}>Rondônia</option>
+                    <option value="rs" {{isSelected "rs" user.profile.uf}}>Rio Grande de Sul</option>
+                    <option value="rr" {{isSelected "rr" user.profile.uf}}>Roraima</option>
+                    <option value="sc" {{isSelected "sc" user.profile.uf}}>Santa Catarina</option>
+                    <option value="se" {{isSelected "se" user.profile.uf}}>Sergipe</option>
+                    <option value="sp" {{isSelected "sp" user.profile.uf}}>São Paulo</option>
+                    <option value="to" {{isSelected "to" user.profile.uf}}>Tocantins</option>
                   </select>
                   <label for="uf">Estado</label>
                 </div>
@@ -279,35 +279,35 @@
     <div class="card">
       <div class="card-body">
         <div class="form-group">
-          <select id="formacao" name="formacao" class="form-control" selected="{{ user.profile.formacao.formacao }}">
-            <option value="grad">Graduação</option>
-            <option value="pos">Pós-Graduação</option>
-            <option value="mest">Mestrado</option>
-            <option value="dout">Doutorado</option>
+          <select id="formacao" name="formacao" class="form-control">
+            <option value="grad" {{isSelected "grad" user.profile.formacao.formacao}}>Graduação</option>
+            <option value="pos" {{isSelected "pos" user.profile.formacao.formacao}}>Pós-Graduação</option>
+            <option value="mest" {{isSelected "mest" user.profile.formacao.formacao}}>Mestrado</option>
+            <option value="dout" {{isSelected "dout" user.profile.formacao.formacao}}>Doutorado</option>
           </select>
           <label for="formacao">Tipo de Formação</label>
         </div>
         <div class="form-group">
-          <select class="form-control" id="curso" name="curso" selected="{{ user.profile.formacao.curso }}">
-            <option value="adm">Administração</option>
-            <option value="ciencbio">Ciências Biológicas</option> 
-            <option value="cienccont">Ciências Contábeis</option>   
-            <option value="edfisic">Educação Física</option>  
-            <option value="enferm">Enfermagem</option>
-            <option value="engprod">Engenharia de Produção</option>
-            <option value="farmac">Farmácia</option>
-            <option value="fisiot">Fisioterapia</option>
-            <option value="gastro">Gastronomia</option>
-            <option value="gpi">Gestão da Produção Industrial</option>
-            <option value="grh">Gestão de Recursos Humanos</option>
-            <option value="hist">História</option>
-            <option value="letr">Letras</option>
-            <option value="sist">Sistemas de Informação</option>
-            <option value="mat">Matemática</option>
-            <option value="med">Medicina</option>
-            <option value="pedag">Pedagogia</option>
-            <option value="psicol">Psicologia</option>
-            <option value="pubpr">Publicidade e Propaganda</option>
+          <select class="form-control" id="curso" name="curso">
+            <option value="adm" {{isSelected "adm" user.profile.formacao.curso}}>Administração</option>
+            <option value="ciencbio" {{isSelected "ciencbio" user.profile.formacao.curso}}>Ciências Biológicas</option> 
+            <option value="cienccont" {{isSelected "cienccont" user.profile.formacao.curso}}>Ciências Contábeis</option>   
+            <option value="edfisic" {{isSelected "edfisic" user.profile.formacao.curso}}>Educação Física</option>  
+            <option value="enferm" {{isSelected "enferm" user.profile.formacao.curso}}>Enfermagem</option>
+            <option value="engprod" {{isSelected "engprod" user.profile.formacao.curso}}>Engenharia de Produção</option>
+            <option value="farmac" {{isSelected "farmac" user.profile.formacao.curso}}>Farmácia</option>
+            <option value="fisiot" {{isSelected "fisiot" user.profile.formacao.curso}}>Fisioterapia</option>
+            <option value="gastro" {{isSelected "gastro" user.profile.formacao.curso}}>Gastronomia</option>
+            <option value="gpi" {{isSelected "gpi" user.profile.formacao.curso}}>Gestão da Produção Industrial</option>
+            <option value="grh" {{isSelected "grh" user.profile.formacao.curso}}>Gestão de Recursos Humanos</option>
+            <option value="hist" {{isSelected "hist" user.profile.formacao.curso}}>História</option>
+            <option value="letr" {{isSelected "letr" user.profile.formacao.curso}}>Letras</option>
+            <option value="sist" {{isSelected "sist" user.profile.formacao.curso}}>Sistemas de Informação</option>
+            <option value="mat" {{isSelected "mat" user.profile.formacao.curso}}>Matemática</option>
+            <option value="med" {{isSelected "med" user.profile.formacao.curso}}>Medicina</option>
+            <option value="pedag" {{isSelected "pedag" user.profile.formacao.curso}}>Pedagogia</option>
+            <option value="psicol" {{isSelected "psicol" user.profile.formacao.curso}}>Psicologia</option>
+            <option value="pubpr" {{isSelected "pubpr" user.profile.formacao.curso}}>Publicidade e Propaganda</option>
           </select>
           <label for="formacao">Curso</label>
         </div>

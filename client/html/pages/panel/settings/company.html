@@ -9,6 +9,9 @@
     <li>
       <a href="#contato">CONTATO E REDES SOCIAIS</a>
     </li>
+    <li>
+      <a href="#aboutcompany">SOBRE A EMPRESA</a>
+    </li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="general">
@@ -105,33 +108,33 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <select class="form-control static dirty" id="uf" name="uf" required>     
-                    <option value="ac">Acre</option>        
-                    <option value="al">Alagoas</option>
-                    <option value="am">Amazonas</option>
-                    <option value="ap">Amapá</option>
-                    <option value="ba">Bahia</option>
-                    <option value="ce">Ceará</option>
-                    <option value="df">Distrito Federal</option>
-                    <option value="es">Espírito Santo</option>
-                    <option value="go">Goiás</option>
-                    <option value="ma">Maranhão</option>
-                    <option value="mt">Mato Grosso</option>
-                    <option value="ms">Mato Grosso</option>
-                    <option value="mg">Minas Gerais</option>
-                    <option value="pa">Pará</option>
-                    <option value="pb">Paraíba</option>
-                    <option value="pr">Paraná</option>
-                    <option value="pe">Pernambuco</option>
-                    <option value="pi">Piauí</option>
-                    <option value="rj">Rio de Janeiro</option>
-                    <option value="rn">Rio Grande do Norte</option>
-                    <option value="ro">Rondônia</option>
-                    <option value="rs">Rio Grande de Sul</option>
-                    <option value="rr">Roraima</option>
-                    <option value="sc">Santa Catarina</option>
-                    <option value="se">Sergipe</option>
-                    <option value="sp">São Paulo</option>
-                    <option value="to">Tocantins</option>
+                    <option value="ac" {{isSelected "ac" user.profile.uf}}>Acre</option>        
+                    <option value="al" {{isSelected "al" user.profile.uf}}>Alagoas</option>
+                    <option value="am" {{isSelected "am" user.profile.uf}}>Amazonas</option>
+                    <option value="ap" {{isSelected "ap" user.profile.uf}}>Amapá</option>
+                    <option value="ba" {{isSelected "ba" user.profile.uf}}>Bahia</option>
+                    <option value="ce" {{isSelected "ce" user.profile.uf}}>Ceará</option>
+                    <option value="df" {{isSelected "df" user.profile.uf}}>Distrito Federal</option>
+                    <option value="es" {{isSelected "es" user.profile.uf}}>Espírito Santo</option>
+                    <option value="go" {{isSelected "go" user.profile.uf}}>Goiás</option>
+                    <option value="ma" {{isSelected "ma" user.profile.uf}}>Maranhão</option>
+                    <option value="mt" {{isSelected "mt" user.profile.uf}}>Mato Grosso</option>
+                    <option value="ms" {{isSelected "ms" user.profile.uf}}>Mato Grosso</option>
+                    <option value="mg" {{isSelected "mg" user.profile.uf}}>Minas Gerais</option>
+                    <option value="pa" {{isSelected "pa" user.profile.uf}}>Pará</option>
+                    <option value="pb" {{isSelected "pb" user.profile.uf}}>Paraíba</option>
+                    <option value="pr" {{isSelected "pr" user.profile.uf}}>Paraná</option>
+                    <option value="pe" {{isSelected "pe" user.profile.uf}}>Pernambuco</option>
+                    <option value="pi" {{isSelected "pi" user.profile.uf}}>Piauí</option>
+                    <option value="rj" {{isSelected "rj" user.profile.uf}}>Rio de Janeiro</option>
+                    <option value="rn" {{isSelected "rn" user.profile.uf}}>Rio Grande do Norte</option>
+                    <option value="ro" {{isSelected "ro" user.profile.uf}}>Rondônia</option>
+                    <option value="rs" {{isSelected "rs" user.profile.uf}}>Rio Grande de Sul</option>
+                    <option value="rr" {{isSelected "rr" user.profile.uf}}>Roraima</option>
+                    <option value="sc" {{isSelected "sc" user.profile.uf}}>Santa Catarina</option>
+                    <option value="se" {{isSelected "se" user.profile.uf}}>Sergipe</option>
+                    <option value="sp" {{isSelected "sp" user.profile.uf}}>São Paulo</option>
+                    <option value="to" {{isSelected "to" user.profile.uf}}>Tocantins</option>
                   </select>
                   <label for="uf">Estado</label>
                 </div>
@@ -199,6 +202,38 @@
                   <label for="github">GitHub</label>
                 </div>
               </div>
+            </div>
+          </div>
+          <!--end .card-body -->
+          <div class="card-actionbar">
+            <div class="card-actionbar-row">
+              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="tab-pane" id="aboutcompany">
+      <br>
+      <form class="form" id="upd-aboutcompany">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group">
+              <input type="text" class="form-control" id="anofundacao" value="{{ user.profile.anofundacao }}">
+              <label for="anofundacao">Fundação</label>
+            </div>
+            <div class="form-group">
+              <textarea id="missao" name="missao" class="form-control" rows="3" value="{{ user.profile.missao }}"></textarea>
+              <label for="missao">Missão</label>
+            </div>
+            <div class="form-group">
+              <textarea id="visao" name="visao" class="form-control" rows="3" value="{{ user.profile.visao }}"></textarea>
+              <label class="control-label" for="visao">Visão</label>
+            </div>
+            <div class="form-group">
+              <textarea id="sobre" name="sobre" class="form-control" rows="4" value="{{ user.profile.sobre }}"></textarea>
+              <label class="control-label" for="sobre">Sobre a Organização</label>
             </div>
           </div>
           <!--end .card-body -->
