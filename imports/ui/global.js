@@ -24,7 +24,7 @@ Template.registerHelper(
 Template.registerHelper(
   'formatDate', (milliseconds) => {
     var date = new Date(milliseconds);
-    var dateFormated = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() + " às " + date.getHours() + ":" + date.getMinutes()
+    var dateFormated = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() + " às " + ('0' + date.getHours()).substr(-2) + ":" + ('0' + date.getMinutes()).substr(-2)
     return dateFormated ;
   }
 );

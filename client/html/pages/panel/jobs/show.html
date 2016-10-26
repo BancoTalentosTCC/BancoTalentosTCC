@@ -29,15 +29,9 @@
                         <a class="btn ink-reaction btn-raised btn-primary disabled">
                           <i class="md mdi mdi-check"></i> Candidatado!</a>
                       {{else}}
-                        {{#if isNotActive job.status}}   
-                          <div class="col-sm-9 clear-left">  
-                            <p class="btn btn-block ink-reaction btn-danger">
-                              Vaga {{t9n job.status}}
-                            </p>
-                          </div>
-                        {{else}}
-                          <button id="apply" class="btn btn-primary btn-send">Candidatar-se</button>
-                        {{/if}}
+                        {{#unless isNotActive job.status}}   
+                          <button id="apply" class="btn btn-primary btn-send">Candidatar-se</button>                          
+                        {{/unless}}
                       {{/if}}
                       <br>
                     {{else}}

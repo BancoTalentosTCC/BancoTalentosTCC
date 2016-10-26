@@ -4,7 +4,7 @@
       <form class="form floating-label register">
         <div class="form-row form-border">
           <h1>Dados pessoais</h1>
-            {{> formField name='Nome' value='nome' type='text' required='required'}}
+            {{> formField name='Nome Fantasia' value='nome' type='text' required='required'}}
             {{> formField name='CNPJ' value='cnpj' type='text' fieldClass="cnpj" required='required'}}
             {{> formField name='Razão Social' value='razaosoc' type='text' required='required'}}
         </div>
@@ -40,7 +40,7 @@
             {{> formField name='Fax' value='fax' type='text' fieldClass='phone-number'}}
           </div>
         </div>
-        {{> formField name='Dados do contato' value='dados' type='text' required='required'}}
+        {{> formField name='Responsável' value='dados' type='text' required='required'}}
         {{> formField name='Email' value='email' type='email' required='required'}}
         <div class="form-senha">
           <div class="row">
