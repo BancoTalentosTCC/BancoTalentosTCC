@@ -22,253 +22,26 @@
           <textarea id="aboutme" name="aboutme" class="form-control control-3-rows" spellcheck="false" value="{{ user.profile.aboutme }}"></textarea>
         </div>
         <div class="form-group clearfix">
-          <button type="submit" class="btn btn-flat btn-primary ink-reaction pull-right">Adicionar ao perfil</button>
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction pull-right">
+            Adicionar ao perfil
+          </button>
         </div>
       </form>
     </div>
 
     <div class="tab-pane" id="aboutyou">
       <br>
-      <form class="form" id="upd-aboutyou">
-        <div class="card">
-          <div class="card-body">
-            <div class="form-group">
-              <input type="text" class="form-control" id="nome" value="{{ user.profile.nome }}">
-              <label for="nome">Nome</label>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control cpf" id="cpf" value="{{ user.profile.cpf }}" disabled data-toggle="tooltip" data-placement="top" title="Não é possível alterar seu CPF">
-                  <label for="cpf">CPF</label>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="nascimento" value="{{ user.profile.nascimento }}">
-                  <label for="nascimento">Data de Nascimento</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <select id="perfil" name="perfil" class="form-control">
-                    <option value="aluno" {{isSelected "aluno" user.profile.perfil}}>Aluno</option>
-                    <option value="ex-aluno" {{isSelected "ex-aluno" user.profile.perfil}}>Ex-aluno</option>
-                  </select>
-                  <label for="perfil">Perfil</label>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <select id="sexo" name="sexo" class="form-control">
-                    <option value="m" {{isSelected "m" user.profile.sexo}}>Masculino</option>
-                    <option value="f" {{isSelected "f" user.profile.sexo}}>Feminino</option>
-                  </select>
-                  <label for="sexo">Sexo</label>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" id="email" value="{{user.emails.[0].address}}" disabled data-toggle="tooltip" data-placement="top" title="Não é possível alterar seu email principal">
-              <label for="email">Email</label>
-            </div>
-            <div class="form-group">
-              <input type="email2nd" class="form-control" id="email2nd" value="{{user.emails.[1].address}}">
-              <label for="email2nd">Email Secundário</label>
-            </div>
-            <br>
-            <div class="form-group">
-              <p><span class="text-danger">*</span> Seu avatar é sincronizado automaticamente com o servico Gravatar®, caso queira alterá-lo favor consultar <a href="https://pt.gravatar.com/" target='_blank' class="text-primary-dark">esse link</a>.</p>
-            </div>
-            <br>
-            <br>
-            <div class="checkbox checkbox-styled">
-              <label>
-                <input type="checkbox" value="{{user.profile.especial}}">
-                <span>Portador de Necessidades Especiais</span>
-              </label>
-            </div>
-          </div>
-          <!--end .card-body -->
-          <div class="card-actionbar">
-            <div class="card-actionbar-row">
-              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
-            </div>
-          </div>
-        </div>
-      </form>
+      {{ > updateAboutStudent }}
     </div>
 
     <div class="tab-pane" id="address">
       <br>
-      <form class="form" id="upd-address">
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <input type="text" class="form-control cep" id="cep" value="{{ user.profile.cep }}">
-                  <label for="cep">CEP</label>
-                </div>
-              </div>
-              <div class="col-sm-10">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="endereco" value="{{ user.profile.endereco }}">
-                  <label for="endereco">Endereço</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-2">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="numero" value="{{ user.profile.numero }}">
-                  <label for="numero">Número</label>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="complemento" value="{{ user.profile.complemento }}">
-                  <label for="complemento">Complemento</label>
-                </div>
-              </div>
-              <div class="col-sm-7">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="bairro" value="{{ user.profile.bairro }}">
-                  <label for="bairro">Bairro</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="cidade" value="{{ user.profile.cidade }}">
-                  <label for="cidade">Cidade</label>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <select class="form-control static dirty" id="uf" name="uf" required>     
-                    <option value="ac" {{isSelected "ac" user.profile.uf}}>Acre</option>        
-                    <option value="al" {{isSelected "al" user.profile.uf}}>Alagoas</option>
-                    <option value="am" {{isSelected "am" user.profile.uf}}>Amazonas</option>
-                    <option value="ap" {{isSelected "ap" user.profile.uf}}>Amapá</option>
-                    <option value="ba" {{isSelected "ba" user.profile.uf}}>Bahia</option>
-                    <option value="ce" {{isSelected "ce" user.profile.uf}}>Ceará</option>
-                    <option value="df" {{isSelected "df" user.profile.uf}}>Distrito Federal</option>
-                    <option value="es" {{isSelected "es" user.profile.uf}}>Espírito Santo</option>
-                    <option value="go" {{isSelected "go" user.profile.uf}}>Goiás</option>
-                    <option value="ma" {{isSelected "ma" user.profile.uf}}>Maranhão</option>
-                    <option value="mt" {{isSelected "mt" user.profile.uf}}>Mato Grosso</option>
-                    <option value="ms" {{isSelected "ms" user.profile.uf}}>Mato Grosso</option>
-                    <option value="mg" {{isSelected "mg" user.profile.uf}}>Minas Gerais</option>
-                    <option value="pa" {{isSelected "pa" user.profile.uf}}>Pará</option>
-                    <option value="pb" {{isSelected "pb" user.profile.uf}}>Paraíba</option>
-                    <option value="pr" {{isSelected "pr" user.profile.uf}}>Paraná</option>
-                    <option value="pe" {{isSelected "pe" user.profile.uf}}>Pernambuco</option>
-                    <option value="pi" {{isSelected "pi" user.profile.uf}}>Piauí</option>
-                    <option value="rj" {{isSelected "rj" user.profile.uf}}>Rio de Janeiro</option>
-                    <option value="rn" {{isSelected "rn" user.profile.uf}}>Rio Grande do Norte</option>
-                    <option value="ro" {{isSelected "ro" user.profile.uf}}>Rondônia</option>
-                    <option value="rs" {{isSelected "rs" user.profile.uf}}>Rio Grande de Sul</option>
-                    <option value="rr" {{isSelected "rr" user.profile.uf}}>Roraima</option>
-                    <option value="sc" {{isSelected "sc" user.profile.uf}}>Santa Catarina</option>
-                    <option value="se" {{isSelected "se" user.profile.uf}}>Sergipe</option>
-                    <option value="sp" {{isSelected "sp" user.profile.uf}}>São Paulo</option>
-                    <option value="to" {{isSelected "to" user.profile.uf}}>Tocantins</option>
-                  </select>
-                  <label for="uf">Estado</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--end .card-body -->
-          <div class="card-actionbar">
-            <div class="card-actionbar-row">
-              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
-            </div>
-          </div>
-        </div>
-      </form>
+      {{ > updateAddress }}
     </div>
 
     <div class="tab-pane" id="contato">
       <br>
-      <form class="form" id="upd-contact">
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control phone-number" id="phone" value="{{ user.profile.phone }}">
-                  <label for="phone">Telefone Residencial</label>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control phone-number" id="celular" value="{{ user.profile.celular }}">
-                  <label for="celular">Celular</label>
-                </div>
-              </div>
-            </div>
-            <br>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="url" class="form-control" id="facebook" value="{{ user.profile.facebook }}">
-                  <label for="facebook">Facebook</label>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="url" class="form-control" id="twitter" value="{{ user.profile.twitter }}">
-                  <label for="twitter">Twitter</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="linkedin" value="{{ user.profile.linkedin }}">
-                  <label for="linkedin">LinkedIn</label>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="skype" value="{{ user.profile.skype }}">
-                  <label for="skype">Skype ID</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="url" class="form-control" id="pers_website" value="{{ user.profile.pers_website }}">
-                  <label for="pers_website">Site Pessoal</label>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="url" class="form-control" id="github" value="{{ user.profile.github }}">
-                  <label for="github">GitHub</label>
-                </div>
-              </div>
-            </div>
-            <!-- This will be available separatedely -->
-            <!--div class="form-group">
-              <input type="password" class="form-control" id="Password1">
-              <label for="Password1">Password</label>
-            </div-->
-          </div>
-          <!--end .card-body -->
-          <div class="card-actionbar">
-            <div class="card-actionbar-row">
-              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
-            </div>
-          </div>
-        </div>
-      </form>
+      {{ > updateContactStudent }}
     </div>
   </div>
 </template>
@@ -280,34 +53,21 @@
       <div class="card-body">
         <div class="form-group">
           <select id="formacao" name="formacao" class="form-control">
-            <option value="grad" {{isSelected "grad" user.profile.formacao.formacao}}>Graduação</option>
-            <option value="pos" {{isSelected "pos" user.profile.formacao.formacao}}>Pós-Graduação</option>
-            <option value="mest" {{isSelected "mest" user.profile.formacao.formacao}}>Mestrado</option>
-            <option value="dout" {{isSelected "dout" user.profile.formacao.formacao}}>Doutorado</option>
+            {{#each option in options_formacao}} 
+              <option value="{{option.value}}" {{isSelected option.value user.profile.formacao.formacao}}>
+                {{option.text}}
+              </option>
+            {{/each}}
           </select>
           <label for="formacao">Tipo de Formação</label>
         </div>
         <div class="form-group">
           <select class="form-control" id="curso" name="curso">
-            <option value="adm" {{isSelected "adm" user.profile.formacao.curso}}>Administração</option>
-            <option value="ciencbio" {{isSelected "ciencbio" user.profile.formacao.curso}}>Ciências Biológicas</option> 
-            <option value="cienccont" {{isSelected "cienccont" user.profile.formacao.curso}}>Ciências Contábeis</option>   
-            <option value="edfisic" {{isSelected "edfisic" user.profile.formacao.curso}}>Educação Física</option>  
-            <option value="enferm" {{isSelected "enferm" user.profile.formacao.curso}}>Enfermagem</option>
-            <option value="engprod" {{isSelected "engprod" user.profile.formacao.curso}}>Engenharia de Produção</option>
-            <option value="farmac" {{isSelected "farmac" user.profile.formacao.curso}}>Farmácia</option>
-            <option value="fisiot" {{isSelected "fisiot" user.profile.formacao.curso}}>Fisioterapia</option>
-            <option value="gastro" {{isSelected "gastro" user.profile.formacao.curso}}>Gastronomia</option>
-            <option value="gpi" {{isSelected "gpi" user.profile.formacao.curso}}>Gestão da Produção Industrial</option>
-            <option value="grh" {{isSelected "grh" user.profile.formacao.curso}}>Gestão de Recursos Humanos</option>
-            <option value="hist" {{isSelected "hist" user.profile.formacao.curso}}>História</option>
-            <option value="letr" {{isSelected "letr" user.profile.formacao.curso}}>Letras</option>
-            <option value="sist" {{isSelected "sist" user.profile.formacao.curso}}>Sistemas de Informação</option>
-            <option value="mat" {{isSelected "mat" user.profile.formacao.curso}}>Matemática</option>
-            <option value="med" {{isSelected "med" user.profile.formacao.curso}}>Medicina</option>
-            <option value="pedag" {{isSelected "pedag" user.profile.formacao.curso}}>Pedagogia</option>
-            <option value="psicol" {{isSelected "psicol" user.profile.formacao.curso}}>Psicologia</option>
-            <option value="pubpr" {{isSelected "pubpr" user.profile.formacao.curso}}>Publicidade e Propaganda</option>
+            {{#each option in options_curso}} 
+              <option value="{{option.value}}" {{isSelected option.value user.profile.formacao.curso}}>
+                {{option.text}}
+              </option>
+            {{/each}}
           </select>
           <label for="formacao">Curso</label>
         </div>
@@ -319,7 +79,9 @@
       <!--end .card-body -->
       <div class="card-actionbar">
         <div class="card-actionbar-row">
-          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>
+            Atualizar dados
+          </button>
         </div>
       </div>
     </div>
@@ -336,7 +98,9 @@
       <!--end .card-body -->
       <div class="card-actionbar">
         <div class="card-actionbar-row">
-          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>
+            Atualizar dados
+          </button>
         </div>
       </div>
     </div>
@@ -364,7 +128,9 @@
       <!--end .card-body -->
       <div class="card-actionbar">
         <div class="card-actionbar-row">
-          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>
+            Atualizar dados
+          </button>
         </div>
       </div>
     </div>
@@ -381,9 +147,174 @@
       <!--end .card-body -->
       <div class="card-actionbar">
         <div class="card-actionbar-row">
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>
+            Atualizar dados
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>
+
+<template name="updateContactStudent">
+  <form class="form" id="upd-contact">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" class="form-control phone-number" id="phone" value="{{ user.profile.phone }}">
+              <label for="phone">Telefone Residencial</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" class="form-control phone-number" id="celular" value="{{ user.profile.celular }}">
+              <label for="celular">Celular</label>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="url" class="form-control" id="facebook" value="{{ user.profile.facebook }}">
+              <label for="facebook">Facebook</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="url" class="form-control" id="twitter" value="{{ user.profile.twitter }}">
+              <label for="twitter">Twitter</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="linkedin" value="{{ user.profile.linkedin }}">
+              <label for="linkedin">LinkedIn</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="skype" value="{{ user.profile.skype }}">
+              <label for="skype">Skype ID</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="url" class="form-control" id="pers_website" value="{{ user.profile.pers_website }}">
+              <label for="pers_website">Site Pessoal</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="url" class="form-control" id="github" value="{{ user.profile.github }}">
+              <label for="github">GitHub</label>
+            </div>
+          </div>
+        </div>
+        <!-- This will be available separatedely -->
+        <!--div class="form-group">
+          <input type="password" class="form-control" id="Password1">
+          <label for="Password1">Password</label>
+        </div-->
+      </div>
+      <!--end .card-body -->
+      <div class="card-actionbar">
+        <div class="card-actionbar-row">
           <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
         </div>
       </div>
     </div>
   </form>
 </template>
+
+<template name="updateAboutStudent">
+  <form class="form" id="upd-aboutyou">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <input type="text" class="form-control" id="nome" value="{{ user.profile.nome }}">
+          <label for="nome">Nome</label>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" class="form-control cpf" id="cpf" value="{{ user.profile.cpf }}" disabled data-toggle="tooltip" data-placement="top" title="Não é possível alterar seu CPF">
+              <label for="cpf">CPF</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="nascimento" value="{{ user.profile.nascimento }}">
+              <label for="nascimento">Data de Nascimento</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <select id="perfil" name="perfil" class="form-control">
+                {{#each option in options_perfil}} 
+                  <option value="{{option.value}}" {{isSelected option.value user.profile.perfil}}>
+                    {{option.text}}
+                  </option>
+                {{/each}}
+              </select>
+              <label for="perfil">Perfil</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <select id="sexo" name="sexo" class="form-control">
+                {{#each option in options_sexo}} 
+                  <option value="{{option.value}}" {{isSelected option.value user.profile.sexo}}>
+                    {{option.text}}
+                  </option>
+                {{/each}}
+              </select>
+              <label for="sexo">Sexo</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" id="email" value="{{user.emails.[0].address}}" disabled data-toggle="tooltip" data-placement="top" title="Não é possível alterar seu email principal">
+          <label for="email">Email</label>
+        </div>
+        <div class="form-group">
+          <input type="email2nd" class="form-control" id="email2nd" value="{{user.emails.[1].address}}">
+          <label for="email2nd">Email Secundário</label>
+        </div>
+        <br>
+        <div class="form-group">
+          <p>
+            <span class="text-danger">*</span> 
+            Seu avatar é sincronizado automaticamente com o servico Gravatar®, caso queira alterá-lo favor consultar 
+            <a href="https://pt.gravatar.com/" target='_blank' class="text-primary-dark">esse link</a>.
+          </p>
+        </div>
+        <br>
+        <br>
+        <div class="checkbox checkbox-styled">
+          <label>
+            <input type="checkbox" value="{{user.profile.especial}}">
+            <span>Portador de Necessidades Especiais</span>
+          </label>
+        </div>
+      </div>
+      <!--end .card-body -->
+      <div class="card-actionbar">
+        <div class="card-actionbar-row">
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>
+            Atualizar dados
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>
+

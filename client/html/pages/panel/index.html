@@ -53,6 +53,9 @@
                               {{/if}}
                               </span> cadastrou uma 
                               <a class="text-primary" href="{{pathForJob _id}}">vaga</a> para {{nome}}.
+                              <div class="pull-right">
+                                {{{jobStatus status}}}
+                              </div>
                             </span>
                             <br>
                           <span class="opacity-50">{{formatDate createdAt}}</span>

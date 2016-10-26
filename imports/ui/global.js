@@ -49,6 +49,26 @@ Template.registerHelper(
   }
 );
 
+Template.registerHelper(
+  'daysAgo', (date) => {
+    let now = new Date().getTime();
+    let diff = now - date;
+    diff = parseInt(diff / 86400000);
+    if(diff == 0) return 'Hoje';
+    else if(diff == 1) return 'há 1 dia atrás';
+    else return ('há ' + diff + ' dias atrás');
+
+  }
+);
+
+Template.registerHelper(
+  'jobStatus', (status) => {
+    if (status == 'active') return '<span class="label label-primary">Ativa</span>';
+    else if (status == 'expired') return '<span class="label label-warning">Expirada</span>';
+    else if (status == 'disabled') return '<span class="label label-default">Desabilitada</span>';
+  }
+);
+
 Template.body.events({
   // horizontal and vertical search tabs
   'click .nav-tabs a, click .nav-tabs-vert a': function(e) {
