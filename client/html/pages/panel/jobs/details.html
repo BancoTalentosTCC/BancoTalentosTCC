@@ -5,7 +5,7 @@
           <div class="col-md-12">
             <div class="card style-primary">
                 <div class="card-head">
-                  <header><i class="fa fa-fw fa-tag"></i>{{job.nome}}</header>
+                  <header><i class="fa fa-fw fa-tag"></i>&nbsp;{{job.nome}} - Detalhes</header>
                   <div class="tools">
                     <a class="btn btn-flat hidden-xs" href="{{pathForJob job._id}}">
                       <span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar
@@ -17,83 +17,60 @@
                     <img class="img-circle border-xl border-white img-responsive auto-width" 
                     src="{{avatar 120 job.company}}" alt="">
                     <h3>
-                      {{#if isStudent}}
-                        <a href="{{pathForProfile job.company}}">{{job.companyName}}</a>
-                      {{else}}
-                        <a href="{{pathForMyProfile}}">{{job.companyName}}</a>
-                      {{/if}}
+                    {{#if isStudent}}
+                      <a href="{{pathForProfile job.company}}">{{job.companyName}}</a>
+                    {{else}}
+                      <a href="{{pathForMyProfile}}">{{job.companyName}}</a>
+                    {{/if}}
                     </h3>
                     <br>
-                    {{#if isStudent}}
-                      {{#if appliedToJob job}}
-                        <a type="button" class="btn ink-reaction btn-raised btn-primary disabled">
-                          <i class="md mdi mdi-check"></i> Candidatado!</a>
-                      {{else}}
-                        {{#if isNotActive job.status}}     
-                          <p class="btn btn-block ink-reaction btn-danger">
-                            <i class="md mdi mdi-exclamation"></i>
-                            Essa vaga está {{t9n job.status}}
-                          </p>
-                        {{else}}
-                          <button id="apply" class="btn btn-primary btn-send">Candidatar-se</button>
-                        {{/if}}
-                      {{/if}}
-                      <br>
-                      <br>
-                      <span class="text-bold">Status:</span><p>{{t9n job.status}}</p>
-                    {{/if}}
-                    Applicações: {{job.applications.length}}
-                    <br>
-                    <br>
-                  </div>
-                  <div class="col-md-9 col-xs-12 col-sm-8">
-                    <div class="row">
-                      <h2 class="text-primary">Descrição</h2>
-                      <p>{{{job.descricao}}}</p>
-                    </div>
-                    <div class="row">
-                      <h2 class="text-primary">Detalhes</h2>
-                      <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <span class="text-bold">Tipo da vaga: </span><p>{{t9n job.tipo_vaga}}</p>
                         <span class="text-bold">Categoria:&nbsp;</span><p>{{t9n job.categoria}}</p>
-                      </div>
-                      <div class="col-sm-6">
+                        <span class="text-bold">Aplicações:&nbsp;</span><p>{{job.applications.length}}</p>
                         <span class="text-bold">Criada em:&nbsp;</span><p>{{formatDate job.createdAt}}</p>
                         <span class="text-bold">Expira em:&nbsp;</span><p>{{formatDate job.expiration}}</p>
                       </div>
-                    </div>
-
-                    <div class="row">
-                      <h3 class="text-primary">Tags</h3>
-                      <ul class="tags-choices">
-                      {{#each tag in job.tags}}
-                        <li class="each-tag"><span>{{tag}}</span></li>
-                      {{/each}}
-                      </ul>
-                    </div>
-
-                    <div class="row">
-                      <h3 class="text-primary">Candidatos</h3>
-                      <ul class="list">
-                        {{#each application in job.applications}}
+                  </div>
+                  <div class="col-md-9 col-xs-12 col-sm-8">
+                    <div class="list-results">
+                      {{#each application in job.applications}}
                           {{#each userById application}}
-                            <li class="tile">
-                              <div class="tile-content">
-                                <div class="tile-icon">
-                                  <img src="{{avatar 40 _id}}" alt="Perfil" />
+                            <div class="col-xs-12 col-lg-6 hbox-xs">
+                              <div class="hbox-column width-2">
+                                <img class="img-circle img-responsive pull-left" src="{{avatar 80 _id}}" alt="Perfil" />
+                              </div><!--end .hbox-column -->
+                              <div class="hbox-column v-top details-usr">
+                                <div class="clearfix">
+                                  <div class="col-lg-12 margin-bottom-lg">
+                                    <a class="ink-reaction text-lg text-medium" href="{{pathForProfile _id}}">
+                                      {{profile.nome}}
+                                    </a>
+                                  </div>
                                 </div>
-                                <div class="tile-text">
-                                  <a class="ink-reaction" href="{{pathForProfile _id}}">
-                                    {{profile.nome}}
-                                  </a>
+                                <div class="clearfix opacity-75">
+                                  <div class="col-md-5">
+                                    <span class="glyphicon glyphicon-phone text-sm"></span> &nbsp;{{profile.celular}}
+                                  </div>
+                                  <div class="col-md-7">
+                                    <span class="glyphicon glyphicon-envelope text-sm"></span> &nbsp;<a href="mailto:{{emails.[0].address}}">{{emails.[0].address}}</a>
+                                  </div>
                                 </div>
-                              </div>
-                            </li>
+                                <div class="clearfix">
+                                  <div class="col-lg-12">
+                                    <span class="opacity-75"><span class="glyphicon glyphicon-map-marker text-sm"></span> &nbsp;{{profile.endereco}} - {{profile.numero}}, {{profile.cidade}}, {{t9n profile.uf}} &nbsp;{{profile.cep}}</span>
+                                  </div>
+                                </div>
+                              </div><!--end .hbox-column -->
+                            </div><!--end .hbox-xs -->
                           {{/each}}
+                          {{else}}
+                          <div class="col-xs-12 col-lg-6 hbox-xs">
+                            <h3>Ainda não há candidatos para essa vaga.</h3>
+                          </div><!--end .hbox-xs -->
                         {{/each}}
-                      </ul>
                     </div>
-                </div>
+                  </div>
               </div>
             </div>
           </div>

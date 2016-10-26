@@ -16,7 +16,12 @@
                   <div class="form-control-line"></div>
                 </div>
                 <div class="input-group-btn">
-                  <button class="btn btn-floating-action btn-default-bright" type="button"><i class="fa fa-search"></i></button>
+                  {{#if isStudent}}
+                    <button class="btn btn-floating-action btn-default-bright" type="button"><i class="fa fa-search"></i></button>
+                  {{/if}}
+                  {{#if isCompany}}
+                    <a class="btn btn-floating-action btn-default-bright" href="{{pathForNewJob}}"><i class="md mdi mdi-plus"></i></a>
+                  {{/if}}
                 </div>
               </div>
             </div>
@@ -89,19 +94,27 @@
                   {{#if jobs}}
                     {{#each jobs}}
                       <div class="col-xs-12">
-                        <img class="pull-left width-2 img-circle" src="{{avatar 120 company}}" alt="" />
-                        <p>
-                          <a class="text-medium text-lg text-primary" href="{{pathForJob _id}}">{{nome}}</a>
-                          <br/>
-                          <strong>{{companyName}}</strong>
-                        </p>
-                        <div class="row">
-                          <ul class="tags-choices">
-                          {{#each tag in tags}}
-                            <li class="each-tag"><span>{{tag}}</span></li>
-                          {{/each}}
-                          </ul>
-                        </div>   
+                        <div class="col-sm-2 container-img-list">
+                          <img class="pull-left width-2 img-circle" src="{{avatar 120 company}}" alt="" />
+                        </div>
+                        <div class="col-sm-10">
+                          <div class="row">
+                            <p>
+                              <a class="text-medium text-lg text-primary" href="{{pathForJob _id}}">{{nome}}</a>
+                              <br/>
+                              <strong>{{companyName}}</strong>
+                            </p>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-12">
+                              <ul class="tags-choices">
+                              {{#each tag in tags}}
+                                <li class="each-tag"><span>{{tag}}</span></li>
+                              {{/each}}
+                              </ul>
+                            </div>
+                          </div>
+                        </div>  
                       </div>
                     {{/each}}
                   {{else}}

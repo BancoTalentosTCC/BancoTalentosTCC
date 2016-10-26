@@ -6,6 +6,16 @@ Template.showJob.events({
   }
 });
 
+Template.showJob.onRendered(function () {
+  $(document).ready(function() {
+    $('.short-desc').shorten({
+      "showChars" : 400,
+      "moreText"	: "Ver mais",
+      "lessText"	: "Menos",
+    });
+	});
+});
+
 Template.showJob.helpers({
   job: function() {
     var id = FlowRouter.getParam('id');

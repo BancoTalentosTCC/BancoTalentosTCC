@@ -86,14 +86,23 @@
                     {{#if students}}
                       {{#each student in students}}
                         <div class="col-xs-12">
-                          <img class="pull-left width-2 img-circle" src="{{avatar 120 student}}" alt="" />
-                          <p>
-                            <a class="text-medium text-lg text-primary" href="{{pathForProfile student._id}}">{{student.profile.nome}}</a><br/>
-                            <span>{{t9n student.profile.formacao.curso}}</span>
-                          </p>
-                          <div class="contain-xs pull-left">
-                            Search results where only texts will be shown. You can decide for yourself how much text you want to display in this field.
+                          <div class="col-sm-2 container-img-list">
+                            <img class="pull-left width-2 img-circle" src="{{avatar 120 student}}" alt="" />
                           </div>
+                          <div class="col-sm-10">
+                            <div class="row">
+                              <p>
+                                <a class="text-medium text-lg text-primary" href="{{pathForProfile student._id}}">{{student.profile.nome}}</a><br/>
+                                <span>{{t9n student.profile.formacao.curso}}</span><br>
+                                <span class="glyphicon glyphicon-envelope text-sm"></span> &nbsp;<a href="mailto:{{student.emails.[0].address}}">{{student.emails.[0].address}}</a>
+                              </p>
+                            </div>
+                          </div>  
+                        </div>
+                        <div class="col-xs-12">
+                          <img class="pull-left width-2 img-circle" src="" alt="" />
+                          
+                          
                         </div>
                       {{/each}}
                     {{else}}

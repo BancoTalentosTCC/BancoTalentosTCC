@@ -5,7 +5,7 @@
           <div class="col-md-12">
             <div class="card style-primary">
                 <div class="card-head">
-                  <header><i class="fa fa-fw fa-tag"></i>{{job.nome}}</header>
+                  <header><i class="fa fa-fw fa-tag"></i>&nbsp;{{job.nome}}</header>
                   <div class="tools">
                     <a class="btn btn-flat hidden-xs" href="{{pathForJobs}}">
                       <span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Voltar
@@ -26,34 +26,41 @@
                     <br>
                     {{#if isStudent}}
                       {{#if appliedToJob job}}
-                        <a type="button" class="btn ink-reaction btn-raised btn-primary disabled">
+                        <a class="btn ink-reaction btn-raised btn-primary disabled">
                           <i class="md mdi mdi-check"></i> Candidatado!</a>
                       {{else}}
-                        {{#if isNotActive job.status}}     
-                          <p class="btn btn-block ink-reaction btn-danger">
-                            <i class="md mdi mdi-exclamation"></i>
-                            Essa vaga está {{t9n job.status}}
-                          </p>
+                        {{#if isNotActive job.status}}   
+                          <div class="col-sm-9 clear-left">  
+                            <p class="btn btn-block ink-reaction btn-danger">
+                              <i class="md mdi mdi-exclamation"></i>
+                              Vaga {{t9n job.status}}
+                            </p>
+                          </div>
                         {{else}}
                           <button id="apply" class="btn btn-primary btn-send">Candidatar-se</button>
                         {{/if}}
                       {{/if}}
                       <br>
-                      <br>
-                      <span class="text-bold">Status:</span><p>{{t9n job.status}}</p>
+                    {{else}}
+                      <a class="btn btn-block ink-reaction btn-info fix-btn-height" href='{{pathForJobDetails job._id}}'>Detalhes</a>
                     {{/if}}
-                    Candidaturas: {{job.applications.length}}
                     <br>
-                    {{#if isCompany}}
-                      <a href='{{pathForJobDetails job._id}}'>Detalhes</a>
-                    {{/if}}  
+                    <div class="job-details">
+                        <span class="text-bold">Status: </span><p>{{t9n job.status}}</p>
+                        <br>
+                        {{#if job.applications.length}}
+                          <span class="text-bold">Candidaturas: </span><p>{{job.applications.length}}</p>
+                        {{else}}
+                          <p>Ainda não há candidatos para esta vaga.</p>
+                        {{/if}}
+                      </div>
                     <br>
                     <br>
                   </div>
                   <div class="col-md-9 col-xs-12 col-sm-8">
                     <div class="row">
                       <h2 class="text-primary">Descrição</h2>
-                      <p>{{{job.descricao}}}</p>
+                      <p class="short-desc">{{{job.descricao}}}</p>
                     </div>
                     <div class="row">
                       <h2 class="text-primary">Detalhes</h2>
