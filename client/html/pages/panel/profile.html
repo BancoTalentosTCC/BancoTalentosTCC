@@ -157,7 +157,7 @@
               <div class="col-sm-6">
                 <span class="text-bold"><span class="glyphicon glyphicon-envelope text-sm"></span> &nbsp;Endereço:&nbsp;</span><p>{{ user.profile.endereco }} - {{ user.profile.numero }}<br/>
                   {{ user.profile.bairro }}<br/>
-                  {{ user.profile.cidade }} - CEP {{ user.profile.cep }}</p>
+                  {{ user.profile.cidade }} {{t9n user.profile.uf}} - CEP {{ user.profile.cep }}</p>
                 <span class="text-bold"><span class="glyphicon glyphicon-phone text-sm"></span> &nbsp;Telefone:&nbsp;</span><p>{{ user.profile.phone }}</p>
               </div>
               <div class="col-sm-6">
