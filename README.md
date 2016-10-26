@@ -1,4 +1,4 @@
-# Banco de Talentos - Univás
+# Banco de Talentos
 [![Version](https://img.shields.io/badge/Meteor-1.4.1.2-blue.svg)](https://img.shields.io/badge/Meteor-1.4.1.2-blue.svg)
 
 
@@ -8,13 +8,17 @@ This app is a project developed for a final course assignment which consists of 
 shorten company and student relationship, creating an environment where students can get to know more available job
 opportunities as well as companies can search for talents.
 
+[Link](https://bancotalentos.herokuapp.com/)
+
 ## Features
 
 * Students can search for job opportunities;
 * Companies can create job offers such as internships, trainee, junior, among others;
 * ZIP Code/CPF/CNPJ validation;
 * Real-time timeline with last added opportunities;
-* TODO: Students can apply for open job opportunities;
+* Students can apply for open job opportunities;
+* Companies can verify applicants for each job offer;
+* Avatars provided by Gravatar®
 
 ## Technologies
 
@@ -30,19 +34,15 @@ opportunities as well as companies can search for talents.
 
 ###Desktop layout:
 
-![alt tag](https://s16.postimg.org/l1cgbjfqp/Screenshot_from_2016_10_05_14_09_33.png)
+[![Desktop1.png](https://i.imgsafe.org/0f6b4d2553.png)](https://i.imgsafe.org/0f6b4d2553.png)
 
-![alt tag](https://s21.postimg.org/78uvc06f7/002.png)
+[![Desktop2.png](https://i.imgsafe.org/0f6ab7f4f1.png)](https://i.imgsafe.org/0f6ab7f4f1.png)
 
-![alt tag](https://s21.postimg.org/ym026rczn/003.png)
+[![Desktop3.png](https://i.imgsafe.org/0f6b066ca1.png)](https://i.imgsafe.org/0f6b066ca1.png)
 
 ###Responsive layout:
 
-![alt tag](https://s16.postimg.org/i5zd4obqp/Screenshot_2016_10_05_14_19_47.png)
-
-![alt tag](https://s21.postimg.org/g55nfxx1f/002_1.png)
-
-![alt tag](https://s21.postimg.org/lvvtto51f/003_1.png)
+[![Mobile1.png](https://i.imgsafe.org/0fb4e9738c.png)](https://i.imgsafe.org/0fb4e9738c.png)
 
 
 
