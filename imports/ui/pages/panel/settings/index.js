@@ -180,7 +180,7 @@ function update(target, formID) {
       if (error) {
         Meteor.call('displayErrors', error);
       } else if (result) {
-        toastr.success('Dados atualizados!', 'Update!');
+        toastr.success('Dados atualizados!', 'Sucesso!');
         $('.btn-update').prop('disabled', true);
       }
     });
@@ -229,13 +229,24 @@ function update(target, formID) {
           }
         }
         break;
+       
+      case "upd-aboutcompany": 
+        user = {
+            profile: {
+              anofundacao: targetValue(target["anofundacao"]),
+              missao: targetValue(target["missao"]),
+              visao: targetValue(target["visao"]),
+              sobre: targetValue(target["sobre"])
+            }
+          }
+          break;
     }
 
     Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'), function (error, result) {
       if (error) {
         Meteor.call('displayErrors', error);
       } else if (result) {
-        toastr.success('Dados atualizados!', 'Update!');
+        toastr.success('Dados atualizados!', 'Sucesso!');
         $('.btn-update').prop('disabled', true);
       }
     });
