@@ -1,6 +1,4 @@
-import {
-  Template
-} from 'meteor/templating';
+import {Template} from 'meteor/templating';
 
 Template.settings.events({
   'click .nav-tabs-vert a': function (event) {
@@ -51,8 +49,14 @@ Template.studentSettings.onRendered(function () {
   };
 });
 
-Template.settings.onRendered(function () {
-  // Check if something has changed
+// will render loadFormOnRendered() everytime the user clicks on a new tab
+Template.settings.onRendered(loadFormOnRendered);
+Template.education.onRendered(loadFormOnRendered);
+Template.idioms.onRendered(loadFormOnRendered);
+Template.qualifications.onRendered(loadFormOnRendered);
+Template.professionalexp.onRendered(loadFormOnRendered);
+
+function loadFormOnRendered() {
   $('.form-control').each(function () {
     var elem = $(this);
     // Save current value of element
@@ -71,7 +75,7 @@ Template.settings.onRendered(function () {
 
   setMasks();
   setCalendar();
-});
+}
 
 function update(target, formID) {
   var user = {};

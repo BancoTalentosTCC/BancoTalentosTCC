@@ -159,3 +159,75 @@
     </div>
   </section>
 </template>
+
+<template name="updateAddress">
+  <br>
+  <form class="form" id="upd-address">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <input type="text" class="form-control cep" id="cep" value="{{ user.profile.cep }}">
+              <label for="cep">CEP</label>
+            </div>
+          </div>
+          <div class="col-sm-10">
+            <div class="form-group">
+              <input type="text" class="form-control" id="endereco" value="{{ user.profile.endereco }}">
+              <label for="endereco">Endereço</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-group">
+              <input type="text" class="form-control" id="numero" value="{{ user.profile.numero }}">
+              <label for="numero">Número</label>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <input type="text" class="form-control" id="complemento" value="{{ user.profile.complemento }}">
+              <label for="complemento">Complemento</label>
+            </div>
+          </div>
+          <div class="col-sm-7">
+            <div class="form-group">
+              <input type="text" class="form-control" id="bairro" value="{{ user.profile.bairro }}">
+              <label for="bairro">Bairro</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="cidade" value="{{ user.profile.cidade }}">
+              <label for="cidade">Cidade</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <select class="form-control static dirty" id="uf" name="uf" required>
+                {{#each option in options_estado}} 
+                  <option value="{{option.value}}" {{isSelected option.value user.profile.uf}}>
+                    {{option.text}}
+                  </option>
+                {{/each}}
+              </select>
+              <label for="uf">Estado</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end .card-body -->
+      <div class="card-actionbar">
+        <div class="card-actionbar-row">
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>
+            Atualizar dados
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>

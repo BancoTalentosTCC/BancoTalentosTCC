@@ -45,14 +45,20 @@
             </div>
             <br>
             <div class="form-group">
-              <p><span class="text-danger">*</span> Seu avatar é sincronizado automaticamente com o servico Gravatar®, caso queira alterá-lo favor consultar <a href="https://pt.gravatar.com/" target='_blank' class="text-primary-dark">esse link</a>.</p>
+              <p>
+                <span class="text-danger">*</span> 
+                Seu avatar é sincronizado automaticamente com o servico Gravatar®, caso queira alterá-lo favor consultar 
+                <a href="https://pt.gravatar.com/" target='_blank' class="text-primary-dark">esse link</a>.
+              </p>
             </div>
             <br>
           </div>
           <!--end .card-body -->
           <div class="card-actionbar">
             <div class="card-actionbar-row">
-              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
+              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>
+                Atualizar dados
+              </button>
             </div>
           </div>
         </div>
@@ -61,189 +67,114 @@
 
     <div class="tab-pane" id="address">
       <br>
-      <form class="form" id="upd-address">
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <input type="text" class="form-control cep" id="cep" value="{{ user.profile.cep }}">
-                  <label for="cep">CEP</label>
-                </div>
-              </div>
-              <div class="col-sm-10">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="endereco" value="{{ user.profile.endereco }}">
-                  <label for="endereco">Endereço</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-2">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="numero" value="{{ user.profile.numero }}">
-                  <label for="numero">Número</label>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="complemento" value="{{ user.profile.complemento }}">
-                  <label for="complemento">Complemento</label>
-                </div>
-              </div>
-              <div class="col-sm-7">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="bairro" value="{{ user.profile.bairro }}">
-                  <label for="bairro">Bairro</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="cidade" value="{{ user.profile.cidade }}">
-                  <label for="cidade">Cidade</label>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <select class="form-control static dirty" id="uf" name="uf" required>     
-                    <option value="ac" {{isSelected "ac" user.profile.uf}}>Acre</option>        
-                    <option value="al" {{isSelected "al" user.profile.uf}}>Alagoas</option>
-                    <option value="am" {{isSelected "am" user.profile.uf}}>Amazonas</option>
-                    <option value="ap" {{isSelected "ap" user.profile.uf}}>Amapá</option>
-                    <option value="ba" {{isSelected "ba" user.profile.uf}}>Bahia</option>
-                    <option value="ce" {{isSelected "ce" user.profile.uf}}>Ceará</option>
-                    <option value="df" {{isSelected "df" user.profile.uf}}>Distrito Federal</option>
-                    <option value="es" {{isSelected "es" user.profile.uf}}>Espírito Santo</option>
-                    <option value="go" {{isSelected "go" user.profile.uf}}>Goiás</option>
-                    <option value="ma" {{isSelected "ma" user.profile.uf}}>Maranhão</option>
-                    <option value="mt" {{isSelected "mt" user.profile.uf}}>Mato Grosso</option>
-                    <option value="ms" {{isSelected "ms" user.profile.uf}}>Mato Grosso</option>
-                    <option value="mg" {{isSelected "mg" user.profile.uf}}>Minas Gerais</option>
-                    <option value="pa" {{isSelected "pa" user.profile.uf}}>Pará</option>
-                    <option value="pb" {{isSelected "pb" user.profile.uf}}>Paraíba</option>
-                    <option value="pr" {{isSelected "pr" user.profile.uf}}>Paraná</option>
-                    <option value="pe" {{isSelected "pe" user.profile.uf}}>Pernambuco</option>
-                    <option value="pi" {{isSelected "pi" user.profile.uf}}>Piauí</option>
-                    <option value="rj" {{isSelected "rj" user.profile.uf}}>Rio de Janeiro</option>
-                    <option value="rn" {{isSelected "rn" user.profile.uf}}>Rio Grande do Norte</option>
-                    <option value="ro" {{isSelected "ro" user.profile.uf}}>Rondônia</option>
-                    <option value="rs" {{isSelected "rs" user.profile.uf}}>Rio Grande de Sul</option>
-                    <option value="rr" {{isSelected "rr" user.profile.uf}}>Roraima</option>
-                    <option value="sc" {{isSelected "sc" user.profile.uf}}>Santa Catarina</option>
-                    <option value="se" {{isSelected "se" user.profile.uf}}>Sergipe</option>
-                    <option value="sp" {{isSelected "sp" user.profile.uf}}>São Paulo</option>
-                    <option value="to" {{isSelected "to" user.profile.uf}}>Tocantins</option>
-                  </select>
-                  <label for="uf">Estado</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--end .card-body -->
-          <div class="card-actionbar">
-            <div class="card-actionbar-row">
-              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
-            </div>
-          </div>
-        </div>
-      </form>
+      {{ > updateAddress }}
     </div>
 
     <div class="tab-pane" id="contato">
       <br>
-      <form class="form" id="upd-contact">
-        <div class="card">
-          <div class="card-body">
-            <div class="form-group">
-              <input type="text" class="form-control" id="dados" value="{{ user.profile.dados }}" data-toggle="tooltip" data-placement="top" title="Nome do responsável pela empresa">
-              <label for="dados">Dados do Contato</label>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control phone-number" id="phone" value="{{ user.profile.phone }}">
-                  <label for="phone">Telefone</label>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control phone-number" id="fax" value="{{ user.profile.fax }}">
-                  <label for="fax">Fax</label>
-                </div>
-              </div>
-            </div>
-            <br>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="url" class="form-control" id="facebook" value="{{ user.profile.facebook }}">
-                  <label for="facebook">Facebook</label>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="url" class="form-control" id="twitter" value="{{ user.profile.twitter }}">
-                  <label for="twitter">Twitter</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="url" class="form-control" id="pers_website" value="{{ user.profile.pers_website }}">
-                  <label for="pers_website">Site da Empresa</label>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="url" class="form-control" id="github" value="{{ user.profile.github }}">
-                  <label for="github">GitHub</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--end .card-body -->
-          <div class="card-actionbar">
-            <div class="card-actionbar-row">
-              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
-            </div>
-          </div>
-        </div>
-      </form>
+      {{ > updateContactCompany}}
     </div>
 
     <div class="tab-pane" id="aboutcompany">
       <br>
-      <form class="form" id="upd-aboutcompany">
-        <div class="card">
-          <div class="card-body">
+      {{ > updateAboutCompany}}
+    </div>
+  </div>
+</template>
+
+<template name="updateContactCompany">
+  <form class="form" id="upd-contact">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <input type="text" class="form-control" id="dados" value="{{ user.profile.dados }}" data-toggle="tooltip" data-placement="top" title="Nome do responsável pela empresa">
+          <label for="dados">Dados do Contato</label>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
             <div class="form-group">
-              <input type="text" class="form-control" id="anofundacao" value="{{ user.profile.anofundacao }}">
-              <label for="anofundacao">Fundação</label>
-            </div>
-            <div class="form-group">
-              <textarea id="missao" name="missao" class="form-control" rows="3" value="{{ user.profile.missao }}"></textarea>
-              <label for="missao">Missão</label>
-            </div>
-            <div class="form-group">
-              <textarea id="visao" name="visao" class="form-control" rows="3" value="{{ user.profile.visao }}"></textarea>
-              <label class="control-label" for="visao">Visão</label>
-            </div>
-            <div class="form-group">
-              <textarea id="sobre" name="sobre" class="form-control" rows="4" value="{{ user.profile.sobre }}"></textarea>
-              <label class="control-label" for="sobre">Sobre a Organização</label>
+              <input type="text" class="form-control phone-number" id="phone" value="{{ user.profile.phone }}">
+              <label for="phone">Telefone</label>
             </div>
           </div>
-          <!--end .card-body -->
-          <div class="card-actionbar">
-            <div class="card-actionbar-row">
-              <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>Atualizar dados</button>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" class="form-control phone-number" id="fax" value="{{ user.profile.fax }}">
+              <label for="fax">Fax</label>
             </div>
           </div>
         </div>
-      </form>
+        <br>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="url" class="form-control" id="facebook" value="{{ user.profile.facebook }}">
+              <label for="facebook">Facebook</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="url" class="form-control" id="twitter" value="{{ user.profile.twitter }}">
+              <label for="twitter">Twitter</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="url" class="form-control" id="pers_website" value="{{ user.profile.pers_website }}">
+              <label for="pers_website">Site da Empresa</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="url" class="form-control" id="github" value="{{ user.profile.github }}">
+              <label for="github">GitHub</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end .card-body -->
+      <div class="card-actionbar">
+        <div class="card-actionbar-row">
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>
+            Atualizar dados
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
+  </form>
+</template>
+
+<template name="updateAboutCompany">
+  <form class="form" id="upd-aboutcompany">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <input type="text" class="form-control" id="anofundacao" value="{{ user.profile.anofundacao }}">
+          <label for="anofundacao">Fundação</label>
+        </div>
+        <div class="form-group">
+          <textarea id="missao" name="missao" class="form-control" rows="3" value="{{ user.profile.missao }}"></textarea>
+          <label for="missao">Missão</label>
+        </div>
+        <div class="form-group">
+          <textarea id="visao" name="visao" class="form-control" rows="3" value="{{ user.profile.visao }}"></textarea>
+          <label class="control-label" for="visao">Visão</label>
+        </div>
+        <div class="form-group">
+          <textarea id="sobre" name="sobre" class="form-control" rows="4" value="{{ user.profile.sobre }}"></textarea>
+          <label class="control-label" for="sobre">Sobre a Organização</label>
+        </div>
+      </div>
+      <!--end .card-body -->
+      <div class="card-actionbar">
+        <div class="card-actionbar-row">
+          <button type="submit" class="btn btn-flat btn-primary ink-reaction btn-update" disabled>
+            Atualizar dados
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
 </template>
