@@ -17,12 +17,15 @@
                     <img class="img-circle border-xl border-white img-responsive auto-width" 
                     src="{{avatar 120 job.company}}" alt="">
                     <h3>
-                    {{#if isStudent}}
-                      <a href="{{pathForProfile job.company}}">{{job.companyName}}</a>
-                    {{else}}
-                      <a href="{{pathForMyProfile}}">{{job.companyName}}</a>
-                    {{/if}}
+                      {{#if isStudent}}
+                        <a href="{{pathForProfile job.company}}">{{job.companyName}}</a>
+                      {{else}}
+                        <a href="{{pathForMyProfile}}">{{job.companyName}}</a>
+                      {{/if}}
                     </h3>
+                    {{#each userById job.company}}
+                      <p>{{profile.cidade}}, {{ t9n profile.uf}}</p>
+                    {{/each}}
                     <br>
                     <div class="col-sm-12">
                         <span class="text-bold">Tipo da vaga: </span><p>{{t9n job.tipo_vaga}}</p>
