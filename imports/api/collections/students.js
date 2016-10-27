@@ -250,7 +250,7 @@ StudentsSchema5 = new SimpleSchema({
   }
 });
 
-Profile = new SimpleSchema({
+StudentProfile = new SimpleSchema({
   formacao: {
     type: StudentsSchema2,
     label: "Formação",
@@ -278,9 +278,9 @@ Profile = new SimpleSchema({
   },
 });
 
-Profile._schema = _.extend(Profile._schema, StudentsSchema1._schema);
+StudentProfile._schema = _.extend(StudentProfile._schema, StudentsSchema1._schema);
 
-Student = new SimpleSchema({
+export const Student = new SimpleSchema({
   username: {
     type: String,
     optional: true
@@ -302,7 +302,7 @@ Student = new SimpleSchema({
     type: Date
   },
   profile: {
-    type: Profile,
+    type: StudentProfile,
     label: "Perfil",
     optional: false
   },

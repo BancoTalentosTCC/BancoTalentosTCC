@@ -1,7 +1,7 @@
 import './password.js';
 import './email.js';
 
-Profile = new SimpleSchema({
+CompanyProfile = new SimpleSchema({
   nome: {
     type: String,
     label: "Nome para Contato",
@@ -148,7 +148,7 @@ Profile = new SimpleSchema({
   },
 });
 
-Company = new SimpleSchema({
+export const Company = new SimpleSchema({
   username: {
     type: String,
     optional: true
@@ -170,7 +170,7 @@ Company = new SimpleSchema({
     type: Date
   },
   profile: {
-    type: Profile,
+    type: CompanyProfile,
     label: "Perfil",
     optional: false
   },
