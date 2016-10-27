@@ -75,6 +75,19 @@ Template.registerHelper(
   }
 );
 
+Template.registerHelper(
+  'job', () => {
+    var id = FlowRouter.getParam('id');
+    return Jobs.find({_id: id}).fetch()[0];
+  }
+);
+
+Template.registerHelper(
+  'userById', (id) => {
+    return Meteor.users.find({_id: id}).fetch();
+  }
+);
+
 Template.body.events({
   // horizontal and vertical search tabs
   'click .nav-tabs a, click .nav-tabs-vert a': function(e) {

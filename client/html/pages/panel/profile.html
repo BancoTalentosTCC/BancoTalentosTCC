@@ -162,17 +162,26 @@
               <h2 class="text-primary">Detalhes</h2>
               <div class="col-sm-6">
                 <span class="text-bold">
-                  <span class="glyphicon glyphicon-envelope text-sm"></span> 
-                  &nbsp;Endereço:&nbsp;</span><p>{{ user.profile.endereco }} - {{ user.profile.numero }}<br/>
+                  <span class="glyphicon glyphicon-envelope text-sm"></span> &nbsp;Endereço:&nbsp;
+                </span>
+                <p>
+                  {{ user.profile.endereco }} - {{ user.profile.numero }}<br/>
                   {{ user.profile.bairro }}<br/>
-                  {{ user.profile.cidade }} {{t9n user.profile.uf}} - CEP {{ user.profile.cep }}</p>
-                <span class="text-bold"><span class="glyphicon glyphicon-phone text-sm"></span> 
-                &nbsp;Telefone:&nbsp;</span><p>{{ user.profile.phone }}</p>
+                  {{ user.profile.cidade }} {{t9n user.profile.uf}} - CEP {{ user.profile.cep }}
+                </p>
+                <span class="text-bold">
+                  <span class="glyphicon glyphicon-phone text-sm"></span> &nbsp;Telefone:&nbsp;
+                </span>
+                <p>{{ user.profile.phone }}</p>
               </div>
               <div class="col-sm-6">
-                <span class="text-bold"><span class="md mdi mdi-calendar"></span> 
-                &nbsp;Ano de Fundação:&nbsp;</span><p>{{ user.profile.anofundacao }}</p>
-                <span class="text-bold"><span class="md mdi mdi-home"></span> &nbsp;Site:&nbsp;</span>
+                <span class="text-bold">
+                  <span class="md mdi mdi-calendar"></span> &nbsp;Ano de Fundação:&nbsp;
+                </span>
+                <p>{{ user.profile.anofundacao }}</p>
+                <span class="text-bold">
+                  <span class="md mdi mdi-home"></span> &nbsp;Site:&nbsp;
+                </span>
                 <p>
                   <a target="_blank" href="{{ user.profile.pers_website }}">{{ user.profile.pers_website }}</a>
                 </p>
