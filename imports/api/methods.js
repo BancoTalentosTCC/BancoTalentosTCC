@@ -1,8 +1,8 @@
 import './collections/password.js';
 import './collections/email.js';
 import '/imports/api/collections/jobs.js';
-import '/imports/api/collections/companies.js';
-import '/imports/api/collections/students.js';
+import {Company} from '/imports/api/collections/companies.js';
+import {Student} from  '/imports/api/collections/students.js';
 
 Meteor.methods({
   saveCompany: function (data) {
@@ -10,6 +10,8 @@ Meteor.methods({
     id = Accounts.createUser(data);
     Roles.addUsersToRoles(id, 'company', 'user-type');
     Meteor.call('sendVerificationLink', id);
+    // remove user schema
+    delete Meteor.users._c2;
     return true;
   },
   saveStudent: function (data) {
@@ -17,6 +19,8 @@ Meteor.methods({
     id = Accounts.createUser(data);
     Roles.addUsersToRoles(id, 'student', 'user-type');
     Meteor.call('sendVerificationLink', id);
+    // remove user schema
+    delete Meteor.users._c2;
     return true;
   },
   saveJob: function (vacancy) {
@@ -192,6 +196,8 @@ Meteor.methods({
 
           break;
       }
+      // remove user schema
+      delete Meteor.users._c2;
       return true;
     }
 
@@ -273,6 +279,8 @@ Meteor.methods({
           });
           break;
       }
+      // remove user schema
+      delete Meteor.users._c2;
       return true;
     }
   }
