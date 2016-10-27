@@ -127,8 +127,9 @@ Profile = new SimpleSchema({
   },
   anofundacao: {
     type: String,
-    label: "Fundação",
-    regEx: /^((?:19|20)\d\d)$/
+    label: "Ano de Fundação",
+    regEx: /^((?:19|20)\d\d)$/,
+    optional: true
   },
   missao: {
     type: String,
