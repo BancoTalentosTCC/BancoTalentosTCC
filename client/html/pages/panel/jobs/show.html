@@ -70,10 +70,18 @@
                       </div>
                       <div class="col-sm-12">
                         {{#if isNotActive job.status}} 
-                          <p><span class="text-danger"><i class="md mdi mdi-alert-circle"></i></span>&nbsp;Esta vaga não aceita mais candidaturas.</p>
+                          <p>
+                            <span class="text-danger">
+                              <i class="md mdi mdi-alert-circle"></i>
+                            </span>
+                            &nbsp;Esta vaga não aceita mais candidaturas.
+                          </p>
                         {{/if}}
                         {{#if job.especial}}
-                          <span><i class="text-lg md mdi mdi-wheelchair-accessibility"></i>&nbsp;Exclusiva para portadores de necessidades especiais</span>
+                          <span>
+                            <i class="text-lg md mdi mdi-wheelchair-accessibility"></i>
+                            &nbsp;Exclusiva para portadores de necessidades especiais
+                          </span>
                         {{/if}}
                       </div>                   
                     </div>
