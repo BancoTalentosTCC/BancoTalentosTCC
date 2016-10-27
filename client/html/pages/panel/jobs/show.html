@@ -23,22 +23,18 @@
                         <a href="{{pathForMyProfile}}">{{job.companyName}}</a>
                       {{/if}}
                     </h3>
+                    {{#each userById job.company}}
+                      <p>{{profile.cidade}}, {{ t9n profile.uf}}</p>
+                    {{/each}}
                     <br>
                     {{#if isStudent}}
                       {{#if appliedToJob job}}
                         <a class="btn ink-reaction btn-raised btn-primary disabled">
                           <i class="md mdi mdi-check"></i> Candidatado!</a>
                       {{else}}
-                        {{#if isNotActive job.status}}   
-                          <div class="col-sm-9 clear-left">  
-                            <p class="btn btn-block ink-reaction btn-danger">
-                              <i class="md mdi mdi-exclamation"></i>
-                              Vaga {{t9n job.status}}
-                            </p>
-                          </div>
-                        {{else}}
-                          <button id="apply" class="btn btn-primary btn-send">Candidatar-se</button>
-                        {{/if}}
+                        {{#unless isNotActive job.status}}   
+                          <button id="apply" class="btn btn-primary btn-send">Candidatar-se</button>                          
+                        {{/unless}}
                       {{/if}}
                       <br>
                     {{else}}
@@ -75,15 +71,23 @@
                         <span class="text-bold">Criada em:&nbsp;</span><p>{{formatDate job.createdAt}}</p>
                         <span class="text-bold">Expira em:&nbsp;</span><p>{{formatDate job.expiration}}</p>
                       </div>
-
-                      <!-- TODO: Create a logic to display if it has special needs or not -->
-                      <!--
-                      {{#if !job.especial}}
-                        <span><i class="md mdi mdi-check"></i> Exclusiva para portadores de necessidades especiais</span>
-                      {{/if}}
-                      -->
+                      <div class="col-sm-12">
+                        {{#if isNotActive job.status}} 
+                          <p>
+                            <span class="text-danger">
+                              <i class="md mdi mdi-alert-circle"></i>
+                            </span>
+                            &nbsp;Esta vaga não aceita mais candidaturas.
+                          </p>
+                        {{/if}}
+                        {{#if job.especial}}
+                          <span>
+                            <i class="text-lg md mdi mdi-wheelchair-accessibility"></i>
+                            &nbsp;Exclusiva para portadores de necessidades especiais
+                          </span>
+                        {{/if}}
+                      </div>                   
                     </div>
-
                     <div class="row">
                       <h3 class="text-primary">Tags</h3>
                       <ul class="tags-choices">

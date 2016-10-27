@@ -17,10 +17,6 @@ Template.showJob.onRendered(function () {
 });
 
 Template.showJob.helpers({
-  job: function() {
-    var id = FlowRouter.getParam('id');
-    return Jobs.find({_id: id}).fetch()[0];
-  },
   appliedToJob: function(job) {
     return job.applications.filter(function(studentId) {
       return (Meteor.userId() == studentId);
@@ -28,8 +24,5 @@ Template.showJob.helpers({
   },
   isNotActive: function(status) {
     if (status !== "active") return true;
-  },
-  userById: function(id) {
-    return Meteor.users.find({_id: id}).fetch();
   }
 });

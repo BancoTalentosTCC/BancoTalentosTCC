@@ -24,7 +24,7 @@ Template.registerHelper(
 Template.registerHelper(
   'formatDate', (milliseconds) => {
     var date = new Date(milliseconds);
-    var dateFormated = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() + " às " + date.getHours() + ":" + date.getMinutes()
+    var dateFormated = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() + " às " + ('0' + date.getHours()).substr(-2) + ":" + ('0' + date.getMinutes()).substr(-2)
     return dateFormated ;
   }
 );
@@ -63,9 +63,28 @@ Template.registerHelper(
 
 Template.registerHelper(
   'jobStatus', (status) => {
-    if (status == 'active') return '<span class="label label-primary">Ativa</span>';
-    else if (status == 'expired') return '<span class="label label-warning">Expirada</span>';
-    else if (status == 'disabled') return '<span class="label label-default">Desabilitada</span>';
+    if (status == 'active') {
+      return '<span class="label label-primary"><i class="md mdi mdi-checkbox-marked-circle"></i>&nbsp;Ativa</span>';
+    }
+    else if (status == 'expired') {
+      return '<span class="label label-warning"><i class="md mdi mdi-alert-circle"></i>&nbsp;Expirada</span>';
+    }
+    else if (status == 'disabled') {
+      return '<span class="label label-default"><i class="md mdi mdi-minus-circle"></i>&nbsp;Desabilitada</span>';
+    }
+  }
+);
+
+Template.registerHelper(
+  'job', () => {
+    var id = FlowRouter.getParam('id');
+    return Jobs.find({_id: id}).fetch()[0];
+  }
+);
+
+Template.registerHelper(
+  'userById', (id) => {
+    return Meteor.users.find({_id: id}).fetch();
   }
 );
 

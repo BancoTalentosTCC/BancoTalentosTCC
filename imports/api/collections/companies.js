@@ -4,7 +4,7 @@ import './email.js';
 Profile = new SimpleSchema({
   nome: {
     type: String,
-    label: "Nome",
+    label: "Nome para Contato",
     min: 3
   },
   cnpj: {
@@ -98,7 +98,7 @@ Profile = new SimpleSchema({
   },
   dados: {
     type: String,
-    label: "Dados do Contato",
+    label: "Responsável",
     min: 10
   },
   pers_website: {
