@@ -72,16 +72,11 @@
                         {{#if isNotActive job.status}} 
                           <p><span class="text-danger"><i class="md mdi mdi-alert-circle"></i></span>&nbsp;Esta vaga não aceita mais candidaturas.</p>
                         {{/if}}
-                      </div>
-
-                      <!-- TODO: Create a logic to display if it has special needs or not -->
-                      <!--
-                      {{#if !job.especial}}
-                        <span><i class="md mdi mdi-check"></i> Exclusiva para portadores de necessidades especiais</span>
-                      {{/if}}
-                      -->
+                        {{#if job.especial}}
+                          <span><i class="text-lg md mdi mdi-wheelchair-accessibility"></i>&nbsp;Exclusiva para portadores de necessidades especiais</span>
+                        {{/if}}
+                      </div>                   
                     </div>
-
                     <div class="row">
                       <h3 class="text-primary">Tags</h3>
                       <ul class="tags-choices">
