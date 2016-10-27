@@ -3,20 +3,20 @@ import {
 } from 'meteor/templating';
 
 Template.studentSignup.rendered =
-Template.companySignup.rendered = initForm; 
+  Template.companySignup.rendered = initForm;
 
 function initForm() {
   this.autorun(
-    _.bind(function() {
-      Deps.afterFlush(function() {
-        // only initialize when DOM is ready
-        setMasks();
-        setCalendar();
-        pwdValidate();
-        autocompleteCEP();
-      }
-    );
-  }, this));
+    _.bind(function () {
+      Deps.afterFlush(function () {
+          // only initialize when DOM is ready
+          setMasks();
+          setCalendar();
+          pwdValidate();
+          autocompleteCEP();
+        }
+      );
+    }, this));
 }
 
 function setMasks() {
@@ -34,22 +34,24 @@ function setMasks() {
   $('.cep').inputmask({
     mask: "99999-999"
   });
+  $('#nascimento').inputmask({
+    mask: "99-99-9999"
+  });
 }
 
 function setCalendar() {
   $('#nascimento').datepicker({
-    format: 'dd-mm-yyyy',
+    format: 'dd/mm/yyyy' + getTime24(),
     language: 'pt-BR',
-    endDate: new Date
+    endDate: new Date,
+    constrainInput: false,
+    showOn: 'focus',
+    forceParse: false
   });
-
-  $('#nascimento').focus(function() {
-    $('#nascimento').blur();
-  })
 }
 
 function pwdValidate() {
-  $('#password').keyup(function(e) {
+  $('#password').keyup(function (e) {
     var strongRegex = new RegExp("^(?=.{9,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
     var mediumRegex = new RegExp("^(?=.{8,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
     var enoughRegex = new RegExp("(?=.{8,}).*", "g");
@@ -83,7 +85,7 @@ function pwdValidate() {
 }
 
 function autocompleteCEP() {
-  $(document).ready(function() {
+  $(document).ready(function () {
 
     function limpa_formulário_cep() {
       // Limpa valores do formulário de cep.
@@ -92,8 +94,8 @@ function autocompleteCEP() {
       $("#cidade").val("");
     }
 
-    $("#cep").blur(function() {
-    //Quando o campo cep perde o foco.
+    $("#cep").blur(function () {
+      //Quando o campo cep perde o foco.
       //Nova variável "cep" somente com dígitos.
       var cep = $(this).val().replace(/\D/g, '');
       //Verifica se campo cep possui valor informado.
@@ -105,12 +107,12 @@ function autocompleteCEP() {
         //Valida o formato do CEP.
         if (validacep.test(cep)) {
           //Preenche os campos com "..." enquanto consulta webservice.
-          $("#endereco").addClass('static').addClass('dirty').val("...");
-          $("#bairro").addClass('static').addClass('dirty').val("...");
-          $("#cidade").addClass('static').addClass('dirty').val("...");
+          $("#endereco").addClass('static').addClass('dirty').val("");
+          $("#bairro").addClass('static').addClass('dirty').val("");
+          $("#cidade").addClass('static').addClass('dirty').val("");
 
           //Consulta o webservice viacep.com.br/
-          $.getJSON("//viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
+          $.getJSON("//viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
             if (!("erro" in dados)) {
               console.log(dados);
@@ -121,7 +123,7 @@ function autocompleteCEP() {
                 $("#bairro").val(dados.bairro);
               if (!dados.localidade == "")
                 $("#cidade").val(dados.localidade);
-              if (!dados.uf == "")     
+              if (!dados.uf == "")
                 $("#uf").val(dados.uf.toLowerCase());
             } //end if.
             else {
@@ -143,4 +145,14 @@ function autocompleteCEP() {
       }
     });
   });
+}
+
+// input mask fix
+function getTime24() {
+  var date_o = new Date();
+  var date_hours = date_o.getHours() < 10 ? "0" + date_o.getHours() : date_o.getHours();
+  var date_mins = date_o.getMinutes() < 10 ? "0" + date_o.getMinutes() : date_o.getMinutes();
+
+
+  return "'" + date_hours + ":" + date_mins + "'";
 }
