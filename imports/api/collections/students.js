@@ -63,11 +63,15 @@ StudentsSchema1 = new SimpleSchema({
     label: "Data de Nascimento",
     regEx: /^(0[1-9]|[12][0-9]|3[01])[- -.](0[1-9]|1[012])[- -.]((?:19|20)\d\d)$/,
     custom: function () {
-      var myMaxDate = new Date();
-      if (myMaxDate < this.value) {
-        return 'maxDate'; //Error string according to the docs.
-      } else {
+      var today = new Date();
+      
+      var from = this.value.split("-");
+      var birthday = new Date(from[2], from[1] - 1, from[0], 23, 59, 59);
+
+      if (birthday < today) {
         return true;
+      } else {
+        return 'invalid_max_date';
       }
     }
   },
