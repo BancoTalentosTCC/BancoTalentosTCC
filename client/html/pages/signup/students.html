@@ -299,14 +299,45 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4">
-              {{> formField name='Tempo de Trabalho (em anos)' value=experience.[3] type='text' fieldClass="duracao_emp" required="required"}}
+            <div class="col-sm-12">
+              <h4>Período</h4>
             </div>
-            <div class="col-sm-4">
-              {{> formField name='Cidade' value=experience.[4] type='text' fieldClass="cidade_emp" required="required"}}
+            <div class="col-sm-2">
+              {{> formField name='Mês' value='experience.[3]' type='select' options=options_meses required="required"}}
             </div>
+            <div class="col-sm-2">
+              {{> formField name='Ano' value=experience.[4] type='text' fieldClass="ano_inicial" required="required"}}
+            </div>
+            {{#if isChecked}}
+              <div class="col-sm-2">
+                {{> formField name='Mês' value='experience.[5]' type='select' options=options_meses required="required"}}
+              </div>
+              <div class="col-sm-2">
+                {{> formField name='Ano' value='experience.[6]' type='text' fieldClass="ano_final" required="required"}}
+              </div>
+            {{else}}
+              <div class="col-sm-4">
+                <label>
+                  <p>Presente</p>
+                </label>
+              </div>
+            {{/if}}
             <div class="col-sm-4">
-              {{> formField name='UF' value=experience.[5] type='select' fieldClass="uf_emp" options=options_estado required="required"}}
+              <div class="form-group">
+                <div class="checkbox checkbox-styled">
+                  <label>
+                    <input type="checkbox" id="current_job" name="current_job" value="{{experience.[7]}}" checked="{{isChecked}}"> <span>Eu trabalho aqui atualmente</span> </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-6">
+              {{> formField name='Cidade' value=experience.[8] type='text' fieldClass="cidade_emp" required="required"}}
+            </div>
+            <div class="col-sm-6">
+              {{> formField name='UF' value=experience.[9] type='select' fieldClass="uf_emp" options=options_estado required="required"}}
             </div>
           </div>
         </div>

@@ -134,7 +134,8 @@ Template.step5.events({
     let length = amountExperience.length;
     amountExperience.push([
       "nome_emp" + length, "cargo_emp" + length, "atribuicoes" + length,
-      "duracao_emp" + length, "cidade_emp" + length, "uf_emp" + length
+      "mes_inicial" + length, "ano_inicial" + length, "mes_final" + length, 
+      "ano_final" + length, "current_job" + length, "cidade_emp" + length, "uf_emp" + length
     ]);
     experienceDep.changed();
   },
@@ -148,6 +149,9 @@ Template.step5.helpers({
   experiences() {
     experienceDep.depend();
     return amountExperience;
+  },
+  isChecked() {
+    return (value == 'on' ? 'checked' : false);
   }
 });
 
@@ -155,7 +159,11 @@ function getExperiences() {
   let nome_emp = $('.nome_emp');
   let cargo_emp = $('.cargo_emp');
   let atribuicoes = $('.atribuicoes');
-  let duracao_emp = $('.duracao_emp');
+  let mes_inicial = $('.mes_inicial');
+  let ano_inicial = $('.ano_inicial');
+  let mes_final = $('.mes_final');
+  let ano_final = $('.ano_final');
+  let current_job = $('#current_job').is(':checked');
   let cidade_emp = $('.cidade_emp');
   let uf_emp = $('.uf_emp');
   let array = [];
@@ -165,7 +173,11 @@ function getExperiences() {
       nome_emp: nome_emp[i].value,
       cargo_emp: cargo_emp[i].value,
       atribuicoes: atribuicoes[i].value,
-      duracao_emp: duracao_emp[i].value,
+      mes_inicial: mes_inicial[i].value,
+      ano_inicial: ano_inicial[i].value,
+      mes_final: mes_final[i].value,
+      ano_final: ano_final[i].value,
+      current_job: current_job[i].value,
       cidade_emp: cidade_emp[i].value,
       uf_emp: uf_emp[i].value,
     });
