@@ -164,7 +164,6 @@ Template.step5.helpers({
   'isCurrentJob': function(index) {
     currentJobDep.depend();
     return isCurrentJob[index];
-    
   }
 });
 
