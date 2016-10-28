@@ -15,6 +15,7 @@ SimpleSchema.messages({
   expectedNumber: "[label] precisa ser um número",
   invalid_document: "Precisa ser um [key] válido",
   cant_be_different: "Confirmação de senha é diferente da senha!",
+  invalid_max_date: "Data de nascimento deve ser menor que o dia atual",
   regEx: [{
     msg: "[label] sofreu um erro de validação"
   }, {
@@ -22,7 +23,7 @@ SimpleSchema.messages({
     msg: "[label] precisa ser um e-mail válido"
   }, {
     exp: SimpleSchema.RegEx.WeakEmail,
-    msg: "[label] precisa ser um e-mail v-alido"
+    msg: "[label] precisa ser um e-mail válido"
   }, {
     exp: SimpleSchema.RegEx.Domain,
     msg: "[label] precisa ser um domínio válido"
@@ -49,6 +50,6 @@ SimpleSchema.messages({
     msg: "O ano em que você se formou ou que deve se formar"
   }, {
     exp: /(^\d{5}-\d{3}$)/,
-    msg: "[value] não é um cep válido"
+    msg: "[value] não é um CEP válido"
   }]
 });

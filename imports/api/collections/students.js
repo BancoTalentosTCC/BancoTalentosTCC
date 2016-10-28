@@ -10,7 +10,7 @@ StudentsSchema1 = new SimpleSchema({
   cpf: {
     type: String,
     label: "CPF",
-    custom: function() {
+    custom: function () {
       $return = true;
       // this is mostly not needed
       var invalidos = [
@@ -60,8 +60,20 @@ StudentsSchema1 = new SimpleSchema({
   },
   nascimento: {
     type: String,
-    label: "Nascimento",
-    regEx: /^(0[1-9]|[12][0-9]|3[01])[- -.](0[1-9]|1[012])[- -.]((?:19|20)\d\d)$/
+    label: "Data de Nascimento",
+    regEx: /^(0[1-9]|[12][0-9]|3[01])[- -.](0[1-9]|1[012])[- -.]((?:19|20)\d\d)$/,
+    custom: function () {
+      var today = new Date();
+      
+      var from = this.value.split("-");
+      var birthday = new Date(from[2], from[1] - 1, from[0], 23, 59, 59);
+
+      if (birthday < today) {
+        return true;
+      } else {
+        return 'invalid_max_date';
+      }
+    }
   },
   perfil: {
     type: String,
