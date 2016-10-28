@@ -9,14 +9,14 @@ function initForm() {
   this.autorun(
     _.bind(function () {
       Deps.afterFlush(function () {
-          // only initialize when DOM is ready
-          setMasks();
-          setCalendar();
-          pwdValidate();
-          autocompleteCEP();
-        }
-      );
-    }, this));
+        // only initialize when DOM is ready
+        setMasks();
+        setCalendar();
+        pwdValidate();
+        autocompleteCEP();
+      }
+    );
+  }, this));
 }
 
 function setMasks() {
@@ -41,7 +41,7 @@ function setMasks() {
 
 function setCalendar() {
   $('#nascimento').datepicker({
-    format: 'dd/mm/yyyy' + getTime24(),
+    format: 'dd-mm-yyyy' + getTime24(),
     language: 'pt-BR',
     endDate: new Date,
     constrainInput: false,
@@ -115,7 +115,6 @@ function autocompleteCEP() {
           $.getJSON("//viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
             if (!("erro" in dados)) {
-              console.log(dados);
               //Atualiza os campos com os valores da consulta.
               if (!dados.logradouro == "")
                 $("#endereco").val(dados.logradouro);
