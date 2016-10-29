@@ -303,14 +303,14 @@
               <h4>Período</h4>
             </div>
             <div class="col-sm-2">
-              {{> formField name='Mês' value='experience.[3]' type='select' options=options_meses required="required"}}
+              {{> formField name='Mês' value='experience.[3]' type='select' fieldClass="mes_inicial" options=options_meses required="required"}}
             </div>
             <div class="col-sm-2">
               {{> formField name='Ano' value=experience.[4] type='text' fieldClass="ano_inicial" required="required"}}
             </div>
-            {{#if isChecked}}
+            {{#if isCurrentJob @index}}
               <div class="col-sm-2">
-                {{> formField name='Mês' value='experience.[5]' type='select' options=options_meses required="required"}}
+                {{> formField name='Mês' value='experience.[5]' type='select' fieldClass="mes_final" options=options_meses required="required"}}
               </div>
               <div class="col-sm-2">
                 {{> formField name='Ano' value='experience.[6]' type='text' fieldClass="ano_final" required="required"}}
@@ -326,7 +326,9 @@
               <div class="form-group">
                 <div class="checkbox checkbox-styled">
                   <label>
-                    <input type="checkbox" id="current_job" name="current_job" value="{{experience.[7]}}" checked="{{isChecked}}"> <span>Eu trabalho aqui atualmente</span> </label>
+                    <input type="checkbox" id="{{experience.[7]}}" name="{{experience.[7]}}" value="{{experience.[7]}}" class="checker" data-index="{{@index}}" checked> 
+                    <span>Eu trabalho aqui atualmente</span> 
+                  </label>
                 </div>
               </div>
             </div>
