@@ -75,7 +75,8 @@ Template.idioms.events({
 });
 
 // will render loadFormOnRendered() everytime the user clicks on a new tab
-Template.settings.onRendered(loadFormOnRendered);
+Template.studentSettings.onRendered(loadFormOnRendered);
+Template.companySettings.onRendered(loadFormOnRendered);
 Template.education.onRendered(loadFormOnRendered);
 Template.idioms.onRendered(loadFormOnRendered);
 Template.qualifications.onRendered(loadFormOnRendered);
