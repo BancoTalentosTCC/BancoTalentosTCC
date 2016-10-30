@@ -27,7 +27,7 @@ Meteor.startup(function() {
     arab: "Árabe",
     rus: "Russo",
     kor: "Coreano",
-    iri: "Irish",
+    iri: "Irlandês",
     hin: "Hindi",
     tur: "Turco",
     hun: "Húngaro",

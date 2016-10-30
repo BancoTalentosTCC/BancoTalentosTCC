@@ -80,6 +80,12 @@ Template.registerHelper(
 );
 
 Template.registerHelper(
+  'onlyCurrentUser', (userID) => {
+    return Meteor.userId() == userID ? true : '';
+  }
+);
+
+Template.registerHelper(
   'daysAgo', (date) => {
     let now = new Date().getTime();
     let diff = now - date;

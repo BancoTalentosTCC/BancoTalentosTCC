@@ -33,7 +33,5 @@ Template.jobs.helpers({
 });
 
 Template.jobs.onRendered(function(){
-  $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
-  });
+  $('[data-toggle="tooltip"]').tooltip(); 
 });

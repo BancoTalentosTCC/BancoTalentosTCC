@@ -27,7 +27,5 @@ Template.profile.helpers({
 });
 
 Template.profile.onRendered(function(){
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
+  $('[data-toggle="tooltip"]').tooltip()
 });

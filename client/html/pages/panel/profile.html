@@ -59,26 +59,40 @@
                 {{#if user.profile.aboutme.length}}
                   {{{user.profile.aboutme}}}
                 {{else}}
-                  <p>Preencha esse campo na área "Resumo Profissional" em 
-                    <a href="{{pathForSettings}}">configurações</a>.
-                  </p>
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Resumo Profissional" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
                 {{/if}}
                 <br>
+
                 <h3 class="text-primary">Qualificações</h3>
                 {{#if user.profile.qualificacoes.qualificacao.length}}
                   <p>{{user.profile.qualificacoes.qualificacao}}</p>
                 {{else}}
-                  <p>Preencha esse campo na área "Qualificação" em 
-                    <a href="{{pathForSettings}}">configurações</a>.
-                  </p>
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Qualificação" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
                 {{/if}}
+
                 <h3 class="text-primary">Cursos Extras</h3>
                 {{#if user.profile.qualificacoes.cursos_extras.length}}
                   <p>{{user.profile.qualificacoes.cursos_extras}}</p>
                 {{else}}
-                  <p>Preencha esse campo na área "Cursos Extras" em 
-                    <a href="{{pathForSettings}}">configurações</a>.
-                  </p>
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Cursos Extras" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
                 {{/if}}
                 <br/>
                   <h3 class="opacity-50">Idiomas</h3>
@@ -216,9 +230,13 @@
                 {{#if user.profile.sobre.length}}
                   <p>{{user.profile.sobre}}</p>
                 {{else}}
-                  <p>Preencha esse campo na área "Sobre" em 
-                    <a href="{{pathForSettings}}">configurações</a>.
-                  </p>
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Sobre" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
                 {{/if}}
               </div>
 
@@ -227,9 +245,13 @@
                 {{#if user.profile.visao.length}}
                   <p>{{user.profile.visao}}</p>
                 {{else}}
-                  <p>Preencha esse campo na área "Visão" em 
-                    <a href="{{pathForSettings}}">configurações</a>.
-                  </p>
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Visão" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
                 {{/if}}
               </div>
               
@@ -238,9 +260,14 @@
                 {{#if user.profile.missao.length}}
                   <p>{{user.profile.missao}}</p>
                 {{else}}
-                  <p>Preencha esse campo na área "Missão" em 
-                    <a href="{{pathForSettings}}">configurações</a>.
-                  </p>
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Missão" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
+                  
                 {{/if}}
               </div>
             </div>

@@ -79,7 +79,7 @@ Template.registerHelper('options_idioma', [
   {value: 'arab', text: 'Árabe'},
   {value: 'rus', text: 'Russo'},
   {value: 'kor', text: 'Coreano'},
-  {value: 'iri', text: 'Irish'},
+  {value: 'iri', text: 'Irlandês'},
   {value: 'hin', text: 'Hindi'},
   {value: 'tur', text: 'Turco'},
   {value: 'hun', text: 'Húngaro'},
