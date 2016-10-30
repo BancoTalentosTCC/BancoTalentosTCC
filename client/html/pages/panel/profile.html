@@ -181,7 +181,14 @@
                           {{#if experiencia.duracao_emp}}
                             <small class="text-uppercase text-primary pull-right">{{calculateYear experiencia.duracao_emp}}</small>
                           {{else}}
-                            <small class="text-uppercase text-primary pull-right">January, 2014 - Present</small>
+                          <!-- New entries, probably the current one after reseting -->
+                            <small class="text-uppercase text-primary pull-right">{{experiencia.mes_inicial}}, {{experiencia.ano_inicial}} - 
+                              {{#if experiencia.current_job}}
+                                Presente
+                              {{else}}
+                                {{experiencia.mes_final}}, {{experiencia.ano_final}}
+                              {{/if}}
+                            </small>
                           {{/if}}
                           <p>
                             <span class="text-lg text-medium">{{experiencia.cargo_emp}}</span><br/>
