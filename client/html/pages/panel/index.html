@@ -5,9 +5,9 @@
         <div class="col-md-8">
 
           {{#if isStudent}}
-            <h2>Bem vindo(a), {{ user.profile.nome }}!</h2>
+            <h2>Bem-vind{{getGender user.profile.sexo}}, {{ user.profile.nome }}!</h2>
           {{else}}
-            <h2>Bem vindo(a), {{ user.profile.dados }}!</h2>
+            <h2>Bem-vindo(a), {{ user.profile.dados }}!</h2>
           {{/if}}
 
           <div id="activity" class="tab-pane">
@@ -58,7 +58,7 @@
                               </div>
                             </span>
                             <br>
-                          <span class="opacity-50">{{formatDate createdAt}}</span>
+                          <span class="opacity-50">{{formatDate createdAt "fullDate"}}</span>
                         </div>
                       </div>
                     </div>
