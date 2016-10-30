@@ -25,12 +25,26 @@
         <a href="mailto:{{user.emails.[0].address}}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Contact me">
           <i class="fa fa-envelope"></i>
         </a>
+        {{#if user.profile.twitter}}
         <a href="{{user.profile.twitter}}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Follow me">
           <i class="fa fa-twitter"></i>
         </a>
-        <a href="{{user.profile.facebook}}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Personal info">
+        {{/if}}
+        {{#if user.profile.facebook}}
+        <a href="{{user.profile.facebook}}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Facebook">
           <i class="fa fa-facebook"></i>
         </a>
+        {{/if}}
+        {{#if user.profile.linkedin}}
+        <a href="{{user.profile.linkedin}}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="LinkedIn">
+          <i class="fa fa-linkedin"></i>
+        </a>
+        {{/if}}
+        {{#if user.profile.github}}
+        <a href="{{user.profile.github}}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="GitHub">
+          <i class="fa fa-github"></i>
+        </a>
+        {{/if}}
       </div>
     </div>
   </section>
@@ -39,95 +53,175 @@
       <div class="col-md-12">
         {{#if isStudent user}}
           <div class="tab-pane" id="details">
-            <h3 class="opacity-50">Sobre mim</h3>
-            <article class="text-columns-2">
-              <h5 class="text-primary">A young professional</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <h5 class="text-primary">Wanted by</h5>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula.</p>
-              <h5 class="text-primary">And finally</h5>
-              <p> Donec lobortis risus a elit. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p>
-            </article>
-            <br/>
-            <h3 class="opacity-50">Experience</h3>
-            <ul class="timeline collapse-lg timeline-hairline no-shadow">
-              <li class="timeline-inverted">
-                <div class="timeline-circ style-accent"></div>
-                <div class="timeline-entry">
-                  <div class="card style-default-bright">
-                    <div class="card-body small-padding">
-                      <small class="text-uppercase text-primary pull-right">January, 2014 - Present</small>
-                      <p>
-                        <span class="text-lg text-medium">Manager director</span><br/>
-                        <span class="text-lg text-light">Web Design Studios</span>
-                      </p>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula, magna et bibendum malesuada, purus augue suscipit dolor, vitae fringilla dui nibh non lectus. Curabitur in pellentesque tortor. Nunc posuere vestibulum augue, quis posuere orci blandit vitae. Suspendisse dignissim elit dui, ac dictum felis interdum nec.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="timeline-circ style-accent"></div>
-                <div class="timeline-entry">
-                  <div class="card style-default-bright">
-                    <div class="card-body small-padding">
-                      <small class="text-uppercase text-primary pull-right">Juli, 2008 - January, 2014</small>
-                      <p>
-                        <span class="text-lg text-medium">Commercial manager</span><br/>
-                        <span class="text-lg text-light">Creation Inc.</span>
-                      </p>
-                      <p>
-                        Nunc vehicula, magna et bibendum malesuada, purus augue suscipit dolor, vitae fringilla dui nibh non lectus. Curabitur in pellentesque tortor. Nunc posuere vestibulum augue, quis posuere orci blandit vitae. Suspendisse dignissim elit dui, ac dictum felis interdum nec.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="timeline-circ style-accent"></div>
-                <div class="timeline-entry">
-                  <div class="card style-default-bright">
-                    <div class="card-body small-padding">
-                      <small class="text-uppercase text-primary pull-right">March, 2002 - Juli, 2008</small>
-                      <p>
-                        <span class="text-lg text-medium">Commercial assistant</span><br/>
-                        <span class="text-lg text-light">Designers Corp.</span>
-                      </p>
-                      <p>
-                        Suspendisse dignissim elit dui, ac dictum felis interdum nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula, magna et bibendum malesuada, purus augue suscipit dolor, vitae fringilla dui nibh non lectus. Curabitur in pellentesque tortor. Nunc posuere vestibulum augue, quis posuere orci blandit vitae.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <br/>
-            <!-- TODO: Put tags here -->
-            <!--
-            <h3 class="opacity-50">Skills</h3>
             <div class="row">
-              <div class="col-md-12 col-lg-8">
-                <dl>
-                  <dt>Communication</dt>
-                  <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 95%"></div></div></dd>
-                  <dt>Problem solving</dt>
-                  <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 85%"></div></div></dd>
-                  <dt>Team Player</dt>
-                  <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 69%"></div></div></dd>
-                  <dt>Planning and organizing</dt>
-                  <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 60%"></div></div></dd>
-                  <dt>Systems knowledge</dt>
-                  <dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 55%"></div></div></dd>
+              <div class="col-sm-9 col-xs-12">
+                <h3 class="opacity-50">Sobre mim</h3>
+                {{#if user.profile.aboutme.length}}
+                  {{{user.profile.aboutme}}}
+                {{else}}
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Resumo Profissional" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
+                {{/if}}
+                <br>
+
+                <h3 class="text-primary">Qualificações</h3>
+                {{#if user.profile.qualificacoes.qualificacao.length}}
+                  <p>{{user.profile.qualificacoes.qualificacao}}</p>
+                {{else}}
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Qualificação" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
+                {{/if}}
+
+                <h3 class="text-primary">Cursos Extras</h3>
+                {{#if user.profile.qualificacoes.cursos_extras.length}}
+                  <p>{{user.profile.qualificacoes.cursos_extras}}</p>
+                {{else}}
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Cursos Extras" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
+                {{/if}}
+                <br/>
+                  <h3 class="opacity-50">Idiomas</h3>
+                  <div class="row">
+                    <div class="col-md-12 col-lg-8">
+                      {{#each idioma in user.profile.idiomas}}
+                      <dl>
+                        <dt>{{ t9n idioma.idioma }}</dt>
+                        <dd><div class="progress progress-hairline"><div class="progress-bar" style="width: {{languageLevel idioma.nivel_do_idioma}}"></div></div></dd>
+                      </dl>
+                      {{/each}}
+                    </div>
+                  </div>
+              </div>
+              <div class="col-sm-3 col-xs-12">
+                <h4 class="text-primary">Detalhes</h4>
+                <dl class="dl-horizontal dl-icon">
+                  <dt><span class="md mdi mdi-account-circle text-xl opacity-50"></span></dt>
+                  <dd>
+                    <span class="opacity-50">Sobre {{user.profile.nome}}</span><br/>
+                    <span class="text-medium">{{calculateAge user.profile.nascimento}}</span><br>
+                    <span class="text-medium">Usuário desde: {{formatDate user.createdAt "noHour"}}</span>
+                  </dd>
+                  <dt><span class="fa fa-fw fa-graduation-cap fa-lg opacity-50"></span></dt>
+                  <dd>
+                    <span class="opacity-50">Formação</span><br/>
+                    <span class="text-medium">{{t9n user.profile.formacao.formacao }} em {{t9n user.profile.formacao.curso }}</span><br>
+                    <span class="text-medium">Conclusão: {{ user.profile.formacao.conclusao }}</span>
+                  </dd>
+                </dl>
+                <h4 class="text-primary">Informações</h4>
+                <dl class="dl-horizontal dl-icon">
+                  <dt><span class="fa fa-fw fa-mobile fa-lg opacity-50"></span></dt>
+                  <dd>
+                    <span class="opacity-50">Telefones para contato</span><br/>
+                    {{#if user.profile.phone}}
+                    <span class="text-medium">{{ user.profile.phone }}</span> &nbsp;
+                    <span class="opacity-50">Telefone</span><br/>
+                    {{/if}}
+                    <span class="text-medium">{{ user.profile.celular }}</span> &nbsp;
+                    <span class="opacity-50">Celular</span>            
+                  </dd>
+                  <dt><span class="fa fa-fw fa-envelope-square fa-lg opacity-50"></span></dt>
+                  <dd>
+                    <span class="opacity-50">Email</span><br/>
+                    <a class="text-medium" href="mailto:{{user.emails.[0].address}}">
+                      {{user.emails.[0].address}}
+                    </a>
+                    <br>
+                    {{#if user.emails.[1].address}}
+                    <a class="text-medium" href="mailto:{{user.emails.[1].address}}">
+                      {{user.emails.[1].address}}
+                    </a>
+                    {{/if}}
+                  </dd>
+                  <dt><span class="fa fa-fw fa-location-arrow fa-lg opacity-50"></span></dt>
+                  <dd>
+                    <span class="opacity-50">Endereço</span><br/>
+                    <span class="text-medium">
+                      {{ user.profile.endereco }} - {{ user.profile.numero }}<br/>
+                      {{ user.profile.bairro }}<br/>
+                      {{ user.profile.cidade }}, {{t9n user.profile.uf }} - CEP {{ user.profile.cep }}
+                    </span>
+                  </dd>
+                  {{#if user.profile.skype}}
+                  <dt><span class="md mdi mdi-skype text-xl opacity-50"></span></dt>
+                  <dd>
+                    <span class="opacity-50">Skype</span><br/>
+                    <span class="text-medium">
+                      {{user.profile.skype}}
+                    </span>
+                  </dd>
+                  {{/if}}
+                  {{#if user.profile.pers_website}}
+                  <dt><span class="md mdi mdi-link text-xl opacity-50"></span></dt>
+                  <dd>
+                    <span class="opacity-50">Site ou Portfólio</span><br/>
+                    <span class="text-medium">
+                      <a href="{{ user.profile.pers_website }}" target="_blank">{{ user.profile.pers_website }}</a>
+                    </span>
+                  </dd>
+                  {{/if}}
                 </dl>
               </div>
-            </div> -->
-            <br/>
+            </div>
+          <br/>
+          <div class="row">
+            <div class="col-sm-9 col-offset-sm-9 col-xs-12">
+              {{#if user.profile.experiencia}}
+                <h3 class="opacity-50">Experiência Profissional</h3>
+                
+                {{#each experiencia in user.profile.experiencia}}
+                <ul class="timeline collapse-lg timeline-hairline no-shadow">
+                  <li class="timeline-inverted">
+                    <div class="timeline-circ style-accent"></div>
+                    <div class="timeline-entry">
+                      <div class="card style-default-bright">
+                        <div class="card-body small-padding">
+                          <!-- For old entries -->
+                          {{#if experiencia.duracao_emp}}
+                            <small class="text-uppercase text-primary pull-right">{{calculateYear experiencia.duracao_emp}}</small>
+                          {{else}}
+                          <!-- New entries, probably the current one after reseting -->
+                            <small class="text-uppercase text-primary pull-right">{{experiencia.mes_inicial}}, {{experiencia.ano_inicial}} - 
+                              {{#if experiencia.current_job}}
+                                Presente
+                              {{else}}
+                                {{experiencia.mes_final}}, {{experiencia.ano_final}}
+                              {{/if}}
+                            </small>
+                          {{/if}}
+                          <p>
+                            <span class="text-lg text-medium">{{experiencia.cargo_emp}}</span><br/>
+                            <span class="text-lg text-light">{{experiencia.nome_emp}}</span>
+                          </p>
+                          <p>
+                            {{experiencia.atribuicoes}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                {{/each}}
+              {{/if}}
+            </div>
           </div>
+        <br/>
+        </div>
         {{else}}
           <div class="tab-pane" id="details">
             <div class="row">
@@ -136,9 +230,13 @@
                 {{#if user.profile.sobre.length}}
                   <p>{{user.profile.sobre}}</p>
                 {{else}}
-                  <p>Preencha esse campo na área "Sobre" em 
-                    <a href="{{pathForSettings}}">configurações</a>.
-                  </p>
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Sobre" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
                 {{/if}}
               </div>
 
@@ -147,9 +245,13 @@
                 {{#if user.profile.visao.length}}
                   <p>{{user.profile.visao}}</p>
                 {{else}}
-                  <p>Preencha esse campo na área "Visão" em 
-                    <a href="{{pathForSettings}}">configurações</a>.
-                  </p>
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Visão" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
                 {{/if}}
               </div>
               
@@ -158,9 +260,14 @@
                 {{#if user.profile.missao.length}}
                   <p>{{user.profile.missao}}</p>
                 {{else}}
-                  <p>Preencha esse campo na área "Missão" em 
-                    <a href="{{pathForSettings}}">configurações</a>.
-                  </p>
+                  {{#if onlyCurrentUser user._id}}
+                    <p>Preencha esse campo na área "Missão" em 
+                      <a href="{{pathForSettings}}">configurações</a>.
+                    </p>
+                  {{else}}
+                    <p>O usuário ainda não preencheu essa área.</p>
+                  {{/if}}
+                  
                 {{/if}}
               </div>
             </div>

@@ -1,5 +1,9 @@
 import {Template} from 'meteor/templating';
 
+languageDep = new Deps.Dependency();
+
+var amountLanguages = [];
+
 Template.settings.events({
   'click .nav-tabs-vert a': function (event) {
     event.preventDefault();
@@ -47,6 +51,27 @@ Template.studentSettings.onRendered(function () {
       ]
     });
   };
+});
+
+Template.idioms.helpers({
+  languages: function() {
+    if (!amountLanguages.length) amountLanguages = Meteor.user().profile.idiomas;
+    languageDep.depend();
+    return amountLanguages;
+  }
+});
+
+Template.idioms.events({
+  "click #add-language": function() {
+    amountLanguages.push({idioma: "port", nivel_do_idioma: "basico"});
+    $('.btn-update').prop('disabled', false);
+    languageDep.changed();
+  },
+  "click #remove-language": function(e) {
+    amountLanguages.splice(parseInt(e.currentTarget.getAttribute('data-index')), 1);
+    $('.btn-update').prop('disabled', false);
+    languageDep.changed();
+  }
 });
 
 // will render loadFormOnRendered() everytime the user clicks on a new tab
@@ -148,8 +173,9 @@ function update(target, formID) {
         }
         break;
 
-      case "upd-idioms":
+      case "upd-idiomas":
         let idiomas = getIdiomas();
+        
         user = {
           profile: {
             idiomas: idiomas,
@@ -178,7 +204,6 @@ function update(target, formID) {
         }
         break;
     }
-    console.log(user);
     // Now update user
     Meteor.call('updateUser', user, formID, FlowRouter.getParam('id'), function (error, result) {
       if (error) {
@@ -268,6 +293,7 @@ function getIdiomas() {
       nivel_do_idioma: niveis[i].value
     });
   }
+
   return array;
 }
 

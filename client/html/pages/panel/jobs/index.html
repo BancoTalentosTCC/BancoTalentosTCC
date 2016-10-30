@@ -1,5 +1,5 @@
 <template name="jobs">
-  <section>
+  <section class="has-actions">
     <div class="section-header">
       <ol class="breadcrumb">
         <li class="active">Pesquisar vagas</li>
@@ -16,12 +16,7 @@
                   <div class="form-control-line"></div>
                 </div>
                 <div class="input-group-btn">
-                  {{#if isStudent}}
-                    <button class="btn btn-floating-action btn-default-bright" type="button"><i class="fa fa-search"></i></button>
-                  {{/if}}
-                  {{#if isCompany}}
-                    <a class="btn btn-floating-action btn-default-bright" href="{{pathForNewJob}}"><i class="md mdi mdi-plus"></i></a>
-                  {{/if}}
+                  <button class="btn btn-floating-action btn-default-bright" type="button"><i class="fa fa-search"></i></button>
                 </div>
               </div>
             </div>
@@ -119,7 +114,7 @@
                     {{/each}}
                   {{else}}
                     <div class="col-xs-12">
-                      <p>Ops... Parece que não encontramos o que está procurando :(</p>
+                      <p>Ops... Parece que não encontramos o que está procurando <i class="fa fa-frown-o text-primary"></i></p>
                     </div>
                   {{/if}}
                 </div>
@@ -129,5 +124,14 @@
         </div>
       </div>
     </div>
+    {{#if isCompany}}
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+      <div class="section-floating-action-row">
+        <a class="btn ink-reaction ink-reaction btn-floating-action btn-lg btn-primary" href="{{pathForNewJob}}" data-toggle="tooltip" data-placement="top" data-original-title="Nova vaga">
+          <i class="md mdi mdi-plus"></i>
+        </a>
+      </div>
+    </div>
+    {{/if}}
   </section>
 </template>

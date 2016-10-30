@@ -68,8 +68,8 @@
                         <span class="text-bold">Categoria:&nbsp;</span><p>{{t9n job.categoria}}</p>
                       </div>
                       <div class="col-sm-6">
-                        <span class="text-bold">Criada em:&nbsp;</span><p>{{formatDate job.createdAt}}</p>
-                        <span class="text-bold">Expira em:&nbsp;</span><p>{{formatDate job.expiration}}</p>
+                        <span class="text-bold">Criada em:&nbsp;</span><p>{{formatDate job.createdAt "fullDate"}}</p>
+                        <span class="text-bold">Expira em:&nbsp;</span><p>{{formatDate job.expiration "fullDate"}}</p>
                       </div>
                       <div class="col-sm-12">
                         {{#if isNotActive job.status}} 

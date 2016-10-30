@@ -22,10 +22,40 @@ Template.registerHelper(
 );
 
 Template.registerHelper(
-  'formatDate', (milliseconds) => {
+  'formatDate', (milliseconds, type) => {
     var date = new Date(milliseconds);
-    var dateFormated = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() + " às " + ('0' + date.getHours()).substr(-2) + ":" + ('0' + date.getMinutes()).substr(-2)
-    return dateFormated ;
+
+    switch(type) {
+      case "fullDate":
+        return date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() + " às " + ('0' + date.getHours()).substr(-2) + ":" + ('0' + date.getMinutes()).substr(-2);
+      case "noHour":
+        return date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+    }
+  }
+);
+
+Template.registerHelper(
+  'calculateAge', (string) => {
+    var birthday = string.split("-");
+    var date = new Date(birthday[2], birthday[1] - 1, birthday[0], 23, 59, 59);
+
+    var ageDifMs = Date.now() - date.getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+
+    var result = Math.abs(ageDate.getFullYear() - 1970);
+    if (result > 1) {
+      return result + " anos"
+    }
+    else return result + " ano"
+  }
+);
+
+Template.registerHelper(
+  'getGender', (string) => {
+    if (string === "m") {
+      return "o"
+    }
+    else return "a"
   }
 );
 
@@ -50,11 +80,17 @@ Template.registerHelper(
 );
 
 Template.registerHelper(
+  'onlyCurrentUser', (userID) => {
+    return Meteor.userId() == userID ? true : '';
+  }
+);
+
+Template.registerHelper(
   'daysAgo', (date) => {
     let now = new Date().getTime();
     let diff = now - date;
     diff = parseInt(diff / 86400000);
-    if(diff == 0) return 'Hoje';
+    if(diff == 0) return 'hoje';
     else if(diff == 1) return 'há 1 dia atrás';
     else return ('há ' + diff + ' dias atrás');
 

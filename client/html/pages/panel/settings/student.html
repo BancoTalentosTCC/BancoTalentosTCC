@@ -93,7 +93,45 @@
   <form class="form" id="upd-idiomas">
     <div class="card">
       <div class="card-body">
-        <p>To be implemented</p>
+        <ul class="list divider-full-bleed">
+          {{#each language in languages}}
+          <li class="tile">
+            <div class="col-sm-5">
+              <div class="form-group">
+                <select class="form-control idioma" id="idioma{{@index}}" name="idioma">
+                  {{#each option in options_idioma}} 
+                    <option value="{{option.value}}" {{isSelected option.value language.idioma}}>
+                      {{option.text}}
+                    </option>
+                  {{/each}}
+                </select>
+                <label for="formacao">Idioma</label>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <div class="form-group">
+                <select class="form-control nivel_do_idioma" id="nivel_do_idioma{{@index}}" name="nivel_do_idioma">
+                  {{#each option in options_nivel_idioma}} 
+                    <option value="{{option.value}}" {{isSelected option.value language.nivel_do_idioma}}>
+                      {{option.text}}
+                    </option>
+                  {{/each}}
+                </select>
+                <label for="formacao">Nível</label>
+              </div>
+            </div>
+            <div class="col-sm-2 pull-right">
+              <div class="form-group">
+                <a class="btn btn-icon-toggle btn-danger" id="remove-language" data-index="{{@index}}">
+                  <i class="fa fa-minus"></i>
+                </a>
+              </div>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+        <br>
+        <button type="button" id="add-language" class="btn btn-icon-toggle btn-primary"> <i class="fa fa-plus"></i> </button>
       </div>
       <!--end .card-body -->
       <div class="card-actionbar">
@@ -113,15 +151,15 @@
     <div class="card">
       <div class="card-body">
         <div class="form-group">
-          <input type="url" class="form-control" id="lattes" value="{{ user.profile.qualificacao.lattes }}">
+          <input type="url" class="form-control" id="lattes" value="{{ user.profile.qualificacoes.lattes }}">
           <label for="lattes">Currículo Lattes</label>
         </div>
         <div class="form-group">
-          <textarea id="qualificacao" name="qualificacao" class="form-control" rows="4" value="{{ user.profile.qualificacao.qualificacao }}"></textarea>
+          <textarea id="qualificacao" name="qualificacao" class="form-control" rows="4" value="{{ user.profile.qualificacoes.qualificacao }}"></textarea>
           <label class="control-label" for="qualificacao">Qualificações</label>
         </div>
         <div class="form-group">
-          <textarea id="cursos_extras" name="cursos_extras" class="form-control" rows="6" value="{{ user.profile.qualificacao.cursos_extras }}"></textarea>
+          <textarea id="cursos_extras" name="cursos_extras" class="form-control" rows="6" value="{{ user.profile.qualificacoes.cursos_extras }}"></textarea>
           <label class="control-label" for="cursos_extras">Cursos Extras</label>
         </div>
       </div>

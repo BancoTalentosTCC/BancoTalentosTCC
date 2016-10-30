@@ -31,3 +31,7 @@ Template.jobs.helpers({
     return Jobs.find({ nome: eval("/.*"+searchValue+".*/i"), categoria: eval("/.*"+findByValue+".*/i")}, {sort: sortBy} ).fetch();
   }
 });
+
+Template.jobs.onRendered(function(){
+  $('[data-toggle="tooltip"]').tooltip(); 
+});
