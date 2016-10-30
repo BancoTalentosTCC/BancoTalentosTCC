@@ -15,6 +15,23 @@ Meteor.startup(function() {
     // STUDENT ROLE
     aluno: "Aluno",
     "ex-aluno": "Ex-aluno",
+    // LANGUAGES
+    port: "Português",
+    esp: "Espanhol",
+    ing: "Inglês",
+    fra: "Frances",
+    ale: "Alemão",
+    ita: "Italiano",
+    mand: "Mandarim",
+    jap: "Japonês",
+    arab: "Árabe",
+    rus: "Russo",
+    kor: "Coreano",
+    iri: "Irish",
+    hin: "Hindi",
+    tur: "Turco",
+    hun: "Húngaro",
+    out: "Outro",
     // STATES
     ac: "AC",        
     al: "AL",

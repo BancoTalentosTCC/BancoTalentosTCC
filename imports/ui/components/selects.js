@@ -68,6 +68,7 @@ Template.registerHelper('options_curso', [
 ]);
 
 Template.registerHelper('options_idioma', [
+  {value: 'port', text: 'Português'},
   {value: 'esp', text: 'Espanhol'},
   {value: 'ing', text: 'Inglês'},
   {value: 'fra', text: 'Frances'},
@@ -75,6 +76,14 @@ Template.registerHelper('options_idioma', [
   {value: 'ita', text: 'Italiano'},
   {value: 'mand', text: 'Mandarim'},
   {value: 'jap', text: 'Japonês'},
+  {value: 'arab', text: 'Árabe'},
+  {value: 'rus', text: 'Russo'},
+  {value: 'kor', text: 'Coreano'},
+  {value: 'iri', text: 'Irish'},
+  {value: 'hin', text: 'Hindi'},
+  {value: 'tur', text: 'Turco'},
+  {value: 'hun', text: 'Húngaro'},
+  {value: 'out', text: 'Outro'}
 ]);
 
 Template.registerHelper('options_nivel_idioma', [
