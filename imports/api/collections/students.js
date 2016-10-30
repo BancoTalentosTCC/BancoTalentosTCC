@@ -243,11 +243,31 @@ StudentsSchema5 = new SimpleSchema({
     min: 30,
     optional: true
   },
-  duracao_emp: {
+  mes_inicial: {
     type: String,
-    label: "Tempo de Trabalho",
+    label: "Mês Inicial",
+    optional: true
+  },
+  ano_inicial: {
+    type: String,
+    label: "Ano Inicial",
     regEx: /^[0-9]+$/,
     optional: true
+  },
+  mes_final: {
+    type: String,
+    label: "Mês Final",
+    optional: true
+  },
+  ano_final: {
+    type: String,
+    label: "Ano Final",
+    regEx: /^[0-9]+$/,
+    optional: true
+  },
+  current_job: {
+    type: Boolean,
+    label: "Trabalho Atual"
   },
   cidade_emp: {
     type: String,

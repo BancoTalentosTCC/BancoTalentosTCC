@@ -5,9 +5,11 @@ import '/imports/api/collections/students.js';
 
 languageDep = new Deps.Dependency();
 experienceDep = new Deps.Dependency();
+currentJobDep = new Deps.Dependency();
 
 var amountLanguages = [];
-var amountExperience = [];
+var amountExperience = []; 
+var isCurrentJob = [];
 
 Template.studentSignup.onRendered(function(){
   var template = this;
@@ -134,7 +136,8 @@ Template.step5.events({
     let length = amountExperience.length;
     amountExperience.push([
       "nome_emp" + length, "cargo_emp" + length, "atribuicoes" + length,
-      "duracao_emp" + length, "cidade_emp" + length, "uf_emp" + length
+      "mes_inicial" + length, "ano_inicial" + length, "mes_final" + length, 
+      "ano_final" + length, "current_job" + length, "cidade_emp" + length, "uf_emp" + length
     ]);
     experienceDep.changed();
   },
@@ -142,12 +145,26 @@ Template.step5.events({
     amountExperience.pop();
     experienceDep.changed();
   },
+  'change .checker': function(event) {
+    if (document.getElementById(event.currentTarget.id).checked) {
+      isCurrentJob[parseInt(event.currentTarget.getAttribute('data-index'))] = false;
+    }
+    else {
+      isCurrentJob[parseInt(event.currentTarget.getAttribute('data-index'))] = true;
+    }
+    currentJobDep.changed();
+  }
 });
 
 Template.step5.helpers({
   experiences() {
     experienceDep.depend();
     return amountExperience;
+  },
+  'isCurrentJob': function(index) {
+    currentJobDep.depend();
+    return isCurrentJob[index];
+    
   }
 });
 
@@ -155,17 +172,28 @@ function getExperiences() {
   let nome_emp = $('.nome_emp');
   let cargo_emp = $('.cargo_emp');
   let atribuicoes = $('.atribuicoes');
-  let duracao_emp = $('.duracao_emp');
+  let mes_inicial = $('.mes_inicial');
+  let ano_inicial = $('.ano_inicial');
+  let mes_final = $('.mes_final');
+  let ano_final = $('.ano_final');
+  let current_job = $('.checker');
   let cidade_emp = $('.cidade_emp');
   let uf_emp = $('.uf_emp');
   let array = [];
 
+  var indexFinal = -1;
   for (let i = 0; i < nome_emp.length; i++) {
+    if (current_job[i].checked == false) indexFinal++;
+
     array.push({
       nome_emp: nome_emp[i].value,
       cargo_emp: cargo_emp[i].value,
       atribuicoes: atribuicoes[i].value,
-      duracao_emp: duracao_emp[i].value,
+      mes_inicial: mes_inicial[i].value,
+      ano_inicial: ano_inicial[i].value,
+      mes_final: !current_job[i].checked ? mes_final[indexFinal].value : undefined,
+      ano_final: !current_job[i].checked ? ano_final[indexFinal].value : undefined,
+      current_job: current_job[i].checked,
       cidade_emp: cidade_emp[i].value,
       uf_emp: uf_emp[i].value,
     });
