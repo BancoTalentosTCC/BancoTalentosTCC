@@ -27,6 +27,9 @@
                       <p>{{profile.cidade}}, {{ t9n profile.uf}}</p>
                     {{/each}}
                     <br>
+                      <button id="deactivate-job" class="btn btn-danger" {{isDisabled job}}>Desativar vaga</button> 
+                    <br>
+                    <br>
                     <div class="col-sm-12">
                         <span class="text-bold">Tipo da vaga: </span><p>{{t9n job.tipo_vaga}}</p>
                         <span class="text-bold">Categoria:&nbsp;</span><p>{{t9n job.categoria}}</p>
