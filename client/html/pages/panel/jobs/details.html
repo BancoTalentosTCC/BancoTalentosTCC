@@ -31,8 +31,8 @@
                         <span class="text-bold">Tipo da vaga: </span><p>{{t9n job.tipo_vaga}}</p>
                         <span class="text-bold">Categoria:&nbsp;</span><p>{{t9n job.categoria}}</p>
                         <span class="text-bold">Aplicações:&nbsp;</span><p>{{job.applications.length}}</p>
-                        <span class="text-bold">Criada em:&nbsp;</span><p>{{formatDate job.createdAt}}</p>
-                        <span class="text-bold">Expira em:&nbsp;</span><p>{{formatDate job.expiration}}</p>
+                        <span class="text-bold">Criada em:&nbsp;</span><p>{{formatDate job.createdAt "fullDate"}}</p>
+                        <span class="text-bold">Expira em:&nbsp;</span><p>{{formatDate job.expiration "fullDate"}}</p>
                       </div>
                   </div>
                   <div class="col-md-9 col-xs-12 col-sm-8">

@@ -7,6 +7,7 @@ import '/imports/ui/materialadmin/libs/jquery-shorten/jquery.shorten.min.js';
 /* Meteor related JS imports */
 import '/imports/ui/global.js';
 import '/imports/ui/layouts/home.js';
+import '/imports/ui/layouts/panel.js';
 import '/imports/ui/pages/home.js';
 import '/imports/ui/pages/panel/index.js';
 import '/imports/ui/pages/panel/profile.js';
