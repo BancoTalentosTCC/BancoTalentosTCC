@@ -7,12 +7,14 @@ import '/imports/ui/materialadmin/libs/jquery-shorten/jquery.shorten.min.js';
 /* Meteor related JS imports */
 import '/imports/ui/global.js';
 import '/imports/ui/layouts/home.js';
+import '/imports/ui/layouts/panel.js';
 import '/imports/ui/pages/home.js';
 import '/imports/ui/pages/panel/index.js';
 import '/imports/ui/pages/panel/profile.js';
 import '/imports/ui/pages/panel/jobs/index.js';
 import '/imports/ui/pages/panel/jobs/new.js';
 import '/imports/ui/pages/panel/jobs/show.js';
+import '/imports/ui/pages/panel/jobs/details.js';
 import '/imports/ui/pages/panel/students/index.js';
 import '/imports/ui/pages/panel/settings/index.js';
 import '/imports/ui/pages/signup/students.js';

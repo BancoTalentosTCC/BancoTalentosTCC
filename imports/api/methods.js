@@ -62,6 +62,17 @@ Meteor.methods({
     });
   },
 
+  deactivateJob: function (job) {
+    Jobs.update(job, {
+      $set: {
+        status: "disabled"
+      }
+    }, {
+      getAutoValues: false
+    });
+    return true;
+  },
+
   updateUser: function (user, formID) {
     let userId = Meteor.userId();
 
