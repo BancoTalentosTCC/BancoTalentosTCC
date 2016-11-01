@@ -135,19 +135,19 @@ StudentsSchema1 = new SimpleSchema({
   facebook: {
     type: String,
     label: "Facebook",
-    regEx: SimpleSchema.RegEx.Url,
+    regEx: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}|[^\s]+\.[^\s]{2,})/,
     optional: true
   },
   twitter: {
     type: String,
     label: "Twitter",
-    regEx: SimpleSchema.RegEx.Url,
+    regEx: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}|[^\s]+\.[^\s]{2,})/,
     optional: true
   },
   linkedin: {
     type: String,
     label: "LinkedIn",
-    regEx: SimpleSchema.RegEx.Url,
+    regEx: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}|[^\s]+\.[^\s]{2,})/,
     optional: true
   },
   skype: {
@@ -158,13 +158,13 @@ StudentsSchema1 = new SimpleSchema({
   github: {
     type: String,
     label: "GitHub",
-    regEx: SimpleSchema.RegEx.Url,
+    regEx: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}|[^\s]+\.[^\s]{2,})/,
     optional: true
   },
   pers_website: {
     type: String,
     label: "Site Pessoal",
-    regEx: SimpleSchema.RegEx.Url,
+    regEx: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}|[^\s]+\.[^\s]{2,})/,
     optional: true
   },
   aboutme: {
@@ -211,7 +211,7 @@ StudentsSchema4 = new SimpleSchema({
   lattes: {
     type: String,
     label: "Lattes",
-    regEx: SimpleSchema.RegEx.Url,
+    regEx: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}|[^\s]+\.[^\s]{2,})/,
     optional: true
   },
   qualificacao: {

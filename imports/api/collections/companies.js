@@ -104,25 +104,25 @@ CompanyProfile = new SimpleSchema({
   pers_website: {
     type: String,
     label: "Site Pessoal",
-    regEx: SimpleSchema.RegEx.Url,
+    regEx: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}|[^\s]+\.[^\s]{2,})/,
     optional: true
   },
   facebook: {
     type: String,
     label: "Facebook",
-    regEx: SimpleSchema.RegEx.Url,
+    regEx: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}|[^\s]+\.[^\s]{2,})/,
     optional: true
   },
   twitter: {
     type: String,
     label: "Twitter",
-    regEx: SimpleSchema.RegEx.Url,
+    regEx: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}|[^\s]+\.[^\s]{2,})/,
     optional: true
   },
   github: {
     type: String,
     label: "GitHub",
-    regEx: SimpleSchema.RegEx.Url,
+    regEx: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}|[^\s]+\.[^\s]{2,})/,
     optional: true
   },
   anofundacao: {
