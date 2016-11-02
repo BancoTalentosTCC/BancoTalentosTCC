@@ -12,6 +12,7 @@ body {
   speak: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
 .form-control,
@@ -377,6 +378,7 @@ body [class*=" md-"],
 
 .mobile_bg {
   background: none;
+  padding-left: 0px !important;
   @media(max-width: 768px) {
     background: url('img/home-bg2.jpg') no-repeat center center;
     background-size: cover;
@@ -574,5 +576,59 @@ a {
 .section-content{
   height: 100%;
   overflow: hidden;
+}
+
+/* Carousel Height fix */
+.carousel-inner,.carousel,.item,.container,.fill {
+  height:100%;
+  width:100%;
+  background-position: center center fixed;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Footer */
+.mobile_bg #content {
+  @media (max-width: 768px) {
+    min-height: 100%;
+    margin-bottom: -50px;
+  }
+}
+
+#content:after {
+  @media (max-width: 768px) {
+    content: "";
+    display: block;
+  }
+}
+
+.footer, #content:after {
+  @media (max-width: 768px) {
+    height: 50px; 
+  }
+}
+
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  width: 100%;
+  @media (max-width: 768px) {
+    position: relative;
+  }
+  .footer-content{
+    text-align: center;
+    p{text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);}
+  }
+  a {
+    cursor: pointer;
+    text-decoration: none;
+  }
 }
 
