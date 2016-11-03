@@ -81,16 +81,14 @@ Template.studentSteps.events({
       }
     }
 
-    if (confirm("Você clicou em confirmar. Já terminou seu cadastro?")) {
-      Meteor.call('saveStudent', user, function(error, result) {
-        if (error) {
-          Meteor.call('displayErrors', error);
-        } else if (result) {
-          toastr.success('Você já pode acessar o painel do aluno', 'Estudante Cadastrado!');
-          FlowRouter.go('home');
-        }      
-      });
-    }
+    Meteor.call('saveStudent', user, function(error, result) {
+      if (error) {
+        Meteor.call('displayErrors', error);
+      } else if (result) {
+        toastr.success('Você já pode acessar o painel do aluno', 'Estudante Cadastrado!');
+        FlowRouter.go('home');
+      }      
+    });
   }
 });
 
