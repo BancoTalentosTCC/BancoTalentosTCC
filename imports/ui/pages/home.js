@@ -42,6 +42,10 @@ Template.home.events({
         }
       }
     });
+  },
+
+  "click .btn-todo-feature": function() {
+    return alert("Desculpe, mas essa funcionalidade ainda será implementada.");
   }
 });
 
