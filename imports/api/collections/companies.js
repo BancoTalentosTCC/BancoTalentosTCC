@@ -88,12 +88,13 @@ CompanyProfile = new SimpleSchema({
   },
   phone: {
     type: String,
-    label: "Telefone Residencial",
+    label: "Telefone",
     regEx: /^\([1-9]{2}\) [0-9]{8,9}$/
   },
   fax: {
     type: String,
     label: "Fax",
+    regEx: /^\([1-9]{2}\) [0-9]{8,9}$/,
     optional: true
   },
   dados: {
@@ -161,7 +162,7 @@ export const Company = new SimpleSchema({
   },
   "emails.$.address": {
     type: String,
-    regEx: SimpleSchema.RegEx.Email
+    regEx: /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
   },
   "emails.$.verified": {
     type: Boolean

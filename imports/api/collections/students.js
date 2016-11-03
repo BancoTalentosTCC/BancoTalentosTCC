@@ -325,7 +325,7 @@ export const Student = new SimpleSchema({
   },
   "emails.$.address": {
     type: String,
-    regEx: SimpleSchema.RegEx.Email
+    regEx: /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
   },
   "emails.$.verified": {
     type: Boolean

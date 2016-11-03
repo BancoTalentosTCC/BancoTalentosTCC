@@ -38,10 +38,7 @@ SimpleSchema.messages({
     msg: "[label] deve conter apenas números"
   }, {
     exp: /^\([1-9]{2}\) [0-9]{8,9}$/,
-    msg: "[label] deve ser no formato (99) 99999999 (8 ou 9 números)"
-  }, {
-    exp: /^[0-9]+$/,
-    msg: "[label] Precisa estar no formato (xx) xxxx-xxxx ou (xx) xxxxx-xxxx"
+    msg: "[label] deve ser no formato (99) 9999-9999 ou (99) 99999-9999"
   }, {
     exp: /^((?:19|20)\d\d)[- -.](0[1-9]|1[012])[- -.](0[1-9]|[12][0-9]|3[01])$/,
     msg: "Não é uma data válida para [label]"
@@ -51,5 +48,11 @@ SimpleSchema.messages({
   }, {
     exp: /(^\d{5}-\d{3}$)/,
     msg: "[value] não é um CEP válido"
+  }, {
+    exp: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}|[^\s]+\.[^\s]{2,})/,
+    msg: "[value] não é uma url válida"
+  }, {
+    exp: /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+    msg: "[value] não é um email válido"
   }]
 });
