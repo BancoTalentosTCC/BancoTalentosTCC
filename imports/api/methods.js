@@ -27,8 +27,7 @@ Meteor.methods({
     return Jobs.insert(vacancy);
   },
   // send verification link
-  sendVerificationLink: function (data) {
-    let userId = data;
+  sendVerificationLink: function (userId) {
     if (userId) {
       return Accounts.sendVerificationEmail(userId);
     }

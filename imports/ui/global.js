@@ -35,6 +35,14 @@ Template.registerHelper(
 );
 
 Template.registerHelper(
+  'currentYear', () => {
+    let date = new Date();
+    return date.getFullYear();
+  }
+);
+
+
+Template.registerHelper(
   'calculateAge', (string) => {
     var birthday = string.split("-");
     var date = new Date(birthday[2], birthday[1] - 1, birthday[0], 23, 59, 59);

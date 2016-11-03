@@ -7,6 +7,8 @@ Template.header.helpers({
 Template.header.events({
   "click #logout": function() {
     Accounts.logout();
+    //A temporary measure to fix redirection, should be fix on router.js
+    FlowRouter.go("home");
   }
 });
 

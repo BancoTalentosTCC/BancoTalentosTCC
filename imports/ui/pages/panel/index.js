@@ -13,3 +13,9 @@ Template.mainPanel.helpers({
     return jobs;
   }
 });
+
+Template.mainPanel.events({
+  "mouseenter .isSpecial": function(){
+    $(".isSpecial").tooltip(); 
+  }
+});

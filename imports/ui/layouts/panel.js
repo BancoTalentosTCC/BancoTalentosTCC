@@ -1,7 +1,7 @@
 /* Resend verification email */
 Template.notVerified.events({
   'click .resend-verification-link' ( event, template ) {
-    Meteor.call( 'sendVerificationLink', ( error, response ) => {
+    Meteor.call( 'sendVerificationLink', Meteor.userId(), ( error, response ) => {
       if ( error ) {
         Meteor.call('displayErrors', error);
       } else {
