@@ -1,7 +1,6 @@
 Template.HomeLayout.helpers({
-  mobile_bg() {
-    if(FlowRouter.current().route.name == 'home') {
-      return 'mobile_bg';
-    }
+  mobile_bg: function() {
+    if(Session.get('isHome')) return 'mobile_bg';
   }
 });
+
