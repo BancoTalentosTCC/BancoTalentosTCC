@@ -54,11 +54,16 @@
                               </span> cadastrou uma 
                               <a class="text-primary" href="{{pathForJob _id}}">vaga</a> para {{nome}}.
                               <div class="pull-right">
-                                {{{jobStatus status}}}
+                                {{{jobStatus status}}}       
                               </div>
                             </span>
                             <br>
                           <span class="opacity-50">{{formatDate createdAt "fullDate"}}</span>
+                          <div class="pull-right">
+                            {{#if especial}}
+                              <p class="isSpecial" data-toggle="tooltip" data-placement="bottom" title="Exclusiva para Pessoas com Deficiência"><i class="md mdi mdi-wheelchair-accessibility"></i></p>
+                            {{/if}}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -107,7 +112,11 @@
                           {{ user.profile.dados }}
                         {{/if}}
                       </a>
-                      <small>Lorem ipsum dolor sit amet, consectetur adipisicing</small>
+                      {{#if isStudent user}}
+                        <small>{{t9n user.profile.perfil }} na Universidade do Vale do Sapucaí</small>
+                      {{else}}
+                        <small>Responsável pela {{ user.profile.nome }}</small>
+                      {{/if}}
                      </div>
                    </div>
                 </li>
