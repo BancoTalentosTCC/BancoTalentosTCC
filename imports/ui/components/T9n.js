@@ -32,6 +32,11 @@ Meteor.startup(function() {
     tur: "Turco",
     hun: "Húngaro",
     out: "Outro",
+    // LANGUAGE LEVELS
+    basico: "Básico",
+    intermed: "Intermediário",
+    avanc: "Avançado",
+    flue: "Fluente",
     // STATES
     ac: "AC",        
     al: "AL",

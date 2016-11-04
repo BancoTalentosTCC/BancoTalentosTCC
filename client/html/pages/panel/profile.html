@@ -101,7 +101,7 @@
                       {{#each idioma in user.profile.idiomas}}
                       <dl>
                         <dt>{{ t9n idioma.idioma }}</dt>
-                        <dd><div class="progress progress-hairline"><div class="progress-bar" style="width: {{languageLevel idioma.nivel_do_idioma}}"></div></div></dd>
+                        <dd><div class="progress progress-languages"><div class="progress-bar progress-bar-inner" data-toggle="tooltip" data-placement="top" title="{{t9n idioma.nivel_do_idioma}}" style="width: {{languageLevel idioma.nivel_do_idioma}}"></div></div></dd>
                       </dl>
                       {{/each}}
                     </div>

@@ -7,6 +7,23 @@ Template.formField.onRendered(function(){
   var input = template.find('.form-control');
   floatingLabel(input);
   validation(input);
+
+  jQuery.validator.setDefaults({
+    debug: true,
+    success: "valid"
+  });
+  $( "form" ).validate({
+    rules: {
+      field: {
+        required: true,
+        email: true
+      },
+      password: "required",
+      password_confirmation: {
+        equalTo: "#password"
+      }
+    }
+  });
 });
 
 Template.formField.events({

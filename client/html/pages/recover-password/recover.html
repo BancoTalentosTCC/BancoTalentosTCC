@@ -1,0 +1,27 @@
+<template name="recover">
+  <div class="menubar-hoverable header-fixed padding-top">
+    <section class="section-account">
+      <div class="card contain-xs" style="background-color: rgba(255, 255, 255, 0.9);">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <span class="text-lg text-bold text-primary">Recuperar sua senha</span>
+              <br/>
+              <small>Digite seu e-mail abaixo. Enviaremos um link com instruções para a recuperação da sua senha.</small>
+              <br/>
+              <br/>
+              <form class="form floating-label" id="recoverForm">
+                {{> formField name='Email' value='email' type='email' required="required"}}
+                <div class="row">
+                  <div class="text-right">
+                    <button class="btn btn-primary btn-raised" type="submit">Enviar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>

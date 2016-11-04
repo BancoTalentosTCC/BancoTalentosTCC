@@ -1,0 +1,28 @@
+<template name="reset">
+  <div class="menubar-hoverable header-fixed padding-top">
+    <section class="section-account">
+      <div class="card contain-xs" style="background-color: rgba(255, 255, 255, 0.9);">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <span class="text-lg text-bold text-primary">Crie uma nova senha</span>
+              <br/>
+              <small>Informe uma nova senha para poder acessar o Banco de Talentos novamente:</small>
+              <br/>
+              <br/>
+              <form class="form floating-label form-validate" id="resetForm">
+                {{> formField name='Senha' value='password' type='password' required='required' drml="8"}}
+                {{> formField name='Confirmação de Senha' value='password_confirmation' type='password' required='required' drml="8"}}
+                <div class="row">
+                  <div class="text-right">
+                    <button class="btn btn-primary btn-raised" type="submit">Enviar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>

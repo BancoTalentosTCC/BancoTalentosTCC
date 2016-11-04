@@ -1,35 +1,47 @@
 <template name="companySignup">
   <div class="card signup-card">
     <div class="container card-body">
-      <form class="form floating-label register">
-        <div class="form-row form-border">
+      <form class="form floating-label register form-company">
+        <div class="form-row form-border row">
           <h1>Dados pessoais</h1>
+          <br>
+          <div class="col-md-12">
             {{> formField name='Nome Fantasia' value='nome' type='text' required='required'}}
+          </div>
+          <div class="col-md-4">
             {{> formField name='CNPJ' value='cnpj' type='text' fieldClass="cnpj" required='required'}}
+          </div>
+          <div class="col-md-8">
             {{> formField name='Razão Social' value='razaosoc' type='text' required='required'}}
+          </div>
         </div>
+        <br>
         <div class="row">
           <div class="col-md-2">
             {{> formField name='CEP' value='cep' type='text' fieldClass="cep" required='required'}}
           </div>
-          <div class="col-md-10">
+          <div class="col-md-8">
             {{> formField name='Endereço' value='endereco' type='text' required='required'}}
+          </div>
+          <div class="col-md-2">
+            {{> formField name='Número' value='numero' type='text' required='required'}}
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
-            {{> formField name='Número' value='numero' type='text' required='required'}}
-          </div>
           <div class="col-md-4">
             {{> formField name='Bairro' value='bairro' type='text' required='required'}}
           </div>
           <div class="col-md-4">
             {{> formField name='Cidade' value='cidade' type='text' required='required'}}
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-5">
+          <div class="col-md-4">
             {{> formField name='Estado' value='uf' type='select' options=options_estado required="required"}}
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-10">
+            {{> formField name='Responsável' value='dados' type='text' required='required'}}
           </div>
         </div>
         <div class="row">
@@ -40,14 +52,18 @@
             {{> formField name='Fax' value='fax' type='text' fieldClass='phone-number'}}
           </div>
         </div>
-        {{> formField name='Responsável' value='dados' type='text' required='required'}}
-        {{> formField name='Email' value='email' type='email' required='required'}}
+        <br>
+        <div class="row">
+          <div class="col-md-8">
+            {{> formField name='Email' value='email' type='email' required='required'}}
+          </div>
+        </div>
         <div class="form-senha">
           <div class="row">
             <div class="col-md-8">
               {{> formField name='Senha' value='password' type='password' required='required'}}
             </div>
-            <div class="col-sm-4">
+            <div class="col-md-4">
               <div id="passstrength" class="dropdown-progress">
                 <div class="progress no-margin">
                   <div>
@@ -76,10 +92,10 @@
         </div>
         <br>
         <div class="form-group">
-          <div class="col-sm-11">
+          <div class="col-sm-10">
             <p><span class="text-danger">*</span> Campos obrigatórios</p>
           </div>
-          <div class="col-sm-1">
+          <div class="col-sm-2">
             <button type="submit" class="btn btn-primary btn-send">Confirmar</button>
           </div>
         </div>

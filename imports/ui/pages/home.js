@@ -48,12 +48,3 @@ Template.home.events({
     return alert("Desculpe, mas essa funcionalidade ainda será implementada.");
   }
 });
-
-Template.home.helpers({
-  pathForStudentSignup: function() {
-    return FlowRouter.path("studentSignup");
-  },
-  pathForCompanySignup: function() {
-    return FlowRouter.path("companySignup");
-  }
-});
