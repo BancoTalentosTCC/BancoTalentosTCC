@@ -2,6 +2,17 @@ Template.registerHelper('pathForJobs', (id) => {
   return routeForUser("studentjobs", "companyjobs");
 });
 
+Template.registerHelper('pathForStudentSignup', () => {
+  return FlowRouter.path("studentSignup");
+});
+
+Template.registerHelper('pathForCompanySignup', () => {
+  return FlowRouter.path("companySignup");
+});
+
+Template.registerHelper('pathForRecoverPwd', () => {
+  return FlowRouter.path("recoverPassword");
+});
 Template.registerHelper('pathForJob', (id) => {
   return routeForUser("/estudante/vagas/" + id, "/empresa/vagas/" + id)
 });
