@@ -4,6 +4,9 @@
       <!-- Is a normal input -->
       <input type="{{type}}" class="form-control {{fieldClass}}" id="{{value}}" name="{{value}}" 
       data-rule-minlength="{{drml}}" data-rule-email="{{dre}}" {{required}}>
+      {{#if forgotPassword}}
+        <p class="help-block"><a href="{{pathForRecoverPwd}}">Recuperar senha</a></p>
+      {{/if}}
     {{/if}}
     {{#if isSelect type}}
       <!-- Is a select -->
