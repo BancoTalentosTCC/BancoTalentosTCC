@@ -58,7 +58,7 @@ CompanyProfile = new SimpleSchema({
   endereco: {
     type: String,
     label: "Endereço",
-    min: 15,
+    min: 2,
     max: 100
   },
   numero: {

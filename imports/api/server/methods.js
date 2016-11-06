@@ -1,27 +1,25 @@
-import './collections/password.js';
-import './collections/email.js';
+import '/imports/api/collections/password.js';
+import '/imports/api/collections/email.js';
 import '/imports/api/collections/jobs.js';
 import {Company} from '/imports/api/collections/companies.js';
 import {Student} from  '/imports/api/collections/students.js';
 
 Meteor.methods({
   saveCompany: function (data) {
+    delete Meteor.users._c2;
     Meteor.users.attachSchema(Company);
     id = Accounts.createUser(data);
     Roles.addUsersToRoles(id, 'company', 'user-type');
     Meteor.call('sendVerificationLink', id);
-    // remove user schema
-    delete Meteor.users._c2;
-    return true;
+    return id;
   },
   saveStudent: function (data) {
+    delete Meteor.users._c2;
     Meteor.users.attachSchema(Student);
     id = Accounts.createUser(data);
     Roles.addUsersToRoles(id, 'student', 'user-type');
     Meteor.call('sendVerificationLink', id);
-    // remove user schema
-    delete Meteor.users._c2;
-    return true;
+    return id;
   },
   saveJob: function (vacancy) {
     return Jobs.insert(vacancy);
