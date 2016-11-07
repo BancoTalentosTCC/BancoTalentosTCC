@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "meteor test --once --driver-package=practicalmeteor:mocha"
   },
   "repository": {
     "type": "git",
