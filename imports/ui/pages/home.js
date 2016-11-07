@@ -1,9 +1,5 @@
-import {
-  Template
-} from 'meteor/templating';
-import { 
-  Session 
-} from 'meteor/session';
+import {Template} from 'meteor/templating';
+import {Session} from 'meteor/session';
 import '/client/html/pages/home.html';
 import '/imports/ui/components/form-field.js';
 

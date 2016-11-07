@@ -1,4 +1,4 @@
-import {Seed} from '../seed.js';
+import {Seed} from '/imports/api/seed/seeder.js';
 
 Tags = new Mongo.Collection('tags');
 
