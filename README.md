@@ -1,5 +1,6 @@
 # Banco de Talentos
 [![Version](https://img.shields.io/badge/Meteor-1.4.1.2-blue.svg)](https://img.shields.io/badge/Meteor-1.4.1.2-blue.svg)
+[![Build Status](https://travis-ci.org/BancoTalentosTCC/BancoTalentosTCC.svg?branch=master)](https://travis-ci.org/BancoTalentosTCC/BancoTalentosTCC)
 
 
 ## Welcome
