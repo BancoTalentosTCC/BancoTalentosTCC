@@ -45,8 +45,13 @@ Template.newJob.events({
       else {
         FlowRouter.go('/empresa/vagas/' + result);
         toastr.success('Nova oportunidade cadastrada com sucesso', 'Vaga Registrada!');
+        $('.btn-send').button('reset');
       }
     });
+  },
+  "click .btn-send": function() {
+    var btn = $(this);
+    btn.button('loading');
   }
 });
 
