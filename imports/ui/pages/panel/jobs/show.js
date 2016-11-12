@@ -2,7 +2,18 @@ import {Template} from 'meteor/templating';
 
 Template.showJob.events({
   'click #apply': function() {
-    Meteor.call('applyToJob', FlowRouter.getParam('id'));
+    var btn = $(this)
+    btn.button('loading');
+
+    Meteor.call('applyToJob', FlowRouter.getParam('id'), function(error, result) {
+      if (error) {
+        Meteor.call('displayErrors', error);
+      }
+      else {
+        toastr.success('Vaga candidatada! Aguarde contato, e boa sorte :)', 'Sucesso!');
+      }
+      btn.button('reset');
+    });
   }
 });
 

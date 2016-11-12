@@ -33,7 +33,7 @@
                           <i class="md mdi mdi-check"></i> Candidatado!</a>
                       {{else}}
                         {{#unless isNotActive job.status}}   
-                          <button id="apply" class="btn btn-primary btn-send">Candidatar-se</button>                          
+                          <button id="apply" class="btn btn-primary btn-send" data-loading-text="Candidatando...">Candidatar-se</button>                          
                         {{/unless}}
                       {{/if}}
                       <br>
