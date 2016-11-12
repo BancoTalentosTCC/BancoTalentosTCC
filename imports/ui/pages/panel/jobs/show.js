@@ -11,8 +11,8 @@ Template.showJob.events({
       }
       else {
         toastr.success('Vaga candidatada! Aguarde contato, e boa sorte :)', 'Sucesso!');
-        btn.button('reset');
       }
+      btn.button('reset');
     });
   }
 });
